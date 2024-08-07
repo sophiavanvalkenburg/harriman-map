@@ -1,8 +1,10 @@
 from segment_trail_by_completion import segment_trail
 import sys
 import glob
+import json
 
 ways_data_file = open(sys.argv[1]) # e.g. data/harriman_bearmt_split.geojson
+ways_data_json = json.load(ways_data_file)
 trail_ways_prefix = sys.argv[2] # e.g. data/trail_ways/trail_
 trail_outfile_prefix = sys.argv[3] # e.g. data/trail_geojson/trail_
 trail_incompletes_prefix = sys.argv[4] # e.g. data/trail_incompletes/trail_incomplete_
@@ -63,7 +65,10 @@ TRAIL_IDS = [
     "white_cross"
 ]
 
-trail_out_files = [trail_outfile_prefix + id + ".geojson" for id in TRAIL_IDS]
+all_trails_data = {
+  "type": "FeatureCollection",
+  "features": []
+}
 
 for id in TRAIL_IDS:
     trail_way_ids_file = open(trail_ways_prefix + id + ".log")
@@ -73,7 +78,13 @@ for id in TRAIL_IDS:
     trail_incompletes_ids_fnames = glob.glob(trail_incompletes_prefix + id + "_*")
     trail_incompletes_ids_files = [open(fname) for fname in trail_incompletes_ids_fnames]
     print(trail_name)
-    segment_trail(ways_data_file, trail_name, trail_way_ids_file, trail_incompletes_ids_files)
+    trail_data = segment_trail(ways_data_json, trail_name, trail_way_ids_file, trail_incompletes_ids_files)
+    all_trails_data["features"].extend(trail_data["features"])
+    trail_out_file = open(trail_outfile_prefix + id + ".geojson", 'w')
+    json.dump(trail_data, trail_out_file, indent=1)
+    trail_out_file.close()
     trail_way_ids_file.close()
     for file in trail_incompletes_ids_files:
         file.close()
+
+json.dump(all_trails_data, out_file, indent=1)

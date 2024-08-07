@@ -31,7 +31,7 @@ def maybe_reverse_coordinates(last_coords, current_coords):
         if dist_to_end < dist_to_start:
             current_coords.reverse()
 
-def segment_trail(ways_data_file, trail_name, trail_way_ids_file, trail_incompletes_ids_files):
+def segment_trail(ways_data_json, trail_name, trail_way_ids_file, trail_incompletes_ids_files):
     trail_way_coords_by_id = {}
 
     for line in trail_way_ids_file:
@@ -48,9 +48,8 @@ def segment_trail(ways_data_file, trail_name, trail_way_ids_file, trail_incomple
             if match:
                 trail_way_coords_by_id[match.group(0)]["status"] = "incomplete"
 
-    ways_data = json.load(ways_data_file)
     trail_way_ids = trail_way_coords_by_id.keys()
-    for feature in ways_data["features"]:
+    for feature in ways_data_json["features"]:
         feature_id = feature["id"]
         if feature_id in trail_way_ids:
             trail_way_coords_by_id[feature_id]["coordinates"] = feature["geometry"]["coordinates"]
@@ -78,15 +77,17 @@ def segment_trail(ways_data_file, trail_name, trail_way_ids_file, trail_incomple
             current_segment_way_ids.append(id)
     new_segment = make_segment(trail_name, current_segment_way_ids, current_segment_status, current_segment_coordinates)
     trail_data["features"].append(new_segment)
+    return trail_data
 
     
 if __name__ == "__main__":  
     ways_data_file = open(sys.argv[1])
+    ways_data_json = json.load(ways_data_file)
     trail_way_ids_file = open(sys.argv[2])
     trail_name = sys.argv[3]
     out_file = open(sys.argv[4], 'w')
     trail_incompletes_ids_files = [open(file) for file in sys.argv[5:]]
-    trail_data = segment_trail(ways_data_file, trail_name, trail_way_ids_file, trail_incompletes_ids_files)
+    trail_data = segment_trail(ways_data_json, trail_name, trail_way_ids_file, trail_incompletes_ids_files)
     json.dump(trail_data, out_file, indent=1)
 
 
