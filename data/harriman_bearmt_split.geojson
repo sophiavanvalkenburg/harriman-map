@@ -38661,7 +38661,7 @@
   },
   {
    "type": "Feature",
-   "id": "way/424752250",
+   "id": "way/424752250-0",
    "properties": {
     "bicycle": "no",
     "highway": "path",
@@ -38669,7 +38669,7 @@
     "name": "Nurian Trail",
     "ref:colour": "white",
     "surface": "ground",
-    "id": "way/424752250"
+    "id": "way/424752250-0"
    },
    "geometry": {
     "type": "LineString",
@@ -38738,6 +38738,28 @@
       -74.1479187,
       41.246625
      ],
+     [
+      -74.1477192,
+      41.2461132
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/424752250-1",
+   "properties": {
+    "bicycle": "no",
+    "highway": "path",
+    "horse": "no",
+    "name": "Nurian Trail",
+    "ref:colour": "white",
+    "surface": "ground",
+    "id": "way/424752250-1"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
      [
       -74.1477192,
       41.2461132

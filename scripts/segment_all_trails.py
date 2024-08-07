@@ -41,6 +41,7 @@ TRAIL_IDS = [
     "long_path",
     "major_welch",
     "menomine",
+    "north_buck",
     "nurian",
     "parker_cabin_hollow",
     "pine_meadow",

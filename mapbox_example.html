@@ -31,7 +31,7 @@ body { margin: 0; padding: 0; }
         map.addSource('trails', {
             'type': 'geojson',
             'generateId': true,
-            //'data': WAYS_DATA,
+            //'data': WAYS_DATA
             'data': TRAILS_DATA
         });
 
@@ -79,13 +79,13 @@ body { margin: 0; padding: 0; }
                     'case',
                     ['boolean', ['feature-state', 'hover'], false], 
                         "#0000ff",
-                    "#ff0000"
+                    "#000000"
                 ],
                 'line-opacity': [
                     'case',
                     ['boolean', ['feature-state', 'hide'], false], 
                         0,
-                    0.25
+                    1
                 ],
                'line-width': 2,
             }

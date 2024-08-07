@@ -8,7 +8,7 @@ raw_base_json = json.load(base_file)
 
 id_file = open('data/trail_edits/trail-splits.log')
 
-outfile = open('data/harriman_split.geojson', 'w')
+outfile = open('data/harriman_bearmt_split.geojson', 'w')
 
 splits = {}
 for way_id, long, lat in csv.reader(id_file):
