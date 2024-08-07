@@ -74,17 +74,18 @@ def segment_trail(ways_data_json, trail_name, trail_way_ids_file, trail_incomple
     current_segment_coordinates = []
     current_segment_way_ids = []
     for id, way_data in trail_way_coords_by_id.items():
+        current_way_coordinates = way_data["coordinates"].copy()
         if current_segment_status is None:
             current_segment_status = way_data["status"]
-        maybe_reverse_coordinates(current_segment_way_ids, current_segment_coordinates, way_data["coordinates"])
+        maybe_reverse_coordinates(current_segment_way_ids, current_segment_coordinates, current_way_coordinates)
         if way_data["status"] != current_segment_status:
             new_segment = make_segment(trail_name, current_segment_way_ids, current_segment_status, current_segment_coordinates)
             trail_data["features"].append(new_segment)
             current_segment_status = way_data["status"]
-            current_segment_coordinates = way_data["coordinates"]
+            current_segment_coordinates = current_way_coordinates
             current_segment_way_ids = [id]
         else:
-            current_segment_coordinates.extend(way_data["coordinates"])
+            current_segment_coordinates.extend(current_way_coordinates)
             current_segment_way_ids.append(id)
     new_segment = make_segment(trail_name, current_segment_way_ids, current_segment_status, current_segment_coordinates)
     trail_data["features"].append(new_segment)
