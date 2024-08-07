@@ -1,0 +1,47 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "id": "2e457fd8-aa2b-4069-a7c5-7489a129977e",
+   "properties": {
+    "name": "Poached Egg Trail",
+    "id": "2e457fd8-aa2b-4069-a7c5-7489a129977e",
+    "status": "complete",
+    "osm_way_ids": [
+     "way/44038105"
+    ],
+    "length": 0.05326217753634969
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -74.1323228,
+      41.1727377
+     ],
+     [
+      -74.1322138,
+      41.1729107
+     ],
+     [
+      -74.1321547,
+      41.17309
+     ],
+     [
+      -74.1319383,
+      41.1733846
+     ],
+     [
+      -74.1316869,
+      41.1735066
+     ],
+     [
+      -74.1315915,
+      41.1736294
+     ]
+    ]
+   }
+  }
+ ]
+}
