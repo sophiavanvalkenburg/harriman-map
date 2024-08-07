@@ -2,12 +2,14 @@ import json
 import re
 import uuid
 import sys
-import math
+import haversine as hs
 
+def get_distance(p1, p2, unit=hs.Unit.METERS):
+    return hs.haversine(p1, p2, unit)
 
 def make_segment(trail_name, way_ids, status, coords):
     segment_id = str(uuid.uuid4())
-    segment_length = math.dist(coords[0], coords[-1])
+    segment_length = get_distance(coords[0], coords[-1], hs.Unit.MILES)
     return {
         "type": "Feature",
         "id": segment_id,
@@ -24,12 +26,21 @@ def make_segment(trail_name, way_ids, status, coords):
         }
     }
 
-def maybe_reverse_coordinates(last_coords, current_coords):
+def maybe_reverse_coordinates(processed_way_ids, last_coords, current_coords):
     if len(last_coords) > 0:
-        dist_to_start = math.dist(last_coords[-1], current_coords[0])
-        dist_to_end = math.dist(last_coords[-1], current_coords[-1])
+        dist_to_start = get_distance(last_coords[-1], current_coords[0])
+        dist_to_end = get_distance(last_coords[-1], current_coords[-1])
         if dist_to_end < dist_to_start:
             current_coords.reverse()
+    if len(processed_way_ids) == 1:
+        start_needs_reversal = check_if_start_needs_reversal(last_coords, current_coords)
+        if start_needs_reversal:
+            last_coords.reverse()
+
+def check_if_start_needs_reversal(last_coords, current_coords):
+    threshold = 10 # meters
+    dist_btwn_ways = get_distance(last_coords[-1], current_coords[0])
+    return dist_btwn_ways > threshold
 
 def segment_trail(ways_data_json, trail_name, trail_way_ids_file, trail_incompletes_ids_files):
     trail_way_coords_by_id = {}
@@ -65,7 +76,7 @@ def segment_trail(ways_data_json, trail_name, trail_way_ids_file, trail_incomple
     for id, way_data in trail_way_coords_by_id.items():
         if current_segment_status is None:
             current_segment_status = way_data["status"]
-        maybe_reverse_coordinates(current_segment_coordinates, way_data["coordinates"])
+        maybe_reverse_coordinates(current_segment_way_ids, current_segment_coordinates, way_data["coordinates"])
         if way_data["status"] != current_segment_status:
             new_segment = make_segment(trail_name, current_segment_way_ids, current_segment_status, current_segment_coordinates)
             trail_data["features"].append(new_segment)
@@ -81,12 +92,12 @@ def segment_trail(ways_data_json, trail_name, trail_way_ids_file, trail_incomple
 
     
 if __name__ == "__main__":  
-    ways_data_file = open(sys.argv[1])
-    ways_data_json = json.load(ways_data_file)
-    trail_way_ids_file = open(sys.argv[2])
-    trail_name = sys.argv[3]
-    out_file = open(sys.argv[4], 'w')
-    trail_incompletes_ids_files = [open(file) for file in sys.argv[5:]]
+    ways_data_file = open(sys.argv[1])                                  # e.g. data/harriman_bearmt_split.geojson
+    ways_data_json = json.load(ways_data_file)   
+    trail_way_ids_file = open(sys.argv[2])                              # e.g. data/trail_ways/trail_appalachian.log
+    trail_name = sys.argv[3]                                            # e.g. "Appalachian Trail"
+    out_file = open(sys.argv[4], 'w')                                   # e.g. data/trail_geojson/trail_appalachian.geojson
+    trail_incompletes_ids_files = [open(file) for file in sys.argv[5:]] # e.g. data/trail_incomplete/trail_incomplete_appalachian_1.log
     trail_data = segment_trail(ways_data_json, trail_name, trail_way_ids_file, trail_incompletes_ids_files)
     json.dump(trail_data, out_file, indent=1)
 
