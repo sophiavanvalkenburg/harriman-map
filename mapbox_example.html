@@ -53,12 +53,7 @@ body { margin: 0; padding: 0; }
             'source': 'trails',
             'filter': ['==', 'complete', ['get', 'status']],
             'paint': {
-               'line-color': [
-                    'case',
-                    ['boolean', ['feature-state', 'hover'], false], 
-                        "#0000ff",
-                    "#ff0000"
-                ],
+               'line-color': "#ff0000",
                 'line-opacity': [
                     'case',
                     ['boolean', ['feature-state', 'hide'], false], 
@@ -75,17 +70,29 @@ body { margin: 0; padding: 0; }
             'source': 'trails',
             'filter': ['==', 'incomplete', ['get', 'status']],
             'paint': {
-               'line-color': [
-                    'case',
-                    ['boolean', ['feature-state', 'hover'], false], 
-                        "#0000ff",
-                    "#000000"
-                ],
+               'line-color': "#000000",
                 'line-opacity': [
                     'case',
                     ['boolean', ['feature-state', 'hide'], false], 
                         0,
                     1
+                ],
+               'line-width': 2,
+            }
+        });
+
+        map.addLayer({
+            'id': 'trail-lines-highlight',
+            'type': 'line',
+            'source': 'trails',
+            'paint': {
+                'line-color': "#ffe100",
+                'line-gap-width': 2,
+                'line-opacity': [
+                    'case',
+                    ['boolean', ['feature-state', 'hover'], false], 
+                        1,
+                    0
                 ],
                'line-width': 2,
             }
