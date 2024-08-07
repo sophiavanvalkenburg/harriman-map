@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Harriman State Park Trails</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js"></script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<!--<style></style>-->
+<div id="map"></div>
+<script src="data/ways.js"></script>
+<script src="data/trails.js"></script>
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoibWVvd3lwdXJyIiwiYSI6InNsSE9XNHMifQ.kA84Ev5wntALSVeghYpTpg';
+    
+    const map = new mapboxgl.Map({
+        container: 'map',
+        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+        style: 'mapbox://styles/mapbox/outdoors-v12',
+        center: [-74.076, 41.2309],
+        zoom: 11.15
+    });
+
+    map.on('load', () => {
+        map.addSource('trails', {
+            'type': 'geojson',
+            'generateId': true,
+            //'data': WAYS_DATA
+            'data': TRAILS_DATA
+        });
+
+        /*
+        map.addLayer({
+            'id': 'trail-nodes',
+            'type': 'circle',
+            'source': 'trails',
+            'paint': {
+                'circle-color': "#000000",
+                'circle-radius': 3
+            }
+        });
+        */
+        
+        map.addLayer({
+            'id': 'trail-lines-complete',
+            'type': 'line',
+            'source': 'trails',
+            'filter': ['==', 'complete', ['get', 'status']],
+            'paint': {
+               'line-color': [
+                    'case',
+                    ['boolean', ['feature-state', 'hover'], false], 
+                        "#0000ff",
+                    "#ff0000"
+                ],
+                'line-opacity': [
+                    'case',
+                    ['boolean', ['feature-state', 'hide'], false], 
+                        0,
+                    1
+                ],
+               'line-width': 2,
+            }
+        });
+
+        map.addLayer({
+            'id': 'trail-lines-incomplete',
+            'type': 'line',
+            'source': 'trails',
+            'filter': ['==', 'incomplete', ['get', 'status']],
+            'paint': {
+               'line-color': [
+                    'case',
+                    ['boolean', ['feature-state', 'hover'], false], 
+                        "#0000ff",
+                    "#ff0000"
+                ],
+                'line-opacity': [
+                    'case',
+                    ['boolean', ['feature-state', 'hide'], false], 
+                        0,
+                    0.25
+                ],
+               'line-width': 2,
+            }
+        });
+
+        map.addLayer({
+            'id': 'trail-hitbox',
+            'type': 'line',
+            'source': 'trails',
+            'paint': {
+               'line-width': 15,
+               'line-opacity': 0
+            }
+        });
+
+        let hoveredLineId = null;
+
+        map.on('mousemove', 'trail-hitbox', (e) => {
+            if (e.features.length > 0) {
+                if (hoveredLineId !== null) {
+                    map.setFeatureState(
+                        { source: 'trails', id: hoveredLineId },
+                        { hover: false }
+                    );
+                }
+                hoveredLineId = e.features[0].id;
+                map.setFeatureState(
+                    { source: 'trails', id: hoveredLineId },
+                    { hover: true }
+                );
+            }
+        });
+
+        map.on('mouseleave', 'trail-hitbox', () => {
+            if (hoveredLineId !== null) {
+                map.setFeatureState(
+                    { source: 'trails', id: hoveredLineId },
+                    { hover: false }
+                );
+            }
+            hoveredLineId = null;
+            map.getCanvas().style.cursor = '';
+        });
+
+        map.on('mouseenter', 'trail-hitbox', () => {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+
+        let hiddenLineId = null;
+
+        map.on('click', 'trail-hitbox', (e) => {
+            if (e.features.length > 0){
+                //console.log(`${e.features[0].properties.id}, ${e.lngLat.lng}, ${e.lngLat.lat}`)
+                console.log(e.features[0].properties.id)
+                hiddenLineId = e.features[0].id;
+                map.setFeatureState(
+                    { source: 'trails', id: hiddenLineId },
+                    { hide: true }
+                );
+            }
+        });
+
+    });
+</script>
+
+</body>
+</html>
