@@ -1,23 +1,23 @@
 import json
 import re
+import sys
 
-in_file = open('data/harriman_bearmt_complete.geojson')
+in_file = open(sys.argv[1])     # e.g. data/harriman_bearmt_complete.geojson
 raw_json = json.load(in_file)
-id_file = open('data/trail_edits/trail-deletions-all.log')
-
-outfile = open('data/harriman_purged.geojson', 'w')
+id_file = open(sys.argv[2])     # e.g. data/trail_edits/trail-deletions.log     
+outfile = open(sys.argv[3], 'w')
 
 ids_to_purge = []
 for line in id_file:
-    match = re.search('way/\d+', line)
+    match = re.search('way/.*$', line)
     if match:
         ids_to_purge.append(match.group(0))
 
 out_json = {
     "type": "FeatureCollection",
-    
     "features": []
 }
+
 for feature in raw_json["features"]:
     if feature["id"] not in ids_to_purge:
         out_json["features"].append(feature)
@@ -26,9 +26,15 @@ json.dump(out_json, outfile, indent=1)
 
 
 """
-manually purged
-menomine trail - stockbridge (del)
-    way/228460542
+note - I manually deleted the following coordinates from this Way:
+
+way/228460542
+
+(Menomine trail west of Long Path near Stockbridge)
+
+The Menomine trail does not extend past the Long Path.
+Ideally I would have removed this programmatically by splitting the trail 
+first, but I did this step out of order.
 
     [
       -74.0859314,
@@ -227,4 +233,5 @@ menomine trail - stockbridge (del)
       41.2989797
      ]
 """
+
 

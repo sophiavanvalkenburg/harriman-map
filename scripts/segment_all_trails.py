@@ -6,8 +6,8 @@ import json
 ways_data_file = open(sys.argv[1]) # e.g. data/harriman_bearmt_split.geojson
 ways_data_json = json.load(ways_data_file)
 trail_ways_prefix = sys.argv[2] # e.g. data/trail_ways/trail_
-trail_outfile_prefix = sys.argv[3] # e.g. data/trail_geojson/trail_
-trail_incompletes_prefix = sys.argv[4] # e.g. data/trail_incompletes/trail_incomplete_
+trail_incompletes_prefix = sys.argv[3] # e.g. data/trail_incompletes/trail_incomplete_
+trail_outfile_prefix = sys.argv[4] # e.g. data/trail_geojson/trail_
 out_file = open(sys.argv[5], 'w')
 
 TRAIL_IDS = [

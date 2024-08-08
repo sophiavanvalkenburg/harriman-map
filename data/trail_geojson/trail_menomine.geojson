@@ -3,13 +3,13 @@
  "features": [
   {
    "type": "Feature",
-   "id": "27c2d05b-f50b-4c6e-9da5-0d58f04b865a",
+   "id": "ddd59198-47d4-47f7-bff8-3ff54b4bd5a8",
    "properties": {
     "name": "Menomine Trail",
-    "id": "27c2d05b-f50b-4c6e-9da5-0d58f04b865a",
+    "id": "ddd59198-47d4-47f7-bff8-3ff54b4bd5a8",
     "status": "complete",
     "osm_way_ids": [
-     "way/228460542",
+     "way/228460542-1",
      "way/1005062304",
      "way/1005062302",
      "way/1005062294",

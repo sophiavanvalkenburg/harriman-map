@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "a2111a73-1859-4dd6-819a-cfa4ca2f8173",
+   "id": "d176593d-6b2a-4ef1-9fec-4a420fe78bb8",
    "properties": {
     "name": "Major Welch Trail",
-    "id": "a2111a73-1859-4dd6-819a-cfa4ca2f8173",
+    "id": "d176593d-6b2a-4ef1-9fec-4a420fe78bb8",
     "status": "complete",
     "osm_way_ids": [
      "way/134871630",

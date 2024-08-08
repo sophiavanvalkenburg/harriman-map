@@ -2,13 +2,14 @@ import json
 import csv
 import math
 import copy
+import sys
 
-base_file = open('data/harriman_bearmt_complete.geojson')
+base_file = open(sys.argv[1])       # e.g. data/harriman_bearmt_complete.geojson
 raw_base_json = json.load(base_file)
 
-id_file = open('data/trail_edits/trail-splits.log')
+id_file = open(sys.argv[2])         # e.g. data/trail_edits/trail-splits.log
 
-outfile = open('data/harriman_bearmt_split.geojson', 'w')
+outfile = open(sys.argv[3], 'w')
 
 splits = {}
 for way_id, long, lat in csv.reader(id_file):

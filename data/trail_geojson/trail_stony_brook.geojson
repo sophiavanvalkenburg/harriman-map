@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "4fae15ed-764c-4d1e-8d99-cca4fb7aa7df",
+   "id": "6f09327b-0d5e-48e5-96ff-45973578fdbe",
    "properties": {
     "name": "Stony Brook Trail",
-    "id": "4fae15ed-764c-4d1e-8d99-cca4fb7aa7df",
+    "id": "6f09327b-0d5e-48e5-96ff-45973578fdbe",
     "status": "complete",
     "osm_way_ids": [
      "way/981873262",

@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "53902564-a6c2-450e-be3a-646942089cb3",
+   "id": "c965b4cf-1d33-41db-9b96-e3f99fe4690e",
    "properties": {
     "name": "Suffern Bear Mountatin Trail",
-    "id": "53902564-a6c2-450e-be3a-646942089cb3",
+    "id": "c965b4cf-1d33-41db-9b96-e3f99fe4690e",
     "status": "complete",
     "osm_way_ids": [
      "way/798977085",

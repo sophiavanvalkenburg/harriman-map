@@ -1,21 +1,22 @@
 import json
 import re
+import sys
 
-base_file = open('data/harriman_bearmt_complete.geojson')
+base_file = open(sys.argv[1])       # e.g. data/harriman_bearmt_complete.geojson
 raw_base_json = json.load(base_file)
 
-all_file = open('data/geojson_work_files/harriman_all.geojson')
+all_file = open(sys.argv[2])        # e.g. data/geojson_work_files/harriman_all.geojson
 raw_all_json = json.load(all_file)
 
-id_file = open('data/trail-additions-deletions-files/trail-additions-all.log')
+id_file = open(sys.argv[3])         # e.g. data/trail_edits/trail-additions.log
 
-outfile = open('data/harriman_added.geojson', 'w')
+outfile = open(sys.argv[4], 'w')
 
 existing_ids = [feature["id"] for feature in raw_base_json["features"]]
 
 ids_to_add = []
 for line in id_file:
-    match = re.search('way/\d+', line)
+    match = re.search('way/.*$', line)
     if match:
         id = match.group(0)
         if id not in existing_ids:
@@ -32,10 +33,11 @@ json.dump(raw_base_json, outfile, indent=1)
 
 
 """
-manually added
-anthony wayne trail - long mt pkway 
-    way/423694755
-    way/1003727800
+note - I manually added the following coordinate to the start of the Way (way/1003727800)
+from the Way (way/423694755) because they were not properly connected:
+
+(Anthony Wayne Trail @ Long Mountain Parkway)
+
     [
       -74.0407253,
       41.3065845

@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "5dc22ad0-012c-4d22-8464-d9e969c9fcc8",
+   "id": "1ebea631-7538-4047-b54e-3089e5ca2996",
    "properties": {
     "name": "Sapphire Trail",
-    "id": "5dc22ad0-012c-4d22-8464-d9e969c9fcc8",
+    "id": "1ebea631-7538-4047-b54e-3089e5ca2996",
     "status": "complete",
     "osm_way_ids": [
      "way/540004330"
