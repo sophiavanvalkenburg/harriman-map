@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "3b98a11f-0282-4473-a67a-c4608a27bcfc",
+   "id": "692e9348-aa14-4a9f-b9af-c7d1a397001c",
    "properties": {
     "name": "Seven Hills Trail",
-    "id": "3b98a11f-0282-4473-a67a-c4608a27bcfc",
+    "id": "692e9348-aa14-4a9f-b9af-c7d1a397001c",
     "status": "complete",
     "osm_way_ids": [
      "way/62226394",
@@ -1470,10 +1470,10 @@
   },
   {
    "type": "Feature",
-   "id": "f04a95ba-c955-4edc-a24e-141b0a90d98c",
+   "id": "834cbc0f-82a3-4c8e-97dd-1212ede45a67",
    "properties": {
     "name": "Seven Hills Trail",
-    "id": "f04a95ba-c955-4edc-a24e-141b0a90d98c",
+    "id": "834cbc0f-82a3-4c8e-97dd-1212ede45a67",
     "status": "incomplete",
     "osm_way_ids": [
      "way/807585681-1"
@@ -1596,10 +1596,10 @@
   },
   {
    "type": "Feature",
-   "id": "ef74c053-0411-40ec-913e-6b3350a3df67",
+   "id": "d825bfa0-c1d3-4cfa-bb2f-8e1fda2afd7b",
    "properties": {
     "name": "Seven Hills Trail",
-    "id": "ef74c053-0411-40ec-913e-6b3350a3df67",
+    "id": "d825bfa0-c1d3-4cfa-bb2f-8e1fda2afd7b",
     "status": "complete",
     "osm_way_ids": [
      "way/895035667",
@@ -1690,10 +1690,10 @@
   },
   {
    "type": "Feature",
-   "id": "09f7cf08-9023-46f3-a9f9-4fe81482038f",
+   "id": "1c00162a-d45a-47f8-8fff-ca4b2bbbf0a2",
    "properties": {
     "name": "Seven Hills Trail",
-    "id": "09f7cf08-9023-46f3-a9f9-4fe81482038f",
+    "id": "1c00162a-d45a-47f8-8fff-ca4b2bbbf0a2",
     "status": "incomplete",
     "osm_way_ids": [
      "way/895035668"
@@ -1964,10 +1964,10 @@
   },
   {
    "type": "Feature",
-   "id": "1dcb2c7b-5b49-4335-8423-10d52dd50709",
+   "id": "1e71cb03-7112-4ad1-9af3-82c037a93d39",
    "properties": {
     "name": "Seven Hills Trail",
-    "id": "1dcb2c7b-5b49-4335-8423-10d52dd50709",
+    "id": "1e71cb03-7112-4ad1-9af3-82c037a93d39",
     "status": "complete",
     "osm_way_ids": [
      "way/368550807",

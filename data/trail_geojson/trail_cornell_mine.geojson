@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "14d85d50-5870-49fd-9845-074cce259582",
+   "id": "5f6a5131-236f-4e14-9986-6b8a1e1a7b68",
    "properties": {
     "name": "Cornell Mine Trail",
-    "id": "14d85d50-5870-49fd-9845-074cce259582",
+    "id": "5f6a5131-236f-4e14-9986-6b8a1e1a7b68",
     "status": "complete",
     "osm_way_ids": [
      "way/423231459",

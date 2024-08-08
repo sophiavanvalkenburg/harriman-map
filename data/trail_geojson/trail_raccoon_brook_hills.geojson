@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "07eb0f64-d319-4100-b92f-a892824d2409",
+   "id": "9c978c1b-2bea-4dfa-bc50-0666178a3bbc",
    "properties": {
     "name": "Raccoon Brook Hills Trail",
-    "id": "07eb0f64-d319-4100-b92f-a892824d2409",
+    "id": "9c978c1b-2bea-4dfa-bc50-0666178a3bbc",
     "status": "complete",
     "osm_way_ids": [
      "way/981911372",
@@ -1115,10 +1115,10 @@
   },
   {
    "type": "Feature",
-   "id": "ee8c7628-616b-409d-b305-9346871d20db",
+   "id": "822657d9-bc21-4ce3-a0a3-317d8915facc",
    "properties": {
     "name": "Raccoon Brook Hills Trail",
-    "id": "ee8c7628-616b-409d-b305-9346871d20db",
+    "id": "822657d9-bc21-4ce3-a0a3-317d8915facc",
     "status": "incomplete",
     "osm_way_ids": [
      "way/44035769-0"

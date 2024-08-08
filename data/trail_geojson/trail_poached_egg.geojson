@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "97f332b8-1c88-4630-b367-470e8a8fb4ef",
+   "id": "66d5f1c6-b76e-4fe1-b0ea-7e20445eaa57",
    "properties": {
     "name": "Poached Egg Trail",
-    "id": "97f332b8-1c88-4630-b367-470e8a8fb4ef",
+    "id": "66d5f1c6-b76e-4fe1-b0ea-7e20445eaa57",
     "status": "complete",
     "osm_way_ids": [
      "way/44038105"

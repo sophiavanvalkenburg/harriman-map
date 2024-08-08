@@ -27,6 +27,15 @@ for feature in raw_all_json["features"]:
     if feature["id"] in ids_to_add:
         features_to_add.append(feature)
 
+# have to manually add this coordinate to connect it to the next segment
+# Anthony Wayne Trail @ Long Mountain Parkway
+for feature in raw_base_json["features"]:
+    if feature["id"] == "way/1003727800":
+        coord_to_add = [-74.0407253, 41.3065845]
+        feature_coords = feature["geometry"]["coordinates"]
+        if feature_coords[0][0] != coord_to_add[0] or  feature_coords[0][1] != coord_to_add[1]:
+            feature["geometry"]["coordinates"] = [coord_to_add] + feature_coords
+
 raw_base_json["features"].extend(features_to_add)
 
 json.dump(raw_base_json, outfile, indent=1)

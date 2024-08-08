@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "b5d4445f-e86e-4a36-bd09-58b6a47c7f04",
+   "id": "2e3affff-9dd6-471e-9741-9dfe64f2a1de",
    "properties": {
     "name": "Triangle Trail",
-    "id": "b5d4445f-e86e-4a36-bd09-58b6a47c7f04",
+    "id": "2e3affff-9dd6-471e-9741-9dfe64f2a1de",
     "status": "complete",
     "osm_way_ids": [
      "way/207760026",

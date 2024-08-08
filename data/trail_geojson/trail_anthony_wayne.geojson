@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "a6f470b7-87de-4f10-807e-5754c28fcc6b",
+   "id": "49513b83-fa52-45db-9471-d38fc592388f",
    "properties": {
     "name": "Anthony Wayne Trail",
-    "id": "a6f470b7-87de-4f10-807e-5754c28fcc6b",
+    "id": "49513b83-fa52-45db-9471-d38fc592388f",
     "status": "complete",
     "osm_way_ids": [
      "way/1003727800",
@@ -158,6 +158,10 @@
       41.3065845
      ],
      [
+      -74.0407253,
+      41.3065845
+     ],
+     [
       -74.0406291,
       41.3063672
      ],
@@ -274,10 +278,10 @@
   },
   {
    "type": "Feature",
-   "id": "f958ebf4-f655-495b-ace0-bbddd90486b6",
+   "id": "26d7caab-6189-4fb9-ba8e-029d06f22e95",
    "properties": {
     "name": "Anthony Wayne Trail",
-    "id": "f958ebf4-f655-495b-ace0-bbddd90486b6",
+    "id": "26d7caab-6189-4fb9-ba8e-029d06f22e95",
     "status": "incomplete",
     "osm_way_ids": [
      "way/1123702063",
@@ -515,10 +519,10 @@
   },
   {
    "type": "Feature",
-   "id": "69089f15-4c4f-4197-bc27-9218cc7cc2b0",
+   "id": "0ab2a0e8-18b5-4913-8643-78c8d565cc71",
    "properties": {
     "name": "Anthony Wayne Trail",
-    "id": "69089f15-4c4f-4197-bc27-9218cc7cc2b0",
+    "id": "0ab2a0e8-18b5-4913-8643-78c8d565cc71",
     "status": "complete",
     "osm_way_ids": [
      "way/1004177086"
@@ -605,10 +609,10 @@
   },
   {
    "type": "Feature",
-   "id": "ffe94646-9b43-4284-a2b9-5ba276e70289",
+   "id": "85c106ee-823b-49c7-98c5-bc43f8f7f0fc",
    "properties": {
     "name": "Anthony Wayne Trail",
-    "id": "ffe94646-9b43-4284-a2b9-5ba276e70289",
+    "id": "85c106ee-823b-49c7-98c5-bc43f8f7f0fc",
     "status": "incomplete",
     "osm_way_ids": [
      "way/20664104",
