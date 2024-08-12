@@ -20,13 +20,13 @@ concurrency:
   group: 'pages'
   cancel-in-progress: true
 
+defaults:
+  run:
+    working-directory: ./harriman-map-app
+
 jobs:
   # Single deploy job since we're just deploying
   deploy:
-    defaults:
-      run:
-        shell: bash
-        working-directory: ./harriman-map-app
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
