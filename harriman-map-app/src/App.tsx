@@ -1,10 +1,12 @@
 import { useRef, useEffect, useState } from 'react';
+import SidePanel from './SidePanel.tsx'
 import mapboxgl from 'mapbox-gl';
 import './App.css'
 
 function App() {
   return (
     <div className="App">
+      <SidePanel />
       <Map />
     </div>
   );

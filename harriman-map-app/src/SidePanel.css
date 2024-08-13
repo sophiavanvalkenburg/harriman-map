@@ -1,0 +1,226 @@
+.SidePanel {
+    background-color: #ffffff;
+    height: 100%;
+    min-width: 330px;
+    width: 25%;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.25);
+}
+
+
+/* from Figma
+
+
+/* btn_close_sidepanel
+
+position: absolute;
+width: 34px;
+height: 73px;
+left: 329px;
+top: 368px;
+
+
+
+/* Rectangle 1
+
+position: absolute;
+width: 34px;
+height: 73px;
+left: 329px;
+top: 368px;
+
+background: #FFFFFF;
+box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.25);
+border-radius: 0px 8px 8px 0px;
+
+
+/* Polygon 1 
+
+position: absolute;
+width: 14px;
+height: 14px;
+left: 339px;
+top: 412px;
+
+background: #BEBDBD;
+transform: rotate(-90deg);
+
+
+/* BG 
+
+position: absolute;
+width: 329px;
+height: 809px;
+left: 0px;
+top: 0px;
+
+background: #FFFFFF;
+box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.25);
+
+
+/* Harriman & Bear Mountain State Parks 
+
+position: absolute;
+width: 245px;
+height: 115px;
+left: calc(50% - 245px/2);
+top: 32px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 39px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* Line 1 
+
+position: absolute;
+height: 0px;
+left: 0px;
+right: 0px;
+top: 179px;
+
+border: 1px solid #BEBDBD;
+
+
+/* X 
+
+position: absolute;
+width: 24px;
+height: 24px;
+right: 8px;
+top: 8px;
+
+
+
+/* Icon 
+
+position: absolute;
+left: 25%;
+right: 25%;
+top: 25%;
+bottom: 25%;
+
+border: 4px solid #BEBDBD;
+
+
+/* Total length group 
+
+position: absolute;
+width: 297px;
+height: 66px;
+left: 16px;
+top: 415px;
+
+
+
+/* Completed: X miles Incomplete: X miles 
+
+position: absolute;
+width: 245px;
+height: 39px;
+left: 42px;
+top: 442px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+text-align: center;
+
+color: #686868;
+
+
+
+/* Total Length of Trails: XX miles 
+
+position: absolute;
+width: 297px;
+height: 23px;
+left: 16px;
+top: 415px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* Total number group 
+
+position: absolute;
+width: 297px;
+height: 70px;
+left: 16px;
+top: 329px;
+
+
+
+/* Completed: X Incomplete: X
+
+position: absolute;
+width: 236px;
+height: 43px;
+left: 46px;
+top: 356px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+text-align: center;
+
+color: #686868;
+
+
+
+/* Total Number of Trails: XX
+
+position: absolute;
+width: 297px;
+height: 23px;
+left: 16px;
+top: 329px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* XX.XX% Complete 
+
+position: absolute;
+width: 297px;
+height: 23px;
+left: 16px;
+top: 211px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+text-align: center;
+
+color: #000000;
+
+*/
