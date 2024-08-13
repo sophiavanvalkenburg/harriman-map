@@ -391,12 +391,6 @@ function Map() {
         'filter': ['==', 'complete', ['get', 'status']],
         'paint': {
           'line-color': "#ff0000",
-          'line-opacity': [
-            'case',
-            ['boolean', ['feature-state', 'hide'], false],
-            0,
-            1
-          ],
           'line-width': 2,
         }
       });
@@ -408,12 +402,6 @@ function Map() {
         'filter': ['==', 'incomplete', ['get', 'status']],
         'paint': {
           'line-color': "#8c0000",
-          'line-opacity': [
-            'case',
-            ['boolean', ['feature-state', 'hide'], false],
-            0,
-            1
-          ],
           'line-width': 2,
         }
       });
@@ -448,32 +436,25 @@ function Map() {
 
       let hoveredLineId:string|number|undefined;
 
+      function setHoverState(isHovered:boolean) {
+        if (!map.current || hoveredLineId === undefined) return;
+        map.current.setFeatureState(
+          { source: 'trails', id: hoveredLineId },
+          { hover: isHovered }
+        );
+      }
+
       map.current.on('mousemove', 'trail-hitbox', (e) => {
-        if (map.current && e.features && e.features.length > 0) {
-          if (hoveredLineId !== undefined) {
-            map.current.setFeatureState(
-              { source: 'trails', id: hoveredLineId },
-              { hover: false }
-            );
-          }
-          if (e.features[0].id !== undefined){
-            hoveredLineId = e.features[0].id;
-            map.current.setFeatureState(
-              { source: 'trails', id: hoveredLineId },
-              { hover: true }
-            );
-          }
+        setHoverState(false)
+        if (e.features && e.features.length > 0) {
+          hoveredLineId = e.features[0].id;
+          setHoverState(true);
         }
       });
 
       map.current.on('mouseleave', 'trail-hitbox', () => {
         if (!map.current) return;
-        if (hoveredLineId !== undefined) {
-          map.current.setFeatureState(
-            { source: 'trails', id: hoveredLineId },
-            { hover: false }
-          );
-        }
+        setHoverState(false);
         hoveredLineId = undefined;
         map.current.getCanvas().style.cursor = '';
       });
