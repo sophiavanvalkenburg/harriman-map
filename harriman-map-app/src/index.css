@@ -5,3 +5,73 @@ body {
 .map-container {
   height: 100vh;
 }
+
+/* Extralight weight; Normal style */
+@font-face {
+	font-family: 'National Park';
+    font-weight: 200;
+    font-style: normal;
+    src:local('NationalPark-Extralight'),
+      url('./assets/fonts/NationalPark/NationalPark-Extralight.woff2'),
+      format('woff2');
+}
+
+/* Light weight; Normal style */
+@font-face {
+	font-family: 'National Park';
+    font-weight: 300;
+    font-style: normal;
+    src:local('NationalPark-Light'),
+      url('./assets/fonts/NationalPark/NationalPark-Light.woff2'),
+      format('woff2');
+}
+
+/* Regular weight; Normal style */
+@font-face {
+    font-family: 'National Park';
+    font-weight: 400;
+    font-style: normal;
+    src:local('NationalPark-Regular'),
+      url('./assets/fonts/NationalPark/NationalPark-Regular.woff2'),
+      format('woff2');
+}
+
+/* Medium weight; Normal style */
+@font-face {
+	font-family: 'National Park';
+    font-weight: 500;
+    font-style: normal;
+    src:local('NationalPark-Medium'),
+      url('./assets/fonts/NationalPark/NationalPark-Medium.woff2'),
+      format('woff2');
+}
+
+/* Semibold weight; Normal style */
+@font-face {
+	font-family: 'National Park';
+    font-weight: 600;
+    font-style: normal;
+    src:local('NationalPark-SemiBold'),
+      url('./assets/fonts/NationalPark/NationalPark-SemiBold.woff2'),
+      format('woff2');
+}
+
+/* Bold weight; Normal style */
+@font-face {
+	font-family: 'National Park';
+    font-weight: 700;
+    font-style: normal;
+    src:local('NationalPark-Bold'),
+      url('./assets/fonts/NationalPark/NationalPark-Bold.woff2'),
+      format('woff2');
+}
+
+/* Extrabold weight; Normal style */
+@font-face {
+	font-family: 'National Park';
+    font-weight: 800;
+    font-style: normal;
+    src:local('NationalPark-ExtraBold'),
+      url('./assets/fonts/NationalPark/NationalPark-ExtraBold.woff2'),
+      format('woff2');
+}
