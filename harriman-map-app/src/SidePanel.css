@@ -9,21 +9,29 @@
 }
 
 .side-panel-btn {
-    width: 24px;
-    height: 60px;
     border: 0;
-    box-shadow: 2px 1px 4px 0px rgba(0, 0, 0, 0.25);
-    border-radius: 0px 8px 8px 0px; 
     background-color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.side-panel-btn img {
+.side-panel-btn.orientation-landscape {
+    width: 24px;
+    height: 60px;
+    box-shadow: 2px 1px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 8px 8px 0px; 
+    display: flex;
+}
+
+.side-panel-btn.orientation-landscape img {
     width: 9px;
     height: 12px;
     /*transform: rotate(180deg);*/
+}
+
+.side-panel-btn.orientation-portrait {
+    display: none;
 }
 
 .side-panel-content {
@@ -43,6 +51,14 @@
     font-size: 32px;
 }
 
+.map-title h1.orientation-landscape{
+    display: block;
+}
+
+.map-title h1.orientation-portrait{
+    display: none;
+}
+
 .dividing-line {
     border: 0.5px solid #BEBDBD;
 }
@@ -55,25 +71,92 @@
     font-weight: 300;
     font-size: 24px;
     margin-bottom: 0;
+    color: #ff0000;
 }
 
-.stat-trails-container {
+.stat-complete.is-complete h2 {
+    color: #00A200;
+}
+
+.stat-trails-container, .stat-segment-container {
     flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 } 
 
-.stat-total-length-trails-container {
-    margin-top: 16px;
-}
-
-.stat-trails-container h3 {
+.stat-trails-container h3, .stat-segment-container h3 {
     font-weight: 300;
     font-size: 20px; 
     margin: 0;
 }
 
-.stat-trails-container p {
+.stat-trails-container p, .stat-segment-container p {
     font-weight: 300;
     font-size: 16px;
     color: #686868;
     margin: 0;
+}
+
+.stats-lnglat {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+@media (orientation: portrait) {
+    .side-panel {
+        width: 100%;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .side-panel-content {
+        height: 348px;
+        width: 100%;
+    }
+
+    .side-panel-btn.orientation-landscape {
+        display: none;
+    }
+
+    .side-panel-btn.orientation-portrait {
+        height: 60px;
+        width: 100%;
+        box-shadow: 0px -2px 4px 0px rgba(0, 0, 0, 0.25);
+        border-radius: 8px 8px 0px 0px; 
+        background-color: #ffffff;
+        display: flex;
+    }
+
+    .map-title h1 {
+        font-size: 24px;
+    }
+
+    .map-title h1.orientation-landscape{
+        display: none;
+    }
+
+    .map-title h1.orientation-portrait{
+        display: block;
+    }
+
+    .stat-complete {
+        flex-grow: 0;
+    }
+
+    .stat-complete h2 {
+        font-size: 20px;
+    }
+    .stat-trails-container, .stat-segment-container {
+        margin-top: 32px;
+    }
+
+    .stat-segment-container {
+        gap: 24px;
+        flex-grow: 0;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
 }
