@@ -87,7 +87,7 @@ function ExpandOrCollapseBtn({handleClick}:SidePanelButtonProps) {
 
 function SidePanel() {
 
-    const [isCollapsed, setIsCollapsed] = useState(true);
+    const [isCollapsed, setIsCollapsed] = useState(false);
 
     function handleBtnClick() {
         setIsCollapsed(!isCollapsed);
