@@ -1,4 +1,4 @@
-//import { useRef, useEffect, useState } from 'react';
+import { useState } from 'react';
 import collapseSvg from "./assets/icons/collapse.svg";
 import mobileExpandSvg from "./assets/icons/mobile-expand.svg";
 import './SidePanel.css'
@@ -65,21 +65,45 @@ function AllTrailsStats() {
     );
 }
 
+type SidePanelButtonProps  = {
+    handleClick: () => void;
+}
+
+function MobileExpandBtn({handleClick}:SidePanelButtonProps) {
+    return (
+        <button className="side-panel-btn mobile-view" onClick={handleClick}>
+            <img src={mobileExpandSvg}></img>
+        </button>
+    );
+}
+
+function ExpandOrCollapseBtn({handleClick}:SidePanelButtonProps) {
+    return (
+        <button className="side-panel-btn desktop-view" onClick={handleClick}>
+            <img src={collapseSvg}></img>
+        </button>
+    );
+}
+
 function SidePanel() {
+
+    const [isCollapsed, setIsCollapsed] = useState(true);
+
+    function handleClick() {
+        setIsCollapsed(!isCollapsed);
+        console.log(isCollapsed);
+    }
+
     return (
         <div className="side-panel">
-            <button className="side-panel-btn mobile-view">
-                <img src={mobileExpandSvg}></img>
-            </button>
+            <MobileExpandBtn handleClick={handleClick}/>
             <div className="side-panel-content">
                 <MapTitle />
                 <div className="dividing-line"></div>
                 <CompletedPct />
                 <AllTrailsStats />
             </div>
-            <button className="side-panel-btn desktop-view">
-                <img src={collapseSvg}></img>
-            </button>
+            <ExpandOrCollapseBtn handleClick={handleClick}/>
         </div>
     );
 }
