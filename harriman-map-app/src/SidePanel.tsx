@@ -6,22 +6,30 @@ import './SidePanel.css'
 function MapTitle() {
     return (
         <div className="map-title">
-            <h1 className="orientation-landscape">Harriman &<br />Bear Mountain<br />State Parks</h1>
-            <h1 className="orientation-portrait">Harriman & Bear Mountain<br />State Parks</h1>
+            <h1 className="desktop-view">Harriman &<br />Bear Mountain<br />State Parks</h1>
+            <h1 className="mobile-view">Harriman & Bear Mountain<br />State Parks</h1>
         </div>
     );
 }
 
-function StatCompleted() {
-    /* segment */
-    //return (<div className="stat-complete"><h2>Status: Incomplete</h2></div>);
-    /* trail(s) */
+function TrailTitle() {
+    return (
+        <div className="map-title">
+            <h1>1777 Trail</h1>
+            <p>(segment)</p>
+        </div>
+    );
+}
+
+function CompletedPct() {
     return (<div className="stat-complete"><h2>XX.XX% Complete</h2></div>);
 }
 
-function StatTrailsContainer() {
-    /* trail / segment */
-    
+function CompletedStatus() {
+    return (<div className="stat-complete"><h2>Status: Incomplete</h2></div>); 
+}
+
+function SingleTrailorSegmentStats() {
     return (
         <div className="stat-segment-container">
             <div className="stat-length-trail">
@@ -40,9 +48,9 @@ function StatTrailsContainer() {
             </div>
         </div>
     );
-    
-    /* all trails */
-    /*
+}
+
+function AllTrailsStats() {
     return (
         <div className="stat-trails-container">
             <div className="stat-num-all-trails">
@@ -55,22 +63,21 @@ function StatTrailsContainer() {
             </div>
         </div>
     );
-    */
 }
 
 function SidePanel() {
     return (
         <div className="side-panel">
-            <button className="side-panel-btn orientation-portrait">
+            <button className="side-panel-btn mobile-view">
                 <img src={mobileExpandSvg}></img>
             </button>
             <div className="side-panel-content">
                 <MapTitle />
                 <div className="dividing-line"></div>
-                <StatCompleted />
-                <StatTrailsContainer />
+                <CompletedPct />
+                <AllTrailsStats />
             </div>
-            <button className="side-panel-btn orientation-landscape">
+            <button className="side-panel-btn desktop-view">
                 <img src={collapseSvg}></img>
             </button>
         </div>
