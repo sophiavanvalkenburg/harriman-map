@@ -66,7 +66,7 @@ function AllTrailsStats() {
 }
 
 type SidePanelButtonProps  = {
-    handleClick: () => void;
+    handleClick: () => void
 }
 
 function MobileExpandBtn({handleClick}:SidePanelButtonProps) {
@@ -89,21 +89,28 @@ function SidePanel() {
 
     const [isCollapsed, setIsCollapsed] = useState(true);
 
-    function handleClick() {
+    function handleBtnClick() {
         setIsCollapsed(!isCollapsed);
-        console.log(isCollapsed);
     }
 
+    function handleMapClick() {
+        if (!isCollapsed) setIsCollapsed(true);
+    }
+
+
+    let className = "side-panel";
+    if (isCollapsed) className += " collapsed";
+
     return (
-        <div className="side-panel">
-            <MobileExpandBtn handleClick={handleClick}/>
+        <div className={className} onClick={handleMapClick}>
+            <MobileExpandBtn handleClick={handleBtnClick}/>
             <div className="side-panel-content">
                 <MapTitle />
                 <div className="dividing-line"></div>
                 <CompletedPct />
                 <AllTrailsStats />
             </div>
-            <ExpandOrCollapseBtn handleClick={handleClick}/>
+            <ExpandOrCollapseBtn handleClick={handleBtnClick} />
         </div>
     );
 }
