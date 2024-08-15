@@ -42,7 +42,7 @@ def check_if_start_needs_reversal(last_coords, current_coords):
     dist_btwn_ways = get_distance(last_coords[-1], current_coords[0])
     return dist_btwn_ways > threshold
 
-def segment_trail(ways_data_json, trail_name, trail_way_ids_file, trail_incompletes_ids_files):
+def segment_trail(ways_data_json, trail_name, trail_way_ids_file, trail_incompletes_ids_files, should_segment_by_completion):
     trail_way_coords_by_id = {}
 
     for line in trail_way_ids_file:
@@ -70,6 +70,7 @@ def segment_trail(ways_data_json, trail_name, trail_way_ids_file, trail_incomple
         "features": []
     }
 
+    trail_has_incomplete_segments = False
     current_segment_status = None
     current_segment_coordinates = []
     current_segment_way_ids = []
@@ -78,7 +79,10 @@ def segment_trail(ways_data_json, trail_name, trail_way_ids_file, trail_incomple
         if current_segment_status is None:
             current_segment_status = way_data["status"]
         maybe_reverse_coordinates(current_segment_way_ids, current_segment_coordinates, current_way_coordinates)
-        if way_data["status"] != current_segment_status:
+        should_change_completion_status = way_data["status"] != current_segment_status
+        if should_change_completion_status:
+            trail_has_incomplete_segments = True
+        if should_segment_by_completion and should_change_completion_status:
             new_segment = make_segment(trail_name, current_segment_way_ids, current_segment_status, current_segment_coordinates)
             trail_data["features"].append(new_segment)
             current_segment_status = way_data["status"]
@@ -87,6 +91,8 @@ def segment_trail(ways_data_json, trail_name, trail_way_ids_file, trail_incomple
         else:
             current_segment_coordinates.extend(current_way_coordinates)
             current_segment_way_ids.append(id)
+    if not should_segment_by_completion:
+        current_segment_status = "incomplete" if trail_has_incomplete_segments else "complete"
     new_segment = make_segment(trail_name, current_segment_way_ids, current_segment_status, current_segment_coordinates)
     trail_data["features"].append(new_segment)
     return trail_data
@@ -99,7 +105,7 @@ if __name__ == "__main__":
     trail_name = sys.argv[3]                                            # e.g. "Appalachian Trail"
     out_file = open(sys.argv[4], 'w')                                   # e.g. data/trail_geojson/trail_appalachian.geojson
     trail_incompletes_ids_files = [open(file) for file in sys.argv[5:]] # e.g. data/trail_incomplete/trail_incomplete_appalachian_1.log
-    trail_data = segment_trail(ways_data_json, trail_name, trail_way_ids_file, trail_incompletes_ids_files)
+    trail_data = segment_trail(ways_data_json, trail_name, trail_way_ids_file, trail_incompletes_ids_files, True)
     json.dump(trail_data, out_file, indent=1)
 
 
