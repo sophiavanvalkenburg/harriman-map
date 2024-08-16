@@ -78,11 +78,20 @@ for id in TRAIL_IDS:
         trail_name += " Trail"
     trail_incompletes_ids_fnames = glob.glob(trail_incompletes_prefix + id + "_*")
     trail_incompletes_ids_files = [open(fname) for fname in trail_incompletes_ids_fnames]
+
     print(trail_name)
-    trail_data = segment_trail(ways_data_json, trail_name, trail_way_ids_file, trail_incompletes_ids_files, True)
-    all_trails_data["features"].extend(trail_data["features"])
+
+    trail_data_segmented_by_completion = segment_trail(ways_data_json, trail_name, trail_way_ids_file, trail_incompletes_ids_files, True)
+    all_trails_data["features"].extend(trail_data_segmented_by_completion["features"])
+
+    trail_way_ids_file.seek(0)
+    for file in trail_incompletes_ids_files:
+        file.seek(0)
+
+    trail_data_not_segmented_by_completion = segment_trail(ways_data_json, trail_name, trail_way_ids_file, trail_incompletes_ids_files, False)
     trail_out_file = open(trail_outfile_prefix + id + ".geojson", 'w')
-    json.dump(trail_data, trail_out_file, indent=1)
+    json.dump(trail_data_not_segmented_by_completion, trail_out_file, indent=1)
+
     trail_out_file.close()
     trail_way_ids_file.close()
     for file in trail_incompletes_ids_files:

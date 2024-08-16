@@ -3,11 +3,11 @@
  "features": [
   {
    "type": "Feature",
-   "id": "82eaaf94-b1fd-4139-bb11-b61f868cbc4e",
+   "id": "d3586da4-952e-4b7f-84c7-d089d6cf1b6b",
    "properties": {
     "name": "Ramapo Dunderberg Trail",
-    "id": "82eaaf94-b1fd-4139-bb11-b61f868cbc4e",
-    "status": "complete",
+    "id": "d3586da4-952e-4b7f-84c7-d089d6cf1b6b",
+    "status": "incomplete",
     "osm_way_ids": [
      "way/512324931",
      "way/512396840",
@@ -19,9 +19,42 @@
      "way/424166112",
      "way/424166111",
      "way/292363135",
-     "way/424541267-1"
+     "way/424541267-1",
+     "way/424541267-0",
+     "way/1005078524",
+     "way/798970570",
+     "way/228460543",
+     "way/1006828825",
+     "way/798970571",
+     "way/228460544",
+     "way/369195402",
+     "way/1123702067-2",
+     "way/1123702067-1",
+     "way/1123702067-0",
+     "way/1004177093",
+     "way/1004177094",
+     "way/1245519178",
+     "way/1245519179",
+     "way/1004282007",
+     "way/1004282009",
+     "way/80515395",
+     "way/798970573",
+     "way/423529968",
+     "way/798970574",
+     "way/798970575-0",
+     "way/798970575-1",
+     "way/157802665",
+     "way/1004614463",
+     "way/1004614457",
+     "way/1004614458",
+     "way/1004614461",
+     "way/1004614462",
+     "way/423156300",
+     "way/1004614460",
+     "way/423195253",
+     "way/157802670"
     ],
-    "length": 5.675326868032278
+    "length": 15.3404120528104
    },
    "geometry": {
     "type": "LineString",
@@ -2729,26 +2762,7 @@
      [
       -74.1046799,
       41.2639502
-     ]
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "995d1032-8e67-4424-af0f-a7cf2874d9eb",
-   "properties": {
-    "name": "Ramapo Dunderberg Trail",
-    "id": "995d1032-8e67-4424-af0f-a7cf2874d9eb",
-    "status": "incomplete",
-    "osm_way_ids": [
-     "way/424541267-0",
-     "way/1005078524"
-    ],
-    "length": 0.7429443595610089
-   },
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
+     ],
      [
       -74.1046799,
       41.2639502
@@ -2980,30 +2994,7 @@
      [
       -74.0943404,
       41.2747265
-     ]
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "36032275-631f-4ed5-a711-a97df4b841d8",
-   "properties": {
-    "name": "Ramapo Dunderberg Trail",
-    "id": "36032275-631f-4ed5-a711-a97df4b841d8",
-    "status": "complete",
-    "osm_way_ids": [
-     "way/798970570",
-     "way/228460543",
-     "way/1006828825",
-     "way/798970571",
-     "way/228460544",
-     "way/369195402"
-    ],
-    "length": 4.302239235159028
-   },
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
+     ],
      [
       -74.0943404,
       41.2747265
@@ -4379,32 +4370,7 @@
      [
       -74.0321153,
       41.2830434
-     ]
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "b4acd089-d1e1-4a63-9134-790e10ddf876",
-   "properties": {
-    "name": "Ramapo Dunderberg Trail",
-    "id": "b4acd089-d1e1-4a63-9134-790e10ddf876",
-    "status": "incomplete",
-    "osm_way_ids": [
-     "way/1123702067-2",
-     "way/1123702067-1",
-     "way/1123702067-0",
-     "way/1004177093",
-     "way/1004177094",
-     "way/1245519178",
-     "way/1245519179",
-     "way/1004282007"
-    ],
-    "length": 1.0012055055322409
-   },
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
+     ],
      [
       -74.0321153,
       41.2830434
@@ -4876,25 +4842,7 @@
      [
       -74.0176497,
       41.2799516
-     ]
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "6c080dc3-3fcf-4734-b81c-d18db735a954",
-   "properties": {
-    "name": "Ramapo Dunderberg Trail",
-    "id": "6c080dc3-3fcf-4734-b81c-d18db735a954",
-    "status": "complete",
-    "osm_way_ids": [
-     "way/1004282009"
-    ],
-    "length": 0.01876359321305992
-   },
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
+     ],
      [
       -74.0176497,
       41.2799516
@@ -4922,29 +4870,7 @@
      [
       -74.0174279,
       41.2805207
-     ]
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "4ba616bb-cb20-4f19-a80b-ce0c25e67dfd",
-   "properties": {
-    "name": "Ramapo Dunderberg Trail",
-    "id": "4ba616bb-cb20-4f19-a80b-ce0c25e67dfd",
-    "status": "incomplete",
-    "osm_way_ids": [
-     "way/80515395",
-     "way/798970573",
-     "way/423529968",
-     "way/798970574",
-     "way/798970575-0"
-    ],
-    "length": 1.9089277380968441
-   },
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
+     ],
      [
       -74.0174279,
       41.2805207
@@ -6040,32 +5966,7 @@
      [
       -73.9898245,
       41.2847688
-     ]
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "ba793a7d-6c11-4aec-ae98-7b1f49480de1",
-   "properties": {
-    "name": "Ramapo Dunderberg Trail",
-    "id": "ba793a7d-6c11-4aec-ae98-7b1f49480de1",
-    "status": "complete",
-    "osm_way_ids": [
-     "way/798970575-1",
-     "way/157802665",
-     "way/1004614463",
-     "way/1004614457",
-     "way/1004614458",
-     "way/1004614461",
-     "way/1004614462",
-     "way/423156300"
-    ],
-    "length": 1.661080797324966
-   },
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
+     ],
      [
       -73.9898245,
       41.2847688
@@ -6921,27 +6822,7 @@
      [
       -73.9657937,
       41.2822212
-     ]
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "7e746b8e-33e1-4a8f-94e0-6d674fce92ae",
-   "properties": {
-    "name": "Ramapo Dunderberg Trail",
-    "id": "7e746b8e-33e1-4a8f-94e0-6d674fce92ae",
-    "status": "incomplete",
-    "osm_way_ids": [
-     "way/1004614460",
-     "way/423195253",
-     "way/157802670"
-    ],
-    "length": 0.13824291516424034
-   },
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
+     ],
      [
       -73.9657937,
       41.2822212

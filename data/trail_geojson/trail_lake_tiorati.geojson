@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "cc002909-4ed6-403c-818c-c19d9efdfc5b",
+   "id": "034850f2-7faf-4a52-a88c-085ad22732b9",
    "properties": {
     "name": "Lake Tiorati Trail",
-    "id": "cc002909-4ed6-403c-818c-c19d9efdfc5b",
+    "id": "034850f2-7faf-4a52-a88c-085ad22732b9",
     "status": "complete",
     "osm_way_ids": [
      "way/80515300",

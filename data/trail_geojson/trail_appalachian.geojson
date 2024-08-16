@@ -3,11 +3,11 @@
  "features": [
   {
    "type": "Feature",
-   "id": "73cccf9e-109e-40c8-9641-f107f7735f2a",
+   "id": "7b0cec86-33ab-489b-a591-a9237aed20fd",
    "properties": {
     "name": "Appalachian Trail",
-    "id": "73cccf9e-109e-40c8-9641-f107f7735f2a",
-    "status": "complete",
+    "id": "7b0cec86-33ab-489b-a591-a9237aed20fd",
+    "status": "incomplete",
     "osm_way_ids": [
      "way/248706801",
      "way/248706799",
@@ -19,9 +19,53 @@
      "way/377300883",
      "way/982415772",
      "way/982415771",
-     "way/424541267-1"
+     "way/424541267-1",
+     "way/424541267-0",
+     "way/1005078524",
+     "way/798970570",
+     "way/424543333",
+     "way/1006828824",
+     "way/1006828823",
+     "way/1005062309",
+     "way/1005062308",
+     "way/369195402",
+     "way/1123702067-2",
+     "way/1123702067-1",
+     "way/1123702067-0",
+     "way/1005062290",
+     "way/1005062291",
+     "way/316897990-2",
+     "way/316897990-1",
+     "way/316897990-0",
+     "way/423530444",
+     "way/424086405",
+     "way/613566622",
+     "way/542978590",
+     "way/534567304",
+     "way/543010495",
+     "way/543010494",
+     "way/423472317",
+     "way/423472319",
+     "way/1003414771",
+     "way/80434329",
+     "way/231824125",
+     "way/115579732",
+     "way/1003414762",
+     "way/1003414763",
+     "way/84620184-0",
+     "way/84620184-1",
+     "way/372739438",
+     "way/372739439",
+     "way/372739442",
+     "way/372739440",
+     "way/372739443",
+     "way/372739441",
+     "way/372739444",
+     "way/372665088",
+     "way/372665089-0",
+     "way/372665089-1"
     ],
-    "length": 4.186678721175689
+    "length": 12.282924624096873
    },
    "geometry": {
     "type": "LineString",
@@ -1837,26 +1881,7 @@
      [
       -74.1046799,
       41.2639502
-     ]
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "2d61f3db-d628-472f-a7e1-f75f01070801",
-   "properties": {
-    "name": "Appalachian Trail",
-    "id": "2d61f3db-d628-472f-a7e1-f75f01070801",
-    "status": "incomplete",
-    "osm_way_ids": [
-     "way/424541267-0",
-     "way/1005078524"
-    ],
-    "length": 0.7429443595610089
-   },
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
+     ],
      [
       -74.1046799,
       41.2639502
@@ -2088,31 +2113,7 @@
      [
       -74.0943404,
       41.2747265
-     ]
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "721e41e6-b644-4bec-872e-1b8eb58adc74",
-   "properties": {
-    "name": "Appalachian Trail",
-    "id": "721e41e6-b644-4bec-872e-1b8eb58adc74",
-    "status": "complete",
-    "osm_way_ids": [
-     "way/798970570",
-     "way/424543333",
-     "way/1006828824",
-     "way/1006828823",
-     "way/1005062309",
-     "way/1005062308",
-     "way/369195402"
-    ],
-    "length": 4.302239235159028
-   },
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
+     ],
      [
       -74.0943404,
       41.2747265
@@ -3400,30 +3401,7 @@
      [
       -74.0321153,
       41.2830434
-     ]
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "1cdcc270-98ce-490c-9aa4-4010a1d2445e",
-   "properties": {
-    "name": "Appalachian Trail",
-    "id": "1cdcc270-98ce-490c-9aa4-4010a1d2445e",
-    "status": "incomplete",
-    "osm_way_ids": [
-     "way/1123702067-2",
-     "way/1123702067-1",
-     "way/1123702067-0",
-     "way/1005062290",
-     "way/1005062291",
-     "way/316897990-2"
-    ],
-    "length": 0.6366624336861965
-   },
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
+     ],
      [
       -74.0321153,
       41.2830434
@@ -3623,27 +3601,7 @@
      [
       -74.0229018,
       41.2825461
-     ]
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "dda17ede-cddf-485f-84dc-fbc7c56287cb",
-   "properties": {
-    "name": "Appalachian Trail",
-    "id": "dda17ede-cddf-485f-84dc-fbc7c56287cb",
-    "status": "complete",
-    "osm_way_ids": [
-     "way/316897990-1",
-     "way/316897990-0",
-     "way/423530444"
-    ],
-    "length": 0.463172895890725
-   },
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
+     ],
      [
       -74.0229018,
       41.2825461
@@ -4111,25 +4069,7 @@
      [
       -74.017241,
       41.295589
-     ]
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "37697a55-f3b5-4a2f-bbeb-16193a176159",
-   "properties": {
-    "name": "Appalachian Trail",
-    "id": "37697a55-f3b5-4a2f-bbeb-16193a176159",
-    "status": "incomplete",
-    "osm_way_ids": [
-     "way/424086405"
-    ],
-    "length": 0.16229990534031788
-   },
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
+     ],
      [
       -74.017241,
       41.295589
@@ -4305,48 +4245,7 @@
      [
       -74.0190939,
       41.3008328
-     ]
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "66f66465-fd7c-4d45-a0a0-2a970b5bae04",
-   "properties": {
-    "name": "Appalachian Trail",
-    "id": "66f66465-fd7c-4d45-a0a0-2a970b5bae04",
-    "status": "complete",
-    "osm_way_ids": [
-     "way/613566622",
-     "way/542978590",
-     "way/534567304",
-     "way/543010495",
-     "way/543010494",
-     "way/423472317",
-     "way/423472319",
-     "way/1003414771",
-     "way/80434329",
-     "way/231824125",
-     "way/115579732",
-     "way/1003414762",
-     "way/1003414763",
-     "way/84620184-0",
-     "way/84620184-1",
-     "way/372739438",
-     "way/372739439",
-     "way/372739442",
-     "way/372739440",
-     "way/372739443",
-     "way/372739441",
-     "way/372739444",
-     "way/372665088",
-     "way/372665089-0"
-    ],
-    "length": 2.1035608827220007
-   },
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
+     ],
      [
       -74.0190939,
       41.3008328
@@ -6254,25 +6153,7 @@
      [
       -73.9889753,
       41.3169713
-     ]
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "f8853cd8-005a-40b9-8d15-b42033aeeedd",
-   "properties": {
-    "name": "Appalachian Trail",
-    "id": "f8853cd8-005a-40b9-8d15-b42033aeeedd",
-    "status": "incomplete",
-    "osm_way_ids": [
-     "way/372665089-1"
-    ],
-    "length": 0.09139349109661139
-   },
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
+     ],
      [
       -73.9889753,
       41.3169713

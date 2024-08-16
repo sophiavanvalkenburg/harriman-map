@@ -3,11 +3,11 @@
  "features": [
   {
    "type": "Feature",
-   "id": "39021f03-876c-4b51-9c3b-192ccb238f71",
+   "id": "20bfe5fb-1bbc-4eb4-8ed9-ac621d1d97ee",
    "properties": {
     "name": "1777E Trail",
-    "id": "39021f03-876c-4b51-9c3b-192ccb238f71",
-    "status": "complete",
+    "id": "20bfe5fb-1bbc-4eb4-8ed9-ac621d1d97ee",
+    "status": "incomplete",
     "osm_way_ids": [
      "way/423240018",
      "way/1004099286",
@@ -30,9 +30,10 @@
      "way/372739441",
      "way/372739444",
      "way/372665088",
-     "way/372665089-0"
+     "way/372665089-0",
+     "way/372665089-1"
     ],
-    "length": 0.6986757805018802
+    "length": 0.7898790939287752
    },
    "geometry": {
     "type": "LineString",
@@ -784,25 +785,7 @@
      [
       -73.9889753,
       41.3169713
-     ]
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "174e33d1-3613-4ff2-a09e-c4a1de1ab60b",
-   "properties": {
-    "name": "1777E Trail",
-    "id": "174e33d1-3613-4ff2-a09e-c4a1de1ab60b",
-    "status": "incomplete",
-    "osm_way_ids": [
-     "way/372665089-1"
-    ],
-    "length": 0.09139349109661139
-   },
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
+     ],
      [
       -73.9889753,
       41.3169713

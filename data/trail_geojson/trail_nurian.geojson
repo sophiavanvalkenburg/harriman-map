@@ -3,11 +3,11 @@
  "features": [
   {
    "type": "Feature",
-   "id": "875ae113-94c0-4b20-a42d-f1f9c8a76108",
+   "id": "cac9fb80-7e1b-4b7e-9f4d-444e5f042ded",
    "properties": {
     "name": "Nurian Trail",
-    "id": "875ae113-94c0-4b20-a42d-f1f9c8a76108",
-    "status": "complete",
+    "id": "cac9fb80-7e1b-4b7e-9f4d-444e5f042ded",
+    "status": "incomplete",
     "osm_way_ids": [
      "way/424753370",
      "way/982415748",
@@ -21,9 +21,14 @@
      "way/982415743",
      "way/982415746",
      "way/115579733",
-     "way/424752250-0"
+     "way/424752250-0",
+     "way/424752250-1",
+     "way/982415741",
+     "way/424752247",
+     "way/424752245",
+     "way/188503418"
     ],
-    "length": 1.728772731349952
+    "length": 2.212219852572542
    },
    "geometry": {
     "type": "LineString",
@@ -671,27 +676,7 @@
      [
       -74.1477192,
       41.2461132
-     ]
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "4151ba4f-1780-4232-940d-42cdf430ac79",
-   "properties": {
-    "name": "Nurian Trail",
-    "id": "4151ba4f-1780-4232-940d-42cdf430ac79",
-    "status": "incomplete",
-    "osm_way_ids": [
-     "way/424752250-1",
-     "way/982415741",
-     "way/424752247"
-    ],
-    "length": 0.17200384668191734
-   },
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
+     ],
      [
       -74.1477192,
       41.2461132
@@ -831,25 +816,7 @@
      [
       -74.1460808,
       41.239252
-     ]
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "b47368b9-f041-48bd-9a1d-6b398ee22ef7",
-   "properties": {
-    "name": "Nurian Trail",
-    "id": "b47368b9-f041-48bd-9a1d-6b398ee22ef7",
-    "status": "complete",
-    "osm_way_ids": [
-     "way/424752245"
-    ],
-    "length": 0.04187801700817763
-   },
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
+     ],
      [
       -74.1460808,
       41.239252
@@ -869,25 +836,7 @@
      [
       -74.1464959,
       41.2376353
-     ]
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "22ab108c-e3a1-4038-b014-6b1e8e780e4d",
-   "properties": {
-    "name": "Nurian Trail",
-    "id": "22ab108c-e3a1-4038-b014-6b1e8e780e4d",
-    "status": "incomplete",
-    "osm_way_ids": [
-     "way/188503418"
-    ],
-    "length": 0.39196117241313466
-   },
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
+     ],
      [
       -74.1464959,
       41.2376353

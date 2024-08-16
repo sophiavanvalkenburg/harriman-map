@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "a0c7fa37-c983-4465-9616-98b55e20120a",
+   "id": "a9596bf1-57e7-44dc-8752-8860e48c5c87",
    "properties": {
     "name": "Dater Mountain Orange Trail",
-    "id": "a0c7fa37-c983-4465-9616-98b55e20120a",
+    "id": "a9596bf1-57e7-44dc-8752-8860e48c5c87",
     "status": "complete",
     "osm_way_ids": [
      "way/180636672"

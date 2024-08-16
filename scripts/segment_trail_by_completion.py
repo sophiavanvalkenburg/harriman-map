@@ -78,6 +78,7 @@ def segment_trail(ways_data_json, trail_name, trail_way_ids_file, trail_incomple
         current_way_coordinates = way_data["coordinates"].copy()
         if current_segment_status is None:
             current_segment_status = way_data["status"]
+            trail_has_incomplete_segments = True if current_segment_status == "incomplete" else False
         maybe_reverse_coordinates(current_segment_way_ids, current_segment_coordinates, current_way_coordinates)
         should_change_completion_status = way_data["status"] != current_segment_status
         if should_change_completion_status:

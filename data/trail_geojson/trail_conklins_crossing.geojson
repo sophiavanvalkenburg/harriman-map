@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "ba3da3cf-eaaf-4770-9b5f-6e2211793a9c",
+   "id": "4025aac7-8a50-4274-aced-a49016323e5d",
    "properties": {
     "name": "Conklins Crossing Trail",
-    "id": "ba3da3cf-eaaf-4770-9b5f-6e2211793a9c",
+    "id": "4025aac7-8a50-4274-aced-a49016323e5d",
     "status": "complete",
     "osm_way_ids": [
      "way/62226397"
