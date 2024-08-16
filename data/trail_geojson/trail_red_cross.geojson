@@ -3,33 +3,15 @@
  "features": [
   {
    "type": "Feature",
-   "id": "d70b329c-df09-43d9-b315-17cf287d6ec9",
+   "id": "0ada34e7-8103-41c5-a05c-87c3e2d93857",
    "properties": {
     "name": "Red Cross Trail",
-    "id": "d70b329c-df09-43d9-b315-17cf287d6ec9",
-    "status": "incomplete",
+    "id": "0ada34e7-8103-41c5-a05c-87c3e2d93857",
+    "status": "complete",
     "osm_way_ids": [
-     "way/982375792-0",
-     "way/982375792-1",
-     "way/982375793",
-     "way/1005399219",
-     "way/458951400-0",
-     "way/458951400-1",
-     "way/1006656458",
-     "way/1004282019",
-     "way/1004282018",
-     "way/1004282016",
-     "way/1004282015-0",
-     "way/1004282015-1",
-     "way/1004282015-2",
-     "way/316746207",
-     "way/316746206",
-     "way/316746208",
-     "way/316746205",
-     "way/798970581",
-     "way/133905012"
+     "way/982375792-0"
     ],
-    "length": 6.8519753067714175
+    "length": 0.24047356970550254
    },
    "geometry": {
     "type": "LineString",
@@ -129,7 +111,28 @@
      [
       -74.1003433,
       41.2491257
-     ],
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "60fada91-1a18-4f51-8878-b5251b5c39de",
+   "properties": {
+    "name": "Red Cross Trail",
+    "id": "60fada91-1a18-4f51-8878-b5251b5c39de",
+    "status": "incomplete",
+    "osm_way_ids": [
+     "way/982375792-1",
+     "way/982375793",
+     "way/1005399219",
+     "way/458951400-0"
+    ],
+    "length": 2.0265383829542167
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
      [
       -74.1003433,
       41.2491257
@@ -749,7 +752,27 @@
      [
       -74.0711816,
       41.2605823
-     ],
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "73e27f93-525c-49a6-9a71-71040a972c25",
+   "properties": {
+    "name": "Red Cross Trail",
+    "id": "73e27f93-525c-49a6-9a71-71040a972c25",
+    "status": "complete",
+    "osm_way_ids": [
+     "way/458951400-1",
+     "way/1006656458",
+     "way/1004282019"
+    ],
+    "length": 1.2752248591099018
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
      [
       -74.0711816,
       41.2605823
@@ -969,7 +992,30 @@
      [
       -74.0529881,
       41.2718893
-     ],
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "0a15e249-3324-4e3c-a60b-36ef3806f2dc",
+   "properties": {
+    "name": "Red Cross Trail",
+    "id": "0a15e249-3324-4e3c-a60b-36ef3806f2dc",
+    "status": "incomplete",
+    "osm_way_ids": [
+     "way/1004282018",
+     "way/1004282016",
+     "way/1004282015-0",
+     "way/1004282015-1",
+     "way/1004282015-2",
+     "way/316746207"
+    ],
+    "length": 1.698625001811638
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
      [
       -74.0529881,
       41.2718893
@@ -1273,7 +1319,25 @@
      [
       -74.0284656,
       41.2655448
-     ],
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "9c20d17a-be9e-493d-b503-aeb432650221",
+   "properties": {
+    "name": "Red Cross Trail",
+    "id": "9c20d17a-be9e-493d-b503-aeb432650221",
+    "status": "complete",
+    "osm_way_ids": [
+     "way/316746206"
+    ],
+    "length": 0.05081409533743245
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
      [
       -74.0284656,
       41.2655448
@@ -1293,7 +1357,28 @@
      [
       -74.0277731,
       41.2646449
-     ],
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "2c48119c-573c-40b0-8a6c-3530b28370bb",
+   "properties": {
+    "name": "Red Cross Trail",
+    "id": "2c48119c-573c-40b0-8a6c-3530b28370bb",
+    "status": "incomplete",
+    "osm_way_ids": [
+     "way/316746208",
+     "way/316746205",
+     "way/798970581",
+     "way/133905012"
+    ],
+    "length": 1.5931298546197408
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
      [
       -74.0277731,
       41.2646449

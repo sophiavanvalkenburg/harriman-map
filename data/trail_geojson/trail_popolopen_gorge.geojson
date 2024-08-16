@@ -3,25 +3,20 @@
  "features": [
   {
    "type": "Feature",
-   "id": "212412cc-c147-4647-8e09-e670d4f9b27f",
+   "id": "a6f4b596-5afc-4d24-bd94-f950fb29d363",
    "properties": {
     "name": "Popolopen Gorge Trail",
-    "id": "212412cc-c147-4647-8e09-e670d4f9b27f",
-    "status": "incomplete",
+    "id": "a6f4b596-5afc-4d24-bd94-f950fb29d363",
+    "status": "complete",
     "osm_way_ids": [
      "way/241544367",
      "way/377365213",
      "way/1003727818",
      "way/1003727817",
      "way/377365207",
-     "way/423692901",
-     "way/866077050",
-     "way/1003727805",
-     "way/238875977-1",
-     "way/238875977-0",
-     "way/1003727798"
+     "way/423692901"
     ],
-    "length": 3.893228539107805
+    "length": 2.870414859834813
    },
    "geometry": {
     "type": "LineString",
@@ -745,7 +740,27 @@
      [
       -74.0331248,
       41.3136245
-     ],
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "de7ec1da-03cf-4553-a7a9-a7e25972d6b0",
+   "properties": {
+    "name": "Popolopen Gorge Trail",
+    "id": "de7ec1da-03cf-4553-a7a9-a7e25972d6b0",
+    "status": "incomplete",
+    "osm_way_ids": [
+     "way/866077050",
+     "way/1003727805",
+     "way/238875977-1"
+    ],
+    "length": 0.7353880936858913
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
      [
       -74.0331248,
       41.3136245
@@ -1025,7 +1040,26 @@
      [
       -74.0437609,
       41.3150566
-     ],
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "77ab18a9-e50e-4c85-9dc6-bb57a5d7ae4a",
+   "properties": {
+    "name": "Popolopen Gorge Trail",
+    "id": "77ab18a9-e50e-4c85-9dc6-bb57a5d7ae4a",
+    "status": "complete",
+    "osm_way_ids": [
+     "way/238875977-0",
+     "way/1003727798"
+    ],
+    "length": 0.30419262653897333
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
      [
       -74.0437609,
       41.3150566

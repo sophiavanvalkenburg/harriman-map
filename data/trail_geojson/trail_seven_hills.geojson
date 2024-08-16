@@ -3,30 +3,16 @@
  "features": [
   {
    "type": "Feature",
-   "id": "c004993b-8c83-4e89-9044-c44830dc570e",
+   "id": "04ba9cc6-6e40-4786-8882-29fb241edfcd",
    "properties": {
     "name": "Seven Hills Trail",
-    "id": "c004993b-8c83-4e89-9044-c44830dc570e",
-    "status": "incomplete",
+    "id": "04ba9cc6-6e40-4786-8882-29fb241edfcd",
+    "status": "complete",
     "osm_way_ids": [
      "way/62226394",
-     "way/807585682-0",
-     "way/807585681-1",
-     "way/895035667",
-     "way/981873277",
-     "way/981873274",
-     "way/981873278",
-     "way/981873273",
-     "way/895035668",
-     "way/368550807",
-     "way/368550808",
-     "way/981873268",
-     "way/981873269",
-     "way/981873267",
-     "way/1104782565",
-     "way/981873266"
+     "way/807585682-0"
     ],
-    "length": 2.8802095780507404
+    "length": 1.6206835348275177
    },
    "geometry": {
     "type": "LineString",
@@ -1478,7 +1464,25 @@
      [
       -74.1467943,
       41.1708432
-     ],
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "436293ac-7ead-422d-9b32-068d0e266cfa",
+   "properties": {
+    "name": "Seven Hills Trail",
+    "id": "436293ac-7ead-422d-9b32-068d0e266cfa",
+    "status": "incomplete",
+    "osm_way_ids": [
+     "way/807585681-1"
+    ],
+    "length": 0.28255730790046824
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
      [
       -74.1467943,
       41.1708432
@@ -1586,7 +1590,29 @@
      [
       -74.1428481,
       41.1747709
-     ],
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "613fba27-cf3f-41bc-a7bf-737452219191",
+   "properties": {
+    "name": "Seven Hills Trail",
+    "id": "613fba27-cf3f-41bc-a7bf-737452219191",
+    "status": "complete",
+    "osm_way_ids": [
+     "way/895035667",
+     "way/981873277",
+     "way/981873274",
+     "way/981873278",
+     "way/981873273"
+    ],
+    "length": 0.028914766881308843
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
      [
       -74.1428481,
       41.1747709
@@ -1658,7 +1684,25 @@
      [
       -74.1424521,
       41.1752662
-     ],
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "f10aaf10-41e2-4bcd-a6e7-a755c22a2b0e",
+   "properties": {
+    "name": "Seven Hills Trail",
+    "id": "f10aaf10-41e2-4bcd-a6e7-a755c22a2b0e",
+    "status": "incomplete",
+    "osm_way_ids": [
+     "way/895035668"
+    ],
+    "length": 0.41590532421708215
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
      [
       -74.1424521,
       41.1752662
@@ -1914,7 +1958,31 @@
      [
       -74.1366028,
       41.1804662
-     ],
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "94f0af69-4a64-4074-a4eb-095d1593eb67",
+   "properties": {
+    "name": "Seven Hills Trail",
+    "id": "94f0af69-4a64-4074-a4eb-095d1593eb67",
+    "status": "complete",
+    "osm_way_ids": [
+     "way/368550807",
+     "way/368550808",
+     "way/981873268",
+     "way/981873269",
+     "way/981873267",
+     "way/1104782565",
+     "way/981873266"
+    ],
+    "length": 0.6081513046671
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
      [
       -74.1366028,
       41.1804662

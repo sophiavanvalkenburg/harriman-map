@@ -8,7 +8,8 @@ ways_data_json = json.load(ways_data_file)
 trail_ways_prefix = sys.argv[2] # e.g. data/trail_ways/trail_
 trail_incompletes_prefix = sys.argv[3] # e.g. data/trail_incompletes/trail_incomplete_
 trail_outfile_prefix = sys.argv[4] # e.g. data/trail_geojson/trail_
-out_file = open(sys.argv[5], 'w')
+out_file_segmented_by_completion = open(sys.argv[5], 'w')
+out_file_not_segmented_by_completion = open(sys.argv[6], 'w')
 
 TRAIL_IDS = [
     "1777",
@@ -66,7 +67,12 @@ TRAIL_IDS = [
     "white_cross"
 ]
 
-all_trails_data = {
+all_trails_data_segmented_by_completion = {
+  "type": "FeatureCollection",
+  "features": []
+}
+
+all_trails_data_not_segmented_by_completion = {
   "type": "FeatureCollection",
   "features": []
 }
@@ -82,19 +88,21 @@ for id in TRAIL_IDS:
     print(trail_name)
 
     trail_data_segmented_by_completion = segment_trail(ways_data_json, trail_name, trail_way_ids_file, trail_incompletes_ids_files, True)
-    all_trails_data["features"].extend(trail_data_segmented_by_completion["features"])
+    all_trails_data_segmented_by_completion["features"].extend(trail_data_segmented_by_completion["features"])
+    trail_out_file = open(trail_outfile_prefix + id + ".geojson", 'w')
+    json.dump(trail_data_segmented_by_completion, trail_out_file, indent=1)
 
     trail_way_ids_file.seek(0)
     for file in trail_incompletes_ids_files:
         file.seek(0)
 
     trail_data_not_segmented_by_completion = segment_trail(ways_data_json, trail_name, trail_way_ids_file, trail_incompletes_ids_files, False)
-    trail_out_file = open(trail_outfile_prefix + id + ".geojson", 'w')
-    json.dump(trail_data_not_segmented_by_completion, trail_out_file, indent=1)
+    all_trails_data_not_segmented_by_completion["features"].extend(trail_data_not_segmented_by_completion["features"])
 
     trail_out_file.close()
     trail_way_ids_file.close()
     for file in trail_incompletes_ids_files:
         file.close()
 
-json.dump(all_trails_data, out_file, indent=1)
+json.dump(all_trails_data_segmented_by_completion, out_file_segmented_by_completion, indent=1)
+json.dump(all_trails_data_not_segmented_by_completion, out_file_not_segmented_by_completion, indent=1)

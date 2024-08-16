@@ -55,7 +55,7 @@ $ python3 scripts/purge_trails.py <harriman_split.geojson> <trail_deletions.log>
 
 10. Once we have Way id files for all trails and all incompleted segments, we can output the "completed" and "incomplete" trail segments to geojson files. Run the `scripts/segment_all_trails.py` file:
     ```
-    $ python3 scripts/segment_all_trails.py <harriman_complete.geojson> <trail_ways_prefix> <incomplete_trail_ways_prefix> <trail_ways_output_prefix>  <harriman_segmented.geojson>
+    $ python3 scripts/segment_all_trails.py <harriman_complete.geojson> <trail_ways_prefix> <incomplete_trail_ways_prefix> <trail_ways_output_prefix>  <harriman_segmented.geojson> <harriman_not_segmented.geojson>
     ```
 
-11. Now, all trail segment data will be output to `<harriman_segmented.geojson>`, and segment data for each trail will be in the directory indicated in `<trail_ways_output_prefix>`. To view in `map_for_data_editing.html`, make sure the data from `<harriman_segmented.geojson>` is assigned to the `TRAILS_DATA` variable, and all layer filters are uncommented. We're done! 
+11. Now, all trail segment data will be output to `<harriman_segmented.geojson>`, and segment data for each trail will be in the directory indicated in `<trail_ways_output_prefix>`. We also output trail data that is not segmented to `<harriman_not_segmented.geojson>`. To view in `map_for_data_editing.html`, make sure the data from `<harriman_segmented.geojson>` is assigned to the `TRAILS_DATA` variable, and all layer filters are uncommented. We're done! 
