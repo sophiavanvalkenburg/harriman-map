@@ -3,17 +3,17 @@
  "features": [
   {
    "type": "Feature",
-   "id": "eb0bbd45-b258-41f6-aedd-a0f4a2a51964",
+   "id": "82538333-86e9-4b3c-ae86-42cd8f08faef",
    "properties": {
     "name": "Twin Forts Trail",
-    "id": "eb0bbd45-b258-41f6-aedd-a0f4a2a51964",
+    "id": "82538333-86e9-4b3c-ae86-42cd8f08faef",
     "status": "complete",
     "osm_way_ids": [
      "way/80434933",
      "way/80434932",
      "way/514901860"
     ],
-    "length": 0.09216253061825136
+    "length": 0.42247095426491166
    },
    "geometry": {
     "type": "LineString",

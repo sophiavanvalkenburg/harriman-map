@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "92a7d2ea-eef4-4dcf-9026-f9757c1eecdf",
+   "id": "190cfe1c-87f8-4cff-9efe-a95f7ee8425f",
    "properties": {
     "name": "1777W Trail",
-    "id": "92a7d2ea-eef4-4dcf-9026-f9757c1eecdf",
+    "id": "190cfe1c-87f8-4cff-9efe-a95f7ee8425f",
     "status": "complete",
     "osm_way_ids": [
      "way/423237091",
@@ -14,7 +14,7 @@
      "way/534567305",
      "way/534567304"
     ],
-    "length": 1.237648850262897
+    "length": 2.4652502348594054
    },
    "geometry": {
     "type": "LineString",
@@ -300,10 +300,10 @@
   },
   {
    "type": "Feature",
-   "id": "cd3aee29-c46f-482a-b98b-fa0c204d6f49",
+   "id": "73c4abd7-aaad-4436-8e5a-f282a205e9cb",
    "properties": {
     "name": "1777W Trail",
-    "id": "cd3aee29-c46f-482a-b98b-fa0c204d6f49",
+    "id": "73c4abd7-aaad-4436-8e5a-f282a205e9cb",
     "status": "incomplete",
     "osm_way_ids": [
      "way/80515391",
@@ -316,7 +316,7 @@
      "way/761359501",
      "way/424083052"
     ],
-    "length": 0.7306354205317575
+    "length": 1.7127560676007199
    },
    "geometry": {
     "type": "LineString",
@@ -826,10 +826,10 @@
   },
   {
    "type": "Feature",
-   "id": "bb29d131-1d29-449a-aed0-f6926336eaf2",
+   "id": "6b3df26e-f5a8-4d7d-9f75-7ca687129e7d",
    "properties": {
     "name": "1777W Trail",
-    "id": "bb29d131-1d29-449a-aed0-f6926336eaf2",
+    "id": "6b3df26e-f5a8-4d7d-9f75-7ca687129e7d",
     "status": "complete",
     "osm_way_ids": [
      "way/377365207",
@@ -837,7 +837,7 @@
      "way/1003727818",
      "way/377365213"
     ],
-    "length": 0.8755030503790514
+    "length": 1.7812377731992053
    },
    "geometry": {
     "type": "LineString",
@@ -1079,10 +1079,10 @@
   },
   {
    "type": "Feature",
-   "id": "d8306e2f-3be9-48d9-bac2-7e7e9134dbba",
+   "id": "843001a4-b8dc-4435-936d-f4ebb7b3d498",
    "properties": {
     "name": "1777W Trail",
-    "id": "d8306e2f-3be9-48d9-bac2-7e7e9134dbba",
+    "id": "843001a4-b8dc-4435-936d-f4ebb7b3d498",
     "status": "incomplete",
     "osm_way_ids": [
      "way/423680723",
@@ -1100,7 +1100,7 @@
      "way/432825149",
      "way/432825147"
     ],
-    "length": 1.7043574159455641
+    "length": 3.4817518230015043
    },
    "geometry": {
     "type": "LineString",

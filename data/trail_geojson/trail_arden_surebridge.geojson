@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "36554870-37a4-4640-9222-f54860204807",
+   "id": "861a908e-7e7f-45fa-b831-68848afb656f",
    "properties": {
     "name": "Arden Surebridge Trail",
-    "id": "36554870-37a4-4640-9222-f54860204807",
+    "id": "861a908e-7e7f-45fa-b831-68848afb656f",
     "status": "complete",
     "osm_way_ids": [
      "way/966701908-0",
@@ -23,7 +23,7 @@
      "way/458951399",
      "way/1005399220"
     ],
-    "length": 3.455464040751435
+    "length": 8.395739680549369
    },
    "geometry": {
     "type": "LineString",

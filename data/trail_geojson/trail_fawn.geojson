@@ -3,15 +3,15 @@
  "features": [
   {
    "type": "Feature",
-   "id": "3f7e00fe-0e36-4c06-863e-30392ab4a758",
+   "id": "ab904f42-5b26-489f-933d-7bb1547357c2",
    "properties": {
     "name": "Fawn Trail",
-    "id": "3f7e00fe-0e36-4c06-863e-30392ab4a758",
+    "id": "ab904f42-5b26-489f-933d-7bb1547357c2",
     "status": "complete",
     "osm_way_ids": [
      "way/1123702065"
     ],
-    "length": 0.1703543287988593
+    "length": 0.3881448329420172
    },
    "geometry": {
     "type": "LineString",
@@ -109,15 +109,15 @@
   },
   {
    "type": "Feature",
-   "id": "df914a4c-df70-4c96-b4a7-26996118e5f7",
+   "id": "307a9fc2-5e46-474a-8734-ce552fda3cc9",
    "properties": {
     "name": "Fawn Trail",
-    "id": "df914a4c-df70-4c96-b4a7-26996118e5f7",
+    "id": "307a9fc2-5e46-474a-8734-ce552fda3cc9",
     "status": "incomplete",
     "osm_way_ids": [
      "way/613566551"
     ],
-    "length": 0.2840223308514166
+    "length": 0.5664606752779062
    },
    "geometry": {
     "type": "LineString",
@@ -235,16 +235,16 @@
   },
   {
    "type": "Feature",
-   "id": "4afbc75e-a929-4742-bca5-052bc462c1b0",
+   "id": "ddd96b64-afd1-49ff-afef-e99eb863c50d",
    "properties": {
     "name": "Fawn Trail",
-    "id": "4afbc75e-a929-4742-bca5-052bc462c1b0",
+    "id": "ddd96b64-afd1-49ff-afef-e99eb863c50d",
     "status": "complete",
     "osm_way_ids": [
      "way/542978589",
      "way/432818252"
     ],
-    "length": 0.929859044510948
+    "length": 1.8627604703021428
    },
    "geometry": {
     "type": "LineString",

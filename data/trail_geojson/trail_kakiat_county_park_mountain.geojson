@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "3724604c-ed87-444e-b2ee-f2a6f8393e26",
+   "id": "3c61a145-09b0-4c62-b52e-cec7b9c7a6a8",
    "properties": {
     "name": "Kakiat County Park Mountain Trail",
-    "id": "3724604c-ed87-444e-b2ee-f2a6f8393e26",
+    "id": "3c61a145-09b0-4c62-b52e-cec7b9c7a6a8",
     "status": "complete",
     "osm_way_ids": [
      "way/982033270",
@@ -14,7 +14,7 @@
      "way/982033277",
      "way/423728042"
     ],
-    "length": 0.3321248832094975
+    "length": 1.181774659772879
    },
    "geometry": {
     "type": "LineString",

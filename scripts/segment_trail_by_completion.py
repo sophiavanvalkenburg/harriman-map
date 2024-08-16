@@ -7,9 +7,15 @@ import haversine as hs
 def get_distance(p1, p2, unit=hs.Unit.METERS):
     return hs.haversine(p1, p2, unit)
 
+def get_segment_length(coords):
+    total_length = 0
+    for ind, coord in enumerate(coords[1:]):
+        total_length += get_distance(coords[ind-1], coords[ind], hs.Unit.MILES)
+    return total_length
+
 def make_segment(trail_name, way_ids, status, coords):
     segment_id = str(uuid.uuid4())
-    segment_length = get_distance(coords[0], coords[-1], hs.Unit.MILES)
+    segment_length = get_segment_length(coords)
     return {
         "type": "Feature",
         "id": segment_id,

@@ -3,15 +3,15 @@
  "features": [
   {
    "type": "Feature",
-   "id": "4c479f65-325e-4a60-a59f-bfc1ab1fd497",
+   "id": "79fac8c4-4bc3-45b8-b335-7b7ade473012",
    "properties": {
     "name": "North Buck Trail",
-    "id": "4c479f65-325e-4a60-a59f-bfc1ab1fd497",
+    "id": "79fac8c4-4bc3-45b8-b335-7b7ade473012",
     "status": "complete",
     "osm_way_ids": [
      "way/69412899"
     ],
-    "length": 0.260799556147824
+    "length": 0.5425739143925737
    },
    "geometry": {
     "type": "LineString",

@@ -3,15 +3,15 @@
  "features": [
   {
    "type": "Feature",
-   "id": "0d774151-7157-4173-9305-4aed31eb709e",
+   "id": "ae3187a5-52c1-4e14-a89f-eb7cd9cceb01",
    "properties": {
     "name": "Hurst Trail",
-    "id": "0d774151-7157-4173-9305-4aed31eb709e",
+    "id": "ae3187a5-52c1-4e14-a89f-eb7cd9cceb01",
     "status": "complete",
     "osm_way_ids": [
      "way/65177022"
     ],
-    "length": 0.3176183019950963
+    "length": 0.7001514530840799
    },
    "geometry": {
     "type": "LineString",

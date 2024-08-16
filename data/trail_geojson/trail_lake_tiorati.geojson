@@ -3,17 +3,17 @@
  "features": [
   {
    "type": "Feature",
-   "id": "14ded6a4-5129-4c9a-98fb-a3cce6f9e7fc",
+   "id": "4af3d937-f311-4f5b-ac9c-b7cddcb27256",
    "properties": {
     "name": "Lake Tiorati Trail",
-    "id": "14ded6a4-5129-4c9a-98fb-a3cce6f9e7fc",
+    "id": "4af3d937-f311-4f5b-ac9c-b7cddcb27256",
     "status": "complete",
     "osm_way_ids": [
      "way/80515300",
      "way/1005078521",
      "way/1005078523"
     ],
-    "length": 0.3192325014223298
+    "length": 0.628724932640943
    },
    "geometry": {
     "type": "LineString",

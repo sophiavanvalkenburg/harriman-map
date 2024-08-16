@@ -3,15 +3,15 @@
  "features": [
   {
    "type": "Feature",
-   "id": "e2e51638-1668-44c8-a798-ba6625c04f68",
+   "id": "f472707e-141b-402e-9807-069936c596f5",
    "properties": {
     "name": "Dater Mountain Blue Trail",
-    "id": "e2e51638-1668-44c8-a798-ba6625c04f68",
+    "id": "f472707e-141b-402e-9807-069936c596f5",
     "status": "complete",
     "osm_way_ids": [
      "way/180636674"
     ],
-    "length": 0.113426621404786
+    "length": 1.1333694725067869
    },
    "geometry": {
     "type": "LineString",

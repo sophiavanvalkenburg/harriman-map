@@ -3,15 +3,15 @@
  "features": [
   {
    "type": "Feature",
-   "id": "ed137b02-14d1-48c7-9de4-a5ad03e1127f",
+   "id": "136a3109-6973-4f1e-b0e4-0424a373de16",
    "properties": {
     "name": "Blue Disc Trail",
-    "id": "ed137b02-14d1-48c7-9de4-a5ad03e1127f",
+    "id": "136a3109-6973-4f1e-b0e4-0424a373de16",
     "status": "complete",
     "osm_way_ids": [
      "way/424509176"
     ],
-    "length": 0.48390382438237434
+    "length": 2.542229027065952
    },
    "geometry": {
     "type": "LineString",

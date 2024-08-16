@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "8e8cc273-12f9-45ac-9dd0-a6e263925f34",
+   "id": "76b7d45c-8741-4ce6-be26-2d590f3c00f4",
    "properties": {
     "name": "Nurian Trail",
-    "id": "8e8cc273-12f9-45ac-9dd0-a6e263925f34",
+    "id": "76b7d45c-8741-4ce6-be26-2d590f3c00f4",
     "status": "complete",
     "osm_way_ids": [
      "way/424753370",
@@ -23,7 +23,7 @@
      "way/115579733",
      "way/424752250-0"
     ],
-    "length": 1.728772731349952
+    "length": 3.640650575977047
    },
    "geometry": {
     "type": "LineString",
@@ -677,17 +677,17 @@
   },
   {
    "type": "Feature",
-   "id": "6d5ea798-9f9a-4a39-9cd2-be9936f21681",
+   "id": "a4627294-da87-4dfa-a825-026d2ece41ac",
    "properties": {
     "name": "Nurian Trail",
-    "id": "6d5ea798-9f9a-4a39-9cd2-be9936f21681",
+    "id": "a4627294-da87-4dfa-a825-026d2ece41ac",
     "status": "incomplete",
     "osm_way_ids": [
      "way/424752250-1",
      "way/982415741",
      "way/424752247"
     ],
-    "length": 0.17200384668191734
+    "length": 0.45489554739753457
    },
    "geometry": {
     "type": "LineString",
@@ -837,15 +837,15 @@
   },
   {
    "type": "Feature",
-   "id": "a2e16008-5dad-403c-8d44-ae5c095dfa2a",
+   "id": "fc0efb82-6c60-472e-a786-c9a5621be6d0",
    "properties": {
     "name": "Nurian Trail",
-    "id": "a2e16008-5dad-403c-8d44-ae5c095dfa2a",
+    "id": "fc0efb82-6c60-472e-a786-c9a5621be6d0",
     "status": "complete",
     "osm_way_ids": [
      "way/424752245"
     ],
-    "length": 0.04187801700817763
+    "length": 0.07483294289644636
    },
    "geometry": {
     "type": "LineString",
@@ -875,15 +875,15 @@
   },
   {
    "type": "Feature",
-   "id": "0152cc4d-7fad-4ffe-8821-97a555a34453",
+   "id": "771f2afa-6eb4-4b91-9882-820ab54957b5",
    "properties": {
     "name": "Nurian Trail",
-    "id": "0152cc4d-7fad-4ffe-8821-97a555a34453",
+    "id": "771f2afa-6eb4-4b91-9882-820ab54957b5",
     "status": "incomplete",
     "osm_way_ids": [
      "way/188503418"
     ],
-    "length": 0.39196117241313466
+    "length": 0.7987284255251252
    },
    "geometry": {
     "type": "LineString",

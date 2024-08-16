@@ -3,17 +3,17 @@
  "features": [
   {
    "type": "Feature",
-   "id": "f6281e2b-2597-46a7-b49a-96a527ea43f5",
+   "id": "2104bda0-9711-4e23-8ffb-922b57aa3b9b",
    "properties": {
     "name": "Timp Torne Trail",
-    "id": "f6281e2b-2597-46a7-b49a-96a527ea43f5",
+    "id": "2104bda0-9711-4e23-8ffb-922b57aa3b9b",
     "status": "incomplete",
     "osm_way_ids": [
      "way/157802670",
      "way/423195253",
      "way/1004614460"
     ],
-    "length": 0.13824291516424034
+    "length": 0.35928545653907507
    },
    "geometry": {
     "type": "LineString",
@@ -219,10 +219,10 @@
   },
   {
    "type": "Feature",
-   "id": "84fab62c-54f4-444d-9380-b76243e76174",
+   "id": "3ae8775e-875f-44c1-a16a-0a6a43048f58",
    "properties": {
     "name": "Timp Torne Trail",
-    "id": "84fab62c-54f4-444d-9380-b76243e76174",
+    "id": "3ae8775e-875f-44c1-a16a-0a6a43048f58",
     "status": "complete",
     "osm_way_ids": [
      "way/157802663",
@@ -233,7 +233,7 @@
      "way/448327037",
      "way/155876907-0"
     ],
-    "length": 1.865184828634964
+    "length": 4.062470162250727
    },
    "geometry": {
     "type": "LineString",
@@ -1043,10 +1043,10 @@
   },
   {
    "type": "Feature",
-   "id": "5d34bf64-c806-4c65-8d41-32acc49e7253",
+   "id": "d2f50142-597d-43eb-9b31-ebc7a8f619e7",
    "properties": {
     "name": "Timp Torne Trail",
-    "id": "5d34bf64-c806-4c65-8d41-32acc49e7253",
+    "id": "d2f50142-597d-43eb-9b31-ebc7a8f619e7",
     "status": "incomplete",
     "osm_way_ids": [
      "way/155876907-1",
@@ -1054,7 +1054,7 @@
      "way/423529968",
      "way/133905001"
     ],
-    "length": 1.2225658574980245
+    "length": 2.8389623515529143
    },
    "geometry": {
     "type": "LineString",
@@ -1880,10 +1880,10 @@
   },
   {
    "type": "Feature",
-   "id": "5cf95a8b-b0e4-4ba2-a3c9-c82026d001e6",
+   "id": "4451cb19-f47a-43e2-8089-956b88e58c87",
    "properties": {
     "name": "Timp Torne Trail",
-    "id": "5cf95a8b-b0e4-4ba2-a3c9-c82026d001e6",
+    "id": "4451cb19-f47a-43e2-8089-956b88e58c87",
     "status": "complete",
     "osm_way_ids": [
      "way/316897992",
@@ -1891,7 +1891,7 @@
      "way/423530444",
      "way/377361587"
     ],
-    "length": 0.9609323650484562
+    "length": 2.2309980259870863
    },
    "geometry": {
     "type": "LineString",
@@ -2545,10 +2545,10 @@
   },
   {
    "type": "Feature",
-   "id": "ed8f9666-6115-4cdb-ae24-84b4fa0e4c15",
+   "id": "7b9cdec0-293e-436c-b68a-1a190d8fa817",
    "properties": {
     "name": "Timp Torne Trail",
-    "id": "ed8f9666-6115-4cdb-ae24-84b4fa0e4c15",
+    "id": "7b9cdec0-293e-436c-b68a-1a190d8fa817",
     "status": "incomplete",
     "osm_way_ids": [
      "way/1123702062",
@@ -2561,7 +2561,7 @@
      "way/761359501",
      "way/424083052"
     ],
-    "length": 0.2635518913785101
+    "length": 0.825053347738478
    },
    "geometry": {
     "type": "LineString",
@@ -2927,10 +2927,10 @@
   },
   {
    "type": "Feature",
-   "id": "20e3978c-820c-47dd-90a7-0373f78e3830",
+   "id": "d0ff1143-250b-4e69-a94e-8592759d25c6",
    "properties": {
     "name": "Timp Torne Trail",
-    "id": "20e3978c-820c-47dd-90a7-0373f78e3830",
+    "id": "d0ff1143-250b-4e69-a94e-8592759d25c6",
     "status": "complete",
     "osm_way_ids": [
      "way/377365207",
@@ -2938,7 +2938,7 @@
      "way/1003727818",
      "way/377365213"
     ],
-    "length": 0.8755030503790514
+    "length": 1.7812377731992053
    },
    "geometry": {
     "type": "LineString",
@@ -3180,10 +3180,10 @@
   },
   {
    "type": "Feature",
-   "id": "b1e10a97-65d9-49fe-b744-8032f22eaeaf",
+   "id": "0ed38dbe-927f-4b7f-a701-f91f0ea3cf2b",
    "properties": {
     "name": "Timp Torne Trail",
-    "id": "b1e10a97-65d9-49fe-b744-8032f22eaeaf",
+    "id": "0ed38dbe-927f-4b7f-a701-f91f0ea3cf2b",
     "status": "incomplete",
     "osm_way_ids": [
      "way/423680723",
@@ -3201,7 +3201,7 @@
      "way/432825149",
      "way/432825147"
     ],
-    "length": 1.7043574159455641
+    "length": 4.149841336818363
    },
    "geometry": {
     "type": "LineString",

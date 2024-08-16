@@ -3,15 +3,15 @@
  "features": [
   {
    "type": "Feature",
-   "id": "0f245a7e-381a-40b7-a679-c9869abd47b3",
+   "id": "a5122a19-71e3-4db7-b838-cc6aab2274fa",
    "properties": {
     "name": "White Cross Trail",
-    "id": "0f245a7e-381a-40b7-a679-c9869abd47b3",
+    "id": "a5122a19-71e3-4db7-b838-cc6aab2274fa",
     "status": "complete",
     "osm_way_ids": [
      "way/424580697"
     ],
-    "length": 1.0535982283028646
+    "length": 2.2607055773774087
    },
    "geometry": {
     "type": "LineString",

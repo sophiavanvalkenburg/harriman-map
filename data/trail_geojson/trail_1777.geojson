@@ -3,15 +3,15 @@
  "features": [
   {
    "type": "Feature",
-   "id": "ee19478c-dedf-44d9-8f12-d60c2843e6fb",
+   "id": "796b8fff-d92b-4b30-a23f-96df7b58c551",
    "properties": {
     "name": "1777 Trail",
-    "id": "ee19478c-dedf-44d9-8f12-d60c2843e6fb",
+    "id": "796b8fff-d92b-4b30-a23f-96df7b58c551",
     "status": "incomplete",
     "osm_way_ids": [
      "way/798970576-1"
     ],
-    "length": 1.382239945806266
+    "length": 2.780387603071757
    },
    "geometry": {
     "type": "LineString",
@@ -353,10 +353,10 @@
   },
   {
    "type": "Feature",
-   "id": "d06d2a05-f5ad-4951-90e6-8d73e1ff0e6a",
+   "id": "09ca37a1-34f8-456c-84b0-b9d02f46f074",
    "properties": {
     "name": "1777 Trail",
-    "id": "d06d2a05-f5ad-4951-90e6-8d73e1ff0e6a",
+    "id": "09ca37a1-34f8-456c-84b0-b9d02f46f074",
     "status": "complete",
     "osm_way_ids": [
      "way/798970576-0",
@@ -364,7 +364,7 @@
      "way/798970577",
      "way/155876894"
     ],
-    "length": 0.4841270888706154
+    "length": 1.4276531864665465
    },
    "geometry": {
     "type": "LineString",

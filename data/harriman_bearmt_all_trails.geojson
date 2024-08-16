@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "8691b00f-c868-4de2-9b4c-92c08bbde673",
+   "id": "2b90a390-f1d8-4eb3-ad1c-042abd54d591",
    "properties": {
     "name": "1777 Trail",
-    "id": "8691b00f-c868-4de2-9b4c-92c08bbde673",
+    "id": "2b90a390-f1d8-4eb3-ad1c-042abd54d591",
     "status": "incomplete",
     "osm_way_ids": [
      "way/798970576-1",
@@ -15,7 +15,7 @@
      "way/798970577",
      "way/155876894"
     ],
-    "length": 1.738197724192383
+    "length": 4.091627151411336
    },
    "geometry": {
     "type": "LineString",
@@ -801,10 +801,10 @@
   },
   {
    "type": "Feature",
-   "id": "48599c5c-4a57-47d8-b9ee-fbae0b7028c7",
+   "id": "026954bc-962a-46ba-b800-e639dfd1bdf9",
    "properties": {
     "name": "1777E Trail",
-    "id": "48599c5c-4a57-47d8-b9ee-fbae0b7028c7",
+    "id": "026954bc-962a-46ba-b800-e639dfd1bdf9",
     "status": "incomplete",
     "osm_way_ids": [
      "way/423240018",
@@ -831,7 +831,7 @@
      "way/372665089-0",
      "way/372665089-1"
     ],
-    "length": 0.7898790939287752
+    "length": 2.5089258319136656
    },
    "geometry": {
     "type": "LineString",
@@ -1725,10 +1725,10 @@
   },
   {
    "type": "Feature",
-   "id": "48d01d9b-ff15-40b5-97e0-f67a97d2ea3d",
+   "id": "85cb9350-aa60-4d69-afe7-063fb2970193",
    "properties": {
     "name": "1777W Trail",
-    "id": "48d01d9b-ff15-40b5-97e0-f67a97d2ea3d",
+    "id": "85cb9350-aa60-4d69-afe7-063fb2970193",
     "status": "incomplete",
     "osm_way_ids": [
      "way/423237091",
@@ -1763,7 +1763,7 @@
      "way/432825149",
      "way/432825147"
     ],
-    "length": 0.8348432969620263
+    "length": 5.798585547051532
    },
    "geometry": {
     "type": "LineString",
@@ -3349,10 +3349,10 @@
   },
   {
    "type": "Feature",
-   "id": "02048f69-bba5-4e9f-bbd9-e5493cfcf133",
+   "id": "29b1cbd0-5803-491d-a294-c632a839e4b0",
    "properties": {
     "name": "1779 Trail",
-    "id": "02048f69-bba5-4e9f-bbd9-e5493cfcf133",
+    "id": "29b1cbd0-5803-491d-a294-c632a839e4b0",
     "status": "incomplete",
     "osm_way_ids": [
      "way/809306037",
@@ -3396,7 +3396,7 @@
      "way/432825149",
      "way/432825147"
     ],
-    "length": 2.3356661751238508
+    "length": 8.894137235469508
    },
    "geometry": {
     "type": "LineString",
@@ -5494,10 +5494,10 @@
   },
   {
    "type": "Feature",
-   "id": "00adca1b-1d3b-4df8-a428-bbf3c0882ec6",
+   "id": "a1fa1a6f-2db9-45b6-8941-f9600ff70927",
    "properties": {
     "name": "Anthony Wayne Trail",
-    "id": "00adca1b-1d3b-4df8-a428-bbf3c0882ec6",
+    "id": "a1fa1a6f-2db9-45b6-8941-f9600ff70927",
     "status": "incomplete",
     "osm_way_ids": [
      "way/1003727800",
@@ -5510,7 +5510,7 @@
      "way/20664104",
      "way/136011028"
     ],
-    "length": 1.3277276603235224
+    "length": 3.346168704749251
    },
    "geometry": {
     "type": "LineString",
@@ -6280,10 +6280,10 @@
   },
   {
    "type": "Feature",
-   "id": "48c0966d-120f-4090-968d-fbc40f3406ee",
+   "id": "072a8fb7-2ce8-48cd-b9af-5119c8d92a9c",
    "properties": {
     "name": "Appalachian Trail",
-    "id": "48c0966d-120f-4090-968d-fbc40f3406ee",
+    "id": "072a8fb7-2ce8-48cd-b9af-5119c8d92a9c",
     "status": "incomplete",
     "osm_way_ids": [
      "way/248706801",
@@ -6342,7 +6342,7 @@
      "way/372665089-0",
      "way/372665089-1"
     ],
-    "length": 12.282924624096873
+    "length": 29.279753404641006
    },
    "geometry": {
     "type": "LineString",
@@ -12572,10 +12572,10 @@
   },
   {
    "type": "Feature",
-   "id": "4c66b7ff-f4db-498b-9ce6-feda593c8c57",
+   "id": "6d3759c5-659a-4627-8e57-eeeffe06b6ac",
    "properties": {
     "name": "Arden Surebridge Trail",
-    "id": "4c66b7ff-f4db-498b-9ce6-feda593c8c57",
+    "id": "6d3759c5-659a-4627-8e57-eeeffe06b6ac",
     "status": "complete",
     "osm_way_ids": [
      "way/966701908-0",
@@ -12592,7 +12592,7 @@
      "way/458951399",
      "way/1005399220"
     ],
-    "length": 3.455464040751435
+    "length": 8.395739680549369
    },
    "geometry": {
     "type": "LineString",
@@ -14122,10 +14122,10 @@
   },
   {
    "type": "Feature",
-   "id": "2b207df5-3a5e-4a32-beb3-7e2da28de411",
+   "id": "7d920a87-f7db-42e0-a3c1-b5509ce17012",
    "properties": {
     "name": "Beech Trail",
-    "id": "2b207df5-3a5e-4a32-beb3-7e2da28de411",
+    "id": "7d920a87-f7db-42e0-a3c1-b5509ce17012",
     "status": "complete",
     "osm_way_ids": [
      "way/982353342",
@@ -14133,7 +14133,7 @@
      "way/982353347",
      "way/982353346"
     ],
-    "length": 2.058161080198227
+    "length": 5.317885840796049
    },
    "geometry": {
     "type": "LineString",
@@ -14999,15 +14999,15 @@
   },
   {
    "type": "Feature",
-   "id": "2b1c1717-57ed-4bb8-81b6-2b9e66885922",
+   "id": "8e350b9f-f4d8-43c6-990f-ba11e845a02f",
    "properties": {
     "name": "Blue Disc Trail",
-    "id": "2b1c1717-57ed-4bb8-81b6-2b9e66885922",
+    "id": "8e350b9f-f4d8-43c6-990f-ba11e845a02f",
     "status": "complete",
     "osm_way_ids": [
      "way/424509176"
     ],
-    "length": 0.48390382438237434
+    "length": 2.542229027065952
    },
    "geometry": {
     "type": "LineString",
@@ -16073,17 +16073,17 @@
   },
   {
    "type": "Feature",
-   "id": "c398a3d2-217f-4a23-a549-e89e70b13221",
+   "id": "eb5ae511-996a-4645-abc9-6a35c1cfbf40",
    "properties": {
     "name": "Bottle Cap Trail",
-    "id": "c398a3d2-217f-4a23-a549-e89e70b13221",
+    "id": "eb5ae511-996a-4645-abc9-6a35c1cfbf40",
     "status": "complete",
     "osm_way_ids": [
      "way/1006618875",
      "way/1006618876",
      "way/65177026"
     ],
-    "length": 1.9179084758941283
+    "length": 3.898243209864215
    },
    "geometry": {
     "type": "LineString",
@@ -16857,16 +16857,16 @@
   },
   {
    "type": "Feature",
-   "id": "aed04a3c-081c-4051-bd63-3c5fc7e51ebf",
+   "id": "c73326ee-0e18-46fe-b474-d8bdaae212e5",
    "properties": {
     "name": "Breakneck Mountain Trail",
-    "id": "aed04a3c-081c-4051-bd63-3c5fc7e51ebf",
+    "id": "c73326ee-0e18-46fe-b474-d8bdaae212e5",
     "status": "complete",
     "osm_way_ids": [
      "way/69329466",
      "way/982172559"
     ],
-    "length": 1.0315299718446576
+    "length": 2.181257895605467
    },
    "geometry": {
     "type": "LineString",
@@ -17312,16 +17312,16 @@
   },
   {
    "type": "Feature",
-   "id": "1021799e-0113-4909-8f03-8aa34c2fc850",
+   "id": "51ef80e6-3265-4c8c-8dba-1e2a8921883e",
    "properties": {
     "name": "Brooks Lake Trail",
-    "id": "1021799e-0113-4909-8f03-8aa34c2fc850",
+    "id": "51ef80e6-3265-4c8c-8dba-1e2a8921883e",
     "status": "incomplete",
     "osm_way_ids": [
      "way/136005509",
      "way/423436789"
     ],
-    "length": 0.0
+    "length": 0.6923343927301794
    },
    "geometry": {
     "type": "LineString",
@@ -17559,16 +17559,16 @@
   },
   {
    "type": "Feature",
-   "id": "e09d7b64-b2ea-4d7f-a110-a9011d098d00",
+   "id": "6e2c689b-1b29-4110-b98d-a9883f41f721",
    "properties": {
     "name": "Buck Trail",
-    "id": "e09d7b64-b2ea-4d7f-a110-a9011d098d00",
+    "id": "6e2c689b-1b29-4110-b98d-a9883f41f721",
     "status": "complete",
     "osm_way_ids": [
      "way/69321662",
      "way/69321666"
     ],
-    "length": 1.5900102192427152
+    "length": 3.2216395327889
    },
    "geometry": {
     "type": "LineString",
@@ -17998,15 +17998,15 @@
   },
   {
    "type": "Feature",
-   "id": "c6d7ff65-6bbc-4b0b-89e0-732084b45c22",
+   "id": "d435da6a-187e-4cf1-81bc-e5a161b24e3a",
    "properties": {
     "name": "Conklins Crossing Trail",
-    "id": "c6d7ff65-6bbc-4b0b-89e0-732084b45c22",
+    "id": "d435da6a-187e-4cf1-81bc-e5a161b24e3a",
     "status": "complete",
     "osm_way_ids": [
      "way/62226397"
     ],
-    "length": 0.4769800522471663
+    "length": 1.0021720224809605
    },
    "geometry": {
     "type": "LineString",
@@ -18216,17 +18216,17 @@
   },
   {
    "type": "Feature",
-   "id": "86896080-4332-4fdb-be0b-41e24ffd333c",
+   "id": "3f6e44b7-fb48-4ade-9e4e-1d691b837433",
    "properties": {
     "name": "Cornell Mine Trail",
-    "id": "86896080-4332-4fdb-be0b-41e24ffd333c",
+    "id": "3f6e44b7-fb48-4ade-9e4e-1d691b837433",
     "status": "complete",
     "osm_way_ids": [
      "way/423231459",
      "way/423231363",
      "way/423230974"
     ],
-    "length": 0.3978788224987687
+    "length": 1.3857562328456559
    },
    "geometry": {
     "type": "LineString",
@@ -18800,15 +18800,15 @@
   },
   {
    "type": "Feature",
-   "id": "692256ac-05a4-4f73-9aec-98224f2100bf",
+   "id": "edb11b8e-3ff8-4deb-8fb8-927800943fa0",
    "properties": {
     "name": "Dater Mountain Blue Trail",
-    "id": "692256ac-05a4-4f73-9aec-98224f2100bf",
+    "id": "edb11b8e-3ff8-4deb-8fb8-927800943fa0",
     "status": "complete",
     "osm_way_ids": [
      "way/180636674"
     ],
-    "length": 0.113426621404786
+    "length": 1.1333694725067869
    },
    "geometry": {
     "type": "LineString",
@@ -19358,15 +19358,15 @@
   },
   {
    "type": "Feature",
-   "id": "bbb22558-2130-46eb-a7da-38de3ac48698",
+   "id": "42bde240-046a-4d4f-9805-c7e58e9fa21a",
    "properties": {
     "name": "Dater Mountain Orange Trail",
-    "id": "bbb22558-2130-46eb-a7da-38de3ac48698",
+    "id": "42bde240-046a-4d4f-9805-c7e58e9fa21a",
     "status": "complete",
     "osm_way_ids": [
      "way/180636672"
     ],
-    "length": 0.22704039169398543
+    "length": 1.0527570331925618
    },
    "geometry": {
     "type": "LineString",
@@ -19892,16 +19892,16 @@
   },
   {
    "type": "Feature",
-   "id": "d521fefd-f94b-4cd6-b4c7-ccd924bf14b7",
+   "id": "f8837863-fbbd-4bdb-9e06-2fd48566e2e1",
    "properties": {
     "name": "Diamond Mountain Tower Trail",
-    "id": "d521fefd-f94b-4cd6-b4c7-ccd924bf14b7",
+    "id": "f8837863-fbbd-4bdb-9e06-2fd48566e2e1",
     "status": "incomplete",
     "osm_way_ids": [
      "way/62226398-1",
      "way/62226398-0"
     ],
-    "length": 0.19946814128722742
+    "length": 0.7829602239635152
    },
    "geometry": {
     "type": "LineString",
@@ -20263,10 +20263,10 @@
   },
   {
    "type": "Feature",
-   "id": "6f217847-e7f9-4330-8a5b-4138e01c1c8a",
+   "id": "a253e87d-02d1-404d-88c5-1bed4759f960",
    "properties": {
     "name": "Dunning Trail",
-    "id": "6f217847-e7f9-4330-8a5b-4138e01c1c8a",
+    "id": "a253e87d-02d1-404d-88c5-1bed4759f960",
     "status": "incomplete",
     "osm_way_ids": [
      "way/424752248",
@@ -20278,7 +20278,7 @@
      "way/292356375",
      "way/1005399211"
     ],
-    "length": 2.623048205507317
+    "length": 5.771269484114427
    },
    "geometry": {
     "type": "LineString",
@@ -21372,10 +21372,10 @@
   },
   {
    "type": "Feature",
-   "id": "6d6c555e-4fc2-4986-b43b-2c78b4ff35ba",
+   "id": "154f959c-34de-4276-81ee-197dfd6514d1",
    "properties": {
     "name": "Fawn Trail",
-    "id": "6d6c555e-4fc2-4986-b43b-2c78b4ff35ba",
+    "id": "154f959c-34de-4276-81ee-197dfd6514d1",
     "status": "incomplete",
     "osm_way_ids": [
      "way/1123702065",
@@ -21383,7 +21383,7 @@
      "way/542978589",
      "way/432818252"
     ],
-    "length": 1.391398039822458
+    "length": 2.850895011349262
    },
    "geometry": {
     "type": "LineString",
@@ -21813,10 +21813,10 @@
   },
   {
    "type": "Feature",
-   "id": "9683e070-5208-413f-be03-11877a9b39f7",
+   "id": "df511540-dd23-45a8-8904-4ed67fcdb85c",
    "properties": {
     "name": "Hillburn Torne Sebago Trail",
-    "id": "9683e070-5208-413f-be03-11877a9b39f7",
+    "id": "df511540-dd23-45a8-8904-4ed67fcdb85c",
     "status": "complete",
     "osm_way_ids": [
      "way/368550809",
@@ -21830,7 +21830,7 @@
      "way/153978286",
      "way/981911378"
     ],
-    "length": 2.0549956432961523
+    "length": 6.033568706445463
    },
    "geometry": {
     "type": "LineString",
@@ -23732,15 +23732,15 @@
   },
   {
    "type": "Feature",
-   "id": "691e9c1d-a512-4c55-972b-69592cf51971",
+   "id": "ba2db6d5-cb87-4e0c-bb81-d8226e5ecc3d",
    "properties": {
     "name": "Hurst Trail",
-    "id": "691e9c1d-a512-4c55-972b-69592cf51971",
+    "id": "ba2db6d5-cb87-4e0c-bb81-d8226e5ecc3d",
     "status": "complete",
     "osm_way_ids": [
      "way/65177022"
     ],
-    "length": 0.3176183019950963
+    "length": 0.7001514530840799
    },
    "geometry": {
     "type": "LineString",
@@ -23938,10 +23938,10 @@
   },
   {
    "type": "Feature",
-   "id": "a46c993d-a43a-4c81-a312-f22ffd50e3cc",
+   "id": "5e2dfd71-32c5-4213-8d13-e05843ee93b7",
    "properties": {
     "name": "Kakiat Trail",
-    "id": "a46c993d-a43a-4c81-a312-f22ffd50e3cc",
+    "id": "5e2dfd71-32c5-4213-8d13-e05843ee93b7",
     "status": "complete",
     "osm_way_ids": [
      "way/514903099",
@@ -23964,7 +23964,7 @@
      "way/982033281",
      "way/1104782567"
     ],
-    "length": 4.608185337378913
+    "length": 10.711951078226727
    },
    "geometry": {
     "type": "LineString",
@@ -26138,10 +26138,10 @@
   },
   {
    "type": "Feature",
-   "id": "b32b709d-79fd-40e6-b272-3d4b4b57a407",
+   "id": "d41636f3-6cd6-436a-b7c5-99655c228318",
    "properties": {
     "name": "Kakiat County Park Mountain Trail",
-    "id": "b32b709d-79fd-40e6-b272-3d4b4b57a407",
+    "id": "d41636f3-6cd6-436a-b7c5-99655c228318",
     "status": "complete",
     "osm_way_ids": [
      "way/982033270",
@@ -26149,7 +26149,7 @@
      "way/982033277",
      "way/423728042"
     ],
-    "length": 0.3321248832094975
+    "length": 1.181774659772879
    },
    "geometry": {
     "type": "LineString",
@@ -26435,16 +26435,16 @@
   },
   {
    "type": "Feature",
-   "id": "77b91c32-f299-46be-a3cb-6087a50fd6ae",
+   "id": "67d52840-4af8-4d08-965b-7b321e2054ac",
    "properties": {
     "name": "Kakiat County Park Old Mill Trail",
-    "id": "77b91c32-f299-46be-a3cb-6087a50fd6ae",
+    "id": "67d52840-4af8-4d08-965b-7b321e2054ac",
     "status": "complete",
     "osm_way_ids": [
      "way/982033274",
      "way/44035776"
     ],
-    "length": 0.1463578206002041
+    "length": 0.5244622326602213
    },
    "geometry": {
     "type": "LineString",
@@ -26590,17 +26590,17 @@
   },
   {
    "type": "Feature",
-   "id": "2b1ec3af-bd4f-45a1-a80c-fb797a2b9cc9",
+   "id": "d263a73e-21f8-4092-8cde-1969b5bd069a",
    "properties": {
     "name": "Lake Tiorati Trail",
-    "id": "2b1ec3af-bd4f-45a1-a80c-fb797a2b9cc9",
+    "id": "d263a73e-21f8-4092-8cde-1969b5bd069a",
     "status": "complete",
     "osm_way_ids": [
      "way/80515300",
      "way/1005078521",
      "way/1005078523"
     ],
-    "length": 0.3192325014223298
+    "length": 0.628724932640943
    },
    "geometry": {
     "type": "LineString",
@@ -26722,15 +26722,15 @@
   },
   {
    "type": "Feature",
-   "id": "cf7663a0-203f-4e5c-8935-8944adaea538",
+   "id": "e12c52e0-ba8c-4437-92da-eb581dbc7f45",
    "properties": {
     "name": "Lichen Trail",
-    "id": "cf7663a0-203f-4e5c-8935-8944adaea538",
+    "id": "e12c52e0-ba8c-4437-92da-eb581dbc7f45",
     "status": "complete",
     "osm_way_ids": [
      "way/62120151"
     ],
-    "length": 0.09133808335521262
+    "length": 0.3946699635042035
    },
    "geometry": {
     "type": "LineString",
@@ -26872,10 +26872,10 @@
   },
   {
    "type": "Feature",
-   "id": "55ac483b-d56c-4598-a5bf-c5a15dc8c332",
+   "id": "0c458c1e-f5c4-4468-96fe-70c7b36e4495",
    "properties": {
     "name": "Long Path",
-    "id": "55ac483b-d56c-4598-a5bf-c5a15dc8c332",
+    "id": "0c458c1e-f5c4-4468-96fe-70c7b36e4495",
     "status": "complete",
     "osm_way_ids": [
      "way/424094846",
@@ -26909,7 +26909,7 @@
      "way/416607004",
      "way/20694004"
     ],
-    "length": 5.321731468929813
+    "length": 25.66357909396857
    },
    "geometry": {
     "type": "LineString",
@@ -33011,10 +33011,10 @@
   },
   {
    "type": "Feature",
-   "id": "60d85a8f-1939-4d08-9bb7-d83500b78a7b",
+   "id": "721b67bb-ff9b-4367-9ff3-71a8a19b5811",
    "properties": {
     "name": "Major Welch Trail",
-    "id": "60d85a8f-1939-4d08-9bb7-d83500b78a7b",
+    "id": "721b67bb-ff9b-4367-9ff3-71a8a19b5811",
     "status": "complete",
     "osm_way_ids": [
      "way/134871630",
@@ -33025,7 +33025,7 @@
      "way/423472318",
      "way/423472319"
     ],
-    "length": 1.0845173447624834
+    "length": 2.5432286399333073
    },
    "geometry": {
     "type": "LineString",
@@ -33615,10 +33615,10 @@
   },
   {
    "type": "Feature",
-   "id": "da8d0de1-87ba-4360-9b90-c6e8570f04b2",
+   "id": "e72de8f6-da1a-4f55-80d3-9b79eb16f0ed",
    "properties": {
     "name": "Menomine Trail",
-    "id": "da8d0de1-87ba-4360-9b90-c6e8570f04b2",
+    "id": "e72de8f6-da1a-4f55-80d3-9b79eb16f0ed",
     "status": "complete",
     "osm_way_ids": [
      "way/228460542-1",
@@ -33635,7 +33635,7 @@
      "way/1005062306",
      "way/513950186"
     ],
-    "length": 1.8501832290288596
+    "length": 4.813807349142531
    },
    "geometry": {
     "type": "LineString",
@@ -34725,15 +34725,15 @@
   },
   {
    "type": "Feature",
-   "id": "f826b8a4-ebf7-4e5d-a1e6-10491ab692a0",
+   "id": "58602caa-a551-4154-ab83-fd93746e2c8f",
    "properties": {
     "name": "North Buck Trail",
-    "id": "f826b8a4-ebf7-4e5d-a1e6-10491ab692a0",
+    "id": "58602caa-a551-4154-ab83-fd93746e2c8f",
     "status": "complete",
     "osm_way_ids": [
      "way/69412899"
     ],
-    "length": 0.260799556147824
+    "length": 0.5425739143925737
    },
    "geometry": {
     "type": "LineString",
@@ -34835,10 +34835,10 @@
   },
   {
    "type": "Feature",
-   "id": "3c10cc79-a2af-4194-9e12-203b95897b51",
+   "id": "69cc4822-ece4-428a-ac0c-1eadc5f60703",
    "properties": {
     "name": "Nurian Trail",
-    "id": "3c10cc79-a2af-4194-9e12-203b95897b51",
+    "id": "69cc4822-ece4-428a-ac0c-1eadc5f60703",
     "status": "incomplete",
     "osm_way_ids": [
      "way/424753370",
@@ -34860,7 +34860,7 @@
      "way/424752245",
      "way/188503418"
     ],
-    "length": 2.212219852572542
+    "length": 4.881973678618752
    },
    "geometry": {
     "type": "LineString",
@@ -35850,17 +35850,17 @@
   },
   {
    "type": "Feature",
-   "id": "9bec605b-7498-4bb4-ab11-42ebe9b3a6ef",
+   "id": "edcca18c-3504-4bcb-829b-2b19af9f8f18",
    "properties": {
     "name": "Parker Cabin Hollow Trail",
-    "id": "9bec605b-7498-4bb4-ab11-42ebe9b3a6ef",
+    "id": "edcca18c-3504-4bcb-829b-2b19af9f8f18",
     "status": "complete",
     "osm_way_ids": [
      "way/1005128087",
      "way/395468153",
      "way/424535796"
     ],
-    "length": 1.202199690655002
+    "length": 2.5789297646630294
    },
    "geometry": {
     "type": "LineString",
@@ -36174,10 +36174,10 @@
   },
   {
    "type": "Feature",
-   "id": "95aae9cb-f71b-4730-aa34-befbef44c91f",
+   "id": "dbd79bee-ed56-4514-98af-d41adca91215",
    "properties": {
     "name": "Pine Meadow Trail",
-    "id": "95aae9cb-f71b-4730-aa34-befbef44c91f",
+    "id": "dbd79bee-ed56-4514-98af-d41adca91215",
     "status": "complete",
     "osm_way_ids": [
      "way/895035666",
@@ -36196,7 +36196,7 @@
      "way/982033288",
      "way/982033285"
     ],
-    "length": 6.565247047760518
+    "length": 13.604457167045497
    },
    "geometry": {
     "type": "LineString",
@@ -38778,15 +38778,15 @@
   },
   {
    "type": "Feature",
-   "id": "91aff893-0471-4576-b69f-545625fe55bd",
+   "id": "95f2d682-3625-4a47-89b6-feb7229791e3",
    "properties": {
     "name": "Poached Egg Trail",
-    "id": "91aff893-0471-4576-b69f-545625fe55bd",
+    "id": "95f2d682-3625-4a47-89b6-feb7229791e3",
     "status": "complete",
     "osm_way_ids": [
      "way/44038105"
     ],
-    "length": 0.05326217753634969
+    "length": 0.10025372517766558
    },
    "geometry": {
     "type": "LineString",
@@ -38820,10 +38820,10 @@
   },
   {
    "type": "Feature",
-   "id": "7265c9a6-630a-463e-8fed-a67edc550b67",
+   "id": "a440b97b-2d04-4de3-8e7d-d7a4ceefa4b9",
    "properties": {
     "name": "Popolopen Gorge Trail",
-    "id": "7265c9a6-630a-463e-8fed-a67edc550b67",
+    "id": "a440b97b-2d04-4de3-8e7d-d7a4ceefa4b9",
     "status": "incomplete",
     "osm_way_ids": [
      "way/241544367",
@@ -38838,7 +38838,7 @@
      "way/238875977-0",
      "way/1003727798"
     ],
-    "length": 3.893228539107805
+    "length": 8.100443906260876
    },
    "geometry": {
     "type": "LineString",
@@ -39992,10 +39992,10 @@
   },
   {
    "type": "Feature",
-   "id": "0e8ca367-6e56-4b8d-860e-e6a9680355ec",
+   "id": "2e5e3f4b-7c77-4a29-9f70-4feb3737a809",
    "properties": {
     "name": "Raccoon Brook Hills Trail",
-    "id": "0e8ca367-6e56-4b8d-860e-e6a9680355ec",
+    "id": "2e5e3f4b-7c77-4a29-9f70-4feb3737a809",
     "status": "incomplete",
     "osm_way_ids": [
      "way/981911372",
@@ -40003,7 +40003,7 @@
      "way/44035769-1",
      "way/44035769-0"
     ],
-    "length": 1.4022867480366363
+    "length": 3.9549839603310444
    },
    "geometry": {
     "type": "LineString",
@@ -41277,10 +41277,10 @@
   },
   {
    "type": "Feature",
-   "id": "ee3322a9-9775-4b45-92d2-7bb7431fd634",
+   "id": "6e7bd225-6a53-4296-801c-1a4a56ccf8ba",
    "properties": {
     "name": "Ramapo Dunderberg Trail",
-    "id": "ee3322a9-9775-4b45-92d2-7bb7431fd634",
+    "id": "6e7bd225-6a53-4296-801c-1a4a56ccf8ba",
     "status": "incomplete",
     "osm_way_ids": [
      "way/512324931",
@@ -41328,7 +41328,7 @@
      "way/423195253",
      "way/157802670"
     ],
-    "length": 15.3404120528104
+    "length": 34.886908574348126
    },
    "geometry": {
     "type": "LineString",
@@ -48298,15 +48298,15 @@
   },
   {
    "type": "Feature",
-   "id": "1ad4076a-34dc-4d81-bccd-0882a17b6cf5",
+   "id": "c0adaac7-1010-4681-a781-3b5fa72915cd",
    "properties": {
     "name": "Red Arrow Trail",
-    "id": "1ad4076a-34dc-4d81-bccd-0882a17b6cf5",
+    "id": "c0adaac7-1010-4681-a781-3b5fa72915cd",
     "status": "complete",
     "osm_way_ids": [
      "way/133784248"
     ],
-    "length": 0.09043263857828854
+    "length": 0.49584625021800066
    },
    "geometry": {
     "type": "LineString",
@@ -48456,10 +48456,10 @@
   },
   {
    "type": "Feature",
-   "id": "e36200dd-ffe2-48b7-81d5-7ac67dc4298a",
+   "id": "fbc433ad-b3c1-43db-8394-8ce97519306c",
    "properties": {
     "name": "Red Cross Trail",
-    "id": "e36200dd-ffe2-48b7-81d5-7ac67dc4298a",
+    "id": "fbc433ad-b3c1-43db-8394-8ce97519306c",
     "status": "incomplete",
     "osm_way_ids": [
      "way/982375792-0",
@@ -48482,7 +48482,7 @@
      "way/798970581",
      "way/133905012"
     ],
-    "length": 6.8519753067714175
+    "length": 14.16961602394326
    },
    "geometry": {
     "type": "LineString",
@@ -50368,15 +50368,15 @@
   },
   {
    "type": "Feature",
-   "id": "afd46cc8-b721-4200-b070-9d59d6ac678d",
+   "id": "b6f28c50-6593-437d-a2c1-743b95c5f401",
    "properties": {
     "name": "Reeves Brook Trail",
-    "id": "afd46cc8-b721-4200-b070-9d59d6ac678d",
+    "id": "b6f28c50-6593-437d-a2c1-743b95c5f401",
     "status": "complete",
     "osm_way_ids": [
      "way/59339213"
     ],
-    "length": 1.0086777072098185
+    "length": 2.1910909856567233
    },
    "geometry": {
     "type": "LineString",
@@ -50978,15 +50978,15 @@
   },
   {
    "type": "Feature",
-   "id": "5414c4a2-89f7-4bdb-9a86-a116cf90a4e2",
+   "id": "f2b9a240-22eb-4e4a-b59e-6af6bd0eaac1",
    "properties": {
     "name": "Sapphire Trail",
-    "id": "5414c4a2-89f7-4bdb-9a86-a116cf90a4e2",
+    "id": "f2b9a240-22eb-4e4a-b59e-6af6bd0eaac1",
     "status": "complete",
     "osm_way_ids": [
      "way/540004330"
     ],
-    "length": 1.593622311153556
+    "length": 3.197618952090798
    },
    "geometry": {
     "type": "LineString",
@@ -51300,10 +51300,10 @@
   },
   {
    "type": "Feature",
-   "id": "3354cd42-70d0-40e1-a6c4-0c1ee9a13a18",
+   "id": "2847fcf2-8b07-477f-81b0-0b55c098fb35",
    "properties": {
     "name": "Seven Hills Trail",
-    "id": "3354cd42-70d0-40e1-a6c4-0c1ee9a13a18",
+    "id": "2847fcf2-8b07-477f-81b0-0b55c098fb35",
     "status": "incomplete",
     "osm_way_ids": [
      "way/62226394",
@@ -51323,7 +51323,7 @@
      "way/1104782565",
      "way/981873266"
     ],
-    "length": 2.8802095780507404
+    "length": 7.828664853377258
    },
    "geometry": {
     "type": "LineString",
@@ -53857,16 +53857,16 @@
   },
   {
    "type": "Feature",
-   "id": "abe44a99-d619-4a3e-82d7-ed965fb10b43",
+   "id": "4a4cdbfd-5ebb-4dd6-ae9c-c05568e1e82a",
    "properties": {
     "name": "Stahahe Brook Trail",
-    "id": "abe44a99-d619-4a3e-82d7-ed965fb10b43",
+    "id": "4a4cdbfd-5ebb-4dd6-ae9c-c05568e1e82a",
     "status": "complete",
     "osm_way_ids": [
      "way/982415749",
      "way/870813458"
     ],
-    "length": 0.1807460779290131
+    "length": 0.7212131130088428
    },
    "geometry": {
     "type": "LineString",
@@ -54052,10 +54052,10 @@
   },
   {
    "type": "Feature",
-   "id": "7a3e2d0e-e974-40f3-b87c-ffad6a30c0e9",
+   "id": "404cabba-58ab-426e-8abb-362c95a8d12a",
    "properties": {
     "name": "Stony Brook Trail",
-    "id": "7a3e2d0e-e974-40f3-b87c-ffad6a30c0e9",
+    "id": "404cabba-58ab-426e-8abb-362c95a8d12a",
     "status": "complete",
     "osm_way_ids": [
      "way/981873262",
@@ -54065,7 +54065,7 @@
      "way/514903107",
      "way/514903105"
     ],
-    "length": 1.5602917986564762
+    "length": 3.247899684176887
    },
    "geometry": {
     "type": "LineString",
@@ -54559,10 +54559,10 @@
   },
   {
    "type": "Feature",
-   "id": "3cef0813-1033-4c34-8bfb-04cde54ef5dc",
+   "id": "014a9515-ebbf-415d-8694-d257fd2d1ddb",
    "properties": {
     "name": "Suffern Bear Mountatin Trail",
-    "id": "3cef0813-1033-4c34-8bfb-04cde54ef5dc",
+    "id": "014a9515-ebbf-415d-8694-d257fd2d1ddb",
     "status": "complete",
     "osm_way_ids": [
      "way/798977085",
@@ -54604,7 +54604,7 @@
      "way/1104783941",
      "way/1003414765"
     ],
-    "length": 12.05646594194407
+    "length": 29.965134011915556
    },
    "geometry": {
     "type": "LineString",
@@ -62014,10 +62014,10 @@
   },
   {
    "type": "Feature",
-   "id": "79c76314-e7ee-472e-b479-0684ee1ba2d0",
+   "id": "0b1ba014-b23d-49c7-9f40-04016a0a1158",
    "properties": {
     "name": "Timp Torne Trail",
-    "id": "79c76314-e7ee-472e-b479-0684ee1ba2d0",
+    "id": "0b1ba014-b23d-49c7-9f40-04016a0a1158",
     "status": "incomplete",
     "osm_way_ids": [
      "way/157802670",
@@ -62066,7 +62066,7 @@
      "way/432825149",
      "way/432825147"
     ],
-    "length": 1.8621626632489503
+    "length": 11.159677771891285
    },
    "geometry": {
     "type": "LineString",
@@ -66044,10 +66044,10 @@
   },
   {
    "type": "Feature",
-   "id": "1ba65fb9-607c-408a-be8d-5f3855b5ebf6",
+   "id": "5c4867dc-bbb6-4ad8-b57f-bbcd1568bec9",
    "properties": {
     "name": "Triangle Trail",
-    "id": "1ba65fb9-607c-408a-be8d-5f3855b5ebf6",
+    "id": "5c4867dc-bbb6-4ad8-b57f-bbcd1568bec9",
     "status": "complete",
     "osm_way_ids": [
      "way/207760026",
@@ -66057,7 +66057,7 @@
      "way/62214334",
      "way/424576408"
     ],
-    "length": 2.2070411546295343
+    "length": 6.139320944076294
    },
    "geometry": {
     "type": "LineString",
@@ -67263,10 +67263,10 @@
   },
   {
    "type": "Feature",
-   "id": "ea74ae0e-312f-4d77-b27d-2d38ecb85bb2",
+   "id": "cbca10fd-7c18-43b0-8f94-0bb49b1e79fe",
    "properties": {
     "name": "Tuxedo Mount Ivy Trail",
-    "id": "ea74ae0e-312f-4d77-b27d-2d38ecb85bb2",
+    "id": "cbca10fd-7c18-43b0-8f94-0bb49b1e79fe",
     "status": "complete",
     "osm_way_ids": [
      "way/206921016",
@@ -67284,7 +67284,7 @@
      "way/132777738",
      "way/982124292"
     ],
-    "length": 6.802942538969681
+    "length": 14.42021265110277
    },
    "geometry": {
     "type": "LineString",
@@ -69490,17 +69490,17 @@
   },
   {
    "type": "Feature",
-   "id": "956d85e1-ce07-424a-bbc2-18195c59d3bb",
+   "id": "d83f2077-043f-4562-b014-761891b792b6",
    "properties": {
     "name": "Twin Forts Trail",
-    "id": "956d85e1-ce07-424a-bbc2-18195c59d3bb",
+    "id": "d83f2077-043f-4562-b014-761891b792b6",
     "status": "complete",
     "osm_way_ids": [
      "way/80434933",
      "way/80434932",
      "way/514901860"
     ],
-    "length": 0.09216253061825136
+    "length": 0.42247095426491166
    },
    "geometry": {
     "type": "LineString",
@@ -69630,10 +69630,10 @@
   },
   {
    "type": "Feature",
-   "id": "1319c446-1277-42a2-8b22-d1d45a0a34da",
+   "id": "36a8d15d-a0f3-4c15-9403-e69c79905ad6",
    "properties": {
     "name": "Victory Trail",
-    "id": "1319c446-1277-42a2-8b22-d1d45a0a34da",
+    "id": "36a8d15d-a0f3-4c15-9403-e69c79905ad6",
     "status": "complete",
     "osm_way_ids": [
      "way/346563170",
@@ -69642,7 +69642,7 @@
      "way/982415766",
      "way/206921102"
     ],
-    "length": 1.2477830001470296
+    "length": 4.263149700377108
    },
    "geometry": {
     "type": "LineString",
@@ -70592,10 +70592,10 @@
   },
   {
    "type": "Feature",
-   "id": "e693877a-391a-4c45-8dce-f6065c900044",
+   "id": "4d0580ea-bb96-4b04-aed5-447e4fa9ea3d",
    "properties": {
     "name": "White Bar Trail",
-    "id": "e693877a-391a-4c45-8dce-f6065c900044",
+    "id": "4d0580ea-bb96-4b04-aed5-447e4fa9ea3d",
     "status": "complete",
     "osm_way_ids": [
      "way/180636669",
@@ -70616,7 +70616,7 @@
      "way/369322216",
      "way/188503419"
     ],
-    "length": 2.6983723024460877
+    "length": 8.162752587835369
    },
    "geometry": {
     "type": "LineString",
@@ -72014,15 +72014,15 @@
   },
   {
    "type": "Feature",
-   "id": "3939e158-98a9-46ec-b2c8-c8c7de4b576d",
+   "id": "f65b33a3-0145-4dab-a3c2-a179a9bc488e",
    "properties": {
     "name": "White Cross Trail",
-    "id": "3939e158-98a9-46ec-b2c8-c8c7de4b576d",
+    "id": "f65b33a3-0145-4dab-a3c2-a179a9bc488e",
     "status": "complete",
     "osm_way_ids": [
      "way/424580697"
     ],
-    "length": 1.0535982283028646
+    "length": 2.2607055773774087
    },
    "geometry": {
     "type": "LineString",

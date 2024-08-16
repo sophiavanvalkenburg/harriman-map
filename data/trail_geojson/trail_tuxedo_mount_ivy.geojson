@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "395b0dc5-ef22-4382-80d5-296a084de3a4",
+   "id": "57a037bd-b9f1-4827-8daf-5c7df5c1fc70",
    "properties": {
     "name": "Tuxedo Mount Ivy Trail",
-    "id": "395b0dc5-ef22-4382-80d5-296a084de3a4",
+    "id": "57a037bd-b9f1-4827-8daf-5c7df5c1fc70",
     "status": "complete",
     "osm_way_ids": [
      "way/206921016",
@@ -24,7 +24,7 @@
      "way/132777738",
      "way/982124292"
     ],
-    "length": 6.802942538969681
+    "length": 14.42021265110277
    },
    "geometry": {
     "type": "LineString",

@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "38a9cf57-35ed-4c20-823f-8b256e955219",
+   "id": "3a385f09-852a-4672-8069-a0c640b4aa21",
    "properties": {
     "name": "Appalachian Trail",
-    "id": "38a9cf57-35ed-4c20-823f-8b256e955219",
+    "id": "3a385f09-852a-4672-8069-a0c640b4aa21",
     "status": "complete",
     "osm_way_ids": [
      "way/248706801",
@@ -21,7 +21,7 @@
      "way/982415771",
      "way/424541267-1"
     ],
-    "length": 4.186678721175689
+    "length": 8.817231905402027
    },
    "geometry": {
     "type": "LineString",
@@ -1843,16 +1843,16 @@
   },
   {
    "type": "Feature",
-   "id": "6bec279b-e079-4430-b7a9-7a2dd752ce48",
+   "id": "24f5db78-3c07-4114-a3af-7909a216908b",
    "properties": {
     "name": "Appalachian Trail",
-    "id": "6bec279b-e079-4430-b7a9-7a2dd752ce48",
+    "id": "24f5db78-3c07-4114-a3af-7909a216908b",
     "status": "incomplete",
     "osm_way_ids": [
      "way/424541267-0",
      "way/1005078524"
     ],
-    "length": 0.7429443595610089
+    "length": 1.5532088269452808
    },
    "geometry": {
     "type": "LineString",
@@ -2094,10 +2094,10 @@
   },
   {
    "type": "Feature",
-   "id": "49cc5f7b-55e9-4aa5-a143-326edda9328b",
+   "id": "ba165ee3-104a-46e0-8050-21578edb7eea",
    "properties": {
     "name": "Appalachian Trail",
-    "id": "49cc5f7b-55e9-4aa5-a143-326edda9328b",
+    "id": "ba165ee3-104a-46e0-8050-21578edb7eea",
     "status": "complete",
     "osm_way_ids": [
      "way/798970570",
@@ -2108,7 +2108,7 @@
      "way/1005062308",
      "way/369195402"
     ],
-    "length": 4.302239235159028
+    "length": 9.512172088926928
    },
    "geometry": {
     "type": "LineString",
@@ -3406,10 +3406,10 @@
   },
   {
    "type": "Feature",
-   "id": "554cd4ce-817c-40ab-a152-22bf61df04c4",
+   "id": "7684416f-f411-4d92-94ba-529d6d9c509c",
    "properties": {
     "name": "Appalachian Trail",
-    "id": "554cd4ce-817c-40ab-a152-22bf61df04c4",
+    "id": "7684416f-f411-4d92-94ba-529d6d9c509c",
     "status": "incomplete",
     "osm_way_ids": [
      "way/1123702067-2",
@@ -3419,7 +3419,7 @@
      "way/1005062291",
      "way/316897990-2"
     ],
-    "length": 0.6366624336861965
+    "length": 1.2519074752416173
    },
    "geometry": {
     "type": "LineString",
@@ -3629,17 +3629,17 @@
   },
   {
    "type": "Feature",
-   "id": "1422c57a-449a-49ec-b4fa-0d8e2726bf40",
+   "id": "d62c3c76-640a-43da-8fa0-371a245a10e4",
    "properties": {
     "name": "Appalachian Trail",
-    "id": "1422c57a-449a-49ec-b4fa-0d8e2726bf40",
+    "id": "d62c3c76-640a-43da-8fa0-371a245a10e4",
     "status": "complete",
     "osm_way_ids": [
      "way/316897990-1",
      "way/316897990-0",
      "way/423530444"
     ],
-    "length": 0.463172895890725
+    "length": 1.5811951013788184
    },
    "geometry": {
     "type": "LineString",
@@ -4117,15 +4117,15 @@
   },
   {
    "type": "Feature",
-   "id": "4eecbac6-f6f6-41e6-b4b9-0a6cbb101464",
+   "id": "6ed19ebf-168b-422f-9172-1f302ff01df5",
    "properties": {
     "name": "Appalachian Trail",
-    "id": "4eecbac6-f6f6-41e6-b4b9-0a6cbb101464",
+    "id": "6ed19ebf-168b-422f-9172-1f302ff01df5",
     "status": "incomplete",
     "osm_way_ids": [
      "way/424086405"
     ],
-    "length": 0.16229990534031788
+    "length": 0.4246471871657176
    },
    "geometry": {
     "type": "LineString",
@@ -4311,10 +4311,10 @@
   },
   {
    "type": "Feature",
-   "id": "4e98cfd9-c133-48f9-8074-1c4eef6bb478",
+   "id": "794cbdc1-713d-4c95-a639-41c33f117cb0",
    "properties": {
     "name": "Appalachian Trail",
-    "id": "4e98cfd9-c133-48f9-8074-1c4eef6bb478",
+    "id": "794cbdc1-713d-4c95-a639-41c33f117cb0",
     "status": "complete",
     "osm_way_ids": [
      "way/613566622",
@@ -4342,7 +4342,7 @@
      "way/372665088",
      "way/372665089-0"
     ],
-    "length": 2.1035608827220007
+    "length": 6.103680762327396
    },
    "geometry": {
     "type": "LineString",
@@ -6260,15 +6260,15 @@
   },
   {
    "type": "Feature",
-   "id": "55953e18-cd5a-47f6-b740-3d6784870ad4",
+   "id": "d621f5b7-6826-422e-98ed-fb5ae451d30c",
    "properties": {
     "name": "Appalachian Trail",
-    "id": "55953e18-cd5a-47f6-b740-3d6784870ad4",
+    "id": "d621f5b7-6826-422e-98ed-fb5ae451d30c",
     "status": "incomplete",
     "osm_way_ids": [
      "way/372665089-1"
     ],
-    "length": 0.09139349109661139
+    "length": 0.32516355869754004
    },
    "geometry": {
     "type": "LineString",

@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "496489d7-5c25-4056-9af2-11752d75c643",
+   "id": "c698655c-67ad-41c9-971c-484a80b25091",
    "properties": {
     "name": "Long Path",
-    "id": "496489d7-5c25-4056-9af2-11752d75c643",
+    "id": "c698655c-67ad-41c9-971c-484a80b25091",
     "status": "complete",
     "osm_way_ids": [
      "way/424094846",
@@ -40,7 +40,7 @@
      "way/416607004",
      "way/20694004"
     ],
-    "length": 5.321731468929813
+    "length": 25.66357909396857
    },
    "geometry": {
     "type": "LineString",

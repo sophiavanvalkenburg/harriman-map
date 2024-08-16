@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "8f845307-c742-4508-8723-1d265a6e71a8",
+   "id": "74e0eb82-7f75-4a5f-b67c-3f606d4239bf",
    "properties": {
     "name": "Victory Trail",
-    "id": "8f845307-c742-4508-8723-1d265a6e71a8",
+    "id": "74e0eb82-7f75-4a5f-b67c-3f606d4239bf",
     "status": "complete",
     "osm_way_ids": [
      "way/346563170",
@@ -15,7 +15,7 @@
      "way/982415766",
      "way/206921102"
     ],
-    "length": 1.2477830001470296
+    "length": 4.263149700377108
    },
    "geometry": {
     "type": "LineString",

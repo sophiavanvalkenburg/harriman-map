@@ -3,15 +3,15 @@
  "features": [
   {
    "type": "Feature",
-   "id": "eab1cc15-ca41-4fa6-94f8-ec237da933d4",
+   "id": "6f55da65-b61e-44f2-ae2c-df94c785f491",
    "properties": {
     "name": "Reeves Brook Trail",
-    "id": "eab1cc15-ca41-4fa6-94f8-ec237da933d4",
+    "id": "6f55da65-b61e-44f2-ae2c-df94c785f491",
     "status": "complete",
     "osm_way_ids": [
      "way/59339213"
     ],
-    "length": 1.0086777072098185
+    "length": 2.1910909856567233
    },
    "geometry": {
     "type": "LineString",
