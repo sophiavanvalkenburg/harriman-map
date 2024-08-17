@@ -1474,7 +1474,7 @@ function Map() {
       });
 
       map.current.addLayer({
-        'id': 'trail-lines-complete',
+        'id': 'segment-lines-complete',
         'type': 'line',
         'source': 'segments',
         'filter': ['==', 'complete', ['get', 'status']],
@@ -1485,7 +1485,7 @@ function Map() {
       });
 
       map.current.addLayer({
-        'id': 'trail-lines-incomplete',
+        'id': 'segment-lines-incomplete',
         'type': 'line',
         'source': 'segments',
         'filter': ['==', 'incomplete', ['get', 'status']],
@@ -1514,9 +1514,42 @@ function Map() {
       });
 
       map.current.addLayer({
+        'id': 'segment-lines-highlight',
+        'type': 'line',
+        'source': 'segments',
+        'layout': {
+          'visibility': 'none'
+        },
+        'paint': {
+          'line-color': "#ffe100",
+          'line-gap-width': 2,
+          'line-opacity': [
+            'case',
+            ['boolean', ['feature-state', 'hover'], false],
+            1,
+            0
+          ],
+          'line-width': 2,
+        }
+      });
+
+      map.current.addLayer({
         'id': 'trail-hitbox',
         'type': 'line',
         'source': 'trails',
+        'paint': {
+          'line-width': 15,
+          'line-opacity': 0
+        }
+      });
+
+      map.current.addLayer({
+        'id': 'segment-hitbox',
+        'type': 'line',
+        'source': 'segments',
+        'layout': {
+          'visibility': 'none'
+        },
         'paint': {
           'line-width': 15,
           'line-opacity': 0
