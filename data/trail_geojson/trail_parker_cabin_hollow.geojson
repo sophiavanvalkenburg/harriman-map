@@ -3,17 +3,18 @@
  "features": [
   {
    "type": "Feature",
-   "id": "14ef1d5e-b217-4e04-86ca-e2813eb44bf8",
+   "id": "74f94ccf-be57-47a5-a020-fe8a32533ff8",
    "properties": {
     "name": "Parker Cabin Hollow Trail",
-    "id": "14ef1d5e-b217-4e04-86ca-e2813eb44bf8",
+    "id": "74f94ccf-be57-47a5-a020-fe8a32533ff8",
     "status": "complete",
     "osm_way_ids": [
      "way/1005128087",
      "way/395468153",
      "way/424535796"
     ],
-    "length": 2.5789297646630294
+    "length": 2.5789297646630294,
+    "trail_id": "parker_cabin_hollow"
    },
    "geometry": {
     "type": "LineString",

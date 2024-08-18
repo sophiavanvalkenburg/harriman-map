@@ -3,15 +3,16 @@
  "features": [
   {
    "type": "Feature",
-   "id": "ae3187a5-52c1-4e14-a89f-eb7cd9cceb01",
+   "id": "d4b55c89-9019-4d61-bd38-460f4aefac22",
    "properties": {
     "name": "Hurst Trail",
-    "id": "ae3187a5-52c1-4e14-a89f-eb7cd9cceb01",
+    "id": "d4b55c89-9019-4d61-bd38-460f4aefac22",
     "status": "complete",
     "osm_way_ids": [
      "way/65177022"
     ],
-    "length": 0.7001514530840799
+    "length": 0.7001514530840799,
+    "trail_id": "hurst"
    },
    "geometry": {
     "type": "LineString",

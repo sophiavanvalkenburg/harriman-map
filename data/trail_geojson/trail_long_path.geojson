@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "c698655c-67ad-41c9-971c-484a80b25091",
+   "id": "ffd846cb-2e97-410f-a24f-d206e0ee169b",
    "properties": {
     "name": "Long Path",
-    "id": "c698655c-67ad-41c9-971c-484a80b25091",
+    "id": "ffd846cb-2e97-410f-a24f-d206e0ee169b",
     "status": "complete",
     "osm_way_ids": [
      "way/424094846",
@@ -40,7 +40,8 @@
      "way/416607004",
      "way/20694004"
     ],
-    "length": 25.66357909396857
+    "length": 25.66357909396857,
+    "trail_id": "long_path"
    },
    "geometry": {
     "type": "LineString",

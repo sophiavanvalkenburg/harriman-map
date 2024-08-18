@@ -105,15 +105,20 @@ def segment_trail(ways_data_json, trail_id, trail_name, trail_way_ids_file, trai
     trail_data["features"].append(new_segment)
     return trail_data
 
+def trail_id_to_name(id):
+    trail_name = id.replace("_", " ").title()
+    if (trail_name != "Long Path"):
+        trail_name += " Trail"
+    return trail_name
     
 if __name__ == "__main__":  
     ways_data_file = open(sys.argv[1])                                  # e.g. data/harriman_bearmt_split.geojson
     ways_data_json = json.load(ways_data_file)   
     trail_way_ids_file = open(sys.argv[2])                              # e.g. data/trail_ways/trail_appalachian.log
-    trail_name = sys.argv[3]                                            # e.g. "Appalachian Trail"
+    trail_id = sys.argv[3]                                            # e.g. "appalachian_trail"
     out_file = open(sys.argv[4], 'w')                                   # e.g. data/trail_geojson/trail_appalachian.geojson
     trail_incompletes_ids_files = [open(file) for file in sys.argv[5:]] # e.g. data/trail_incomplete/trail_incomplete_appalachian_1.log
-    trail_id = str(uuid.uuid4())
+    trail_name = trail_id_to_name(trail_id)
     trail_data = segment_trail(ways_data_json, trail_id, trail_name, trail_way_ids_file, trail_incompletes_ids_files, True)
     json.dump(trail_data, out_file, indent=1)
 

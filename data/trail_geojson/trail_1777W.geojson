@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "190cfe1c-87f8-4cff-9efe-a95f7ee8425f",
+   "id": "dd726623-1f66-4792-b0c3-cfb85fdc89d2",
    "properties": {
     "name": "1777W Trail",
-    "id": "190cfe1c-87f8-4cff-9efe-a95f7ee8425f",
+    "id": "dd726623-1f66-4792-b0c3-cfb85fdc89d2",
     "status": "complete",
     "osm_way_ids": [
      "way/423237091",
@@ -14,7 +14,8 @@
      "way/534567305",
      "way/534567304"
     ],
-    "length": 2.4652502348594054
+    "length": 2.4652502348594054,
+    "trail_id": "1777W"
    },
    "geometry": {
     "type": "LineString",
@@ -300,10 +301,10 @@
   },
   {
    "type": "Feature",
-   "id": "73c4abd7-aaad-4436-8e5a-f282a205e9cb",
+   "id": "7a468d7b-240b-4de5-b89f-6b40dd5c36aa",
    "properties": {
     "name": "1777W Trail",
-    "id": "73c4abd7-aaad-4436-8e5a-f282a205e9cb",
+    "id": "7a468d7b-240b-4de5-b89f-6b40dd5c36aa",
     "status": "incomplete",
     "osm_way_ids": [
      "way/80515391",
@@ -316,7 +317,8 @@
      "way/761359501",
      "way/424083052"
     ],
-    "length": 1.7127560676007199
+    "length": 1.7127560676007199,
+    "trail_id": "1777W"
    },
    "geometry": {
     "type": "LineString",
@@ -826,10 +828,10 @@
   },
   {
    "type": "Feature",
-   "id": "6b3df26e-f5a8-4d7d-9f75-7ca687129e7d",
+   "id": "495c4596-ab2b-482b-883b-a4263919a3b0",
    "properties": {
     "name": "1777W Trail",
-    "id": "6b3df26e-f5a8-4d7d-9f75-7ca687129e7d",
+    "id": "495c4596-ab2b-482b-883b-a4263919a3b0",
     "status": "complete",
     "osm_way_ids": [
      "way/377365207",
@@ -837,7 +839,8 @@
      "way/1003727818",
      "way/377365213"
     ],
-    "length": 1.7812377731992053
+    "length": 1.7812377731992053,
+    "trail_id": "1777W"
    },
    "geometry": {
     "type": "LineString",
@@ -1079,10 +1082,10 @@
   },
   {
    "type": "Feature",
-   "id": "843001a4-b8dc-4435-936d-f4ebb7b3d498",
+   "id": "59acc692-e2b3-48dc-abe1-1eada306dd8c",
    "properties": {
     "name": "1777W Trail",
-    "id": "843001a4-b8dc-4435-936d-f4ebb7b3d498",
+    "id": "59acc692-e2b3-48dc-abe1-1eada306dd8c",
     "status": "incomplete",
     "osm_way_ids": [
      "way/423680723",
@@ -1100,7 +1103,8 @@
      "way/432825149",
      "way/432825147"
     ],
-    "length": 3.4817518230015043
+    "length": 3.4817518230015043,
+    "trail_id": "1777W"
    },
    "geometry": {
     "type": "LineString",

@@ -3,17 +3,18 @@
  "features": [
   {
    "type": "Feature",
-   "id": "01595638-b488-4dee-af40-da5256591c18",
+   "id": "60fa369a-77be-47b0-bff0-4775b300aa25",
    "properties": {
     "name": "Cornell Mine Trail",
-    "id": "01595638-b488-4dee-af40-da5256591c18",
+    "id": "60fa369a-77be-47b0-bff0-4775b300aa25",
     "status": "complete",
     "osm_way_ids": [
      "way/423231459",
      "way/423231363",
      "way/423230974"
     ],
-    "length": 1.3857562328456559
+    "length": 1.3857562328456559,
+    "trail_id": "cornell_mine"
    },
    "geometry": {
     "type": "LineString",

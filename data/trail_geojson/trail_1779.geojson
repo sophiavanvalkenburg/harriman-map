@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "be8f45fb-ae01-459d-a394-4ec6d852799e",
+   "id": "2b6fe969-cfcc-47d4-ad99-7afb238f8109",
    "properties": {
     "name": "1779 Trail",
-    "id": "be8f45fb-ae01-459d-a394-4ec6d852799e",
+    "id": "2b6fe969-cfcc-47d4-ad99-7afb238f8109",
     "status": "incomplete",
     "osm_way_ids": [
      "way/809306037",
@@ -14,7 +14,8 @@
      "way/80434275",
      "way/316746208"
     ],
-    "length": 1.497868404526507
+    "length": 1.497868404526507,
+    "trail_id": "1779"
    },
    "geometry": {
     "type": "LineString",
@@ -220,15 +221,16 @@
   },
   {
    "type": "Feature",
-   "id": "e50d9dae-65e2-4bab-a292-5e8a0c2ab886",
+   "id": "88179b66-7207-49ee-8012-f9b65cdad44e",
    "properties": {
     "name": "1779 Trail",
-    "id": "e50d9dae-65e2-4bab-a292-5e8a0c2ab886",
+    "id": "88179b66-7207-49ee-8012-f9b65cdad44e",
     "status": "complete",
     "osm_way_ids": [
      "way/316746206"
     ],
-    "length": 0.0968623255655068
+    "length": 0.0968623255655068,
+    "trail_id": "1779"
    },
    "geometry": {
     "type": "LineString",
@@ -258,10 +260,10 @@
   },
   {
    "type": "Feature",
-   "id": "f13e9fd0-bb99-489e-a2fa-1d4cbe61d47c",
+   "id": "13689af8-076b-49a5-b91d-c2cdf9e44cf1",
    "properties": {
     "name": "1779 Trail",
-    "id": "f13e9fd0-bb99-489e-a2fa-1d4cbe61d47c",
+    "id": "13689af8-076b-49a5-b91d-c2cdf9e44cf1",
     "status": "incomplete",
     "osm_way_ids": [
      "way/316746207",
@@ -271,7 +273,8 @@
      "way/1006853638-1",
      "way/1006853638-2"
     ],
-    "length": 0.7792587781689928
+    "length": 0.7792587781689928,
+    "trail_id": "1779"
    },
    "geometry": {
     "type": "LineString",
@@ -529,15 +532,16 @@
   },
   {
    "type": "Feature",
-   "id": "76e7769d-912e-4bc1-b355-553a114c4f09",
+   "id": "cf864e5a-bd41-4568-b3fe-4b49859c4a4d",
    "properties": {
     "name": "1779 Trail",
-    "id": "76e7769d-912e-4bc1-b355-553a114c4f09",
+    "id": "cf864e5a-bd41-4568-b3fe-4b49859c4a4d",
     "status": "complete",
     "osm_way_ids": [
      "way/1006853639"
     ],
-    "length": 0.0023239581322323398
+    "length": 0.0023239581322323398,
+    "trail_id": "1779"
    },
    "geometry": {
     "type": "LineString",
@@ -555,15 +559,16 @@
   },
   {
    "type": "Feature",
-   "id": "e8c80f5f-5f7a-4316-85a1-c5480c1cbe78",
+   "id": "9d108beb-3865-4f05-9d9a-985de3ed6ad3",
    "properties": {
     "name": "1779 Trail",
-    "id": "e8c80f5f-5f7a-4316-85a1-c5480c1cbe78",
+    "id": "9d108beb-3865-4f05-9d9a-985de3ed6ad3",
     "status": "incomplete",
     "osm_way_ids": [
      "way/44075080"
     ],
-    "length": 0.8986186578405212
+    "length": 0.8986186578405212,
+    "trail_id": "1779"
    },
    "geometry": {
     "type": "LineString",
@@ -729,10 +734,10 @@
   },
   {
    "type": "Feature",
-   "id": "b03f6969-82be-4328-9ddb-caf12b36935e",
+   "id": "a93a1d00-f6cc-43da-a1ee-1c33958524ca",
    "properties": {
     "name": "1779 Trail",
-    "id": "b03f6969-82be-4328-9ddb-caf12b36935e",
+    "id": "a93a1d00-f6cc-43da-a1ee-1c33958524ca",
     "status": "complete",
     "osm_way_ids": [
      "way/1123702066",
@@ -749,7 +754,8 @@
      "way/1003727818",
      "way/377365213"
     ],
-    "length": 4.231883805226986
+    "length": 4.231883805226986,
+    "trail_id": "1779"
    },
    "geometry": {
     "type": "LineString",
@@ -1651,10 +1657,10 @@
   },
   {
    "type": "Feature",
-   "id": "7ba97bb7-2291-4e59-99f1-a9b9ed79a1ec",
+   "id": "240fae3b-5771-4511-aea2-21df4d75672b",
    "properties": {
     "name": "1779 Trail",
-    "id": "7ba97bb7-2291-4e59-99f1-a9b9ed79a1ec",
+    "id": "240fae3b-5771-4511-aea2-21df4d75672b",
     "status": "incomplete",
     "osm_way_ids": [
      "way/423680723",
@@ -1672,7 +1678,8 @@
      "way/432825149",
      "way/432825147"
     ],
-    "length": 3.4817518230015043
+    "length": 3.4817518230015043,
+    "trail_id": "1779"
    },
    "geometry": {
     "type": "LineString",

@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "beeaca10-95b5-4b37-badf-7ae70521ad83",
+   "id": "f95b426b-6056-4884-902e-1bf8fbf3d84e",
    "properties": {
     "name": "Stony Brook Trail",
-    "id": "beeaca10-95b5-4b37-badf-7ae70521ad83",
+    "id": "f95b426b-6056-4884-902e-1bf8fbf3d84e",
     "status": "complete",
     "osm_way_ids": [
      "way/981873262",
@@ -16,7 +16,8 @@
      "way/514903107",
      "way/514903105"
     ],
-    "length": 3.247899684176887
+    "length": 3.247899684176887,
+    "trail_id": "stony_brook"
    },
    "geometry": {
     "type": "LineString",

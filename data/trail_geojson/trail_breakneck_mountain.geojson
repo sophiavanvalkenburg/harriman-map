@@ -3,16 +3,17 @@
  "features": [
   {
    "type": "Feature",
-   "id": "174cec72-5e21-4f10-bdab-a8e7da11e32e",
+   "id": "dbc29e22-908b-49b7-a52d-ea032d8728be",
    "properties": {
     "name": "Breakneck Mountain Trail",
-    "id": "174cec72-5e21-4f10-bdab-a8e7da11e32e",
+    "id": "dbc29e22-908b-49b7-a52d-ea032d8728be",
     "status": "complete",
     "osm_way_ids": [
      "way/69329466",
      "way/982172559"
     ],
-    "length": 2.181257895605467
+    "length": 2.181257895605467,
+    "trail_id": "breakneck_mountain"
    },
    "geometry": {
     "type": "LineString",

@@ -3,16 +3,17 @@
  "features": [
   {
    "type": "Feature",
-   "id": "80e11ad1-1f94-4cfb-a48e-5d544daaa403",
+   "id": "4dfa8326-65a7-4773-af5b-c27e0dbbb27c",
    "properties": {
     "name": "Buck Trail",
-    "id": "80e11ad1-1f94-4cfb-a48e-5d544daaa403",
+    "id": "4dfa8326-65a7-4773-af5b-c27e0dbbb27c",
     "status": "complete",
     "osm_way_ids": [
      "way/69321662",
      "way/69321666"
     ],
-    "length": 3.2216395327889
+    "length": 3.2216395327889,
+    "trail_id": "buck"
    },
    "geometry": {
     "type": "LineString",

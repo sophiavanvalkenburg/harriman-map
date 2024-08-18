@@ -3,16 +3,17 @@
  "features": [
   {
    "type": "Feature",
-   "id": "e115c107-141c-4476-a8aa-c445a667bb1b",
+   "id": "3d1193a7-a3c6-454f-98fc-ae299eee2dcd",
    "properties": {
     "name": "Anthony Wayne Trail",
-    "id": "e115c107-141c-4476-a8aa-c445a667bb1b",
+    "id": "3d1193a7-a3c6-454f-98fc-ae299eee2dcd",
     "status": "complete",
     "osm_way_ids": [
      "way/1003727800",
      "way/423694755"
     ],
-    "length": 1.2150418826030023
+    "length": 1.2150418826030023,
+    "trail_id": "anthony_wayne"
    },
    "geometry": {
     "type": "LineString",
@@ -278,10 +279,10 @@
   },
   {
    "type": "Feature",
-   "id": "4f8c4aaa-7fbc-4abf-8527-a28c42a2090b",
+   "id": "fc26aff0-9abb-457c-a167-4fb0c57fcd6a",
    "properties": {
     "name": "Anthony Wayne Trail",
-    "id": "4f8c4aaa-7fbc-4abf-8527-a28c42a2090b",
+    "id": "fc26aff0-9abb-457c-a167-4fb0c57fcd6a",
     "status": "incomplete",
     "osm_way_ids": [
      "way/1123702063",
@@ -289,7 +290,8 @@
      "way/48211218",
      "way/1004177088"
     ],
-    "length": 1.2916641133706597
+    "length": 1.2916641133706597,
+    "trail_id": "anthony_wayne"
    },
    "geometry": {
     "type": "LineString",
@@ -519,15 +521,16 @@
   },
   {
    "type": "Feature",
-   "id": "ef1c2a6f-a2a2-490e-8db0-58436fe93785",
+   "id": "7ae5593f-c15e-45e0-bfad-8b20ec0fadf4",
    "properties": {
     "name": "Anthony Wayne Trail",
-    "id": "ef1c2a6f-a2a2-490e-8db0-58436fe93785",
+    "id": "7ae5593f-c15e-45e0-bfad-8b20ec0fadf4",
     "status": "complete",
     "osm_way_ids": [
      "way/1004177086"
     ],
-    "length": 0.3371586925832646
+    "length": 0.3371586925832646,
+    "trail_id": "anthony_wayne"
    },
    "geometry": {
     "type": "LineString",
@@ -609,16 +612,17 @@
   },
   {
    "type": "Feature",
-   "id": "45ef6118-95b5-4a65-9c35-f1ba56249fb4",
+   "id": "db9e06c2-41de-4e32-933e-2052d1dcaf83",
    "properties": {
     "name": "Anthony Wayne Trail",
-    "id": "45ef6118-95b5-4a65-9c35-f1ba56249fb4",
+    "id": "db9e06c2-41de-4e32-933e-2052d1dcaf83",
     "status": "incomplete",
     "osm_way_ids": [
      "way/20664104",
      "way/136011028"
     ],
-    "length": 0.5976401447714018
+    "length": 0.5976401447714018,
+    "trail_id": "anthony_wayne"
    },
    "geometry": {
     "type": "LineString",

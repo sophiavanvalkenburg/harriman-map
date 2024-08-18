@@ -1,4 +1,4 @@
-from segment_trail_by_completion import segment_trail
+from segment_trail_by_completion import segment_trail, trail_id_to_name
 import sys
 import glob
 import json
@@ -79,9 +79,7 @@ all_trails_data_not_segmented_by_completion = {
 
 for id in TRAIL_IDS:
     trail_way_ids_file = open(trail_ways_prefix + id + ".log")
-    trail_name = id.replace("_", " ").title()
-    if (trail_name != "Long Path"):
-        trail_name += " Trail"
+    trail_name = trail_id_to_name(id)
     trail_incompletes_ids_fnames = glob.glob(trail_incompletes_prefix + id + "_*")
     trail_incompletes_ids_files = [open(fname) for fname in trail_incompletes_ids_fnames]
 

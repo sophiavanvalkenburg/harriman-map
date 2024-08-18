@@ -3,16 +3,17 @@
  "features": [
   {
    "type": "Feature",
-   "id": "872a385a-09b5-4e3d-9157-b87a101b8af5",
+   "id": "08a28315-c768-40a0-8c6b-60e92d098a34",
    "properties": {
     "name": "Stahahe Brook Trail",
-    "id": "872a385a-09b5-4e3d-9157-b87a101b8af5",
+    "id": "08a28315-c768-40a0-8c6b-60e92d098a34",
     "status": "complete",
     "osm_way_ids": [
      "way/982415749",
      "way/870813458"
     ],
-    "length": 0.7212131130088428
+    "length": 0.7212131130088428,
+    "trail_id": "stahahe_brook"
    },
    "geometry": {
     "type": "LineString",

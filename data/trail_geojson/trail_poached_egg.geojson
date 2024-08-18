@@ -3,15 +3,16 @@
  "features": [
   {
    "type": "Feature",
-   "id": "8878853f-e7e7-4a77-b1f5-c5889182a2d0",
+   "id": "56ad63e6-839c-46e5-b290-3f4ca2d8036f",
    "properties": {
     "name": "Poached Egg Trail",
-    "id": "8878853f-e7e7-4a77-b1f5-c5889182a2d0",
+    "id": "56ad63e6-839c-46e5-b290-3f4ca2d8036f",
     "status": "complete",
     "osm_way_ids": [
      "way/44038105"
     ],
-    "length": 0.10025372517766558
+    "length": 0.10025372517766558,
+    "trail_id": "poached_egg"
    },
    "geometry": {
     "type": "LineString",

@@ -3,17 +3,18 @@
  "features": [
   {
    "type": "Feature",
-   "id": "50d89e27-d3f8-4639-9128-487ff69cf696",
+   "id": "bf8e44c0-be60-446c-8fc9-9a995ddf4df7",
    "properties": {
     "name": "Bottle Cap Trail",
-    "id": "50d89e27-d3f8-4639-9128-487ff69cf696",
+    "id": "bf8e44c0-be60-446c-8fc9-9a995ddf4df7",
     "status": "complete",
     "osm_way_ids": [
      "way/1006618875",
      "way/1006618876",
      "way/65177026"
     ],
-    "length": 3.898243209864215
+    "length": 3.898243209864215,
+    "trail_id": "bottle_cap"
    },
    "geometry": {
     "type": "LineString",

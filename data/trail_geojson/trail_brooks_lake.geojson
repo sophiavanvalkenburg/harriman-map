@@ -3,16 +3,17 @@
  "features": [
   {
    "type": "Feature",
-   "id": "8ad35c57-2a76-4452-a039-040700e97800",
+   "id": "cba090cb-9d31-451d-8017-4c9d26a95d1a",
    "properties": {
     "name": "Brooks Lake Trail",
-    "id": "8ad35c57-2a76-4452-a039-040700e97800",
+    "id": "cba090cb-9d31-451d-8017-4c9d26a95d1a",
     "status": "incomplete",
     "osm_way_ids": [
      "way/136005509",
      "way/423436789"
     ],
-    "length": 0.6923343927301794
+    "length": 0.6923343927301794,
+    "trail_id": "brooks_lake"
    },
    "geometry": {
     "type": "LineString",

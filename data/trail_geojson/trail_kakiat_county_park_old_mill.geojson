@@ -3,16 +3,17 @@
  "features": [
   {
    "type": "Feature",
-   "id": "077665e1-ebf1-4d10-93f5-2f6ffd41a047",
+   "id": "7fc504f3-a04c-465c-a433-615d8389675c",
    "properties": {
     "name": "Kakiat County Park Old Mill Trail",
-    "id": "077665e1-ebf1-4d10-93f5-2f6ffd41a047",
+    "id": "7fc504f3-a04c-465c-a433-615d8389675c",
     "status": "complete",
     "osm_way_ids": [
      "way/982033274",
      "way/44035776"
     ],
-    "length": 0.5244622326602213
+    "length": 0.5244622326602213,
+    "trail_id": "kakiat_county_park_old_mill"
    },
    "geometry": {
     "type": "LineString",

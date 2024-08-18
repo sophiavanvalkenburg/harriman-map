@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "76b7d45c-8741-4ce6-be26-2d590f3c00f4",
+   "id": "31569b71-81bd-4369-8ac0-319aff5078ed",
    "properties": {
     "name": "Nurian Trail",
-    "id": "76b7d45c-8741-4ce6-be26-2d590f3c00f4",
+    "id": "31569b71-81bd-4369-8ac0-319aff5078ed",
     "status": "complete",
     "osm_way_ids": [
      "way/424753370",
@@ -23,7 +23,8 @@
      "way/115579733",
      "way/424752250-0"
     ],
-    "length": 3.640650575977047
+    "length": 3.640650575977047,
+    "trail_id": "nurian"
    },
    "geometry": {
     "type": "LineString",
@@ -677,17 +678,18 @@
   },
   {
    "type": "Feature",
-   "id": "a4627294-da87-4dfa-a825-026d2ece41ac",
+   "id": "3281e005-dcb4-4917-9d6b-94557bc7ea9e",
    "properties": {
     "name": "Nurian Trail",
-    "id": "a4627294-da87-4dfa-a825-026d2ece41ac",
+    "id": "3281e005-dcb4-4917-9d6b-94557bc7ea9e",
     "status": "incomplete",
     "osm_way_ids": [
      "way/424752250-1",
      "way/982415741",
      "way/424752247"
     ],
-    "length": 0.45489554739753457
+    "length": 0.45489554739753457,
+    "trail_id": "nurian"
    },
    "geometry": {
     "type": "LineString",
@@ -837,15 +839,16 @@
   },
   {
    "type": "Feature",
-   "id": "fc0efb82-6c60-472e-a786-c9a5621be6d0",
+   "id": "25ed2131-0879-4ddc-96c9-9f7fe3dbb6a0",
    "properties": {
     "name": "Nurian Trail",
-    "id": "fc0efb82-6c60-472e-a786-c9a5621be6d0",
+    "id": "25ed2131-0879-4ddc-96c9-9f7fe3dbb6a0",
     "status": "complete",
     "osm_way_ids": [
      "way/424752245"
     ],
-    "length": 0.07483294289644636
+    "length": 0.07483294289644636,
+    "trail_id": "nurian"
    },
    "geometry": {
     "type": "LineString",
@@ -875,15 +878,16 @@
   },
   {
    "type": "Feature",
-   "id": "771f2afa-6eb4-4b91-9882-820ab54957b5",
+   "id": "b3002e8b-7185-4865-a9c4-a52930e694e5",
    "properties": {
     "name": "Nurian Trail",
-    "id": "771f2afa-6eb4-4b91-9882-820ab54957b5",
+    "id": "b3002e8b-7185-4865-a9c4-a52930e694e5",
     "status": "incomplete",
     "osm_way_ids": [
      "way/188503418"
     ],
-    "length": 0.7987284255251252
+    "length": 0.7987284255251252,
+    "trail_id": "nurian"
    },
    "geometry": {
     "type": "LineString",
