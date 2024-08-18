@@ -1465,8 +1465,9 @@ function Map() {
   };
 
   let clickedOnTrail = false;
-  let hoveredLineId: LineId;
+  let hoveredTrailId: LineId;
   let selectedTrailId: LineId;
+  let hoveredSegmentId: LineId;
   let mapMode = MapMode.BASE;
 
   function switchToTrailMode() {
@@ -1474,6 +1475,8 @@ function Map() {
     console.log('TRAIL mode');
     mapMode = MapMode.TRAIL;
     map.current.setLayoutProperty('trail-lines-deselected', 'visibility', 'visible');
+    map.current.setLayoutProperty('segment-hitbox', 'visibility', 'visible');
+    map.current.setLayoutProperty('trail-lines-highlight', 'visibility', 'none');
   }
 
   function switchToBaseMode() {
@@ -1481,6 +1484,8 @@ function Map() {
     console.log('BASE mode');
     mapMode = MapMode.BASE;
     map.current.setLayoutProperty('trail-lines-deselected', 'visibility', 'none');
+    map.current.setLayoutProperty('segment-hitbox', 'visibility', 'none');
+    map.current.setLayoutProperty('trail-lines-highlight', 'visibility', 'visible');
   }
 
   function onMapClick() {
@@ -1500,10 +1505,18 @@ function Map() {
     clickedOnTrail = false;
   }
 
-  function setHoverState(source: string, isHovered: boolean) {
-    if (!map.current || hoveredLineId === undefined) return;
+  function setTrailHoverState(isHovered: boolean) {
+    if (!map.current || hoveredTrailId === undefined) return;
     map.current.setFeatureState(
-      { source: source, id: hoveredLineId },
+      { source: sources.TRAILS, id: hoveredTrailId },
+      { hover: isHovered }
+    );
+  }
+
+  function setSegmentHoverState(isHovered: boolean) {
+    if (!map.current || hoveredSegmentId === undefined) return;
+    map.current.setFeatureState(
+      { source: sources.SEGMENTS, id: hoveredSegmentId },
       { hover: isHovered }
     );
   }
@@ -1690,16 +1703,17 @@ function Map() {
       });
 
       map.current.on('mousemove', 'trail-hitbox', (e) => {
-        setHoverState(sources.TRAILS, false)
+        setTrailHoverState(false)
         if (e.features && e.features.length > 0) {
-          hoveredLineId = e.features[0].id;
-          setHoverState(sources.TRAILS, true);
+          hoveredTrailId = e.features[0].id;
+          setTrailHoverState(true);
         }
       });
 
       map.current.on('mouseleave', 'trail-hitbox', () => {
         if (!map.current) return;
-        setHoverState(sources.TRAILS, false);
+        setTrailHoverState(false);
+        hoveredTrailId = undefined;
         map.current.getCanvas().style.cursor = '';
       });
 
@@ -1711,22 +1725,22 @@ function Map() {
           setTrailSelectedState(true);
         }
       });
-/*
+
       map.current.on('mousemove', 'segment-hitbox', (e) => {
-        setHoverState(sources.SEGMENTS, false)
+        setSegmentHoverState(false)
         if (e.features && e.features.length > 0) {
-          hoveredLineId = e.features[0].id;
-          setHoverState(sources.SEGMENTS, true);
+          hoveredSegmentId = e.features[0].id;
+          setSegmentHoverState(true);
         }
       });
 
       map.current.on('mouseleave', 'segment-hitbox', () => {
         if (!map.current) return;
-        setHoverState(sources.SEGMENTS, false);
-        hoveredLineId = undefined;
+        setSegmentHoverState(false);
+        hoveredSegmentId = undefined;
         map.current.getCanvas().style.cursor = '';
       });
-
+/*
       map.current.on('click', 'segment-hitbox', () => {
         clickedOnTrail = true;
         //setMapMode(MapMode.SEGMENT);
