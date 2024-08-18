@@ -47,6 +47,9 @@ enum sources {
 }
 
 const NOT_SELECTED_COLOR = "#696969";
+const COMPLETED_COLOR = "#ff0000";
+const INCOMPLETE_COLOR = "#8c0000";
+const HIGHLIGHT_COLOR = "#ffe100";
 
 function Map() {
   mapboxgl.accessToken = 'pk.eyJ1IjoibWVvd3lwdXJyIiwiYSI6ImNsemxlNTE0ZzAxbWUybG9qdHk1aGNlbHkifQ.WEaFTpVEow-9nOl0__ZqeA';
@@ -1544,7 +1547,7 @@ function Map() {
         'source': sources.SEGMENTS,
         'filter': ['==', 'complete', ['get', 'status']],
         'paint': {
-          'line-color': "#ff0000",
+          'line-color': COMPLETED_COLOR,
           'line-width': 2,
         }
       });
@@ -1555,7 +1558,7 @@ function Map() {
         'source': sources.SEGMENTS,
         'filter': ['==', 'incomplete', ['get', 'status']],
         'paint': {
-          'line-color': "#8c0000",
+          'line-color': INCOMPLETE_COLOR,
           'line-width': 2,
         }
       });
@@ -1584,7 +1587,7 @@ function Map() {
         'type': 'line',
         'source': sources.TRAILS,
         'paint': {
-          'line-color': "#ffe100",
+          'line-color': HIGHLIGHT_COLOR,
           'line-gap-width': 2,
           'line-opacity': [
             'case',
@@ -1611,7 +1614,7 @@ function Map() {
           'visibility': 'none'
         },
         'paint': {
-          'line-color': "#ffe100",
+          'line-color': HIGHLIGHT_COLOR,
           'line-gap-width': 2,
           'line-opacity': [
             'case',
