@@ -1585,7 +1585,7 @@ function Map() {
       })
 
       map.current.addLayer({
-        'id': 'trail-lines-highlight',
+        'id': 'trail-lines-highlight-outline',
         'type': 'line',
         'source': sources.TRAILS,
         'paint': {
@@ -1609,7 +1609,23 @@ function Map() {
       });
 
       map.current.addLayer({
-        'id': 'segment-lines-highlight',
+        'id': 'trail-lines-highlight',
+        'type': 'line',
+        'source': sources.TRAILS,
+        'paint': {
+          'line-color': HIGHLIGHT_COLOR,
+          'line-opacity': [
+            'case',
+            ['boolean', ['feature-state', 'hover'], false],
+            0.75,
+            0
+          ],
+          'line-width': 2,
+        }
+      });
+
+      map.current.addLayer({
+        'id': 'segment-lines-highlight-outline',
         'type': 'line',
         'source': sources.SEGMENTS,
         'layout': {
@@ -1622,6 +1638,22 @@ function Map() {
             'case',
             ['boolean', ['feature-state', 'hover'], false],
             1,
+            0
+          ],
+          'line-width': 2,
+        }
+      });
+
+      map.current.addLayer({
+        'id': 'segment-lines-highlight',
+        'type': 'line',
+        'source': sources.SEGMENTS,
+        'paint': {
+          'line-color': HIGHLIGHT_COLOR,
+          'line-opacity': [
+            'case',
+            ['boolean', ['feature-state', 'hover'], false],
+            0.75,
             0
           ],
           'line-width': 2,
