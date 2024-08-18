@@ -24,7 +24,8 @@ type TrailSegment = {
     id: string,
     status: string,
     osm_way_ids: string[],
-    length: number
+    length: number,
+    trail_id: string
   },
   geometry: {
     type: "LineString",
@@ -74,7 +75,8 @@ function Map() {
           "osm_way_ids": [
             "way/69412899"
           ],
-          "length": 0.260799556147824
+          "length": 0.260799556147824,
+          "trail_id": "north_buck"
         },
         "geometry": {
           "type": "LineString",
@@ -184,7 +186,8 @@ function Map() {
           "osm_way_ids": [
             "way/65177022"
           ],
-          "length": 0.3176183019950963
+          "length": 0.3176183019950963,
+          "trail_id": "hurst"
         },
         "geometry": {
           "type": "LineString",
@@ -390,7 +393,8 @@ function Map() {
           "osm_way_ids": [
             "way/62226398-1"
           ],
-          "length": 0.19758861170948577
+          "length": 0.19758861170948577,
+          "trail_id": "diamond_mountain_tower"
         },
         "geometry": {
           "type": "LineString",
@@ -560,7 +564,8 @@ function Map() {
           "osm_way_ids": [
             "way/62226398-0"
           ],
-          "length": 0.1086807114692338
+          "length": 0.1086807114692338,
+          "trail_id": "diamond_mountain_tower"
         },
         "geometry": {
           "type": "LineString",
@@ -784,7 +789,8 @@ function Map() {
           "osm_way_ids": [
             "way/69412899"
           ],
-          "length": 0.260799556147824
+          "length": 0.260799556147824,
+          "trail_id": "north_buck"
         },
         "geometry": {
           "type": "LineString",
@@ -894,7 +900,8 @@ function Map() {
           "osm_way_ids": [
             "way/65177022"
           ],
-          "length": 0.3176183019950963
+          "length": 0.3176183019950963,
+          "trail_id": "hurst"
         },
         "geometry": {
           "type": "LineString",
@@ -1101,7 +1108,8 @@ function Map() {
             "way/62226398-1",
             "way/62226398-0"
           ],
-          "length": 0.7829602239635152
+          "length": 0.7829602239635152,
+          "trail_id": "diamond_mountain_tower"
         },
         "geometry": {
           "type": "LineString",
@@ -1465,9 +1473,10 @@ function Map() {
   };
 
   let clickedOnTrail = false;
-  let hoveredTrailId: LineId;
-  let selectedTrailId: LineId;
-  let hoveredSegmentId: LineId;
+  let hoveredTrailLineId: LineId;
+  let selectedTrailLineId: LineId;
+  let selectedTrailOriginalId: string;
+  let hoveredSegmentLineId: LineId;
   let mapMode = MapMode.BASE;
 
   function switchToTrailMode() {
@@ -1477,6 +1486,7 @@ function Map() {
     map.current.setLayoutProperty('trail-lines-deselected', 'visibility', 'visible');
     map.current.setLayoutProperty('segment-hitbox', 'visibility', 'visible');
     map.current.setLayoutProperty('trail-lines-highlight', 'visibility', 'none');
+    map.current.setLayoutProperty('trail-hitbox', 'visibility', 'none');
   }
 
   function switchToBaseMode() {
@@ -1486,6 +1496,7 @@ function Map() {
     map.current.setLayoutProperty('trail-lines-deselected', 'visibility', 'none');
     map.current.setLayoutProperty('segment-hitbox', 'visibility', 'none');
     map.current.setLayoutProperty('trail-lines-highlight', 'visibility', 'visible');
+    map.current.setLayoutProperty('trail-hitbox', 'visibility', 'visible');
   }
 
   function onMapClick() {
@@ -1506,25 +1517,25 @@ function Map() {
   }
 
   function setTrailHoverState(isHovered: boolean) {
-    if (!map.current || hoveredTrailId === undefined) return;
+    if (!map.current || hoveredTrailLineId === undefined) return;
     map.current.setFeatureState(
-      { source: sources.TRAILS, id: hoveredTrailId },
+      { source: sources.TRAILS, id: hoveredTrailLineId },
       { hover: isHovered }
     );
   }
 
   function setSegmentHoverState(isHovered: boolean) {
-    if (!map.current || hoveredSegmentId === undefined) return;
+    if (!map.current || hoveredSegmentLineId === undefined) return;
     map.current.setFeatureState(
-      { source: sources.SEGMENTS, id: hoveredSegmentId },
+      { source: sources.SEGMENTS, id: hoveredSegmentLineId },
       { hover: isHovered }
     );
   }
 
   function setTrailSelectedState(isSelected: boolean) {
-    if (!map.current || selectedTrailId === undefined) return;
+    if (!map.current || selectedTrailLineId === undefined) return;
     map.current.setFeatureState(
-      { source: sources.TRAILS, id: selectedTrailId },
+      { source: sources.TRAILS, id: selectedTrailLineId },
       { selected: isSelected }
     );
   }
@@ -1705,7 +1716,7 @@ function Map() {
       map.current.on('mousemove', 'trail-hitbox', (e) => {
         setTrailHoverState(false)
         if (e.features && e.features.length > 0) {
-          hoveredTrailId = e.features[0].id;
+          hoveredTrailLineId = e.features[0].id;
           setTrailHoverState(true);
         }
       });
@@ -1713,31 +1724,43 @@ function Map() {
       map.current.on('mouseleave', 'trail-hitbox', () => {
         if (!map.current) return;
         setTrailHoverState(false);
-        hoveredTrailId = undefined;
+        hoveredTrailLineId = undefined;
         map.current.getCanvas().style.cursor = '';
       });
 
       map.current.on('click', 'trail-hitbox', (e) => {
         clickedOnTrail = true;
         setTrailSelectedState(false);
-        if (e.features && e.features.length > 0) {
-          selectedTrailId = e.features[0].id;
+        if (e.features && e.features.length > 0 && e.features[0].properties) {
+          selectedTrailLineId = e.features[0].id;
+          selectedTrailOriginalId = e.features[0].properties.trail_id;
           setTrailSelectedState(true);
+        }
+      });
+
+      map.current.on('mouseenter', 'segment-hitbox', (e) => {
+        if (!map.current) return;
+        if (e.features && e.features.length > 0 && e.features[0].properties) {
+          if (selectedTrailOriginalId === e.features[0].properties.trail_id){
+            map.current.getCanvas().style.cursor = 'pointer';
+          } 
         }
       });
 
       map.current.on('mousemove', 'segment-hitbox', (e) => {
         setSegmentHoverState(false)
-        if (e.features && e.features.length > 0) {
-          hoveredSegmentId = e.features[0].id;
-          setSegmentHoverState(true);
+        if (e.features && e.features.length > 0 && e.features[0].properties) {
+          if (selectedTrailOriginalId === e.features[0].properties.trail_id){
+            hoveredSegmentLineId = e.features[0].id;
+            setSegmentHoverState(true);
+          }
         }
       });
 
       map.current.on('mouseleave', 'segment-hitbox', () => {
         if (!map.current) return;
         setSegmentHoverState(false);
-        hoveredSegmentId = undefined;
+        hoveredSegmentLineId = undefined;
         map.current.getCanvas().style.cursor = '';
       });
 /*
