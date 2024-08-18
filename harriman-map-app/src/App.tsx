@@ -52,6 +52,7 @@ const NOT_SELECTED_COLOR = "#696969";
 const COMPLETED_COLOR = "#ff0000";
 const INCOMPLETE_COLOR = "#8c0000";
 const HIGHLIGHT_COLOR = "#ffe100";
+const LINE_WIDTH = 2;
 
 function Map() {
   mapboxgl.accessToken = 'pk.eyJ1IjoibWVvd3lwdXJyIiwiYSI6ImNsemxlNTE0ZzAxbWUybG9qdHk1aGNlbHkifQ.WEaFTpVEow-9nOl0__ZqeA';
@@ -1550,7 +1551,7 @@ function Map() {
         'filter': ['==', 'complete', ['get', 'status']],
         'paint': {
           'line-color': COMPLETED_COLOR,
-          'line-width': 2,
+          'line-width': LINE_WIDTH,
         }
       });
 
@@ -1561,7 +1562,7 @@ function Map() {
         'filter': ['==', 'incomplete', ['get', 'status']],
         'paint': {
           'line-color': INCOMPLETE_COLOR,
-          'line-width': 2,
+          'line-width': LINE_WIDTH,
         }
       });
 
@@ -1580,7 +1581,7 @@ function Map() {
             0,
             1
           ],
-          'line-width': 2,
+          'line-width': LINE_WIDTH,
         }
       })
 
@@ -1590,7 +1591,7 @@ function Map() {
         'source': sources.TRAILS,
         'paint': {
           'line-color': HIGHLIGHT_COLOR,
-          'line-gap-width': 2,
+          'line-gap-width': LINE_WIDTH,
           'line-opacity': [
             'case',
             [
@@ -1604,7 +1605,7 @@ function Map() {
             1,
             0
           ],
-          'line-width': 2,
+          'line-width': LINE_WIDTH,
         }
       });
 
@@ -1620,7 +1621,7 @@ function Map() {
             0.75,
             0
           ],
-          'line-width': 2,
+          'line-width': LINE_WIDTH,
         }
       });
 
@@ -1633,14 +1634,14 @@ function Map() {
         },
         'paint': {
           'line-color': HIGHLIGHT_COLOR,
-          'line-gap-width': 2,
+          'line-gap-width': LINE_WIDTH,
           'line-opacity': [
             'case',
             ['boolean', ['feature-state', 'hover'], false],
             1,
             0
           ],
-          'line-width': 2,
+          'line-width': LINE_WIDTH,
         }
       });
 
@@ -1656,7 +1657,7 @@ function Map() {
             0.75,
             0
           ],
-          'line-width': 2,
+          'line-width': LINE_WIDTH,
         }
       });
 
