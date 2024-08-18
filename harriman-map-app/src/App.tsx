@@ -12,6 +12,8 @@ function App() {
   );
 }
 
+type LineId = string | number | undefined;
+
 type LngLat = [number, number];
 
 type TrailSegment = {
@@ -1462,8 +1464,8 @@ function Map() {
   };
 
   let clickedOnTrail = false;
-  let hoveredLineId: string | number | undefined;
-  let selectedTrailId: string | number | undefined;
+  let hoveredLineId: LineId;
+  let selectedTrailId: LineId;
   let mapMode = MapMode.BASE;
 
   function switchToTrailMode() {
