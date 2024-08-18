@@ -35,6 +35,19 @@ type TrailGeojson = {
   features: TrailSegment[]
 };
 
+enum MapMode {
+  BASE = 'base',
+  TRAIL = 'trail',
+  SEGMENT = 'segment',
+};
+
+enum sources {
+  TRAILS = 'trails',
+  SEGMENTS = 'segments'
+}
+
+const NOT_SELECTED_COLOR = "#696969";
+
 function Map() {
   mapboxgl.accessToken = 'pk.eyJ1IjoibWVvd3lwdXJyIiwiYSI6ImNsemxlNTE0ZzAxbWUybG9qdHk1aGNlbHkifQ.WEaFTpVEow-9nOl0__ZqeA';
 
@@ -1445,6 +1458,58 @@ function Map() {
     ]
   };
 
+  let clickedOnTrail = false;
+  let hoveredLineId: string | number | undefined;
+  let selectedTrailId: string | number | undefined;
+  let mapMode = MapMode.BASE;
+
+  function switchToTrailMode() {
+    if (!map.current) return;
+    console.log('TRAIL mode');
+    mapMode = MapMode.TRAIL;
+    map.current.setLayoutProperty('trail-lines-deselected', 'visibility', 'visible');
+  }
+
+  function switchToBaseMode() {
+    if (!map.current) return;
+    console.log('BASE mode');
+    mapMode = MapMode.BASE;
+    map.current.setLayoutProperty('trail-lines-deselected', 'visibility', 'none');
+  }
+
+  function onMapClick() {
+    switch (mapMode) {
+      case MapMode.TRAIL:
+        if (!clickedOnTrail) {
+          setTrailSelectedState(false);
+          switchToBaseMode();
+        }
+        break;
+      case MapMode.BASE:
+        if (clickedOnTrail) {
+          switchToTrailMode();
+        }
+        break;
+    }
+    clickedOnTrail = false;
+  }
+
+  function setHoverState(source: string, isHovered: boolean) {
+    if (!map.current || hoveredLineId === undefined) return;
+    map.current.setFeatureState(
+      { source: source, id: hoveredLineId },
+      { hover: isHovered }
+    );
+  }
+
+  function setTrailSelectedState(isSelected: boolean) {
+    if (!map.current || selectedTrailId === undefined) return;
+    map.current.setFeatureState(
+      { source: sources.TRAILS, id: selectedTrailId },
+      { selected: isSelected }
+    );
+  }
+
   useEffect(() => {
 
     if (!mapContainer.current) return;
@@ -1461,13 +1526,13 @@ function Map() {
 
       if (!map.current) return;
 
-      map.current.addSource('segments', {
+      map.current.addSource(sources.SEGMENTS, {
         'type': 'geojson',
         'generateId': true,
         'data': SEGMENT_DATA
       });
 
-      map.current.addSource('trails', {
+      map.current.addSource(sources.TRAILS, {
         'type': 'geojson',
         'generateId': true,
         'data': TRAIL_DATA
@@ -1476,7 +1541,7 @@ function Map() {
       map.current.addLayer({
         'id': 'segment-lines-complete',
         'type': 'line',
-        'source': 'segments',
+        'source': sources.SEGMENTS,
         'filter': ['==', 'complete', ['get', 'status']],
         'paint': {
           'line-color': "#ff0000",
@@ -1487,7 +1552,7 @@ function Map() {
       map.current.addLayer({
         'id': 'segment-lines-incomplete',
         'type': 'line',
-        'source': 'segments',
+        'source': sources.SEGMENTS,
         'filter': ['==', 'incomplete', ['get', 'status']],
         'paint': {
           'line-color': "#8c0000",
@@ -1495,17 +1560,42 @@ function Map() {
         }
       });
 
+      map.current.addLayer({
+        'id': 'trail-lines-deselected',
+        'type': 'line',
+        'source': sources.TRAILS,
+        'layout': {
+          'visibility': 'none',
+        },
+        'paint': {
+          'line-color': NOT_SELECTED_COLOR,
+          'line-opacity': [
+            'case',
+            ['boolean', ['feature-state', 'selected'], false],
+            0,
+            1
+          ],
+          'line-width': 2,
+        }
+      })
 
       map.current.addLayer({
         'id': 'trail-lines-highlight',
         'type': 'line',
-        'source': 'trails',
+        'source': sources.TRAILS,
         'paint': {
           'line-color': "#ffe100",
           'line-gap-width': 2,
           'line-opacity': [
             'case',
-            ['boolean', ['feature-state', 'hover'], false],
+            [
+              'boolean', [
+                'any', 
+                  ['to-boolean', ['feature-state', 'hover']], 
+                  ['to-boolean', ['feature-state', 'selected']]
+              ], 
+              false
+            ],
             1,
             0
           ],
@@ -1516,7 +1606,7 @@ function Map() {
       map.current.addLayer({
         'id': 'segment-lines-highlight',
         'type': 'line',
-        'source': 'segments',
+        'source': sources.SEGMENTS,
         'layout': {
           'visibility': 'none'
         },
@@ -1536,7 +1626,7 @@ function Map() {
       map.current.addLayer({
         'id': 'trail-hitbox',
         'type': 'line',
-        'source': 'trails',
+        'source': sources.TRAILS,
         'paint': {
           'line-width': 15,
           'line-opacity': 0
@@ -1546,7 +1636,7 @@ function Map() {
       map.current.addLayer({
         'id': 'segment-hitbox',
         'type': 'line',
-        'source': 'segments',
+        'source': sources.SEGMENTS,
         'layout': {
           'visibility': 'none'
         },
@@ -1556,42 +1646,60 @@ function Map() {
         }
       });
 
-      let hoveredLineId: string | number | undefined;
-
-      function setHoverState(isHovered: boolean) {
-        if (!map.current || hoveredLineId === undefined) return;
-        map.current.setFeatureState(
-          { source: 'trails', id: hoveredLineId },
-          { hover: isHovered }
-        );
-      }
-
-      map.current.on('mousemove', 'trail-hitbox', (e) => {
-        setHoverState(false)
-        if (e.features && e.features.length > 0) {
-          hoveredLineId = e.features[0].id;
-          setHoverState(true);
-        }
-      });
-
-      map.current.on('mouseleave', 'trail-hitbox', () => {
-        if (!map.current) return;
-        setHoverState(false);
-        hoveredLineId = undefined;
-        map.current.getCanvas().style.cursor = '';
-      });
-
       map.current.on('mouseenter', 'trail-hitbox', () => {
         if (!map.current) return;
         map.current.getCanvas().style.cursor = 'pointer';
       });
 
+      map.current.on('mousemove', 'trail-hitbox', (e) => {
+        setHoverState(sources.TRAILS, false)
+        if (e.features && e.features.length > 0) {
+          hoveredLineId = e.features[0].id;
+          setHoverState(sources.TRAILS, true);
+        }
+      });
+
+      map.current.on('mouseleave', 'trail-hitbox', () => {
+        if (!map.current) return;
+        setHoverState(sources.TRAILS, false);
+        map.current.getCanvas().style.cursor = '';
+      });
+
+      map.current.on('click', 'trail-hitbox', (e) => {
+        clickedOnTrail = true;
+        setTrailSelectedState(false);
+        if (e.features && e.features.length > 0) {
+          selectedTrailId = e.features[0].id;
+          setTrailSelectedState(true);
+        }
+      });
+/*
+      map.current.on('mousemove', 'segment-hitbox', (e) => {
+        setHoverState(sources.SEGMENTS, false)
+        if (e.features && e.features.length > 0) {
+          hoveredLineId = e.features[0].id;
+          setHoverState(sources.SEGMENTS, true);
+        }
+      });
+
+      map.current.on('mouseleave', 'segment-hitbox', () => {
+        if (!map.current) return;
+        setHoverState(sources.SEGMENTS, false);
+        hoveredLineId = undefined;
+        map.current.getCanvas().style.cursor = '';
+      });
+
+      map.current.on('click', 'segment-hitbox', () => {
+        clickedOnTrail = true;
+        //setMapMode(MapMode.SEGMENT);
+      });
+*/
     });
 
   });
   return (
     <div>
-      <div ref={mapContainer} className="map-container" />
+      <div ref={mapContainer} className="map-container" onClick={onMapClick}/>
     </div>
   );
 }
