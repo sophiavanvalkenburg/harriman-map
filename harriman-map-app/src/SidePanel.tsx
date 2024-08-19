@@ -90,11 +90,37 @@ function ExpandOrCollapseBtn({handleClick}:SidePanelButtonProps) {
     );
 }
 
+type AllTrailStats  = {
+    completePct: number,
+    numCompletedTrails: number,
+    numIncompleteTrails: number,
+    completedLength: number,
+    incompleteLength: number
+};
+
+type LngLat = [number, number];
+
+type SingleTrailStats  = {
+    completePct: number,
+    startsAt: LngLat,
+    endsAt: LngLat,
+    completedLength: number,
+    incompleteLength: number
+};
+
+type TrailSegmentStats  = {
+    completedStatus: string,
+    startsAt: LngLat,
+    endsAt: LngLat,
+    length: number
+};
+
 type SidePanelProps = {
-    mapMode: string
+    mapMode: string,
+    trailStats: AllTrailStats | SingleTrailStats | TrailSegmentStats
 }
 
-function SidePanel({mapMode}: SidePanelProps) {
+function SidePanel({mapMode, trailStats}: SidePanelProps) {
 
     const [isCollapsed, setIsCollapsed] = useState(false);
 

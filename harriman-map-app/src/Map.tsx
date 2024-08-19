@@ -1842,7 +1842,7 @@ function Map() {
     });
     return (
         <div>
-            <SidePanel mapMode={mapMode} />
+            <SidePanel mapMode={mapMode} trailStats={{}}/>
             <div ref={mapContainer} className="map-container" onClick={onMapClick} />
         </div>
     );
