@@ -118,6 +118,7 @@ type AllTrailsStatsType  = {
 type LngLat = [number, number];
 
 type SingleTrailStatsType  = {
+    trailName: string,
     completePct: number,
     startsAt: LngLat,
     endsAt: LngLat,
@@ -126,6 +127,7 @@ type SingleTrailStatsType  = {
 };
 
 type TrailSegmentStatsType  = {
+    trailName: string,
     completedStatus: string,
     startsAt: LngLat,
     endsAt: LngLat,

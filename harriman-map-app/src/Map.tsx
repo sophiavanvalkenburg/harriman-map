@@ -1471,6 +1471,51 @@ function Map() {
         ]
     };
 
+    function getNumCompletedTrails() {
+        return TRAIL_DATA.features.filter((trail) => {
+            if (!trail.properties) return false;
+            return trail.properties.status === 'complete';
+        })
+    }
+
+    function getNumIncompleteTrails() {
+        return TRAIL_DATA.features.filter((trail) => {
+            if (!trail.properties) return false;
+            return trail.properties.status === 'incomplete';
+        })
+    }
+
+    function getCompletedTrailsLength() {
+        let totalLength = 0;
+        TRAIL_DATA.features.forEach((trail) => {
+            if (!trail.properties || trail.properties.status != 'complete') return;
+            totalLength += trail.properties.length;
+        })
+        return totalLength;
+    }
+
+    function getIncompleteTrailsLength() {
+        let totalLength = 0;
+        TRAIL_DATA.features.forEach((trail) => {
+            if (!trail.properties || trail.properties.status != 'incomplete') return;
+            totalLength += trail.properties.length;
+        })
+        return totalLength;
+    }
+
+    function calculateAllTrailsStats() {
+        const completedLength = getCompletedTrailsLength();
+        const incompleteLength = getIncompleteTrailsLength();
+        const completePct = completedLength / (completedLength + incompleteLength);
+        return {
+            completePct: completePct,
+            numCompletedTrails: getNumCompletedTrails(),
+            numIncompleteTrails: getNumIncompleteTrails(),
+            completedLength: completedLength,
+            incompleteLength: incompleteLength
+        }
+    };
+
     /*** Map mode management
      * 
      * The mode simply determines which layers are visible and interactable
@@ -1479,6 +1524,7 @@ function Map() {
 
     const [mapMode, setMapMode] = useState(MapMode.BASE);
     let clickedOnTrail = useRef(false);
+    let trailStats = {};
 
     function onMapClick() {
         switch (mapMode) {
@@ -1522,6 +1568,7 @@ function Map() {
         setLayerVisibility(Layers.SEGMENT_HIGHLIGHT, true);
         setLayerVisibility(Layers.SEGMENT_OUTLINE, true);
         setLayerVisibility(Layers.TRAIL_HITBOX, false);
+        
     }
 
     function switchToTrailMode() {
@@ -1548,6 +1595,7 @@ function Map() {
         setLayerVisibility(Layers.SEGMENT_HIGHLIGHT, false);
         setLayerVisibility(Layers.SEGMENT_OUTLINE, false);
         setLayerVisibility(Layers.TRAIL_HITBOX, true);
+        trailStats = calculateAllTrailsStats();
     }
 
     /*** Map state management
@@ -1842,7 +1890,7 @@ function Map() {
     });
     return (
         <div>
-            <SidePanel mapMode={mapMode} trailStats={{}}/>
+            <SidePanel mapMode={mapMode} trailStats={trailStats}/>
             <div ref={mapContainer} className="map-container" onClick={onMapClick} />
         </div>
     );
