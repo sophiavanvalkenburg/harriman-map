@@ -16,7 +16,6 @@ function MapTitle() {
 type TrailTitleProps = {
     isSegment: boolean
 }
-
 function TrailTitle({isSegment}: TrailTitleProps) {
     const subtitle = isSegment ? <p>(segment)</p> : '';
     return (
@@ -106,29 +105,35 @@ function SidePanel({mapMode}: SidePanelProps) {
     let className = "side-panel";
     if (isCollapsed) className += " collapsed";
 
-    let title = <MapTitle />;
+    let title, completedStatus, trailStats;
     switch(mapMode) {
         case MapMode.BASE:
             title = <MapTitle />;
+            completedStatus = <CompletedPct />;
+            trailStats = <AllTrailsStats />;
             break;
         case MapMode.TRAIL:
             title = <TrailTitle isSegment={false} />;
+            completedStatus = <CompletedPct />;
+            trailStats = <SingleTrailOrSegmentStats />;
             break;
         case MapMode.SEGMENT:
             title = <TrailTitle isSegment={true} />;
+            completedStatus = <CompletedStatus />;
+            trailStats = <SingleTrailOrSegmentStats />;
             break;
     }
     
     return (
-        <div className={className}>
-            <MobileExpandOrCollapseBtn handleClick={handleBtnClick}/>
+        <div className={ className }>
+            <MobileExpandOrCollapseBtn handleClick={ handleBtnClick }/>
             <div className="side-panel-content">
-                {title}
+                { title }
                 <div className="dividing-line"></div>
-                <CompletedPct />
-                <AllTrailsStats />
+                { completedStatus }
+                { trailStats }
             </div>
-            <ExpandOrCollapseBtn handleClick={handleBtnClick} />
+            <ExpandOrCollapseBtn handleClick={ handleBtnClick } />
         </div>
     );
 }
