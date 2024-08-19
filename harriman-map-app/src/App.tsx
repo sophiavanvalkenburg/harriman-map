@@ -1481,8 +1481,7 @@ function Map() {
 
   let clickedOnTrail = false;
   let hoveredTrailLineId: LineId;
-  let selectedTrailLineId: LineId;
-  let selectedTrailOriginalId: string;
+  let selectedTrail: GeoJSONFeature | undefined; 
   let hoveredSegmentLineId: LineId;
   let selectedSegmentLineId: LineId;
   let mapMode = MapMode.BASE;
@@ -1574,9 +1573,9 @@ function Map() {
   }
 
   function setTrailSelectedState(isSelected: boolean) {
-    if (!map.current || selectedTrailLineId === undefined) return;
+    if (!map.current || selectedTrail === undefined || selectedTrail.id === undefined) return;
     map.current.setFeatureState(
-      { source: Sources.TRAILS, id: selectedTrailLineId },
+      { source: Sources.TRAILS, id: +selectedTrail.id },
       { selected: isSelected }
     );
   }
@@ -1729,7 +1728,15 @@ function Map() {
       });
 
       function segmentBelongsToSelectedTrail(segment: GeoJSONFeature) {
-        return segment && segment.properties && selectedTrailOriginalId === segment.properties.trail_id;
+        return (
+          segment && segment.properties && 
+          selectedTrail && selectedTrail.properties && 
+          selectedTrail.properties.trail_id === segment.properties.trail_id
+        );
+      }
+
+      function selectedTrailIsComplete() {
+        return selectedTrail && selectedTrail.properties && selectedTrail.properties.status === 'complete';
       }
 
       function getInteractedTrail(e: MapMouseEvent) {
@@ -1761,15 +1768,14 @@ function Map() {
         clickedOnTrail = true;
         setTrailSelectedState(false);
         const trail = getInteractedTrail(e);
-        if (trail && trail.properties) {
-          selectedTrailLineId = trail.id;
-          selectedTrailOriginalId = trail.properties.trail_id;
+        if (trail) {
+          selectedTrail = trail;
           setTrailSelectedState(true);
         }
       });
 
       map.current.on('mouseenter', Layers.SEGMENT_HITBOX, (e) => {
-        if (!map.current) return;
+        if (!map.current || selectedTrailIsComplete()) return;
         const segment = getInteractedTrail(e);
         if (segment && segmentBelongsToSelectedTrail(segment)){
             map.current.getCanvas().style.cursor = 'pointer';
@@ -1778,6 +1784,7 @@ function Map() {
 
       map.current.on('mousemove', Layers.SEGMENT_HITBOX, (e) => {
         setSegmentHoverState(false)
+        if (selectedTrailIsComplete()) return;
         const segment = getInteractedTrail(e);
         if (segment && segmentBelongsToSelectedTrail(segment)) {
           hoveredSegmentLineId = segment.id;
@@ -1793,6 +1800,7 @@ function Map() {
       });
 
       map.current.on('click', Layers.SEGMENT_HITBOX, (e) => {
+        if (selectedTrailIsComplete()) return;
         const segment = getInteractedTrail(e);
         if (segment && segmentBelongsToSelectedTrail(segment)) {
           clickedOnTrail = true;
