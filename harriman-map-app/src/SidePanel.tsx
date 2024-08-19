@@ -69,7 +69,7 @@ type SidePanelButtonProps  = {
     handleClick: () => void
 }
 
-function MobileExpandBtn({handleClick}:SidePanelButtonProps) {
+function MobileExpandOrCollapseBtn({handleClick}:SidePanelButtonProps) {
     return (
         <button className="side-panel-btn mobile-view" onClick={handleClick}>
             <img src={mobileExpandCollapseSvg}></img>
@@ -98,7 +98,7 @@ function SidePanel() {
 
     return (
         <div className={className}>
-            <MobileExpandBtn handleClick={handleBtnClick}/>
+            <MobileExpandOrCollapseBtn handleClick={handleBtnClick}/>
             <div className="side-panel-content">
                 <MapTitle />
                 <div className="dividing-line"></div>
