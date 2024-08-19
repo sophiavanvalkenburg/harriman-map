@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import SidePanel from './SidePanel.tsx';
 import mapboxgl, { ExpressionSpecification, GeoJSONFeature, MapMouseEvent } from 'mapbox-gl';
 import { FeatureCollection } from "geojson";
@@ -1474,24 +1474,23 @@ function Map() {
     /*** Map mode management
      * 
      * The mode simply determines which layers are visible and interactable
-     * I'm not using React state because I don't want the map to re-render,
-     * as Mapbox handles its own rendering.
      * 
      *  ***/
 
-    let mapMode = MapMode.BASE;
+    const [mapMode, setMapMode] = useState(MapMode.BASE);
+    let clickedOnTrail = useRef(false);
 
     function onMapClick() {
         switch (mapMode) {
             case MapMode.SEGMENT:
-                if (!clickedOnTrail) {
+                if (!clickedOnTrail.current) {
                     setSegmentSelectedState(false);
                     setTrailSelectedState(false);
                     switchToBaseMode();
                 }
                 break;
             case MapMode.TRAIL:
-                if (!clickedOnTrail) {
+                if (!clickedOnTrail.current) {
                     setTrailSelectedState(false);
                     switchToBaseMode();
                 } else {
@@ -1499,12 +1498,12 @@ function Map() {
                 }
                 break;
             case MapMode.BASE:
-                if (clickedOnTrail) {
+                if (clickedOnTrail.current) {
                     switchToTrailMode();
                 }
                 break;
         }
-        clickedOnTrail = false;
+        clickedOnTrail.current = false;
     }
 
     function setLayerVisibility(layerId: string, isVisible: boolean) {
@@ -1515,7 +1514,7 @@ function Map() {
     function switchToSegmentMode() {
         if (!map.current) return;
         console.log('SEGMENT mode');
-        mapMode = MapMode.SEGMENT;
+        setMapMode(MapMode.SEGMENT);
         setLayerVisibility(Layers.DESELECTED_TRAILS, true);
         setLayerVisibility(Layers.SEGMENT_HITBOX, true);
         setLayerVisibility(Layers.TRAIL_HIGHLIGHT, false);
@@ -1528,7 +1527,7 @@ function Map() {
     function switchToTrailMode() {
         if (!map.current) return;
         console.log('TRAIL mode');
-        mapMode = MapMode.TRAIL;
+        setMapMode(MapMode.TRAIL);
         setLayerVisibility(Layers.DESELECTED_TRAILS, true);
         setLayerVisibility(Layers.SEGMENT_HITBOX, true);
         setLayerVisibility(Layers.TRAIL_HIGHLIGHT, false);
@@ -1541,7 +1540,7 @@ function Map() {
     function switchToBaseMode() {
         if (!map.current) return;
         console.log('BASE mode');
-        mapMode = MapMode.BASE;
+        setMapMode(MapMode.BASE);
         setLayerVisibility(Layers.DESELECTED_TRAILS, false);
         setLayerVisibility(Layers.SEGMENT_HITBOX, false);
         setLayerVisibility(Layers.TRAIL_HIGHLIGHT, true);
@@ -1553,45 +1552,43 @@ function Map() {
 
     /*** Map state management
      * 
-     * Again, I'm not using React state because I don't want the map to re-render.
-     * Mapbox handles its own re-rendering.
+     * I'm using useRef for variables used in map rendering
+     * instead of useState because Mapbox handles its own state, not React
      * 
      * ***/
-
-    let clickedOnTrail = false;
-    let hoveredTrailLineId: LineId;
-    let selectedTrail: GeoJSONFeature | undefined;
-    let hoveredSegmentLineId: LineId;
-    let selectedSegmentLineId: LineId;
+    let hoveredTrailLineId = useRef<LineId>();
+    let selectedTrail = useRef<GeoJSONFeature>();
+    let hoveredSegmentLineId = useRef<LineId>();
+    let selectedSegmentLineId = useRef<LineId>();
 
     function setTrailHoverState(isHovered: boolean) {
-        if (!map.current || hoveredTrailLineId === undefined) return;
+        if (!map.current || hoveredTrailLineId.current === undefined) return;
         map.current.setFeatureState(
-            { source: Sources.TRAILS, id: hoveredTrailLineId },
+            { source: Sources.TRAILS, id: +hoveredTrailLineId.current },
             { hover: isHovered }
         );
     }
 
     function setSegmentHoverState(isHovered: boolean) {
-        if (!map.current || hoveredSegmentLineId === undefined) return;
+        if (!map.current || hoveredSegmentLineId.current === undefined) return;
         map.current.setFeatureState(
-            { source: Sources.SEGMENTS, id: hoveredSegmentLineId },
+            { source: Sources.SEGMENTS, id: +hoveredSegmentLineId.current },
             { hover: isHovered }
         );
     }
 
     function setTrailSelectedState(isSelected: boolean) {
-        if (!map.current || selectedTrail === undefined || selectedTrail.id === undefined) return;
+        if (!map.current || selectedTrail.current === undefined || selectedTrail.current.id === undefined) return;
         map.current.setFeatureState(
-            { source: Sources.TRAILS, id: +selectedTrail.id },
+            { source: Sources.TRAILS, id: +selectedTrail.current.id },
             { selected: isSelected }
         );
     }
 
     function setSegmentSelectedState(isSelected: boolean) {
-        if (!map.current || selectedSegmentLineId === undefined) return;
+        if (!map.current || selectedSegmentLineId.current === undefined) return;
         map.current.setFeatureState(
-            { source: Sources.SEGMENTS, id: selectedSegmentLineId },
+            { source: Sources.SEGMENTS, id: +selectedSegmentLineId.current },
             { selected: isSelected }
         );
     }
@@ -1762,7 +1759,7 @@ function Map() {
                 setTrailHoverState(false)
                 const trail = getInteractedTrail(e);
                 if (trail) {
-                    hoveredTrailLineId = trail.id;
+                    hoveredTrailLineId.current = trail.id;
                     setTrailHoverState(true);
                 }
             });
@@ -1770,16 +1767,16 @@ function Map() {
             map.current.on('mouseleave', Layers.TRAIL_HITBOX, () => {
                 if (!map.current) return;
                 setTrailHoverState(false);
-                hoveredTrailLineId = undefined;
+                hoveredTrailLineId.current = undefined;
                 map.current.getCanvas().style.cursor = '';
             });
 
             map.current.on('click', Layers.TRAIL_HITBOX, (e) => {
-                clickedOnTrail = true;
+                clickedOnTrail.current = true;
                 setTrailSelectedState(false);
                 const trail = getInteractedTrail(e);
                 if (trail) {
-                    selectedTrail = trail;
+                    selectedTrail.current = trail;
                     setTrailSelectedState(true);
                 }
             });
@@ -1797,7 +1794,7 @@ function Map() {
                 if (selectedTrailIsComplete()) return;
                 const segment = getInteractedTrail(e);
                 if (segment && segmentBelongsToSelectedTrail(segment)) {
-                    hoveredSegmentLineId = segment.id;
+                    hoveredSegmentLineId.current = segment.id;
                     setSegmentHoverState(true);
                 }
             });
@@ -1805,7 +1802,7 @@ function Map() {
             map.current.on('mouseleave', Layers.SEGMENT_HITBOX, () => {
                 if (!map.current) return;
                 setSegmentHoverState(false);
-                hoveredSegmentLineId = undefined;
+                hoveredSegmentLineId.current = undefined;
                 map.current.getCanvas().style.cursor = '';
             });
 
@@ -1813,9 +1810,9 @@ function Map() {
                 if (selectedTrailIsComplete()) return;
                 const segment = getInteractedTrail(e);
                 if (segment && segmentBelongsToSelectedTrail(segment)) {
-                    clickedOnTrail = true;
+                    clickedOnTrail.current = true;
                     setSegmentSelectedState(false);
-                    selectedSegmentLineId = segment.id;
+                    selectedSegmentLineId.current = segment.id;
                     setSegmentSelectedState(true);
                 }
             });
@@ -1825,13 +1822,15 @@ function Map() {
             function segmentBelongsToSelectedTrail(segment: GeoJSONFeature) {
                 return (
                     segment && segment.properties &&
-                    selectedTrail && selectedTrail.properties &&
-                    selectedTrail.properties.trail_id === segment.properties.trail_id
+                    selectedTrail && selectedTrail.current && selectedTrail.current.properties &&
+                    selectedTrail.current.properties.trail_id === segment.properties.trail_id
                 );
             }
 
             function selectedTrailIsComplete() {
-                return selectedTrail && selectedTrail.properties && selectedTrail.properties.status === 'complete';
+                return (selectedTrail && selectedTrail.current && selectedTrail.current.properties && 
+                    selectedTrail.current.properties.status === 'complete'
+                );
             }
 
             function getInteractedTrail(e: MapMouseEvent) {
