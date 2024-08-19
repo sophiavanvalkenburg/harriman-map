@@ -14,30 +14,6 @@ function App() {
 
 type LineId = string | number | undefined;
 
-type LngLat = [number, number];
-
-type TrailSegment = {
-  type: "Feature",
-  id: string,
-  properties: {
-    name: string,
-    id: string,
-    status: string,
-    osm_way_ids: string[],
-    length: number,
-    trail_id: string
-  },
-  geometry: {
-    type: "LineString",
-    coordinates: LngLat[]
-  }
-};
-
-type TrailGeojson = {
-  type: "FeatureCollection",
-  features: TrailSegment[]
-};
-
 enum MapMode {
   BASE = 'base',
   TRAIL = 'trail',
@@ -93,7 +69,7 @@ function Map() {
   const map = useRef<mapboxgl.Map | null>(null);
 
   // to be removed later
-  const SEGMENT_DATA: TrailGeojson = {
+  const SEGMENT_DATA: GeoJSONFeature = {
     "type": "FeatureCollection",
     "features": [
       {
@@ -807,7 +783,7 @@ function Map() {
     ]
   }
 
-  const TRAIL_DATA: TrailGeojson = {
+  const TRAIL_DATA: GeoJSONFeature = {
     "type": "FeatureCollection",
     "features": [
       {
