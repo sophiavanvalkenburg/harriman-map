@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import SidePanel from './SidePanel.tsx'
-import mapboxgl, { GeoJSONFeature, MapMouseEvent } from 'mapbox-gl';
+import mapboxgl, { ExpressionSpecification, GeoJSONFeature, MapMouseEvent } from 'mapbox-gl';
 import './App.css'
 
 function App() {
@@ -54,6 +54,25 @@ const COMPLETED_COLOR = "#ff0000";
 const INCOMPLETE_COLOR = "#8c0000";
 const HIGHLIGHT_COLOR = "#ffe100";
 const LINE_WIDTH = 2;
+const HITBOX_LINE_WIDTH = 15;
+const SHOW_IF_NOT_SELECTED: ExpressionSpecification = [
+  'case', 
+  ['boolean', ['feature-state', 'selected'], false],
+  0,
+  1
+];
+const SHOW_IF_SELECTED_OR_HOVERED: ExpressionSpecification = [
+  'case', 
+  ['boolean', ['any', ['to-boolean', ['feature-state', 'hover']], ['to-boolean', ['feature-state', 'selected']]], false],
+  1,
+  0
+];
+const SHOW_IF_HOVERED: ExpressionSpecification = [
+  'case',
+  ['boolean', ['feature-state', 'hover'], false],
+  0.75,
+  0
+];
 
 function Map() {
   mapboxgl.accessToken = 'pk.eyJ1IjoibWVvd3lwdXJyIiwiYSI6ImNsemxlNTE0ZzAxbWUybG9qdHk1aGNlbHkifQ.WEaFTpVEow-9nOl0__ZqeA';
@@ -1636,12 +1655,7 @@ function Map() {
         },
         'paint': {
           'line-color': NOT_SELECTED_COLOR,
-          'line-opacity': [
-            'case',
-            ['boolean', ['feature-state', 'selected'], false],
-            0,
-            1
-          ],
+          'line-opacity': SHOW_IF_NOT_SELECTED,
           'line-width': LINE_WIDTH,
         }
       })
@@ -1653,19 +1667,7 @@ function Map() {
         'paint': {
           'line-color': HIGHLIGHT_COLOR,
           'line-gap-width': LINE_WIDTH,
-          'line-opacity': [
-            'case',
-            [
-              'boolean', [
-                'any', 
-                  ['to-boolean', ['feature-state', 'hover']], 
-                  ['to-boolean', ['feature-state', 'selected']]
-              ], 
-              false
-            ],
-            1,
-            0
-          ],
+          'line-opacity': SHOW_IF_SELECTED_OR_HOVERED,
           'line-width': LINE_WIDTH,
         }
       });
@@ -1676,12 +1678,7 @@ function Map() {
         'source': sources.TRAILS,
         'paint': {
           'line-color': HIGHLIGHT_COLOR,
-          'line-opacity': [
-            'case',
-            ['boolean', ['feature-state', 'hover'], false],
-            0.75,
-            0
-          ],
+          'line-opacity': SHOW_IF_HOVERED,
           'line-width': LINE_WIDTH,
         }
       });
@@ -1696,19 +1693,7 @@ function Map() {
         'paint': {
           'line-color': HIGHLIGHT_COLOR,
           'line-gap-width': LINE_WIDTH,
-          'line-opacity': [
-            'case',
-            [
-              'boolean', [
-                'any', 
-                  ['to-boolean', ['feature-state', 'hover']], 
-                  ['to-boolean', ['feature-state', 'selected']]
-              ], 
-              false
-            ],
-            1,
-            0
-          ],
+          'line-opacity': SHOW_IF_SELECTED_OR_HOVERED,
           'line-width': LINE_WIDTH,
         }
       });
@@ -1722,12 +1707,7 @@ function Map() {
         },
         'paint': {
           'line-color': HIGHLIGHT_COLOR,
-          'line-opacity': [
-            'case',
-            ['boolean', ['feature-state', 'hover'], false],
-            0.75,
-            0
-          ],
+          'line-opacity': SHOW_IF_HOVERED,
           'line-width': LINE_WIDTH,
         }
       });
@@ -1737,7 +1717,7 @@ function Map() {
         'type': 'line',
         'source': sources.TRAILS,
         'paint': {
-          'line-width': 15,
+          'line-width': HITBOX_LINE_WIDTH,
           'line-opacity': 0
         }
       });
@@ -1750,7 +1730,7 @@ function Map() {
           'visibility': 'none'
         },
         'paint': {
-          'line-width': 15,
+          'line-width': HITBOX_LINE_WIDTH,
           'line-opacity': 0
         }
       });
