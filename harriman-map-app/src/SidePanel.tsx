@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import collapseSvg from "./assets/icons/collapse.svg";
-import mobileExpandSvg from "./assets/icons/mobile-expand.svg";
+import mobileExpandCollapseSvg from "./assets/icons/mobile-expand-collapse.svg";
 import './SidePanel.css'
 
 function MapTitle() {
@@ -72,7 +72,7 @@ type SidePanelButtonProps  = {
 function MobileExpandBtn({handleClick}:SidePanelButtonProps) {
     return (
         <button className="side-panel-btn mobile-view" onClick={handleClick}>
-            <img src={mobileExpandSvg}></img>
+            <img src={mobileExpandCollapseSvg}></img>
         </button>
     );
 }

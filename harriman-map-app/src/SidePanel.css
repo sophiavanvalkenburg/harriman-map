@@ -134,39 +134,32 @@ p {
         width: 100%;
         flex-direction: column;
         justify-content: flex-end;
-        transition: none;
         translate: 0px;
     }
     
     .side-panel.collapsed {
-        transition: none;
-        translate: 0px;
-    }
-    
-    .side-panel.collapsed .side-panel-content {
-        transition: 0.25s ease-in-out;
-        translate: 0% 100%;
+        translate: 0px 348px;
     }
 
     .side-panel-content {
         height: 348px;
         width: 100%;
-        transition: 0.25s ease-in-out;
+        box-shadow: none;
     }
 
     .side-panel-btn.desktop-view {
         display: none;
     }
 
-    .side-panel.collapsed .side-panel-btn.mobile-view {
-        height: 60px;
+    .side-panel-btn.mobile-view {
+        translate: 0px 0.5px; /* to get rid of weird line artifact */
+        height: 40px;
         width: 100%;
         box-shadow: 0px -2px 4px 0px rgba(0, 0, 0, 0.25);
-        border-radius: 8px 8px 0px 0px; 
+        border-radius: 8px 8px 0px 0px;
+        padding: 0;
         background-color: #ffffff;
         display: flex;
-        position: absolute;
-        translate: 0px;
     }
 
     .map-title {
