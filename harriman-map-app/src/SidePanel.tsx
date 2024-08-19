@@ -93,16 +93,11 @@ function SidePanel() {
         setIsCollapsed(!isCollapsed);
     }
 
-    function handleMapClick() {
-        if (!isCollapsed) setIsCollapsed(true);
-    }
-
-
     let className = "side-panel";
     if (isCollapsed) className += " collapsed";
 
     return (
-        <div className={className} onClick={handleMapClick}>
+        <div className={className}>
             <MobileExpandBtn handleClick={handleBtnClick}/>
             <div className="side-panel-content">
                 <MapTitle />
