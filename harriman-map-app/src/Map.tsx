@@ -1,9 +1,11 @@
 import { useRef, useEffect} from 'react';
+import SidePanel from './SidePanel.tsx';
 import mapboxgl, { ExpressionSpecification, GeoJSONFeature, MapMouseEvent } from 'mapbox-gl';
+import { FeatureCollection } from "geojson";
 
 type LineId = string | number | undefined;
 
-const MapMode = {
+export const MapMode = {
   BASE: 'base',
   TRAIL: 'trail',
   SEGMENT: 'segment',
@@ -59,7 +61,7 @@ function Map() {
   const map = useRef<mapboxgl.Map | null>(null);
 
   // to be removed later
-  const SEGMENT_DATA: GeoJSONFeature = {
+  const SEGMENT_DATA: FeatureCollection = {
     "type": "FeatureCollection",
     "features": [
       {
@@ -773,7 +775,7 @@ function Map() {
     ]
   }
 
-  const TRAIL_DATA: GeoJSONFeature = {
+  const TRAIL_DATA: FeatureCollection = {
     "type": "FeatureCollection",
     "features": [
       {
@@ -1841,7 +1843,8 @@ function Map() {
   });
   return (
     <div>
-      <div ref={mapContainer} className="map-container" onClick={onMapClick}/>
+        <SidePanel mapMode={mapMode}/>
+        <div ref={mapContainer} className="map-container" onClick={onMapClick}/>
     </div>
   );
 }

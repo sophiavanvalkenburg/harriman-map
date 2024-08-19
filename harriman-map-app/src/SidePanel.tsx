@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import collapseSvg from "./assets/icons/collapse.svg";
 import mobileExpandCollapseSvg from "./assets/icons/mobile-expand-collapse.svg";
+import { MapMode } from "./Map.tsx";
 import './SidePanel.css'
 
 function MapTitle() {
@@ -12,11 +13,16 @@ function MapTitle() {
     );
 }
 
-function TrailTitle() {
+type TrailTitleProps = {
+    isSegment: boolean
+}
+
+function TrailTitle({isSegment}: TrailTitleProps) {
+    const subtitle = isSegment ? <p>(segment)</p> : '';
     return (
         <div className="map-title">
             <h1>1777 Trail</h1>
-            <p>(segment)</p>
+            {subtitle}
         </div>
     );
 }
@@ -29,7 +35,7 @@ function CompletedStatus() {
     return (<div className="stat-complete"><h2>Status: Incomplete</h2></div>); 
 }
 
-function SingleTrailorSegmentStats() {
+function SingleTrailOrSegmentStats() {
     return (
         <div className="stat-segment-container">
             <div className="stat-length-trail">
@@ -85,7 +91,11 @@ function ExpandOrCollapseBtn({handleClick}:SidePanelButtonProps) {
     );
 }
 
-function SidePanel() {
+type SidePanelProps = {
+    mapMode: string
+}
+
+function SidePanel({mapMode}: SidePanelProps) {
 
     const [isCollapsed, setIsCollapsed] = useState(false);
 
@@ -96,11 +106,24 @@ function SidePanel() {
     let className = "side-panel";
     if (isCollapsed) className += " collapsed";
 
+    let title = <MapTitle />;
+    switch(mapMode) {
+        case MapMode.BASE:
+            title = <MapTitle />;
+            break;
+        case MapMode.TRAIL:
+            title = <TrailTitle isSegment={false} />;
+            break;
+        case MapMode.SEGMENT:
+            title = <TrailTitle isSegment={true} />;
+            break;
+    }
+    
     return (
         <div className={className}>
             <MobileExpandOrCollapseBtn handleClick={handleBtnClick}/>
             <div className="side-panel-content">
-                <MapTitle />
+                {title}
                 <div className="dividing-line"></div>
                 <CompletedPct />
                 <AllTrailsStats />
