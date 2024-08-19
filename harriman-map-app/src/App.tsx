@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import SidePanel from './SidePanel.tsx'
-import mapboxgl from 'mapbox-gl';
+import mapboxgl, { GeoJSONFeature } from 'mapbox-gl';
 import './App.css'
 
 function App() {
@@ -1477,7 +1477,21 @@ function Map() {
   let selectedTrailLineId: LineId;
   let selectedTrailOriginalId: string;
   let hoveredSegmentLineId: LineId;
+  let selectedSegmentLineId: LineId;
   let mapMode = MapMode.BASE;
+
+  function switchToSegmentMode() {
+    if (!map.current) return;
+    console.log('SEGMENT mode');
+    mapMode = MapMode.SEGMENT;
+    map.current.setLayoutProperty('trail-lines-deselected', 'visibility', 'visible');
+    map.current.setLayoutProperty('segment-hitbox', 'visibility', 'visible');
+    map.current.setLayoutProperty('trail-lines-highlight', 'visibility', 'none');
+    map.current.setLayoutProperty('trail-lines-highlight-outline', 'visibility', 'none');
+    map.current.setLayoutProperty('segment-lines-highlight', 'visibility', 'visible');
+    map.current.setLayoutProperty('segment-lines-highlight-outline', 'visibility', 'visible');
+    map.current.setLayoutProperty('trail-hitbox', 'visibility', 'none');
+  }
 
   function switchToTrailMode() {
     if (!map.current) return;
@@ -1486,6 +1500,9 @@ function Map() {
     map.current.setLayoutProperty('trail-lines-deselected', 'visibility', 'visible');
     map.current.setLayoutProperty('segment-hitbox', 'visibility', 'visible');
     map.current.setLayoutProperty('trail-lines-highlight', 'visibility', 'none');
+    map.current.setLayoutProperty('trail-lines-highlight-outline', 'visibility', 'visible');
+    map.current.setLayoutProperty('segment-lines-highlight', 'visibility', 'visible');
+    map.current.setLayoutProperty('segment-lines-highlight-outline', 'visibility', 'none');
     map.current.setLayoutProperty('trail-hitbox', 'visibility', 'none');
   }
 
@@ -1496,15 +1513,27 @@ function Map() {
     map.current.setLayoutProperty('trail-lines-deselected', 'visibility', 'none');
     map.current.setLayoutProperty('segment-hitbox', 'visibility', 'none');
     map.current.setLayoutProperty('trail-lines-highlight', 'visibility', 'visible');
+    map.current.setLayoutProperty('trail-lines-highlight-outline', 'visibility', 'visible');
+    map.current.setLayoutProperty('segment-lines-highlight', 'visibility', 'none');
+    map.current.setLayoutProperty('segment-lines-highlight-outline', 'visibility', 'none');
     map.current.setLayoutProperty('trail-hitbox', 'visibility', 'visible');
   }
 
   function onMapClick() {
     switch (mapMode) {
+      case MapMode.SEGMENT:
+        if (!clickedOnTrail) {
+          setSegmentSelectedState(false);
+          setTrailSelectedState(false);
+          switchToBaseMode();
+        }
+        break;
       case MapMode.TRAIL:
         if (!clickedOnTrail) {
           setTrailSelectedState(false);
           switchToBaseMode();
+        } else {
+          switchToSegmentMode();
         }
         break;
       case MapMode.BASE:
@@ -1536,6 +1565,14 @@ function Map() {
     if (!map.current || selectedTrailLineId === undefined) return;
     map.current.setFeatureState(
       { source: sources.TRAILS, id: selectedTrailLineId },
+      { selected: isSelected }
+    );
+  }
+
+  function setSegmentSelectedState(isSelected: boolean) {
+    if (!map.current || selectedSegmentLineId === undefined) return;
+    map.current.setFeatureState(
+      { source: sources.SEGMENTS, id: selectedSegmentLineId },
       { selected: isSelected }
     );
   }
@@ -1661,7 +1698,14 @@ function Map() {
           'line-gap-width': LINE_WIDTH,
           'line-opacity': [
             'case',
-            ['boolean', ['feature-state', 'hover'], false],
+            [
+              'boolean', [
+                'any', 
+                  ['to-boolean', ['feature-state', 'hover']], 
+                  ['to-boolean', ['feature-state', 'selected']]
+              ], 
+              false
+            ],
             1,
             0
           ],
@@ -1673,6 +1717,9 @@ function Map() {
         'id': 'segment-lines-highlight',
         'type': 'line',
         'source': sources.SEGMENTS,
+        'layout': {
+          'visibility': 'none'
+        },
         'paint': {
           'line-color': HIGHLIGHT_COLOR,
           'line-opacity': [
@@ -1708,6 +1755,10 @@ function Map() {
         }
       });
 
+      function segmentBelongsToSelectedTrail(segment: GeoJSONFeature) {
+        return segment && segment.properties && selectedTrailOriginalId === segment.properties.trail_id;
+      }
+
       map.current.on('mouseenter', 'trail-hitbox', () => {
         if (!map.current) return;
         map.current.getCanvas().style.cursor = 'pointer';
@@ -1740,20 +1791,16 @@ function Map() {
 
       map.current.on('mouseenter', 'segment-hitbox', (e) => {
         if (!map.current) return;
-        if (e.features && e.features.length > 0 && e.features[0].properties) {
-          if (selectedTrailOriginalId === e.features[0].properties.trail_id){
+        if (e.features && e.features.length > 0 && segmentBelongsToSelectedTrail(e.features[0])){
             map.current.getCanvas().style.cursor = 'pointer';
-          } 
         }
       });
 
       map.current.on('mousemove', 'segment-hitbox', (e) => {
         setSegmentHoverState(false)
-        if (e.features && e.features.length > 0 && e.features[0].properties) {
-          if (selectedTrailOriginalId === e.features[0].properties.trail_id){
-            hoveredSegmentLineId = e.features[0].id;
-            setSegmentHoverState(true);
-          }
+        if (e.features && e.features.length > 0 && segmentBelongsToSelectedTrail(e.features[0])) {
+          hoveredSegmentLineId = e.features[0].id;
+          setSegmentHoverState(true);
         }
       });
 
@@ -1763,12 +1810,16 @@ function Map() {
         hoveredSegmentLineId = undefined;
         map.current.getCanvas().style.cursor = '';
       });
-/*
-      map.current.on('click', 'segment-hitbox', () => {
-        clickedOnTrail = true;
-        //setMapMode(MapMode.SEGMENT);
+
+      map.current.on('click', 'segment-hitbox', (e) => {
+        if (e.features && e.features.length > 0 && segmentBelongsToSelectedTrail(e.features[0])) {
+          clickedOnTrail = true;
+          setSegmentSelectedState(false);
+          selectedSegmentLineId = e.features[0].id;
+          setSegmentSelectedState(true);
+        }
       });
-*/
+
     });
 
   });
