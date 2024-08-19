@@ -38,18 +38,19 @@ const SHOW_IF_NOT_SELECTED: ExpressionSpecification = [
   0,
   1
 ];
-const SHOW_IF_SELECTED_OR_HOVERED: ExpressionSpecification = [
+const SHOW_ON_HOVER_OR_SELECTED: ExpressionSpecification = [
   'case', 
   ['boolean', ['any', ['to-boolean', ['feature-state', 'hover']], ['to-boolean', ['feature-state', 'selected']]], false],
   1,
   0
 ];
-const SHOW_IF_HOVERED: ExpressionSpecification = [
+const SHOW_ON_HOVER: ExpressionSpecification = [
   'case',
   ['boolean', ['feature-state', 'hover'], false],
   0.75,
   0
 ];
+
 
 function Map() {
   mapboxgl.accessToken = 'pk.eyJ1IjoibWVvd3lwdXJyIiwiYSI6ImNsemxlNTE0ZzAxbWUybG9qdHk1aGNlbHkifQ.WEaFTpVEow-9nOl0__ZqeA';
@@ -1468,12 +1469,41 @@ function Map() {
     ]
   };
 
-  let clickedOnTrail = false;
-  let hoveredTrailLineId: LineId;
-  let selectedTrail: GeoJSONFeature | undefined; 
-  let hoveredSegmentLineId: LineId;
-  let selectedSegmentLineId: LineId;
+  /*** Map mode management
+   * 
+   * The mode simply determines which layers are visible and interactable
+   * I'm not using React state because I don't want the map to re-render,
+   * as Mapbox handles its own rendering.
+   * 
+   *  ***/
+
   let mapMode = MapMode.BASE;
+
+  function onMapClick() {
+    switch (mapMode) {
+      case MapMode.SEGMENT:
+        if (!clickedOnTrail) {
+          setSegmentSelectedState(false);
+          setTrailSelectedState(false);
+          switchToBaseMode();
+        }
+        break;
+      case MapMode.TRAIL:
+        if (!clickedOnTrail) {
+          setTrailSelectedState(false);
+          switchToBaseMode();
+        } else {
+          switchToSegmentMode();
+        }
+        break;
+      case MapMode.BASE:
+        if (clickedOnTrail) {
+          switchToTrailMode();
+        }
+        break;
+    }
+    clickedOnTrail = false;
+  }
 
   function setLayerVisibility(layerId: string, isVisible: boolean) {
     if (!map.current) return;
@@ -1519,31 +1549,18 @@ function Map() {
     setLayerVisibility(Layers.TRAIL_HITBOX, true);
   }
 
-  function onMapClick() {
-    switch (mapMode) {
-      case MapMode.SEGMENT:
-        if (!clickedOnTrail) {
-          setSegmentSelectedState(false);
-          setTrailSelectedState(false);
-          switchToBaseMode();
-        }
-        break;
-      case MapMode.TRAIL:
-        if (!clickedOnTrail) {
-          setTrailSelectedState(false);
-          switchToBaseMode();
-        } else {
-          switchToSegmentMode();
-        }
-        break;
-      case MapMode.BASE:
-        if (clickedOnTrail) {
-          switchToTrailMode();
-        }
-        break;
-    }
-    clickedOnTrail = false;
-  }
+  /*** Map state management
+   * 
+   * Again, I'm not using React state because I don't want the map to re-render.
+   * Mapbox handles its own re-rendering.
+   * 
+   * ***/
+
+  let clickedOnTrail = false;
+  let hoveredTrailLineId: LineId;
+  let selectedTrail: GeoJSONFeature | undefined; 
+  let hoveredSegmentLineId: LineId;
+  let selectedSegmentLineId: LineId;
 
   function setTrailHoverState(isHovered: boolean) {
     if (!map.current || hoveredTrailLineId === undefined) return;
@@ -1577,6 +1594,9 @@ function Map() {
     );
   }
 
+
+  /*** Map initialization & setup ***/
+
   useEffect(() => {
 
     if (!mapContainer.current) return;
@@ -1593,6 +1613,8 @@ function Map() {
 
       if (!map.current) return;
 
+      /*** Add map sources: segment data and trail data ***/
+
       map.current.addSource(Sources.SEGMENTS, {
         'type': 'geojson',
         'generateId': true,
@@ -1604,6 +1626,16 @@ function Map() {
         'generateId': true,
         'data': TRAIL_DATA
       });
+
+
+      /*** Add map layers:
+       * 
+       * completed & incomplete segments - for base color styling
+       * deselected trails - for trail mode styling
+       * trail/segment highlights and outlines - for hover and select state styling
+       * trail/segment hitboxes - for making trails easier to interact with
+       * 
+       * ***/
 
       map.current.addLayer({
         'id': Layers.COMPLETED_SEGMENTS,
@@ -1648,7 +1680,7 @@ function Map() {
         'paint': {
           'line-color': HIGHLIGHT_COLOR,
           'line-gap-width': LINE_WIDTH,
-          'line-opacity': SHOW_IF_SELECTED_OR_HOVERED,
+          'line-opacity': SHOW_ON_HOVER_OR_SELECTED,
           'line-width': LINE_WIDTH,
         }
       });
@@ -1659,7 +1691,7 @@ function Map() {
         'source': Sources.TRAILS,
         'paint': {
           'line-color': HIGHLIGHT_COLOR,
-          'line-opacity': SHOW_IF_HOVERED,
+          'line-opacity': SHOW_ON_HOVER,
           'line-width': LINE_WIDTH,
         }
       });
@@ -1674,7 +1706,7 @@ function Map() {
         'paint': {
           'line-color': HIGHLIGHT_COLOR,
           'line-gap-width': LINE_WIDTH,
-          'line-opacity': SHOW_IF_SELECTED_OR_HOVERED,
+          'line-opacity': SHOW_ON_HOVER_OR_SELECTED,
           'line-width': LINE_WIDTH,
         }
       });
@@ -1688,7 +1720,7 @@ function Map() {
         },
         'paint': {
           'line-color': HIGHLIGHT_COLOR,
-          'line-opacity': SHOW_IF_HOVERED,
+          'line-opacity': SHOW_ON_HOVER,
           'line-width': LINE_WIDTH,
         }
       });
@@ -1716,21 +1748,8 @@ function Map() {
         }
       });
 
-      function segmentBelongsToSelectedTrail(segment: GeoJSONFeature) {
-        return (
-          segment && segment.properties && 
-          selectedTrail && selectedTrail.properties && 
-          selectedTrail.properties.trail_id === segment.properties.trail_id
-        );
-      }
 
-      function selectedTrailIsComplete() {
-        return selectedTrail && selectedTrail.properties && selectedTrail.properties.status === 'complete';
-      }
-
-      function getInteractedTrail(e: MapMouseEvent) {
-        return e.features && e.features.length > 0 ? e.features[0] : undefined;
-      }
+      /*** Event handlers: hovering & selecting both trails & segments ***/
 
       map.current.on('mouseenter', Layers.TRAIL_HITBOX, () => {
         if (!map.current) return;
@@ -1798,6 +1817,24 @@ function Map() {
           setSegmentSelectedState(true);
         }
       });
+
+       /*** Helper functions ***/
+
+       function segmentBelongsToSelectedTrail(segment: GeoJSONFeature) {
+        return (
+          segment && segment.properties && 
+          selectedTrail && selectedTrail.properties && 
+          selectedTrail.properties.trail_id === segment.properties.trail_id
+        );
+      }
+
+      function selectedTrailIsComplete() {
+        return selectedTrail && selectedTrail.properties && selectedTrail.properties.status === 'complete';
+      }
+
+      function getInteractedTrail(e: MapMouseEvent) {
+        return e.features && e.features.length > 0 ? e.features[0] : undefined;
+      }
 
     });
 
