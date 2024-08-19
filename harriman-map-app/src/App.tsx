@@ -1511,43 +1511,48 @@ function Map() {
   let selectedSegmentLineId: LineId;
   let mapMode = MapMode.BASE;
 
+  function setLayerVisibility(layerId: string, isVisible: boolean) {
+    if (!map.current) return;
+    map.current.setLayoutProperty(layerId, 'visibility', isVisible ? 'visible' : 'none');
+  }
+
   function switchToSegmentMode() {
     if (!map.current) return;
     console.log('SEGMENT mode');
     mapMode = MapMode.SEGMENT;
-    map.current.setLayoutProperty(Layers.DESELECTED_TRAILS, 'visibility', 'visible');
-    map.current.setLayoutProperty(Layers.SEGMENT_HITBOX, 'visibility', 'visible');
-    map.current.setLayoutProperty(Layers.TRAIL_HIGHLIGHT, 'visibility', 'none');
-    map.current.setLayoutProperty(Layers.TRAIL_OUTLINE, 'visibility', 'none');
-    map.current.setLayoutProperty(Layers.SEGMENT_HIGHLIGHT, 'visibility', 'visible');
-    map.current.setLayoutProperty(Layers.SEGMENT_OUTLINE, 'visibility', 'visible');
-    map.current.setLayoutProperty(Layers.TRAIL_HITBOX, 'visibility', 'none');
+    setLayerVisibility(Layers.DESELECTED_TRAILS, true);
+    setLayerVisibility(Layers.SEGMENT_HITBOX, true);
+    setLayerVisibility(Layers.TRAIL_HIGHLIGHT, false);
+    setLayerVisibility(Layers.TRAIL_OUTLINE, false);
+    setLayerVisibility(Layers.SEGMENT_HIGHLIGHT, true);
+    setLayerVisibility(Layers.SEGMENT_OUTLINE, true);
+    setLayerVisibility(Layers.TRAIL_HITBOX, false);
   }
 
   function switchToTrailMode() {
     if (!map.current) return;
     console.log('TRAIL mode');
     mapMode = MapMode.TRAIL;
-    map.current.setLayoutProperty(Layers.DESELECTED_TRAILS, 'visibility', 'visible');
-    map.current.setLayoutProperty(Layers.SEGMENT_HITBOX, 'visibility', 'visible');
-    map.current.setLayoutProperty(Layers.TRAIL_HIGHLIGHT, 'visibility', 'none');
-    map.current.setLayoutProperty(Layers.TRAIL_OUTLINE, 'visibility', 'visible');
-    map.current.setLayoutProperty(Layers.SEGMENT_HIGHLIGHT, 'visibility', 'visible');
-    map.current.setLayoutProperty(Layers.SEGMENT_OUTLINE, 'visibility', 'none');
-    map.current.setLayoutProperty(Layers.TRAIL_HITBOX, 'visibility', 'none');
+    setLayerVisibility(Layers.DESELECTED_TRAILS, true);
+    setLayerVisibility(Layers.SEGMENT_HITBOX, true);
+    setLayerVisibility(Layers.TRAIL_HIGHLIGHT, false);
+    setLayerVisibility(Layers.TRAIL_OUTLINE, true);
+    setLayerVisibility(Layers.SEGMENT_HIGHLIGHT, true);
+    setLayerVisibility(Layers.SEGMENT_OUTLINE, false);
+    setLayerVisibility(Layers.TRAIL_HITBOX, false);
   }
 
   function switchToBaseMode() {
     if (!map.current) return;
     console.log('BASE mode');
     mapMode = MapMode.BASE;
-    map.current.setLayoutProperty(Layers.DESELECTED_TRAILS, 'visibility', 'none');
-    map.current.setLayoutProperty(Layers.SEGMENT_HITBOX, 'visibility', 'none');
-    map.current.setLayoutProperty(Layers.TRAIL_HIGHLIGHT, 'visibility', 'visible');
-    map.current.setLayoutProperty(Layers.TRAIL_OUTLINE, 'visibility', 'visible');
-    map.current.setLayoutProperty(Layers.SEGMENT_HIGHLIGHT, 'visibility', 'none');
-    map.current.setLayoutProperty(Layers.SEGMENT_OUTLINE, 'visibility', 'none');
-    map.current.setLayoutProperty(Layers.TRAIL_HITBOX, 'visibility', 'visible');
+    setLayerVisibility(Layers.DESELECTED_TRAILS, false);
+    setLayerVisibility(Layers.SEGMENT_HITBOX, false);
+    setLayerVisibility(Layers.TRAIL_HIGHLIGHT, true);
+    setLayerVisibility(Layers.TRAIL_OUTLINE, true);
+    setLayerVisibility(Layers.SEGMENT_HIGHLIGHT, false);
+    setLayerVisibility(Layers.SEGMENT_OUTLINE, false);
+    setLayerVisibility(Layers.TRAIL_HITBOX, true);
   }
 
   function onMapClick() {
