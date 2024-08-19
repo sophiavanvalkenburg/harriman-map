@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import SidePanel from './SidePanel.tsx'
-import mapboxgl, { GeoJSONFeature } from 'mapbox-gl';
+import mapboxgl, { GeoJSONFeature, MapMouseEvent } from 'mapbox-gl';
 import './App.css'
 
 function App() {
@@ -1759,6 +1759,10 @@ function Map() {
         return segment && segment.properties && selectedTrailOriginalId === segment.properties.trail_id;
       }
 
+      function getInteractedTrail(e: MapMouseEvent) {
+        return e.features && e.features.length > 0 ? e.features[0] : undefined;
+      }
+
       map.current.on('mouseenter', 'trail-hitbox', () => {
         if (!map.current) return;
         map.current.getCanvas().style.cursor = 'pointer';
@@ -1766,8 +1770,9 @@ function Map() {
 
       map.current.on('mousemove', 'trail-hitbox', (e) => {
         setTrailHoverState(false)
-        if (e.features && e.features.length > 0) {
-          hoveredTrailLineId = e.features[0].id;
+        const trail = getInteractedTrail(e);
+        if (trail) {
+          hoveredTrailLineId = trail.id;
           setTrailHoverState(true);
         }
       });
@@ -1782,24 +1787,27 @@ function Map() {
       map.current.on('click', 'trail-hitbox', (e) => {
         clickedOnTrail = true;
         setTrailSelectedState(false);
-        if (e.features && e.features.length > 0 && e.features[0].properties) {
-          selectedTrailLineId = e.features[0].id;
-          selectedTrailOriginalId = e.features[0].properties.trail_id;
+        const trail = getInteractedTrail(e);
+        if (trail && trail.properties) {
+          selectedTrailLineId = trail.id;
+          selectedTrailOriginalId = trail.properties.trail_id;
           setTrailSelectedState(true);
         }
       });
 
       map.current.on('mouseenter', 'segment-hitbox', (e) => {
         if (!map.current) return;
-        if (e.features && e.features.length > 0 && segmentBelongsToSelectedTrail(e.features[0])){
+        const segment = getInteractedTrail(e);
+        if (segment && segmentBelongsToSelectedTrail(segment)){
             map.current.getCanvas().style.cursor = 'pointer';
         }
       });
 
       map.current.on('mousemove', 'segment-hitbox', (e) => {
         setSegmentHoverState(false)
-        if (e.features && e.features.length > 0 && segmentBelongsToSelectedTrail(e.features[0])) {
-          hoveredSegmentLineId = e.features[0].id;
+        const segment = getInteractedTrail(e);
+        if (segment && segmentBelongsToSelectedTrail(segment)) {
+          hoveredSegmentLineId = segment.id;
           setSegmentHoverState(true);
         }
       });
@@ -1812,10 +1820,11 @@ function Map() {
       });
 
       map.current.on('click', 'segment-hitbox', (e) => {
-        if (e.features && e.features.length > 0 && segmentBelongsToSelectedTrail(e.features[0])) {
+        const segment = getInteractedTrail(e);
+        if (segment && segmentBelongsToSelectedTrail(segment)) {
           clickedOnTrail = true;
           setSegmentSelectedState(false);
-          selectedSegmentLineId = e.features[0].id;
+          selectedSegmentLineId = segment.id;
           setSegmentSelectedState(true);
         }
       });
