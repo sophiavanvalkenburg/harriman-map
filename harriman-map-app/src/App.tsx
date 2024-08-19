@@ -44,12 +44,12 @@ enum MapMode {
   SEGMENT = 'segment',
 };
 
-enum sources {
+enum Sources {
   TRAILS = 'trails',
   SEGMENTS = 'segments'
 }
 
-enum layers {
+enum Layers {
   COMPLETED_SEGMENTS = 'segment-lines-complete',
   INCOMPLETE_SEGMENTS = 'segment-lines-incomplete',
   DESELECTED_TRAILS = 'trail-lines-deselected',
@@ -1515,39 +1515,39 @@ function Map() {
     if (!map.current) return;
     console.log('SEGMENT mode');
     mapMode = MapMode.SEGMENT;
-    map.current.setLayoutProperty(layers.DESELECTED_TRAILS, 'visibility', 'visible');
-    map.current.setLayoutProperty(layers.SEGMENT_HITBOX, 'visibility', 'visible');
-    map.current.setLayoutProperty(layers.TRAIL_HIGHLIGHT, 'visibility', 'none');
-    map.current.setLayoutProperty(layers.TRAIL_OUTLINE, 'visibility', 'none');
-    map.current.setLayoutProperty(layers.SEGMENT_HIGHLIGHT, 'visibility', 'visible');
-    map.current.setLayoutProperty(layers.SEGMENT_OUTLINE, 'visibility', 'visible');
-    map.current.setLayoutProperty(layers.TRAIL_HITBOX, 'visibility', 'none');
+    map.current.setLayoutProperty(Layers.DESELECTED_TRAILS, 'visibility', 'visible');
+    map.current.setLayoutProperty(Layers.SEGMENT_HITBOX, 'visibility', 'visible');
+    map.current.setLayoutProperty(Layers.TRAIL_HIGHLIGHT, 'visibility', 'none');
+    map.current.setLayoutProperty(Layers.TRAIL_OUTLINE, 'visibility', 'none');
+    map.current.setLayoutProperty(Layers.SEGMENT_HIGHLIGHT, 'visibility', 'visible');
+    map.current.setLayoutProperty(Layers.SEGMENT_OUTLINE, 'visibility', 'visible');
+    map.current.setLayoutProperty(Layers.TRAIL_HITBOX, 'visibility', 'none');
   }
 
   function switchToTrailMode() {
     if (!map.current) return;
     console.log('TRAIL mode');
     mapMode = MapMode.TRAIL;
-    map.current.setLayoutProperty(layers.DESELECTED_TRAILS, 'visibility', 'visible');
-    map.current.setLayoutProperty(layers.SEGMENT_HITBOX, 'visibility', 'visible');
-    map.current.setLayoutProperty(layers.TRAIL_HIGHLIGHT, 'visibility', 'none');
-    map.current.setLayoutProperty(layers.TRAIL_OUTLINE, 'visibility', 'visible');
-    map.current.setLayoutProperty(layers.SEGMENT_HIGHLIGHT, 'visibility', 'visible');
-    map.current.setLayoutProperty(layers.SEGMENT_OUTLINE, 'visibility', 'none');
-    map.current.setLayoutProperty(layers.TRAIL_HITBOX, 'visibility', 'none');
+    map.current.setLayoutProperty(Layers.DESELECTED_TRAILS, 'visibility', 'visible');
+    map.current.setLayoutProperty(Layers.SEGMENT_HITBOX, 'visibility', 'visible');
+    map.current.setLayoutProperty(Layers.TRAIL_HIGHLIGHT, 'visibility', 'none');
+    map.current.setLayoutProperty(Layers.TRAIL_OUTLINE, 'visibility', 'visible');
+    map.current.setLayoutProperty(Layers.SEGMENT_HIGHLIGHT, 'visibility', 'visible');
+    map.current.setLayoutProperty(Layers.SEGMENT_OUTLINE, 'visibility', 'none');
+    map.current.setLayoutProperty(Layers.TRAIL_HITBOX, 'visibility', 'none');
   }
 
   function switchToBaseMode() {
     if (!map.current) return;
     console.log('BASE mode');
     mapMode = MapMode.BASE;
-    map.current.setLayoutProperty(layers.DESELECTED_TRAILS, 'visibility', 'none');
-    map.current.setLayoutProperty(layers.SEGMENT_HITBOX, 'visibility', 'none');
-    map.current.setLayoutProperty(layers.TRAIL_HIGHLIGHT, 'visibility', 'visible');
-    map.current.setLayoutProperty(layers.TRAIL_OUTLINE, 'visibility', 'visible');
-    map.current.setLayoutProperty(layers.SEGMENT_HIGHLIGHT, 'visibility', 'none');
-    map.current.setLayoutProperty(layers.SEGMENT_OUTLINE, 'visibility', 'none');
-    map.current.setLayoutProperty(layers.TRAIL_HITBOX, 'visibility', 'visible');
+    map.current.setLayoutProperty(Layers.DESELECTED_TRAILS, 'visibility', 'none');
+    map.current.setLayoutProperty(Layers.SEGMENT_HITBOX, 'visibility', 'none');
+    map.current.setLayoutProperty(Layers.TRAIL_HIGHLIGHT, 'visibility', 'visible');
+    map.current.setLayoutProperty(Layers.TRAIL_OUTLINE, 'visibility', 'visible');
+    map.current.setLayoutProperty(Layers.SEGMENT_HIGHLIGHT, 'visibility', 'none');
+    map.current.setLayoutProperty(Layers.SEGMENT_OUTLINE, 'visibility', 'none');
+    map.current.setLayoutProperty(Layers.TRAIL_HITBOX, 'visibility', 'visible');
   }
 
   function onMapClick() {
@@ -1579,7 +1579,7 @@ function Map() {
   function setTrailHoverState(isHovered: boolean) {
     if (!map.current || hoveredTrailLineId === undefined) return;
     map.current.setFeatureState(
-      { source: sources.TRAILS, id: hoveredTrailLineId },
+      { source: Sources.TRAILS, id: hoveredTrailLineId },
       { hover: isHovered }
     );
   }
@@ -1587,7 +1587,7 @@ function Map() {
   function setSegmentHoverState(isHovered: boolean) {
     if (!map.current || hoveredSegmentLineId === undefined) return;
     map.current.setFeatureState(
-      { source: sources.SEGMENTS, id: hoveredSegmentLineId },
+      { source: Sources.SEGMENTS, id: hoveredSegmentLineId },
       { hover: isHovered }
     );
   }
@@ -1595,7 +1595,7 @@ function Map() {
   function setTrailSelectedState(isSelected: boolean) {
     if (!map.current || selectedTrailLineId === undefined) return;
     map.current.setFeatureState(
-      { source: sources.TRAILS, id: selectedTrailLineId },
+      { source: Sources.TRAILS, id: selectedTrailLineId },
       { selected: isSelected }
     );
   }
@@ -1603,7 +1603,7 @@ function Map() {
   function setSegmentSelectedState(isSelected: boolean) {
     if (!map.current || selectedSegmentLineId === undefined) return;
     map.current.setFeatureState(
-      { source: sources.SEGMENTS, id: selectedSegmentLineId },
+      { source: Sources.SEGMENTS, id: selectedSegmentLineId },
       { selected: isSelected }
     );
   }
@@ -1624,22 +1624,22 @@ function Map() {
 
       if (!map.current) return;
 
-      map.current.addSource(sources.SEGMENTS, {
+      map.current.addSource(Sources.SEGMENTS, {
         'type': 'geojson',
         'generateId': true,
         'data': SEGMENT_DATA
       });
 
-      map.current.addSource(sources.TRAILS, {
+      map.current.addSource(Sources.TRAILS, {
         'type': 'geojson',
         'generateId': true,
         'data': TRAIL_DATA
       });
 
       map.current.addLayer({
-        'id': layers.COMPLETED_SEGMENTS,
+        'id': Layers.COMPLETED_SEGMENTS,
         'type': 'line',
-        'source': sources.SEGMENTS,
+        'source': Sources.SEGMENTS,
         'filter': ['==', 'complete', ['get', 'status']],
         'paint': {
           'line-color': COMPLETED_COLOR,
@@ -1648,9 +1648,9 @@ function Map() {
       });
 
       map.current.addLayer({
-        'id': layers.INCOMPLETE_SEGMENTS,
+        'id': Layers.INCOMPLETE_SEGMENTS,
         'type': 'line',
-        'source': sources.SEGMENTS,
+        'source': Sources.SEGMENTS,
         'filter': ['==', 'incomplete', ['get', 'status']],
         'paint': {
           'line-color': INCOMPLETE_COLOR,
@@ -1659,9 +1659,9 @@ function Map() {
       });
 
       map.current.addLayer({
-        'id': layers.DESELECTED_TRAILS,
+        'id': Layers.DESELECTED_TRAILS,
         'type': 'line',
-        'source': sources.TRAILS,
+        'source': Sources.TRAILS,
         'layout': {
           'visibility': 'none',
         },
@@ -1673,9 +1673,9 @@ function Map() {
       })
 
       map.current.addLayer({
-        'id': layers.TRAIL_OUTLINE,
+        'id': Layers.TRAIL_OUTLINE,
         'type': 'line',
-        'source': sources.TRAILS,
+        'source': Sources.TRAILS,
         'paint': {
           'line-color': HIGHLIGHT_COLOR,
           'line-gap-width': LINE_WIDTH,
@@ -1685,9 +1685,9 @@ function Map() {
       });
 
       map.current.addLayer({
-        'id': layers.TRAIL_HIGHLIGHT,
+        'id': Layers.TRAIL_HIGHLIGHT,
         'type': 'line',
-        'source': sources.TRAILS,
+        'source': Sources.TRAILS,
         'paint': {
           'line-color': HIGHLIGHT_COLOR,
           'line-opacity': SHOW_IF_HOVERED,
@@ -1696,9 +1696,9 @@ function Map() {
       });
 
       map.current.addLayer({
-        'id': layers.SEGMENT_OUTLINE,
+        'id': Layers.SEGMENT_OUTLINE,
         'type': 'line',
-        'source': sources.SEGMENTS,
+        'source': Sources.SEGMENTS,
         'layout': {
           'visibility': 'none'
         },
@@ -1711,9 +1711,9 @@ function Map() {
       });
 
       map.current.addLayer({
-        'id': layers.SEGMENT_HIGHLIGHT,
+        'id': Layers.SEGMENT_HIGHLIGHT,
         'type': 'line',
-        'source': sources.SEGMENTS,
+        'source': Sources.SEGMENTS,
         'layout': {
           'visibility': 'none'
         },
@@ -1725,9 +1725,9 @@ function Map() {
       });
 
       map.current.addLayer({
-        'id': layers.TRAIL_HITBOX,
+        'id': Layers.TRAIL_HITBOX,
         'type': 'line',
-        'source': sources.TRAILS,
+        'source': Sources.TRAILS,
         'paint': {
           'line-width': HITBOX_LINE_WIDTH,
           'line-opacity': 0
@@ -1735,9 +1735,9 @@ function Map() {
       });
 
       map.current.addLayer({
-        'id': layers.SEGMENT_HITBOX,
+        'id': Layers.SEGMENT_HITBOX,
         'type': 'line',
-        'source': sources.SEGMENTS,
+        'source': Sources.SEGMENTS,
         'layout': {
           'visibility': 'none'
         },
@@ -1755,12 +1755,12 @@ function Map() {
         return e.features && e.features.length > 0 ? e.features[0] : undefined;
       }
 
-      map.current.on('mouseenter', layers.TRAIL_HITBOX, () => {
+      map.current.on('mouseenter', Layers.TRAIL_HITBOX, () => {
         if (!map.current) return;
         map.current.getCanvas().style.cursor = 'pointer';
       });
 
-      map.current.on('mousemove', layers.TRAIL_HITBOX, (e) => {
+      map.current.on('mousemove', Layers.TRAIL_HITBOX, (e) => {
         setTrailHoverState(false)
         const trail = getInteractedTrail(e);
         if (trail) {
@@ -1769,14 +1769,14 @@ function Map() {
         }
       });
 
-      map.current.on('mouseleave', layers.TRAIL_HITBOX, () => {
+      map.current.on('mouseleave', Layers.TRAIL_HITBOX, () => {
         if (!map.current) return;
         setTrailHoverState(false);
         hoveredTrailLineId = undefined;
         map.current.getCanvas().style.cursor = '';
       });
 
-      map.current.on('click', layers.TRAIL_HITBOX, (e) => {
+      map.current.on('click', Layers.TRAIL_HITBOX, (e) => {
         clickedOnTrail = true;
         setTrailSelectedState(false);
         const trail = getInteractedTrail(e);
@@ -1787,7 +1787,7 @@ function Map() {
         }
       });
 
-      map.current.on('mouseenter', layers.SEGMENT_HITBOX, (e) => {
+      map.current.on('mouseenter', Layers.SEGMENT_HITBOX, (e) => {
         if (!map.current) return;
         const segment = getInteractedTrail(e);
         if (segment && segmentBelongsToSelectedTrail(segment)){
@@ -1795,7 +1795,7 @@ function Map() {
         }
       });
 
-      map.current.on('mousemove', layers.SEGMENT_HITBOX, (e) => {
+      map.current.on('mousemove', Layers.SEGMENT_HITBOX, (e) => {
         setSegmentHoverState(false)
         const segment = getInteractedTrail(e);
         if (segment && segmentBelongsToSelectedTrail(segment)) {
@@ -1804,14 +1804,14 @@ function Map() {
         }
       });
 
-      map.current.on('mouseleave', layers.SEGMENT_HITBOX, () => {
+      map.current.on('mouseleave', Layers.SEGMENT_HITBOX, () => {
         if (!map.current) return;
         setSegmentHoverState(false);
         hoveredSegmentLineId = undefined;
         map.current.getCanvas().style.cursor = '';
       });
 
-      map.current.on('click', layers.SEGMENT_HITBOX, (e) => {
+      map.current.on('click', Layers.SEGMENT_HITBOX, (e) => {
         const segment = getInteractedTrail(e);
         if (segment && segmentBelongsToSelectedTrail(segment)) {
           clickedOnTrail = true;
