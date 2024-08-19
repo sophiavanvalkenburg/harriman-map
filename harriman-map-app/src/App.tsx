@@ -14,27 +14,27 @@ function App() {
 
 type LineId = string | number | undefined;
 
-enum MapMode {
-  BASE = 'base',
-  TRAIL = 'trail',
-  SEGMENT = 'segment',
+const MapMode = {
+  BASE: 'base',
+  TRAIL: 'trail',
+  SEGMENT: 'segment',
 };
 
-enum Sources {
-  TRAILS = 'trails',
-  SEGMENTS = 'segments'
+const Sources = {
+  TRAILS: 'trails',
+  SEGMENTS: 'segments'
 }
 
-enum Layers {
-  COMPLETED_SEGMENTS = 'segment-lines-complete',
-  INCOMPLETE_SEGMENTS = 'segment-lines-incomplete',
-  DESELECTED_TRAILS = 'trail-lines-deselected',
-  TRAIL_OUTLINE = 'trail-lines-highlight-outline',
-  TRAIL_HIGHLIGHT = 'trail-lines-highlight',
-  SEGMENT_OUTLINE = 'segment-lines-highlight-outline',
-  SEGMENT_HIGHLIGHT = 'segment-lines-highlight',
-  TRAIL_HITBOX = 'trail-hitbox',
-  SEGMENT_HITBOX= 'segment-hitbox',
+const Layers = {
+  COMPLETED_SEGMENTS: 'segment-lines-complete',
+  INCOMPLETE_SEGMENTS: 'segment-lines-incomplete',
+  DESELECTED_TRAILS: 'trail-lines-deselected',
+  TRAIL_OUTLINE: 'trail-lines-highlight-outline',
+  TRAIL_HIGHLIGHT: 'trail-lines-highlight',
+  SEGMENT_OUTLINE: 'segment-lines-highlight-outline',
+  SEGMENT_HIGHLIGHT: 'segment-lines-highlight',
+  TRAIL_HITBOX: 'trail-hitbox',
+  SEGMENT_HITBOX: 'segment-hitbox'
 }
 
 const NOT_SELECTED_COLOR = "#696969";
