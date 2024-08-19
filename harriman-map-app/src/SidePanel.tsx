@@ -34,14 +34,9 @@ function CompletedStatus() {
     return (<div className="stat-complete"><h2>Status: Incomplete</h2></div>); 
 }
 
-function SingleTrailOrSegmentStats() {
+function LongLatStats() {
     return (
-        <div className="stat-segment-container">
-            <div className="stat-length-trail">
-                <h3>Trail Length: XX miles</h3>
-                <p>Completed: X miles<br />Incomplete: X miles</p>
-            </div>
-            <div className="stats-lnglat">
+        <div className="stats-lnglat">
                 <div className="stat-starts-at">
                     <h3>Starts at:</h3>
                     <p>(xxxxxx, xxxxxx)</p>
@@ -51,6 +46,28 @@ function SingleTrailOrSegmentStats() {
                     <p>(xxxxxx, xxxxxx)</p>
                 </div>
             </div>
+    );
+}
+
+function TrailSegmentStats() {
+    return (
+        <div className="stat-segment-container">
+            <div className="stat-length-trail">
+                <h3>Length: XX miles</h3>
+            </div>
+            <LongLatStats />
+        </div>
+    );
+}
+
+function SingleTrailStats() {
+    return (
+        <div className="stat-segment-container">
+            <div className="stat-length-trail">
+                <h3>Trail Length: XX miles</h3>
+                <p>Completed: X miles<br />Incomplete: X miles</p>
+            </div>
+            <LongLatStats />
         </div>
     );
 }
@@ -90,7 +107,7 @@ function ExpandOrCollapseBtn({handleClick}:SidePanelButtonProps) {
     );
 }
 
-type AllTrailStats  = {
+type AllTrailsStatsType  = {
     completePct: number,
     numCompletedTrails: number,
     numIncompleteTrails: number,
@@ -100,7 +117,7 @@ type AllTrailStats  = {
 
 type LngLat = [number, number];
 
-type SingleTrailStats  = {
+type SingleTrailStatsType  = {
     completePct: number,
     startsAt: LngLat,
     endsAt: LngLat,
@@ -108,7 +125,7 @@ type SingleTrailStats  = {
     incompleteLength: number
 };
 
-type TrailSegmentStats  = {
+type TrailSegmentStatsType  = {
     completedStatus: string,
     startsAt: LngLat,
     endsAt: LngLat,
@@ -117,7 +134,7 @@ type TrailSegmentStats  = {
 
 type SidePanelProps = {
     mapMode: string,
-    trailStats: AllTrailStats | SingleTrailStats | TrailSegmentStats
+    trailStats: AllTrailsStatsType | SingleTrailStatsType | TrailSegmentStatsType
 }
 
 function SidePanel({mapMode, trailStats}: SidePanelProps) {
@@ -131,22 +148,22 @@ function SidePanel({mapMode, trailStats}: SidePanelProps) {
     let className = "side-panel";
     if (isCollapsed) className += " collapsed";
 
-    let title, completedStatus, trailStats;
+    let title, completedStatus, trailStatsComp;
     switch(mapMode) {
         case MapMode.BASE:
             title = <MapTitle />;
             completedStatus = <CompletedPct />;
-            trailStats = <AllTrailsStats />;
+            trailStatsComp = <AllTrailsStats />;
             break;
         case MapMode.TRAIL:
             title = <TrailTitle isSegment={false} />;
             completedStatus = <CompletedPct />;
-            trailStats = <SingleTrailOrSegmentStats />;
+            trailStatsComp = <SingleTrailStats />;
             break;
         case MapMode.SEGMENT:
             title = <TrailTitle isSegment={true} />;
             completedStatus = <CompletedStatus />;
-            trailStats = <SingleTrailOrSegmentStats />;
+            trailStatsComp = <TrailSegmentStats />;
             break;
     }
     
@@ -157,7 +174,7 @@ function SidePanel({mapMode, trailStats}: SidePanelProps) {
                 { title }
                 <div className="dividing-line"></div>
                 { completedStatus }
-                { trailStats }
+                { trailStatsComp }
             </div>
             <ExpandOrCollapseBtn handleClick={ handleBtnClick } />
         </div>
