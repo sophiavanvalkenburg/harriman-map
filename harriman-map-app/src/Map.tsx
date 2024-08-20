@@ -1656,7 +1656,7 @@ function Map() {
     let hoveredTrailLineId = useRef<LineId>();
     let selectedTrail = useRef<GeoJSONFeature>();
     let hoveredSegmentLineId = useRef<LineId>();
-    let selectedSegmentLineId = useRef<LineId>();
+    let selectedSegment = useRef<GeoJSONFeature>();
 
     function setTrailHoverState(isHovered: boolean) {
         if (!map.current || hoveredTrailLineId.current === undefined) return;
@@ -1683,9 +1683,9 @@ function Map() {
     }
 
     function setSegmentSelectedState(isSelected: boolean) {
-        if (!map.current || selectedSegmentLineId.current === undefined) return;
+        if (!map.current || selectedSegment.current === undefined || selectedSegment.current.id === undefined) return;
         map.current.setFeatureState(
-            { source: Sources.SEGMENTS, id: +selectedSegmentLineId.current },
+            { source: Sources.SEGMENTS, id: +selectedSegment.current.id },
             { selected: isSelected }
         );
     }
@@ -1909,7 +1909,7 @@ function Map() {
                 if (segment && segmentBelongsToSelectedTrail(segment)) {
                     clickedOnTrail.current = true;
                     setSegmentSelectedState(false);
-                    selectedSegmentLineId.current = segment.id;
+                    selectedSegment.current = segment;
                     setSegmentSelectedState(true);
                 }
             });
