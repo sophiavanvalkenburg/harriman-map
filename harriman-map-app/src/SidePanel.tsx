@@ -39,8 +39,17 @@ function CompletedPct({trailStats}: CompletePctProps) {
     return (<div className={ className }><h2>{ formatNum(trailStats.completePct) }% Complete</h2></div>);
 }
 
-function CompletedStatus() {
-    return (<div className="stat-complete"><h2>Status: Incomplete</h2></div>); 
+type CompletedStatusProps = {
+    trailStats: TrailSegmentStatsType
+}
+function CompletedStatus({trailStats}: CompletedStatusProps) {
+    let className = "stat-complete";
+    let statusText = "Incomplete";
+    if (trailStats.completedStatus === 'complete') {
+        className += " is-complete";
+        statusText = "Complete";
+    }
+    return (<div className={ className }><h2>Status: { statusText }</h2></div>); 
 }
 
 type LongLatStatsProps = {
@@ -68,7 +77,7 @@ function TrailSegmentStats({trailStats}: TrailSegmentStatsProps) {
     return (
         <div className="stat-segment-container">
             <div className="stat-length-trail">
-                <h3>Length: XX miles</h3>
+                <h3>Length: { formatNum(trailStats.length )} miles</h3>
             </div>
             <LongLatStats trailStats={ trailStats }/>
         </div>
@@ -163,7 +172,7 @@ function SidePanel({mapMode, trailStats}: SidePanelProps) {
         case MapMode.SEGMENT:
             trailStats = trailStats as TrailSegmentStatsType;
             title = <TrailTitle isSegment={true} trailStats={ trailStats } />;
-            completedStatus = <CompletedStatus />;
+            completedStatus = <CompletedStatus trailStats={ trailStats } />;
             trailStatsComp = <TrailSegmentStats trailStats={ trailStats } />;
             break;
     }
