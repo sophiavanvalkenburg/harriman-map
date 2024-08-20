@@ -1475,14 +1475,14 @@ function Map() {
         return TRAIL_DATA.features.filter((trail) => {
             if (!trail.properties) return false;
             return trail.properties.status === 'complete';
-        })
+        }).length;
     }
 
     function getNumIncompleteTrails() {
         return TRAIL_DATA.features.filter((trail) => {
             if (!trail.properties) return false;
             return trail.properties.status === 'incomplete';
-        })
+        }).length;
     }
 
     function getCompletedTrailsLength() {
@@ -1506,7 +1506,7 @@ function Map() {
     function calculateAllTrailsStats() {
         const completedLength = getCompletedTrailsLength();
         const incompleteLength = getIncompleteTrailsLength();
-        const completePct = completedLength / (completedLength + incompleteLength);
+        const completePct = 100 * completedLength / (completedLength + incompleteLength);
         return {
             completePct: completePct,
             numCompletedTrails: getNumCompletedTrails(),
@@ -1524,7 +1524,7 @@ function Map() {
 
     const [mapMode, setMapMode] = useState(MapMode.BASE);
     let clickedOnTrail = useRef(false);
-    let trailStats = {};
+    let trailStats = calculateAllTrailsStats();
 
     function onMapClick() {
         switch (mapMode) {

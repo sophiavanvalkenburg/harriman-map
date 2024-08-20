@@ -4,6 +4,10 @@ import mobileExpandCollapseSvg from "./assets/icons/mobile-expand-collapse.svg";
 import { MapMode } from "./Map.tsx";
 import './SidePanel.css'
 
+function formatNum(num: number) {
+    return num.toFixed(2);
+}
+
 function MapTitle() {
     return (
         <div className="map-title">
@@ -14,20 +18,24 @@ function MapTitle() {
 }
 
 type TrailTitleProps = {
-    isSegment: boolean
-}
-function TrailTitle({isSegment}: TrailTitleProps) {
+    isSegment: boolean,
+    trailStats: TrailSegmentStatsType | SingleTrailStatsType
+};
+function TrailTitle({isSegment, trailStats}: TrailTitleProps) {
     const subtitle = isSegment ? <p>(segment)</p> : '';
     return (
         <div className="map-title">
-            <h1>1777 Trail</h1>
+            <h1>{ trailStats.trailName }</h1>
             {subtitle}
         </div>
     );
 }
 
-function CompletedPct() {
-    return (<div className="stat-complete"><h2>XX.XX% Complete</h2></div>);
+type CompletePctProps = {
+    trailStats: AllTrailsStatsType | SingleTrailStatsType
+};
+function CompletedPct({trailStats}: CompletePctProps) {
+    return (<div className="stat-complete"><h2>{ formatNum(trailStats.completePct) }% Complete</h2></div>);
 }
 
 function CompletedStatus() {
@@ -49,7 +57,10 @@ function LongLatStats() {
     );
 }
 
-function TrailSegmentStats() {
+type TrailSegmentStatsProps = {
+    trailStats: TrailSegmentStatsType
+};
+function TrailSegmentStats({trailStats}: TrailSegmentStatsProps) {
     return (
         <div className="stat-segment-container">
             <div className="stat-length-trail">
@@ -60,7 +71,10 @@ function TrailSegmentStats() {
     );
 }
 
-function SingleTrailStats() {
+type SingleTrailStatsProps = {
+    trailStats: SingleTrailStatsType
+};
+function SingleTrailStats({trailStats}: SingleTrailStatsProps) {
     return (
         <div className="stat-segment-container">
             <div className="stat-length-trail">
@@ -72,16 +86,21 @@ function SingleTrailStats() {
     );
 }
 
-function AllTrailsStats() {
+type AllTrailsStatsProps = {
+    trailStats: AllTrailsStatsType
+};
+function AllTrailsStats({trailStats}: AllTrailsStatsProps) {
+    const totalNumTrails = trailStats.numCompletedTrails + trailStats.numIncompleteTrails;
+    const totalTrailLength = trailStats.completedLength + trailStats.incompleteLength;
     return (
         <div className="stat-trails-container">
             <div className="stat-num-all-trails">
-                <h3>Total Number of Trails: XX</h3>
-                <p>Completed: X<br />Incomplete: X</p>
+                <h3>Total Number of Trails: { totalNumTrails }</h3>
+                <p>Completed: {trailStats.numCompletedTrails }<br />Incomplete: { trailStats.numIncompleteTrails }</p>
             </div>
             <div className="stat-length-all-trails">
-                <h3>Total Length of Trails: XX miles</h3>
-                <p>Completed: X miles<br />Incomplete: X miles</p>
+                <h3>Total Length of Trails: { formatNum(totalTrailLength) } miles</h3>
+                <p>Completed: { formatNum(trailStats.completedLength) } miles<br />Incomplete: { formatNum(trailStats.incompleteLength) } miles</p>
             </div>
         </div>
     );
@@ -137,8 +156,7 @@ type TrailSegmentStatsType  = {
 type SidePanelProps = {
     mapMode: string,
     trailStats: AllTrailsStatsType | SingleTrailStatsType | TrailSegmentStatsType
-}
-
+};
 function SidePanel({mapMode, trailStats}: SidePanelProps) {
 
     const [isCollapsed, setIsCollapsed] = useState(false);
@@ -153,19 +171,22 @@ function SidePanel({mapMode, trailStats}: SidePanelProps) {
     let title, completedStatus, trailStatsComp;
     switch(mapMode) {
         case MapMode.BASE:
+            trailStats = trailStats as AllTrailsStatsType
             title = <MapTitle />;
-            completedStatus = <CompletedPct />;
-            trailStatsComp = <AllTrailsStats />;
+            completedStatus = <CompletedPct trailStats={ trailStats } />;
+            trailStatsComp = <AllTrailsStats trailStats={ trailStats } />;
             break;
         case MapMode.TRAIL:
-            title = <TrailTitle isSegment={false} />;
-            completedStatus = <CompletedPct />;
-            trailStatsComp = <SingleTrailStats />;
+            trailStats = trailStats as SingleTrailStatsType;
+            title = <TrailTitle isSegment={false} trailStats={ trailStats } />;
+            completedStatus = <CompletedPct trailStats={ trailStats }/>;
+            trailStatsComp = <SingleTrailStats trailStats={ trailStats} />;
             break;
         case MapMode.SEGMENT:
-            title = <TrailTitle isSegment={true} />;
+            trailStats = trailStats as TrailSegmentStatsType;
+            title = <TrailTitle isSegment={true} trailStats={ trailStats } />;
             completedStatus = <CompletedStatus />;
-            trailStatsComp = <TrailSegmentStats />;
+            trailStatsComp = <TrailSegmentStats trailStats={ trailStats } />;
             break;
     }
     
