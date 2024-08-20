@@ -5,6 +5,35 @@ import { FeatureCollection } from "geojson";
 
 type LineId = string | number | undefined;
 
+type TrailStatsType = AllTrailsStatsType | SingleTrailStatsType | TrailSegmentStatsType;
+
+export type AllTrailsStatsType  = {
+    completePct: number,
+    numCompletedTrails: number,
+    numIncompleteTrails: number,
+    completedLength: number,
+    incompleteLength: number
+};
+
+export type LngLat = number[];
+
+export type SingleTrailStatsType  = {
+    trailName: string,
+    completePct: number,
+    startsAt: LngLat,
+    endsAt: LngLat,
+    completedLength: number,
+    incompleteLength: number
+};
+
+export type TrailSegmentStatsType  = {
+    trailName: string,
+    completedStatus: string,
+    startsAt: LngLat,
+    endsAt: LngLat,
+    length: number
+};
+
 export const MapMode = {
     BASE: 'base',
     TRAIL: 'trail',
@@ -1471,50 +1500,70 @@ function Map() {
         ]
     };
 
-    function getNumCompletedTrails() {
+    const [trailStats, setTrailStats] = useState<TrailStatsType>(calculateAllTrailsStats());
+
+    function getNumTrails(statusToMatch: string) {
         return TRAIL_DATA.features.filter((trail) => {
             if (!trail.properties) return false;
-            return trail.properties.status === 'complete';
+            return trail.properties.status === statusToMatch;
         }).length;
     }
 
-    function getNumIncompleteTrails() {
-        return TRAIL_DATA.features.filter((trail) => {
-            if (!trail.properties) return false;
-            return trail.properties.status === 'incomplete';
-        }).length;
-    }
-
-    function getCompletedTrailsLength() {
+    function getTrailsLength(statusToMatch: string) {
         let totalLength = 0;
         TRAIL_DATA.features.forEach((trail) => {
-            if (!trail.properties || trail.properties.status != 'complete') return;
-            totalLength += trail.properties.length;
-        })
-        return totalLength;
-    }
-
-    function getIncompleteTrailsLength() {
-        let totalLength = 0;
-        TRAIL_DATA.features.forEach((trail) => {
-            if (!trail.properties || trail.properties.status != 'incomplete') return;
+            if (!trail.properties || trail.properties.status !== statusToMatch) return;
             totalLength += trail.properties.length;
         })
         return totalLength;
     }
 
     function calculateAllTrailsStats() {
-        const completedLength = getCompletedTrailsLength();
-        const incompleteLength = getIncompleteTrailsLength();
+        const completedLength = getTrailsLength('complete');
+        const incompleteLength = getTrailsLength('incomplete');
         const completePct = 100 * completedLength / (completedLength + incompleteLength);
         return {
             completePct: completePct,
-            numCompletedTrails: getNumCompletedTrails(),
-            numIncompleteTrails: getNumIncompleteTrails(),
+            numCompletedTrails: getNumTrails('complete'),
+            numIncompleteTrails: getNumTrails('incomplete'),
             completedLength: completedLength,
             incompleteLength: incompleteLength
         }
     };
+
+    function getSegmentsLength(trailToMatch: GeoJSONFeature, statusToMatch: string) {
+        let totalLength = 0;
+        SEGMENT_DATA.features.forEach((trail) => {
+            if (!trail.properties || !trailToMatch.properties || 
+                trail.properties.status !== statusToMatch || 
+                trail.properties.name !== trailToMatch.properties.name) return;
+            totalLength += trail.properties.length;
+        })
+        return totalLength;
+    };
+
+    function calculateSingleTrailStats(trail: GeoJSONFeature | undefined) {
+        const stats = {
+            trailName: '',
+            completePct: 0,
+            startsAt: [NaN, NaN],
+            endsAt: [NaN, NaN],
+            completedLength: 0,
+            incompleteLength: 0
+        };
+        if (trail && trail.properties && trail.geometry.type === 'LineString') {
+            const completedLength = getSegmentsLength(trail, 'complete');
+            const incompleteLength = getSegmentsLength(trail, 'incomplete');
+            const completePct = 100 * completedLength / (completedLength + incompleteLength);
+            stats.trailName = trail.properties.name;
+            stats.completePct = completePct;
+            stats.startsAt = trail.geometry.coordinates[0];
+            stats.endsAt = trail.geometry.coordinates[trail.geometry.coordinates.length-1];
+            stats.completedLength = completedLength;
+            stats.incompleteLength = incompleteLength;
+        }
+        return stats;
+    }
 
     /*** Map mode management
      * 
@@ -1524,7 +1573,6 @@ function Map() {
 
     const [mapMode, setMapMode] = useState(MapMode.BASE);
     let clickedOnTrail = useRef(false);
-    let trailStats = calculateAllTrailsStats();
 
     function onMapClick() {
         switch (mapMode) {
@@ -1582,6 +1630,7 @@ function Map() {
         setLayerVisibility(Layers.SEGMENT_HIGHLIGHT, true);
         setLayerVisibility(Layers.SEGMENT_OUTLINE, false);
         setLayerVisibility(Layers.TRAIL_HITBOX, false);
+        setTrailStats(calculateSingleTrailStats(selectedTrail.current));
     }
 
     function switchToBaseMode() {
@@ -1595,7 +1644,7 @@ function Map() {
         setLayerVisibility(Layers.SEGMENT_HIGHLIGHT, false);
         setLayerVisibility(Layers.SEGMENT_OUTLINE, false);
         setLayerVisibility(Layers.TRAIL_HITBOX, true);
-        trailStats = calculateAllTrailsStats();
+        setTrailStats(calculateAllTrailsStats());
     }
 
     /*** Map state management

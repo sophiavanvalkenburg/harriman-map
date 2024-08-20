@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import collapseSvg from "./assets/icons/collapse.svg";
 import mobileExpandCollapseSvg from "./assets/icons/mobile-expand-collapse.svg";
-import { MapMode } from "./Map.tsx";
+import { MapMode, TrailSegmentStatsType, SingleTrailStatsType, AllTrailsStatsType } from "./Map.tsx";
 import './SidePanel.css'
 
 function formatNum(num: number) {
@@ -35,23 +35,27 @@ type CompletePctProps = {
     trailStats: AllTrailsStatsType | SingleTrailStatsType
 };
 function CompletedPct({trailStats}: CompletePctProps) {
-    return (<div className="stat-complete"><h2>{ formatNum(trailStats.completePct) }% Complete</h2></div>);
+    const className = "stat-complete" + (trailStats.completePct === 100 ? " is-complete" : "");
+    return (<div className={ className }><h2>{ formatNum(trailStats.completePct) }% Complete</h2></div>);
 }
 
 function CompletedStatus() {
     return (<div className="stat-complete"><h2>Status: Incomplete</h2></div>); 
 }
 
-function LongLatStats() {
+type LongLatStatsProps = {
+    trailStats: SingleTrailStatsType | TrailSegmentStatsType
+}
+function LongLatStats({trailStats}: LongLatStatsProps) {
     return (
         <div className="stats-lnglat">
                 <div className="stat-starts-at">
                     <h3>Starts at:</h3>
-                    <p>(xxxxxx, xxxxxx)</p>
+                    <p>({trailStats.startsAt[0].toFixed(7)}, {trailStats.startsAt[1].toFixed(7)})</p>
                 </div>
                 <div className="stat-ends-at">
                     <h3>Ends at:</h3>
-                    <p>(xxxxxx, xxxxxx)</p>
+                    <p>({trailStats.endsAt[0].toFixed(7)}, {trailStats.endsAt[1].toFixed(7)})</p>
                 </div>
             </div>
     );
@@ -66,7 +70,7 @@ function TrailSegmentStats({trailStats}: TrailSegmentStatsProps) {
             <div className="stat-length-trail">
                 <h3>Length: XX miles</h3>
             </div>
-            <LongLatStats />
+            <LongLatStats trailStats={ trailStats }/>
         </div>
     );
 }
@@ -75,13 +79,14 @@ type SingleTrailStatsProps = {
     trailStats: SingleTrailStatsType
 };
 function SingleTrailStats({trailStats}: SingleTrailStatsProps) {
+    const totalTrailLength = trailStats.completedLength + trailStats.incompleteLength;
     return (
         <div className="stat-segment-container">
             <div className="stat-length-trail">
-                <h3>Trail Length: XX miles</h3>
-                <p>Completed: X miles<br />Incomplete: X miles</p>
+                <h3>Trail Length: { formatNum(totalTrailLength) } miles</h3>
+                <p>Completed: { formatNum(trailStats.completedLength) } miles<br />Incomplete: { formatNum(trailStats.incompleteLength) } miles</p>
             </div>
-            <LongLatStats />
+            <LongLatStats trailStats={ trailStats }/>
         </div>
     );
 }
@@ -125,33 +130,6 @@ function ExpandOrCollapseBtn({handleClick}:SidePanelButtonProps) {
         </button>
     );
 }
-
-type AllTrailsStatsType  = {
-    completePct: number,
-    numCompletedTrails: number,
-    numIncompleteTrails: number,
-    completedLength: number,
-    incompleteLength: number
-};
-
-type LngLat = [number, number];
-
-type SingleTrailStatsType  = {
-    trailName: string,
-    completePct: number,
-    startsAt: LngLat,
-    endsAt: LngLat,
-    completedLength: number,
-    incompleteLength: number
-};
-
-type TrailSegmentStatsType  = {
-    trailName: string,
-    completedStatus: string,
-    startsAt: LngLat,
-    endsAt: LngLat,
-    length: number
-};
 
 type SidePanelProps = {
     mapMode: string,
