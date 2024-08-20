@@ -1565,6 +1565,24 @@ function Map() {
         return stats;
     }
 
+    function calculateTrailSegmentStats(segment: GeoJSONFeature | undefined) {
+        const stats = {
+            trailName: '',
+            completedStatus: '',
+            startsAt: [NaN, NaN],
+            endsAt: [NaN, NaN],
+            length: 0
+        };
+        if (segment && segment.properties && segment.geometry.type === 'LineString') {
+            stats.trailName = segment.properties.name;
+            stats.completedStatus = segment.properties.status;
+            stats.startsAt = segment.geometry.coordinates[0];
+            stats.endsAt = segment.geometry.coordinates[segment.geometry.coordinates.length-1];
+            stats.length = segment.properties.length;
+        }
+        return stats;
+    }
+    
     /*** Map mode management
      * 
      * The mode simply determines which layers are visible and interactable
@@ -1616,7 +1634,7 @@ function Map() {
         setLayerVisibility(Layers.SEGMENT_HIGHLIGHT, true);
         setLayerVisibility(Layers.SEGMENT_OUTLINE, true);
         setLayerVisibility(Layers.TRAIL_HITBOX, false);
-        
+        setTrailStats(calculateTrailSegmentStats(selectedSegment.current));
     }
 
     function switchToTrailMode() {
