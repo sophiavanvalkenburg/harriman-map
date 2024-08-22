@@ -437,8 +437,8 @@ function Map() {
 
             map.current.on('mouseenter', Layers.SEGMENT_HITBOX, (e) => {
                 if (!map.current || selectedTrailIsComplete()) return;
-                const segment = getInteractedTrail(e);
-                if (segment && segmentBelongsToSelectedTrail(segment)) {
+                const segment = getInteractedSegment(e);
+                if (segment) {
                     map.current.getCanvas().style.cursor = 'pointer';
                 }
             });
@@ -446,8 +446,8 @@ function Map() {
             map.current.on('mousemove', Layers.SEGMENT_HITBOX, (e) => {
                 setSegmentHoverState(false)
                 if (selectedTrailIsComplete()) return;
-                const segment = getInteractedTrail(e);
-                if (segment && segmentBelongsToSelectedTrail(segment)) {
+                const segment = getInteractedSegment(e);
+                if (segment) {
                     hoveredSegmentLineId.current = segment.id;
                     setSegmentHoverState(true);
                 }
@@ -462,8 +462,8 @@ function Map() {
 
             map.current.on('click', Layers.SEGMENT_HITBOX, (e) => {
                 if (selectedTrailIsComplete()) return;
-                const segment = getInteractedTrail(e);
-                if (segment && segmentBelongsToSelectedTrail(segment)) {
+                const segment = getInteractedSegment(e);
+                if (segment) {
                     clickedOnTrail.current = true;
                     setSegmentSelectedState(false);
                     selectedSegment.current = segment;
@@ -489,6 +489,20 @@ function Map() {
 
             function getInteractedTrail(e: MapMouseEvent) {
                 return e.features && e.features.length > 0 ? e.features[0] : undefined;
+            }
+
+            function getInteractedSegment(e: MapMouseEvent) {
+                let interactedSegment;
+                if (e.features && e.features.length > 0) {
+                    for (let i=0; i<e.features.length; i++) {
+                        const segment = e.features[i];
+                        if (segmentBelongsToSelectedTrail(segment)){
+                            interactedSegment = segment;
+                            break;
+                        }
+                    }
+                }
+                return  interactedSegment;
             }
 
         });
