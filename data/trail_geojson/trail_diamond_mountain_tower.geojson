@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "a295d3b6-0bcc-43a2-8a7c-d47268e70702",
+   "id": "b12748c3-ac28-4c1d-98ef-e725b1fedb58",
    "properties": {
     "name": "Diamond Mountain Tower Trail",
-    "id": "a295d3b6-0bcc-43a2-8a7c-d47268e70702",
+    "id": "b12748c3-ac28-4c1d-98ef-e725b1fedb58",
     "status": "complete",
     "osm_way_ids": [
      "way/62226398-1"
@@ -174,10 +174,10 @@
   },
   {
    "type": "Feature",
-   "id": "3e366022-bab0-41c7-ab79-bae65c7b61cf",
+   "id": "21cdaa08-e880-4dc2-812f-736f2eee2438",
    "properties": {
     "name": "Diamond Mountain Tower Trail",
-    "id": "3e366022-bab0-41c7-ab79-bae65c7b61cf",
+    "id": "21cdaa08-e880-4dc2-812f-736f2eee2438",
     "status": "incomplete",
     "osm_way_ids": [
      "way/62226398-0"

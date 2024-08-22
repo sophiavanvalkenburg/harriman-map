@@ -57,7 +57,7 @@ TRAIL_IDS = [
     "seven_hills",
     "stahahe_brook",
     "stony_brook",
-    "suffern_bear_mountatin",
+    "suffern_bear_mountain",
     "timp_torne",
     "triangle",
     "tuxedo_mount_ivy",

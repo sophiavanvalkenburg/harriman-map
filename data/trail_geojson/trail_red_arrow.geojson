@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "9bb37905-a0ba-420b-bf6a-fc6fc1b05f2b",
+   "id": "aa9a81ee-303c-4ba9-acf0-8d0d4292f5c7",
    "properties": {
     "name": "Red Arrow Trail",
-    "id": "9bb37905-a0ba-420b-bf6a-fc6fc1b05f2b",
+    "id": "aa9a81ee-303c-4ba9-acf0-8d0d4292f5c7",
     "status": "complete",
     "osm_way_ids": [
      "way/133784248"
