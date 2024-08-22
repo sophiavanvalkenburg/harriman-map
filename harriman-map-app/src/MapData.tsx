@@ -1,5 +1,5 @@
-import { GeoJSONFeature } from 'mapbox-gl';
-import { FeatureCollection } from "geojson";
+import { GeoJSONFeature } from "mapbox-gl";
+import { FeatureCollection, Feature } from "geojson";
 import trailData from './assets/data/harriman_bearmt_all_trails.json';
 import segmentData from './assets/data/harriman_bearmt_segmented_trails.json';
 
@@ -10,29 +10,35 @@ function getNumTrails(statusToMatch: string) {
     }).length;
 }
 
-function getTrailsLength(statusToMatch: string) {
-    let totalLength = 0;
+function getTrailsLength() {
+    let completedLength = 0;
+    let incompleteLength = 0;
     trailData.features.forEach((trail) => {
-        if (!trail.properties || trail.properties.status !== statusToMatch) return;
-        totalLength += trail.properties.length;
+        const [completedTrailLength, incompleteTrailLength] = getSegmentsLength(trail as Feature);
+        completedLength += completedTrailLength;
+        incompleteLength += incompleteTrailLength;
     })
-    return totalLength;
+    return [completedLength, incompleteLength];
 }
 
-function getSegmentsLength(trailToMatch: GeoJSONFeature, statusToMatch: string) {
-    let totalLength = 0;
-    segmentData.features.forEach((trail) => {
+function getSegmentsLength(trailToMatch: Feature) {
+    let completedLength = 0;
+    let incompleteLength = 0;
+    for (let i=0; i<segmentData.features.length; i++) {
+        const trail = segmentData.features[i];
         if (!trail.properties || !trailToMatch.properties || 
-            trail.properties.status !== statusToMatch || 
-            trail.properties.name !== trailToMatch.properties.name) return;
-        totalLength += trail.properties.length;
-    })
-    return totalLength;
+            trail.properties.name !== trailToMatch.properties.name) continue; 
+        if (trail.properties.status === 'complete') {
+            completedLength += trail.properties.length;
+        } else {
+            incompleteLength += trail.properties.length;
+        }
+    }
+    return [completedLength, incompleteLength];
 };
 
 export function calculateAllTrailsStats() {
-    const completedLength = getTrailsLength('complete');
-    const incompleteLength = getTrailsLength('incomplete');
+    const [completedLength, incompleteLength] = getTrailsLength();
     const completePct = 100 * completedLength / (completedLength + incompleteLength);
     return {
         completePct: completePct,
@@ -53,8 +59,7 @@ export function calculateSingleTrailStats(trail: GeoJSONFeature | undefined) {
         incompleteLength: 0
     };
     if (trail && trail.properties && trail.geometry.type === 'LineString') {
-        const completedLength = getSegmentsLength(trail, 'complete');
-        const incompleteLength = getSegmentsLength(trail, 'incomplete');
+        const [completedLength, incompleteLength] = getSegmentsLength(trail);
         const completePct = 100 * completedLength / (completedLength + incompleteLength);
         stats.trailName = trail.properties.name;
         stats.completePct = completePct;
