@@ -63,6 +63,12 @@ const INCOMPLETE_COLOR = "#8c0000";
 const HIGHLIGHT_COLOR = "#ffe100";
 const LINE_WIDTH = 2;
 const HITBOX_LINE_WIDTH = 15;
+const INVISIBLE_ON_HIDE: ExpressionSpecification = [
+    'case',
+    ['boolean', ['feature-state', 'hide'], false],
+    0,
+    1
+];
 const SHOW_IF_NOT_SELECTED: ExpressionSpecification = [
     'case',
     ['boolean', ['feature-state', 'selected'], false],
@@ -208,21 +214,26 @@ function Map() {
             { source: Sources.TRAILS, id: selectedTrail.current.id },
             { selected: isSelected }
         );
+        hideOrShowSegmentsNotBelongingToSelectedTrail(isSelected);
+    }
+
+    function hideOrShowSegmentsNotBelongingToSelectedTrail(isSelected: boolean) {
+        if (!map.current) return;
         if (isSelected) {
             const trailSegments = getSegmentData();
             trailSegments.features.forEach((segment) => {
                 if (
-                    !map.current || segment.id === undefined || 
-                    selectedTrail.current === undefined || !selectedTrail.current.properties  ||
-                    segment.properties.trail_id == selectedTrail.current.properties.trail_id
+                    !map.current || segment.id === undefined || !segment.properties ||
+                    selectedTrail.current === undefined || !selectedTrail.current.properties ||
+                    segment.properties.trail_id === selectedTrail.current.properties.trail_id
                 ) return;
                 map.current.setFeatureState(
-                    { source: Sources.SEGMENTS, id: segment.id},
+                    { source: Sources.SEGMENTS, id: segment.id },
                     { hide: true }
                 );
             });
         } else {
-            map.current.removeFeatureState({ source: Sources.SEGMENTS});
+            map.current.removeFeatureState({ source: Sources.SEGMENTS });
         }
     }
 
@@ -278,28 +289,6 @@ function Map() {
              * ***/
 
             map.current.addLayer({
-                'id': Layers.COMPLETED_SEGMENTS,
-                'type': 'line',
-                'source': Sources.SEGMENTS,
-                'filter': ['==', 'complete', ['get', 'status']],
-                'paint': {
-                    'line-color': COMPLETED_COLOR,
-                    'line-width': LINE_WIDTH,
-                }
-            });
-
-            map.current.addLayer({
-                'id': Layers.INCOMPLETE_SEGMENTS,
-                'type': 'line',
-                'source': Sources.SEGMENTS,
-                'filter': ['==', 'incomplete', ['get', 'status']],
-                'paint': {
-                    'line-color': INCOMPLETE_COLOR,
-                    'line-width': LINE_WIDTH,
-                }
-            });
-
-            map.current.addLayer({
                 'id': Layers.DESELECTED_TRAILS,
                 'type': 'line',
                 'source': Sources.TRAILS,
@@ -311,7 +300,31 @@ function Map() {
                     'line-opacity': SHOW_IF_NOT_SELECTED,
                     'line-width': LINE_WIDTH,
                 }
-            })
+            });
+
+            map.current.addLayer({
+                'id': Layers.COMPLETED_SEGMENTS,
+                'type': 'line',
+                'source': Sources.SEGMENTS,
+                'filter': ['==', 'complete', ['get', 'status']],
+                'paint': {
+                    'line-color': COMPLETED_COLOR,
+                    'line-width': LINE_WIDTH,
+                    'line-opacity': INVISIBLE_ON_HIDE
+                }
+            });
+
+            map.current.addLayer({
+                'id': Layers.INCOMPLETE_SEGMENTS,
+                'type': 'line',
+                'source': Sources.SEGMENTS,
+                'filter': ['==', 'incomplete', ['get', 'status']],
+                'paint': {
+                    'line-color': INCOMPLETE_COLOR,
+                    'line-width': LINE_WIDTH,
+                    'line-opacity': INVISIBLE_ON_HIDE
+                }
+            });
 
             map.current.addLayer({
                 'id': Layers.TRAIL_OUTLINE,

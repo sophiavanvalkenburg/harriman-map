@@ -1,5 +1,5 @@
 import { GeoJSONFeature } from 'mapbox-gl';
-import { GeoJSON, FeatureCollection } from "geojson";
+import { FeatureCollection } from "geojson";
 import trailData from './assets/data/harriman_bearmt_all_trails.json';
 import segmentData from './assets/data/harriman_bearmt_segmented_trails.json';
 
@@ -84,10 +84,10 @@ export function calculateTrailSegmentStats(segment: GeoJSONFeature | undefined) 
     return stats;
 }
 
-export function getTrailData(): GeoJSON {
+export function getTrailData(): FeatureCollection {
     return trailData as FeatureCollection;
 }
 
-export function getSegmentData(): GeoJSON {
+export function getSegmentData(): FeatureCollection {
     return segmentData as FeatureCollection;
 }
