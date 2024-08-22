@@ -57,7 +57,7 @@ const Layers = {
     SEGMENT_HITBOX: 'segment-hitbox'
 }
 
-const NOT_SELECTED_COLOR = "#696969";
+const NOT_SELECTED_COLOR = "#878787";
 const COMPLETED_COLOR = "#ff0000";
 const INCOMPLETE_COLOR = "#8c0000";
 const HIGHLIGHT_COLOR = "#ffe100";
