@@ -256,8 +256,10 @@ function Map() {
         map.current = new mapboxgl.Map({
             container: mapContainer.current,
             style: 'mapbox://styles/meowypurr/clzpy8ohh00bn01qg7rsa8u3u',
-            center: [-74.076, 41.2309],
-            zoom: 11.15
+            center: [-74.205, 41.223],
+            zoom: 10.9,
+            minZoom: 10.4,
+            maxBounds: [[ -74.380923, 41.030660], [ -73.727133, 41.403808]]
         });
 
         map.current.on('load', () => {
