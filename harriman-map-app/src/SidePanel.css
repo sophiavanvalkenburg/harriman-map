@@ -131,10 +131,12 @@ p {
 
 @media (orientation: portrait) {
     .side-panel {
+        height: 388px;
         width: 100%;
         flex-direction: column;
         justify-content: flex-end;
         translate: 0px;
+        bottom: 0;
     }
     
     .side-panel.collapsed {
@@ -142,7 +144,6 @@ p {
     }
 
     .side-panel-content {
-        height: 348px;
         width: 100%;
         box-shadow: none;
     }

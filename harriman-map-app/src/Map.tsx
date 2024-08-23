@@ -436,7 +436,7 @@ function Map() {
                     setTrailSelectedState(true);
                 }
             });
-
+    
             map.current.on('mouseenter', Layers.SEGMENT_HITBOX, (e) => {
                 if (!map.current || selectedTrailIsComplete()) return;
                 const segment = getInteractedSegment(e);
@@ -472,6 +472,7 @@ function Map() {
                     setSegmentSelectedState(true);
                 }
             });
+           
 
             /*** Helper functions ***/
 
