@@ -44,10 +44,10 @@ type CompletedStatusProps = {
 }
 function CompletedStatus({trailStats}: CompletedStatusProps) {
     let className = "stat-complete";
-    let statusText = "Incomplete";
+    let statusText = "Not Completed";
     if (trailStats.completedStatus === 'complete') {
         className += " is-complete";
-        statusText = "Complete";
+        statusText = "Completed";
     }
     return (<div className={ className }><h2>Status: { statusText }</h2></div>); 
 }
@@ -93,7 +93,7 @@ function SingleTrailStats({trailStats}: SingleTrailStatsProps) {
         <div className="stat-segment-container">
             <div className="stat-length-trail">
                 <h3>Trail Length: { formatNum(totalTrailLength) } miles</h3>
-                <p>Completed: { formatNum(trailStats.completedLength) } miles<br />Incomplete: { formatNum(trailStats.incompleteLength) } miles</p>
+                <p>Completed: { formatNum(trailStats.completedLength) } miles<br />Not Completed: { formatNum(trailStats.incompleteLength) } miles</p>
             </div>
             <LongLatStats trailStats={ trailStats }/>
         </div>
@@ -110,11 +110,11 @@ function AllTrailsStats({trailStats}: AllTrailsStatsProps) {
         <div className="stat-trails-container">
             <div className="stat-num-all-trails">
                 <h3>Total Number of Trails: { totalNumTrails }</h3>
-                <p>Completed: {trailStats.numCompletedTrails }<br />Incomplete: { trailStats.numIncompleteTrails }</p>
+                <p>Completed: {trailStats.numCompletedTrails }<br />Not Completed: { trailStats.numIncompleteTrails }</p>
             </div>
             <div className="stat-length-all-trails">
                 <h3>Total Length of Trails: { formatNum(totalTrailLength) } miles</h3>
-                <p>Completed: { formatNum(trailStats.completedLength) } miles<br />Incomplete: { formatNum(trailStats.incompleteLength) } miles</p>
+                <p>Completed: { formatNum(trailStats.completedLength) } miles<br />Not Completed: { formatNum(trailStats.incompleteLength) } miles</p>
             </div>
         </div>
     );
