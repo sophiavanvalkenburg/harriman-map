@@ -142,18 +142,14 @@ function ExpandOrCollapseBtn({handleClick}:SidePanelButtonProps) {
 
 type SidePanelProps = {
     mapMode: string,
+    showStats: boolean,
+    toggleShowStats: () => void,
     trailStats: AllTrailsStatsType | SingleTrailStatsType | TrailSegmentStatsType
 };
-function SidePanel({mapMode, trailStats}: SidePanelProps) {
-
-    const [isCollapsed, setIsCollapsed] = useState(false);
-
-    function handleBtnClick() {
-        setIsCollapsed(!isCollapsed);
-    }
+function SidePanel({mapMode, showStats, toggleShowStats, trailStats}: SidePanelProps) {
 
     let className = "side-panel";
-    if (isCollapsed) className += " collapsed";
+    if (!showStats) className += " collapsed";
 
     let title, completedStatus, trailStatsComp;
     switch(mapMode) {
@@ -179,14 +175,14 @@ function SidePanel({mapMode, trailStats}: SidePanelProps) {
     
     return (
         <div className={ className }>
-            <MobileExpandOrCollapseBtn handleClick={ handleBtnClick }/>
+            <MobileExpandOrCollapseBtn handleClick={ toggleShowStats }/>
             <div className="side-panel-content">
                 { title }
                 <div className="dividing-line"></div>
                 { completedStatus }
                 { trailStatsComp }
             </div>
-            <ExpandOrCollapseBtn handleClick={ handleBtnClick } />
+            <ExpandOrCollapseBtn handleClick={ toggleShowStats } />
         </div>
     );
 }

@@ -95,6 +95,7 @@ function Map() {
     const mapContainer = useRef(null);
     const map = useRef<mapboxgl.Map | null>(null);
     const [trailStats, setTrailStats] = useState<TrailStatsType>(calculateAllTrailsStats());
+    const [showStats, setShowStats] = useState(true);
     
     /*** Map mode management
      * 
@@ -106,25 +107,28 @@ function Map() {
     let clickedOnTrail = useRef(false);
 
     function onMapClick() {
+        if (clickedOnTrail.current) {
+            setShowStats(true);
+        }
         switch (mapMode) {
             case MapMode.SEGMENT:
-                if (!clickedOnTrail.current) {
+                if (clickedOnTrail.current) {
+                    setTrailStats(calculateTrailSegmentStats(selectedSegment.current));
+                } else {
                     setSegmentSelectedState(false);
                     setTrailSelectedState(false);
                     switchToBaseMode();
                     setTrailStats(calculateAllTrailsStats());
-                } else {
-                    setTrailStats(calculateTrailSegmentStats(selectedSegment.current));
                 }
                 break;
             case MapMode.TRAIL:
-                if (!clickedOnTrail.current) {
+                if (clickedOnTrail.current) {
+                    switchToSegmentMode();
+                    setTrailStats(calculateTrailSegmentStats(selectedSegment.current));
+                } else {
                     setTrailSelectedState(false);
                     switchToBaseMode();
                     setTrailStats(calculateAllTrailsStats());
-                } else {
-                    switchToSegmentMode();
-                    setTrailStats(calculateTrailSegmentStats(selectedSegment.current));
                 }
                 break;
             case MapMode.BASE:
@@ -526,7 +530,7 @@ function Map() {
     });
     return (
         <div>
-            <SidePanel mapMode={mapMode} trailStats={trailStats}/>
+            <SidePanel mapMode={mapMode} showStats={showStats} toggleShowStats={() => { setShowStats(!showStats)} } trailStats={trailStats} />
             <div ref={mapContainer} className="map-container" onClick={onMapClick} />
         </div>
     );
