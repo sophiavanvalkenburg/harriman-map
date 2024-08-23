@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import SidePanel from './SidePanel.tsx';
+import Legend from './Legend.tsx';
 import mapboxgl, { ExpressionSpecification, GeoJSONFeature, LngLatBoundsLike, LngLatLike, MapMouseEvent } from 'mapbox-gl';
 import { getTrailData, getSegmentData, calculateAllTrailsStats, calculateSingleTrailStats, calculateTrailSegmentStats } from './MapData.tsx';
 
@@ -523,6 +524,7 @@ function Map() {
         <div>
             <SidePanel mapMode={mapMode} showStats={showStats} toggleShowStats={() => { setShowStats(!showStats)} } trailStats={trailStats} />
             <div ref={mapContainer} className="map-container" onClick={onMapClick} />
+            <Legend />
         </div>
     );
 }

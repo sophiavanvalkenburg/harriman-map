@@ -1,0 +1,46 @@
+.map-legend {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #ffffff;
+    border-radius: 8px;
+    margin: 0 8px 24px 0;
+    padding: 24px;
+    font-family: 'National Park', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+.map-legend ul {
+    padding: 0;
+    margin: 0;
+}
+
+.map-legend li {
+    display: flex;
+    align-items: center;
+}
+  
+.map-legend li::before {
+    content: "";
+    width: 36px;
+    height: 3px;
+    background: #8c0000;
+    margin-right: 8px;
+  }
+
+  .map-legend li.is-complete::before {
+    background: #ff0000;
+  }
+
+
+  @media (orientation: portrait) {
+    .map-legend {
+        top: 0;
+        left: 0;
+        bottom: unset;
+        right: unset;
+        margin: 8px 0 0 8px;
+        font-size: 15px;
+        padding: 8px;
+    }
+  }
