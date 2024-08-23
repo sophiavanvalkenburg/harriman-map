@@ -5,7 +5,6 @@ import segmentData from './assets/data/harriman_bearmt_segmented_trails.json';
 
 function getNumTrails(statusToMatch: string) {
     return trailData.features.filter((trail) => {
-        if (!trail.properties) return false;
         return trail.properties.status === statusToMatch;
     }).length;
 }
@@ -26,8 +25,7 @@ function getSegmentsLength(trailToMatch: Feature) {
     let incompleteLength = 0;
     for (let i=0; i<segmentData.features.length; i++) {
         const trail = segmentData.features[i];
-        if (!trail.properties || !trailToMatch.properties || 
-            trail.properties.name !== trailToMatch.properties.name) continue; 
+        if (trail.properties.name !== trailToMatch.properties?.name) continue; 
         if (trail.properties.status === 'complete') {
             completedLength += trail.properties.length;
         } else {

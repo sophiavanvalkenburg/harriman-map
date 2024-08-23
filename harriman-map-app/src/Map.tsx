@@ -213,7 +213,7 @@ function Map() {
     }
 
     function setTrailSelectedState(isSelected: boolean) {
-        if (!map.current || selectedTrail.current === undefined || selectedTrail.current.id === undefined) return;
+        if (!map.current || selectedTrail.current?.id === undefined) return;
         map.current.setFeatureState(
             { source: Sources.TRAILS, id: selectedTrail.current.id },
             { selected: isSelected }
@@ -227,9 +227,8 @@ function Map() {
             const trailSegments = getSegmentData();
             trailSegments.features.forEach((segment) => {
                 if (
-                    !map.current || segment.id === undefined || !segment.properties ||
-                    selectedTrail.current === undefined || !selectedTrail.current.properties ||
-                    segment.properties.trail_id === selectedTrail.current.properties.trail_id
+                    !map.current || !segment.id || 
+                    segment.properties?.trail_id === selectedTrail.current?.properties?.trail_id
                 ) return;
                 map.current.setFeatureState(
                     { source: Sources.SEGMENTS, id: segment.id },
@@ -242,7 +241,7 @@ function Map() {
     }
 
     function setSegmentSelectedState(isSelected: boolean) {
-        if (!map.current || selectedSegment.current === undefined || selectedSegment.current.id === undefined) return;
+        if (!map.current || selectedSegment.current?.id === undefined) return;
         map.current.setFeatureState(
             { source: Sources.SEGMENTS, id: selectedSegment.current.id },
             { selected: isSelected }
@@ -493,14 +492,6 @@ function Map() {
 
             /*** Helper functions ***/
 
-            function segmentBelongsToSelectedTrail(segment: GeoJSONFeature) {
-                return (
-                    segment && segment.properties &&
-                    selectedTrail && selectedTrail.current && selectedTrail.current.properties &&
-                    selectedTrail.current.properties.trail_id === segment.properties.trail_id
-                );
-            }
-
             function selectedTrailIsComplete() {
                 return (selectedTrail && selectedTrail.current && selectedTrail.current.properties && 
                     selectedTrail.current.properties.status === 'complete'
@@ -516,7 +507,7 @@ function Map() {
                 if (e.features && e.features.length > 0) {
                     for (let i=0; i<e.features.length; i++) {
                         const segment = e.features[i];
-                        if (segmentBelongsToSelectedTrail(segment)){
+                        if (selectedTrail.current?.properties?.trail_id === segment.properties?.trail_id){
                             interactedSegment = segment;
                             break;
                         }
