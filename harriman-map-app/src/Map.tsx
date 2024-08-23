@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import SidePanel from './SidePanel.tsx';
-import mapboxgl, { ExpressionSpecification, GeoJSONFeature, MapMouseEvent } from 'mapbox-gl';
+import mapboxgl, { ExpressionSpecification, GeoJSONFeature, LngLatBoundsLike, LngLatLike, MapMouseEvent } from 'mapbox-gl';
 import { getTrailData, getSegmentData, calculateAllTrailsStats, calculateSingleTrailStats, calculateTrailSegmentStats } from './MapData.tsx';
 
 type LineId = string | number | undefined;
@@ -252,14 +252,28 @@ function Map() {
 
         if (!mapContainer.current) return;
         if (map.current) return; // initialize map only once
+        
+        let center: LngLatLike, zoom, minZoom, maxBounds: LngLatBoundsLike;
+        // equating portrait mode with mobile, not perfect but ¯\_(ツ)_/¯
+        if (window.innerWidth < window.innerHeight) {
+            center =[-74.08671330881933, 41.13570795376842];
+            zoom = 10;
+            minZoom = 10;
+            maxBounds = [[-74.47446258375935, 40.727740459542446], [-73.6741092494581, 41.77837523121494]];
+        } else {
+            center = [-74.14358578558068, 41.22792804241226];
+            zoom = 10.9;
+            minZoom = 10.4;
+            maxBounds = [[ -74.380923, 41.030660], [ -73.727133, 41.403808]];
+        }; 
 
         map.current = new mapboxgl.Map({
             container: mapContainer.current,
             style: 'mapbox://styles/meowypurr/clzpy8ohh00bn01qg7rsa8u3u',
-            center: [-74.205, 41.223],
-            zoom: 10.9,
-            minZoom: 10.4,
-            maxBounds: [[ -74.380923, 41.030660], [ -73.727133, 41.403808]]
+            center: center,
+            zoom: zoom,
+            minZoom: minZoom,
+            maxBounds: maxBounds 
         });
 
         map.current.on('load', () => {
@@ -472,7 +486,6 @@ function Map() {
                     setSegmentSelectedState(true);
                 }
             });
-           
 
             /*** Helper functions ***/
 
