@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import collapseSvg from "./assets/icons/collapse.svg";
 import mobileExpandCollapseSvg from "./assets/icons/mobile-expand-collapse.svg";
 import { MapMode, TrailSegmentStatsType, SingleTrailStatsType, AllTrailsStatsType } from "./Map.tsx";
