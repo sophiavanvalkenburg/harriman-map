@@ -34,8 +34,10 @@ type CompletePctProps = {
     trailStats: AllTrailsStatsType | SingleTrailStatsType
 };
 function CompletedPct({trailStats}: CompletePctProps) {
-    const className = "stat-complete" + (trailStats.completePct === 100 ? " is-complete" : "");
-    return (<div className={ className }><h2>{ formatNum(trailStats.completePct) }% Complete</h2></div>);
+    const completePctRounded = trailStats.completePct.toFixed(0);
+    const isComplete = completePctRounded === "100";
+    const className = "stat-complete" + ( isComplete ? " is-complete" : "");
+    return (<div className={ className }><h2>{ isComplete ? completePctRounded : formatNum(trailStats.completePct) }% Complete</h2></div>);
 }
 
 type CompletedStatusProps = {
