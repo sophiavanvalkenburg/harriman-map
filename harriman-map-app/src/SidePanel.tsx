@@ -78,7 +78,7 @@ function TrailSegmentStats({trailStats}: TrailSegmentStatsProps) {
     return (
         <div className="stat-segment-container">
             <div className="stat-length-trail">
-                <h3>Length: { formatNum(trailStats.length )} miles</h3>
+                <h3>{formatNum(trailStats.length )} miles long</h3>
             </div>
             <LongLatStats trailStats={ trailStats }/>
         </div>
@@ -93,8 +93,8 @@ function SingleTrailStats({trailStats}: SingleTrailStatsProps) {
     return (
         <div className="stat-segment-container">
             <div className="stat-length-trail">
-                <h3>Trail Length: { formatNum(totalTrailLength) } miles</h3>
-                <p>Completed: { formatNum(trailStats.completedLength) } miles<br />Not Completed: { formatNum(trailStats.incompleteLength) } miles</p>
+                <h3>{ formatNum(totalTrailLength) } miles total</h3>
+                <p>{ formatNum(trailStats.completedLength) } Completed<br />{ formatNum(trailStats.incompleteLength) } Not Completed</p>
             </div>
             <LongLatStats trailStats={ trailStats }/>
         </div>
@@ -110,12 +110,12 @@ function AllTrailsStats({trailStats}: AllTrailsStatsProps) {
     return (
         <div className="stat-trails-container">
             <div className="stat-num-all-trails">
-                <h3>Total Number of Trails: { totalNumTrails }</h3>
-                <p>Completed: {trailStats.numCompletedTrails }<br />Not Completed: { trailStats.numIncompleteTrails }</p>
+                <h3>{ totalNumTrails } trails total</h3>
+                <p>{trailStats.numCompletedTrails } Completed<br />{ trailStats.numIncompleteTrails } Not Completed</p>
             </div>
             <div className="stat-length-all-trails">
-                <h3>Total Length of Trails: { formatNum(totalTrailLength) } miles</h3>
-                <p>Completed: { formatNum(trailStats.completedLength) } miles<br />Not Completed: { formatNum(trailStats.incompleteLength) } miles</p>
+                <h3>{ formatNum(totalTrailLength) } miles total</h3>
+                <p>{ formatNum(trailStats.completedLength) } Completed<br />{ formatNum(trailStats.incompleteLength) } Not Completed</p>
             </div>
         </div>
     );
