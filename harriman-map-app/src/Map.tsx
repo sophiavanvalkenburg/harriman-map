@@ -122,7 +122,6 @@ function Map() {
 
     function switchToSegmentMode() {
         if (!map.current) return;
-        console.log('SEGMENT mode');
         setMapMode(MapMode.SEGMENT);
         setLayerVisibility(Layers.DESELECTED_TRAILS, true);
         setLayerVisibility(Layers.SEGMENT_HITBOX, true);
@@ -135,7 +134,6 @@ function Map() {
 
     function switchToTrailMode() {
         if (!map.current) return;
-        console.log('TRAIL mode');
         setMapMode(MapMode.TRAIL);
         setLayerVisibility(Layers.DESELECTED_TRAILS, true);
         setLayerVisibility(Layers.SEGMENT_HITBOX, true);
@@ -148,7 +146,6 @@ function Map() {
 
     function switchToBaseMode() {
         if (!map.current) return;
-        console.log('BASE mode');
         setMapMode(MapMode.BASE);
         setLayerVisibility(Layers.DESELECTED_TRAILS, false);
         setLayerVisibility(Layers.SEGMENT_HITBOX, false);
