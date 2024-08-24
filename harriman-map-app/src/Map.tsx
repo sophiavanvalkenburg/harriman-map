@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import SidePanel from './SidePanel.tsx';
 import Legend from './Legend.tsx';
+import './Map.css';
 import mapboxgl, { ExpressionSpecification, GeoJSONFeature, LngLatBoundsLike, LngLatLike, MapMouseEvent } from 'mapbox-gl';
 import { getTrailData, getSegmentData, calculateAllTrailsStats, calculateSingleTrailStats, calculateTrailSegmentStats } from './MapData.tsx';
 
@@ -280,6 +281,14 @@ function Map() {
             maxBounds: maxBounds 
         });
 
+        const infoPopup = new mapboxgl.Popup({
+            closeButton: false,
+            closeOnClick: false,
+            className: 'info-popup',
+            maxWidth: '100px'
+        }).trackPointer();
+        
+
         map.current.on('load', () => {
 
             if (!map.current) return;
@@ -435,7 +444,9 @@ function Map() {
                 if (trail) {
                     hoveredTrailLineId.current = trail.id;
                     setTrailHoverState(true);
+                        addPopup(trail);
                 }
+                
             });
 
             map.current.on('mouseleave', Layers.TRAIL_HITBOX, () => {
@@ -443,6 +454,7 @@ function Map() {
                 setTrailHoverState(false);
                 hoveredTrailLineId.current = undefined;
                 map.current.getCanvas().style.cursor = '';
+                infoPopup.remove();
             });
 
             map.current.on('click', Layers.TRAIL_HITBOX, (e) => {
@@ -453,6 +465,7 @@ function Map() {
                     selectedTrail.current = trail;
                     setTrailSelectedState(true);
                 }
+                infoPopup.remove();
             });
     
             map.current.on('mouseenter', Layers.SEGMENT_HITBOX, (e) => {
@@ -515,6 +528,12 @@ function Map() {
                     }
                 }
                 return  interactedSegment;
+            }
+
+            function addPopup(trail: GeoJSONFeature) {
+                if (!map.current || !trail.properties) return;
+                const content = trail.properties.name;
+                infoPopup.setHTML(content).addTo(map.current);
             }
 
         });
