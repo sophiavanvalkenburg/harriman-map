@@ -3,38 +3,10 @@ import SidePanel from './SidePanel.tsx';
 import Legend from './Legend.tsx';
 import './Map.css';
 import mapboxgl, { ExpressionSpecification, GeoJSONFeature, LngLatBoundsLike, LngLatLike, MapMouseEvent } from 'mapbox-gl';
-import { getTrailData, getSegmentData, calculateAllTrailsStats, calculateSingleTrailStats, calculateTrailSegmentStats } from './MapData.tsx';
+import * as MapData from './MapData.tsx';
+
 
 type LineId = string | number | undefined;
-
-type TrailStatsType = AllTrailsStatsType | SingleTrailStatsType | TrailSegmentStatsType;
-
-export type AllTrailsStatsType  = {
-    completePct: number,
-    numCompletedTrails: number,
-    numIncompleteTrails: number,
-    completedLength: number,
-    incompleteLength: number
-};
-
-export type LngLat = number[];
-
-export type SingleTrailStatsType  = {
-    trailName: string,
-    completePct: number,
-    startsAt: LngLat,
-    endsAt: LngLat,
-    completedLength: number,
-    incompleteLength: number
-};
-
-export type TrailSegmentStatsType  = {
-    trailName: string,
-    completedStatus: string,
-    startsAt: LngLat,
-    endsAt: LngLat,
-    length: number
-};
 
 export const MapMode = {
     BASE: 'base',
@@ -96,7 +68,7 @@ function Map() {
 
     const mapContainer = useRef(null);
     const map = useRef<mapboxgl.Map | null>(null);
-    const [trailStats, setTrailStats] = useState<TrailStatsType>(calculateAllTrailsStats());
+    const [trailStats, setTrailStats] = useState<MapData.TrailStatsType>(MapData.getStatsForAllTrails());
     const [showStats, setShowStats] = useState(true);
     
     /*** Map mode management
@@ -114,29 +86,29 @@ function Map() {
         }
         switch (mapMode) {
             case MapMode.SEGMENT:
-                if (clickedOnTrail.current) {
-                    setTrailStats(calculateTrailSegmentStats(selectedSegment.current));
+                if (clickedOnTrail.current && selectedSegment.current?.id) {
+                    setTrailStats(MapData.getStatsForSegment(selectedSegment.current.id.toString()));
                 } else {
                     setSegmentSelectedState(false);
                     setTrailSelectedState(false);
                     switchToBaseMode();
-                    setTrailStats(calculateAllTrailsStats());
+                    setTrailStats(MapData.getStatsForAllTrails());
                 }
                 break;
             case MapMode.TRAIL:
-                if (clickedOnTrail.current) {
+                if (clickedOnTrail.current && selectedSegment.current?.id) {
                     switchToSegmentMode();
-                    setTrailStats(calculateTrailSegmentStats(selectedSegment.current));
+                    setTrailStats(MapData.getStatsForSegment(selectedSegment.current.id.toString()));
                 } else {
                     setTrailSelectedState(false);
                     switchToBaseMode();
-                    setTrailStats(calculateAllTrailsStats());
+                    setTrailStats(MapData.getStatsForAllTrails());
                 }
                 break;
             case MapMode.BASE:
-                if (clickedOnTrail.current) {
+                if (clickedOnTrail.current && selectedTrail.current?.id) {
                     switchToTrailMode();
-                    setTrailStats(calculateSingleTrailStats(selectedTrail.current));
+                    setTrailStats(MapData.getStatsForTrail(selectedTrail.current.id.toString()));
                 }
                 break;
         }
@@ -226,7 +198,7 @@ function Map() {
     function hideOrShowSegmentsNotBelongingToSelectedTrail(isSelected: boolean) {
         if (!map.current) return;
         if (isSelected) {
-            const trailSegments = getSegmentData();
+            const trailSegments = MapData.getSegmentData();
             trailSegments.features.forEach((segment) => {
                 if (
                     !map.current || !segment.id || 
@@ -298,13 +270,13 @@ function Map() {
             map.current.addSource(Sources.SEGMENTS, {
                 'type': 'geojson',
                 'promoteId': 'id',
-                'data': getSegmentData()
+                'data': MapData.getSegmentData()
             });
 
             map.current.addSource(Sources.TRAILS, {
                 'type': 'geojson',
                 'promoteId': 'id',
-                'data': getTrailData()
+                'data': MapData.getTrailData()
             });
 
 

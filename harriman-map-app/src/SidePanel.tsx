@@ -1,6 +1,7 @@
 import collapseSvg from "./assets/icons/collapse.svg";
 import mobileExpandCollapseSvg from "./assets/icons/mobile-expand-collapse.svg";
-import { MapMode, TrailSegmentStatsType, SingleTrailStatsType, AllTrailsStatsType } from "./Map.tsx";
+import { MapMode } from "./Map.tsx";
+import { TrailSegmentStatsType, SingleTrailStatsType, AllTrailsStatsType } from "./MapData.tsx";
 import './SidePanel.css'
 
 function formatNum(num: number) {

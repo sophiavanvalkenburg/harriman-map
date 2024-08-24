@@ -1,7 +1,61 @@
-import { GeoJSONFeature } from "mapbox-gl";
 import { FeatureCollection, Feature } from "geojson";
 import trailData from './assets/data/harriman_bearmt_all_trails.json';
 import segmentData from './assets/data/harriman_bearmt_segmented_trails.json';
+
+export type TrailStatsType = AllTrailsStatsType | SingleTrailStatsType | TrailSegmentStatsType;
+
+export type AllTrailsStatsType  = {
+    completePct: number,
+    numCompletedTrails: number,
+    numIncompleteTrails: number,
+    completedLength: number,
+    incompleteLength: number
+};
+
+export type LngLat = number[];
+
+export type SingleTrailStatsType  = {
+    trailName: string,
+    completePct: number,
+    startsAt: LngLat,
+    endsAt: LngLat,
+    completedLength: number,
+    incompleteLength: number
+};
+
+export type TrailSegmentStatsType  = {
+    trailName: string,
+    completedStatus: string,
+    startsAt: LngLat,
+    endsAt: LngLat,
+    length: number
+};
+
+export function getTrailData(): FeatureCollection {
+    return trailData as FeatureCollection;
+}
+
+export function getSegmentData(): FeatureCollection {
+    return segmentData as FeatureCollection;
+}
+
+export function getStatsForSegment(segmentLineId: string) {
+    return Stats.forSegment[segmentLineId];
+}
+
+export function getStatsForTrail(trailLineId: string) {
+    return Stats.forTrail[trailLineId];
+}
+
+export function getStatsForAllTrails() {
+    return Stats.all;
+}
+
+const Stats = {
+    all: calculateAllTrailsStats(),
+    forTrail: statsPerTrail(),
+    forSegment: statsPerSegment()
+}
 
 function getNumTrails(statusToMatch: string) {
     return trailData.features.filter((trail) => {
@@ -35,7 +89,7 @@ function getSegmentsLength(trailToMatch: Feature) {
     return [completedLength, incompleteLength];
 };
 
-export function calculateAllTrailsStats() {
+function calculateAllTrailsStats() {
     const [completedLength, incompleteLength] = getTrailsLength();
     const completePct = 100 * completedLength / (completedLength + incompleteLength);
     return {
@@ -47,7 +101,26 @@ export function calculateAllTrailsStats() {
     }
 };
 
-export function calculateSingleTrailStats(trail: GeoJSONFeature | undefined) {
+interface StatsById {
+    [index: string]: SingleTrailStatsType | TrailSegmentStatsType;
+  }
+function statsPerTrail() {
+    const stats: StatsById = { };
+    trailData.features.forEach((trail) => {
+        stats[trail.properties.id] = calculateSingleTrailStats(trail as Feature);
+    });
+    return stats;
+}
+
+function statsPerSegment() {
+    const stats: StatsById = { };
+    segmentData.features.forEach((segment) => {
+        stats[segment.properties.id] = calculateTrailSegmentStats(segment as Feature);
+    });
+    return stats;
+}
+
+function calculateSingleTrailStats(trail: Feature) {
     const stats = {
         trailName: '',
         completePct: 0,
@@ -69,7 +142,7 @@ export function calculateSingleTrailStats(trail: GeoJSONFeature | undefined) {
     return stats;
 }
 
-export function calculateTrailSegmentStats(segment: GeoJSONFeature | undefined) {
+function calculateTrailSegmentStats(segment: Feature) {
     const stats = {
         trailName: '',
         completedStatus: '',
@@ -85,12 +158,4 @@ export function calculateTrailSegmentStats(segment: GeoJSONFeature | undefined) 
         stats.length = segment.properties.length;
     }
     return stats;
-}
-
-export function getTrailData(): FeatureCollection {
-    return trailData as FeatureCollection;
-}
-
-export function getSegmentData(): FeatureCollection {
-    return segmentData as FeatureCollection;
 }
