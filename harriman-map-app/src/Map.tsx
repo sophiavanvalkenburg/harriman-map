@@ -1,9 +1,10 @@
 import { useRef, useEffect, useState } from 'react';
+import mapboxgl, { ExpressionSpecification, GeoJSONFeature, LngLatBoundsLike, LngLatLike, MapMouseEvent } from 'mapbox-gl';
+import { Feature } from 'geojson';
+import * as MapData from './MapData.tsx';
 import SidePanel from './SidePanel.tsx';
 import Legend from './Legend.tsx';
 import './Map.css';
-import mapboxgl, { ExpressionSpecification, GeoJSONFeature, LngLatBoundsLike, LngLatLike, MapMouseEvent } from 'mapbox-gl';
-import * as MapData from './MapData.tsx';
 
 
 type LineId = string | number | undefined;
@@ -35,7 +36,7 @@ const NOT_SELECTED_COLOR = "#878787";
 const COMPLETED_COLOR = "#ff0000";
 const INCOMPLETE_COLOR = "#8c0000";
 const HIGHLIGHT_COLOR = "#ffe100";
-const LINE_WIDTH = 2;
+const TRAIL_LINE_WIDTH = 2;
 const HITBOX_LINE_WIDTH = 15;
 const INVISIBLE_ON_HIDE: ExpressionSpecification = [
     'case',
@@ -68,9 +69,75 @@ function Map() {
 
     const mapContainer = useRef(null);
     const map = useRef<mapboxgl.Map | null>(null);
-    const [trailStats, setTrailStats] = useState<MapData.TrailStatsType>(MapData.getStatsForAllTrails());
+    const [mapStats, setMapStats] = useState<MapData.TrailStatsType>(MapData.getStatsForAllTrails());
     const [showStats, setShowStats] = useState(true);
-    
+
+
+    /*** Map state management
+     * 
+     * I'm using useRef for variables used in map rendering
+     * instead of useState because Mapbox handles its own state, not React
+     * 
+     * ***/
+
+    let hoveredTrailLineId = useRef<LineId>();
+    let selectedTrail = useRef<GeoJSONFeature>();
+    let hoveredSegmentLineId = useRef<LineId>();
+    let selectedSegment = useRef<GeoJSONFeature>();
+
+    function setTrailHoverState(isHovered: boolean) {
+        if (!map.current || !hoveredTrailLineId.current) return;
+        map.current.setFeatureState(
+            { source: Sources.TRAILS, id: hoveredTrailLineId.current },
+            { hover: isHovered }
+        );
+    }
+
+    function setSegmentHoverState(isHovered: boolean) {
+        if (!map.current || !hoveredSegmentLineId.current) return;
+        map.current.setFeatureState(
+            { source: Sources.SEGMENTS, id: hoveredSegmentLineId.current },
+            { hover: isHovered }
+        );
+    }
+
+    function setTrailSelectedState(isSelected: boolean) {
+        if (!map.current || !selectedTrail.current?.id) return;
+        map.current.setFeatureState(
+            { source: Sources.TRAILS, id: selectedTrail.current.id },
+            { selected: isSelected }
+        );
+        if (isSelected) {
+            hideSegmentsOutsideSelectedTrail();
+        } else {
+            map.current.removeFeatureState({ source: Sources.SEGMENTS });
+        }
+    }
+
+    function hideSegmentsOutsideSelectedTrail() {
+        if (!map.current) return;
+        const trailSegments = MapData.getSegmentData();
+        trailSegments.features.forEach((segment) => {
+            if (
+                !map.current || !segment.id ||
+                segmentBelongsToSelectedTrail(segment)
+            ) return;
+            map.current.setFeatureState(
+                { source: Sources.SEGMENTS, id: segment.id },
+                { hide: true }
+            );
+        });
+    }
+
+    function setSegmentSelectedState(isSelected: boolean) {
+        if (!map.current || selectedSegment.current?.id === undefined) return;
+        map.current.setFeatureState(
+            { source: Sources.SEGMENTS, id: selectedSegment.current.id },
+            { selected: isSelected }
+        );
+    }
+
+
     /*** Map mode management
      * 
      * The mode simply determines which layers are visible and interactable
@@ -86,33 +153,45 @@ function Map() {
         }
         switch (mapMode) {
             case MapMode.SEGMENT:
-                if (clickedOnTrail.current && selectedSegment.current?.id) {
-                    setTrailStats(MapData.getStatsForSegment(selectedSegment.current.id.toString()));
-                } else {
-                    setSegmentSelectedState(false);
-                    setTrailSelectedState(false);
-                    switchToBaseMode();
-                    setTrailStats(MapData.getStatsForAllTrails());
-                }
+                handleClickInSegmentMode();
                 break;
             case MapMode.TRAIL:
-                if (clickedOnTrail.current && selectedSegment.current?.id) {
-                    switchToSegmentMode();
-                    setTrailStats(MapData.getStatsForSegment(selectedSegment.current.id.toString()));
-                } else {
-                    setTrailSelectedState(false);
-                    switchToBaseMode();
-                    setTrailStats(MapData.getStatsForAllTrails());
-                }
+                handleClickInTrailMode();
                 break;
             case MapMode.BASE:
-                if (clickedOnTrail.current && selectedTrail.current?.id) {
-                    switchToTrailMode();
-                    setTrailStats(MapData.getStatsForTrail(selectedTrail.current.id.toString()));
-                }
+                handleClickInBaseMode();
                 break;
         }
         clickedOnTrail.current = false;
+    }
+
+    function handleClickInSegmentMode() {
+        if (clickedOnTrail.current && selectedSegment.current?.id) {
+            setMapStats(MapData.getStatsForSegment(selectedSegment.current.id.toString()));
+        } else {
+            setSegmentSelectedState(false);
+            setTrailSelectedState(false);
+            switchToBaseMode();
+            setMapStats(MapData.getStatsForAllTrails());
+        }
+    }
+
+    function handleClickInTrailMode() {
+        if (clickedOnTrail.current && selectedSegment.current?.id) {
+            switchToSegmentMode();
+            setMapStats(MapData.getStatsForSegment(selectedSegment.current.id.toString()));
+        } else {
+            setTrailSelectedState(false);
+            switchToBaseMode();
+            setMapStats(MapData.getStatsForAllTrails());
+        }
+    }
+
+    function handleClickInBaseMode() {
+        if (clickedOnTrail.current && selectedTrail.current?.id) {
+            switchToTrailMode();
+            setMapStats(MapData.getStatsForTrail(selectedTrail.current.id.toString()));
+        }
     }
 
     function setLayerVisibility(layerId: string, isVisible: boolean) {
@@ -156,67 +235,32 @@ function Map() {
         setLayerVisibility(Layers.TRAIL_HITBOX, true);
     }
 
-    /*** Map state management
-     * 
-     * I'm using useRef for variables used in map rendering
-     * instead of useState because Mapbox handles its own state, not React
-     * 
-     * ***/
-    let hoveredTrailLineId = useRef<LineId>();
-    let selectedTrail = useRef<GeoJSONFeature>();
-    let hoveredSegmentLineId = useRef<LineId>();
-    let selectedSegment = useRef<GeoJSONFeature>();
+    /*** Helper functions ***/
 
-    function setTrailHoverState(isHovered: boolean) {
-        if (!map.current || hoveredTrailLineId.current === undefined) return;
-        map.current.setFeatureState(
-            { source: Sources.TRAILS, id: hoveredTrailLineId.current },
-            { hover: isHovered }
-        );
+    function segmentBelongsToSelectedTrail(segment: Feature) {
+        return segment.properties?.trail_id === selectedTrail.current?.properties?.trail_id;
     }
 
-    function setSegmentHoverState(isHovered: boolean) {
-        if (!map.current || hoveredSegmentLineId.current === undefined) return;
-        map.current.setFeatureState(
-            { source: Sources.SEGMENTS, id: hoveredSegmentLineId.current },
-            { hover: isHovered }
-        );
+    function selectedTrailIsComplete() {
+        return selectedTrail.current?.properties?.status === 'complete';
     }
 
-    function setTrailSelectedState(isSelected: boolean) {
-        if (!map.current || selectedTrail.current?.id === undefined) return;
-        map.current.setFeatureState(
-            { source: Sources.TRAILS, id: selectedTrail.current.id },
-            { selected: isSelected }
-        );
-        hideOrShowSegmentsNotBelongingToSelectedTrail(isSelected);
+    function getInteractedTrail(e: MapMouseEvent) {
+        return e.features && e.features.length > 0 ? e.features[0] : undefined;
     }
 
-    function hideOrShowSegmentsNotBelongingToSelectedTrail(isSelected: boolean) {
-        if (!map.current) return;
-        if (isSelected) {
-            const trailSegments = MapData.getSegmentData();
-            trailSegments.features.forEach((segment) => {
-                if (
-                    !map.current || !segment.id || 
-                    segment.properties?.trail_id === selectedTrail.current?.properties?.trail_id
-                ) return;
-                map.current.setFeatureState(
-                    { source: Sources.SEGMENTS, id: segment.id },
-                    { hide: true }
-                );
-            });
-        } else {
-            map.current.removeFeatureState({ source: Sources.SEGMENTS });
+    function getInteractedSegment(e: MapMouseEvent) {
+        let interactedSegment;
+        if (e.features && e.features.length > 0) {
+            for (let i = 0; i < e.features.length; i++) {
+                const segment = e.features[i];
+                if (segmentBelongsToSelectedTrail(segment)) {
+                    interactedSegment = segment;
+                    break;
+                }
+            }
         }
-    }
-
-    function setSegmentSelectedState(isSelected: boolean) {
-        if (!map.current || selectedSegment.current?.id === undefined) return;
-        map.current.setFeatureState(
-            { source: Sources.SEGMENTS, id: selectedSegment.current.id },
-            { selected: isSelected }
-        );
+        return interactedSegment;
     }
 
 
@@ -226,20 +270,20 @@ function Map() {
 
         if (!mapContainer.current) return;
         if (map.current) return; // initialize map only once
-        
+
         let center: LngLatLike, zoom, minZoom, maxBounds: LngLatBoundsLike;
         // equating portrait mode with mobile, not perfect but ¯\_(ツ)_/¯
         if (window.innerWidth < window.innerHeight) {
-            center =[-74.08671330881933, 41.13570795376842];
+            center = [-74.086713, 41.135707];
             zoom = 10;
             minZoom = 10;
-            maxBounds = [[-74.47446258375935, 40.727740459542446], [-73.6741092494581, 41.77837523121494]];
+            maxBounds = [[-74.474462, 40.727740], [-73.674109, 41.778375]];
         } else {
-            center = [-74.14358578558068, 41.22792804241226];
+            center = [-74.143585, 41.227928];
             zoom = 10.9;
             minZoom = 10.4;
-            maxBounds = [[ -74.380923, 41.030660], [ -73.727133, 41.403808]];
-        }; 
+            maxBounds = [[-74.380923, 41.030660], [-73.727133, 41.403808]];
+        };
 
         map.current = new mapboxgl.Map({
             container: mapContainer.current,
@@ -247,7 +291,7 @@ function Map() {
             center: center,
             zoom: zoom,
             minZoom: minZoom,
-            maxBounds: maxBounds 
+            maxBounds: maxBounds
         });
 
         const infoPopup = new mapboxgl.Popup({
@@ -256,13 +300,22 @@ function Map() {
             className: 'info-popup',
             maxWidth: '100px'
         }).trackPointer();
-        
+
+        function addPopup(trail: GeoJSONFeature) {
+            if (!map.current || !trail.properties) return;
+            const content = trail.properties.name;
+            infoPopup.setHTML(content).addTo(map.current);
+        }
 
         map.current.on('load', () => {
 
             if (!map.current) return;
 
-            /*** Add map sources: segment data and trail data ***/
+            /*** 
+             * Add map sources: 
+             * segment data and trail data
+             * 
+             * ***/
 
             map.current.addSource(Sources.SEGMENTS, {
                 'type': 'geojson',
@@ -277,13 +330,14 @@ function Map() {
             });
 
 
-            /*** Add map layers:
+            /*** 
+             * Add map layers 
              * 
-             * completed & incomplete segments - for base color styling
-             * deselected trails - for trail mode styling
-             * trail/segment highlights and outlines - for hover and select state styling
-             * trail/segment hitboxes - for making trails easier to interact with
-             * 
+             * ***/
+
+            /*** 
+             * deselected trails
+             * for trail mode styling 
              * ***/
 
             map.current.addLayer({
@@ -296,9 +350,14 @@ function Map() {
                 'paint': {
                     'line-color': NOT_SELECTED_COLOR,
                     'line-opacity': SHOW_IF_NOT_SELECTED,
-                    'line-width': LINE_WIDTH,
+                    'line-width': TRAIL_LINE_WIDTH,
                 }
             });
+
+            /*** 
+             * completed & incomplete segments
+             * for base color styling 
+             * ***/
 
             map.current.addLayer({
                 'id': Layers.COMPLETED_SEGMENTS,
@@ -307,7 +366,7 @@ function Map() {
                 'filter': ['==', 'complete', ['get', 'status']],
                 'paint': {
                     'line-color': COMPLETED_COLOR,
-                    'line-width': LINE_WIDTH,
+                    'line-width': TRAIL_LINE_WIDTH,
                     'line-opacity': INVISIBLE_ON_HIDE
                 }
             });
@@ -319,10 +378,15 @@ function Map() {
                 'filter': ['==', 'incomplete', ['get', 'status']],
                 'paint': {
                     'line-color': INCOMPLETE_COLOR,
-                    'line-width': LINE_WIDTH,
+                    'line-width': TRAIL_LINE_WIDTH,
                     'line-opacity': INVISIBLE_ON_HIDE
                 }
             });
+
+            /*** 
+             *  trail/segment highlights and outlines
+             *  for hover and select state styling 
+             * ***/
 
             map.current.addLayer({
                 'id': Layers.TRAIL_OUTLINE,
@@ -330,9 +394,9 @@ function Map() {
                 'source': Sources.TRAILS,
                 'paint': {
                     'line-color': HIGHLIGHT_COLOR,
-                    'line-gap-width': LINE_WIDTH,
+                    'line-gap-width': TRAIL_LINE_WIDTH,
                     'line-opacity': SHOW_ON_HOVER_OR_SELECTED,
-                    'line-width': LINE_WIDTH,
+                    'line-width': TRAIL_LINE_WIDTH,
                 }
             });
 
@@ -343,7 +407,7 @@ function Map() {
                 'paint': {
                     'line-color': HIGHLIGHT_COLOR,
                     'line-opacity': SHOW_ON_HOVER,
-                    'line-width': LINE_WIDTH,
+                    'line-width': TRAIL_LINE_WIDTH,
                 }
             });
 
@@ -356,9 +420,9 @@ function Map() {
                 },
                 'paint': {
                     'line-color': HIGHLIGHT_COLOR,
-                    'line-gap-width': LINE_WIDTH,
+                    'line-gap-width': TRAIL_LINE_WIDTH,
                     'line-opacity': SHOW_ON_HOVER_OR_SELECTED,
-                    'line-width': LINE_WIDTH,
+                    'line-width': TRAIL_LINE_WIDTH,
                 }
             });
 
@@ -372,9 +436,14 @@ function Map() {
                 'paint': {
                     'line-color': HIGHLIGHT_COLOR,
                     'line-opacity': SHOW_ON_HOVER,
-                    'line-width': LINE_WIDTH,
+                    'line-width': TRAIL_LINE_WIDTH,
                 }
             });
+
+            /*** 
+             * trail/segment hitboxes
+             * for making trails easier to interact with 
+             * ***/
 
             map.current.addLayer({
                 'id': Layers.TRAIL_HITBOX,
@@ -400,7 +469,15 @@ function Map() {
             });
 
 
-            /*** Event handlers: hovering & selecting both trails & segments ***/
+            /*** 
+             * Event handlers:
+             * hovering & selecting both trails & segments 
+             * 
+             * ***/
+
+            /***
+             * Hover over trail
+             */
 
             map.current.on('mouseenter', Layers.TRAIL_HITBOX, () => {
                 if (!map.current) return;
@@ -413,9 +490,8 @@ function Map() {
                 if (trail) {
                     hoveredTrailLineId.current = trail.id;
                     setTrailHoverState(true);
-                        addPopup(trail);
+                    addPopup(trail);
                 }
-                
             });
 
             map.current.on('mouseleave', Layers.TRAIL_HITBOX, () => {
@@ -425,6 +501,10 @@ function Map() {
                 map.current.getCanvas().style.cursor = '';
                 infoPopup.remove();
             });
+
+            /***
+             * Click on trail
+             */
 
             map.current.on('click', Layers.TRAIL_HITBOX, (e) => {
                 clickedOnTrail.current = true;
@@ -436,7 +516,11 @@ function Map() {
                 }
                 infoPopup.remove();
             });
-    
+
+            /***
+             * Hover over segment
+             */
+
             map.current.on('mouseenter', Layers.SEGMENT_HITBOX, (e) => {
                 if (!map.current || selectedTrailIsComplete()) return;
                 const segment = getInteractedSegment(e);
@@ -462,6 +546,10 @@ function Map() {
                 map.current.getCanvas().style.cursor = '';
             });
 
+            /***
+             * Click on segment
+             */
+
             map.current.on('click', Layers.SEGMENT_HITBOX, (e) => {
                 if (selectedTrailIsComplete()) return;
                 const segment = getInteractedSegment(e);
@@ -473,44 +561,17 @@ function Map() {
                 }
             });
 
-            /*** Helper functions ***/
-
-            function selectedTrailIsComplete() {
-                return (selectedTrail && selectedTrail.current && selectedTrail.current.properties && 
-                    selectedTrail.current.properties.status === 'complete'
-                );
-            }
-
-            function getInteractedTrail(e: MapMouseEvent) {
-                return e.features && e.features.length > 0 ? e.features[0] : undefined;
-            }
-
-            function getInteractedSegment(e: MapMouseEvent) {
-                let interactedSegment;
-                if (e.features && e.features.length > 0) {
-                    for (let i=0; i<e.features.length; i++) {
-                        const segment = e.features[i];
-                        if (selectedTrail.current?.properties?.trail_id === segment.properties?.trail_id){
-                            interactedSegment = segment;
-                            break;
-                        }
-                    }
-                }
-                return  interactedSegment;
-            }
-
-            function addPopup(trail: GeoJSONFeature) {
-                if (!map.current || !trail.properties) return;
-                const content = trail.properties.name;
-                infoPopup.setHTML(content).addTo(map.current);
-            }
-
         });
 
     });
     return (
         <div>
-            <SidePanel mapMode={mapMode} showStats={showStats} toggleShowStats={() => { setShowStats(!showStats)} } trailStats={trailStats} />
+            <SidePanel
+                mapMode={mapMode}
+                showStats={showStats}
+                toggleShowStats={() => { setShowStats(!showStats) }}
+                trailStats={mapStats}
+            />
             <div ref={mapContainer} className="map-container" onClick={onMapClick} />
             <Legend />
         </div>
