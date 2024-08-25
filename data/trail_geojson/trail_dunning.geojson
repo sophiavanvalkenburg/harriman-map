@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "a3052a55-7098-4225-b790-bd210d65fff7",
+   "id": "926bda14-25af-42f8-87e2-a127e9cd1e38",
    "properties": {
     "name": "Dunning Trail",
-    "id": "a3052a55-7098-4225-b790-bd210d65fff7",
+    "id": "926bda14-25af-42f8-87e2-a127e9cd1e38",
     "status": "complete",
     "osm_way_ids": [
      "way/424752248",
@@ -943,10 +943,10 @@
   },
   {
    "type": "Feature",
-   "id": "c9e682f1-35b6-451f-9d41-4272d07a1683",
+   "id": "d294d131-5d96-4519-a5fd-10b9ceab31fd",
    "properties": {
     "name": "Dunning Trail",
-    "id": "c9e682f1-35b6-451f-9d41-4272d07a1683",
+    "id": "d294d131-5d96-4519-a5fd-10b9ceab31fd",
     "status": "incomplete",
     "osm_way_ids": [
      "way/292356375",

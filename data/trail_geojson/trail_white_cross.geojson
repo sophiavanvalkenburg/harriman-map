@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "f749e809-a4bd-4f60-9d98-63069c01a6d0",
+   "id": "1f609ba2-12e9-408e-aaeb-94167401be94",
    "properties": {
     "name": "White Cross Trail",
-    "id": "f749e809-a4bd-4f60-9d98-63069c01a6d0",
+    "id": "1f609ba2-12e9-408e-aaeb-94167401be94",
     "status": "complete",
     "osm_way_ids": [
      "way/424580697"

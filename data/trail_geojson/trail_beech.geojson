@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "0130370f-d2d2-456e-815a-6a2381ee3cf9",
+   "id": "36d80f91-fb89-4c8f-803e-405491de4d34",
    "properties": {
     "name": "Beech Trail",
-    "id": "0130370f-d2d2-456e-815a-6a2381ee3cf9",
+    "id": "36d80f91-fb89-4c8f-803e-405491de4d34",
     "status": "complete",
     "osm_way_ids": [
      "way/982353342",

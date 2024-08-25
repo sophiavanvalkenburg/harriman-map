@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "577f646a-7ba3-4c59-a600-a1d835b5ba22",
+   "id": "8c78be43-790c-48c9-8eb3-5e41f156d05b",
    "properties": {
     "name": "Kakiat Trail",
-    "id": "577f646a-7ba3-4c59-a600-a1d835b5ba22",
+    "id": "8c78be43-790c-48c9-8eb3-5e41f156d05b",
     "status": "complete",
     "osm_way_ids": [
      "way/514903099",

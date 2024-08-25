@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "52f9fba1-0f3b-4d88-ad28-c5b234d0d24d",
+   "id": "861c9639-0129-4339-9861-6d4a0dfc724b",
    "properties": {
     "name": "White Bar Trail",
-    "id": "52f9fba1-0f3b-4d88-ad28-c5b234d0d24d",
+    "id": "861c9639-0129-4339-9861-6d4a0dfc724b",
     "status": "complete",
     "osm_way_ids": [
      "way/180636669",

@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "e805b092-701d-4640-970a-21490c290429",
+   "id": "9b1c7322-f2cd-4d5e-a927-18816e759b7a",
    "properties": {
     "name": "Suffern Bear Mountain Trail",
-    "id": "e805b092-701d-4640-970a-21490c290429",
+    "id": "9b1c7322-f2cd-4d5e-a927-18816e759b7a",
     "status": "complete",
     "osm_way_ids": [
      "way/798977085",
