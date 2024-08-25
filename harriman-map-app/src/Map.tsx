@@ -118,10 +118,7 @@ function Map() {
         if (!map.current) return;
         const trailSegments = MapData.getSegmentData();
         trailSegments.features.forEach((segment) => {
-            if (
-                !map.current || !segment.id ||
-                segmentBelongsToSelectedTrail(segment)
-            ) return;
+            if (!map.current || !segment.id || segmentBelongsToSelectedTrail(segment)) return;
             map.current.setFeatureState(
                 { source: Sources.SEGMENTS, id: segment.id },
                 { hide: true }
@@ -560,10 +557,9 @@ function Map() {
                     setSegmentSelectedState(true);
                 }
             });
-
         });
-
     });
+
     return (
         <div>
             <SidePanel

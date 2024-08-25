@@ -4,7 +4,7 @@ import segmentData from './assets/data/harriman_bearmt_segmented_trails.json';
 
 export type TrailStatsType = AllTrailsStatsType | SingleTrailStatsType | TrailSegmentStatsType;
 
-export type AllTrailsStatsType  = {
+export type AllTrailsStatsType = {
     completePct: number,
     numCompletedTrails: number,
     numIncompleteTrails: number,
@@ -14,7 +14,7 @@ export type AllTrailsStatsType  = {
 
 export type LngLat = number[];
 
-export type SingleTrailStatsType  = {
+export type SingleTrailStatsType = {
     trailName: string,
     completePct: number,
     startsAt: LngLat,
@@ -23,7 +23,7 @@ export type SingleTrailStatsType  = {
     incompleteLength: number
 };
 
-export type TrailSegmentStatsType  = {
+export type TrailSegmentStatsType = {
     trailName: string,
     completedStatus: string,
     startsAt: LngLat,
@@ -77,9 +77,9 @@ function getTrailsLength() {
 function getSegmentsLength(trailToMatch: Feature) {
     let completedLength = 0;
     let incompleteLength = 0;
-    for (let i=0; i<segmentData.features.length; i++) {
+    for (let i = 0; i < segmentData.features.length; i++) {
         const trail = segmentData.features[i];
-        if (trail.properties.name !== trailToMatch.properties?.name) continue; 
+        if (trail.properties.name !== trailToMatch.properties?.name) continue;
         if (trail.properties.status === 'complete') {
             completedLength += trail.properties.length;
         } else {
@@ -103,9 +103,9 @@ function calculateAllTrailsStats() {
 
 interface StatsById {
     [index: string]: SingleTrailStatsType | TrailSegmentStatsType;
-  }
+}
 function statsPerTrail() {
-    const stats: StatsById = { };
+    const stats: StatsById = {};
     trailData.features.forEach((trail) => {
         stats[trail.properties.id] = calculateSingleTrailStats(trail as Feature);
     });
@@ -113,7 +113,7 @@ function statsPerTrail() {
 }
 
 function statsPerSegment() {
-    const stats: StatsById = { };
+    const stats: StatsById = {};
     segmentData.features.forEach((segment) => {
         stats[segment.properties.id] = calculateTrailSegmentStats(segment as Feature);
     });
@@ -135,7 +135,7 @@ function calculateSingleTrailStats(trail: Feature) {
         stats.trailName = trail.properties.name;
         stats.completePct = completePct;
         stats.startsAt = trail.geometry.coordinates[0];
-        stats.endsAt = trail.geometry.coordinates[trail.geometry.coordinates.length-1];
+        stats.endsAt = trail.geometry.coordinates[trail.geometry.coordinates.length - 1];
         stats.completedLength = completedLength;
         stats.incompleteLength = incompleteLength;
     }
@@ -154,7 +154,7 @@ function calculateTrailSegmentStats(segment: Feature) {
         stats.trailName = segment.properties.name;
         stats.completedStatus = segment.properties.status;
         stats.startsAt = segment.geometry.coordinates[0];
-        stats.endsAt = segment.geometry.coordinates[segment.geometry.coordinates.length-1];
+        stats.endsAt = segment.geometry.coordinates[segment.geometry.coordinates.length - 1];
         stats.length = segment.properties.length;
     }
     return stats;
