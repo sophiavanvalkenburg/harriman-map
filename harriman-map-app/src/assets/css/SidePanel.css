@@ -107,31 +107,45 @@ p {
     flex-grow: 2;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 24px;
+    align-items: center;
 } 
 
-.stat-trails-container h3, .stat-segment-container h3 {
+.stats-table thead {
+    font-size: 20px;
+}
+
+.stats-table td {
+    text-align: right;
+}
+
+.stats-table th {
+    font-weight: 300;
+    text-align: left;
+}
+
+.stats-table tr {
+    color: #686868;
+}
+
+.stats-lnglat .stat-starts-at {
+    margin-bottom: 16px;
+}
+
+.stats-lnglat h3, .stat-segment-container h3 {
     font-weight: 300;
     font-size: 20px; 
     margin: 0;
 }
 
-.stat-trails-container p, .stat-segment-container p {
-    font-weight: 300;
+.stats-lnglat p {
     font-size: 16px;
-    color: #686868;
     margin: 0;
-}
-
-.stats-lnglat {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
 }
 
 @media (orientation: portrait) {
     .side-panel {
-        height: 388px;
+        height: 358px;
         width: 100%;
         flex-direction: column;
         justify-content: flex-end;
@@ -140,7 +154,7 @@ p {
     }
     
     .side-panel.collapsed {
-        translate: 0px 348px;
+        translate: 0px 318px;
     }
 
     .side-panel-content {
@@ -187,15 +201,24 @@ p {
     .stat-complete h2 {
         font-size: 20px;
     }
-    .stat-trails-container, .stat-segment-container {
-        margin-top: 32px;
-    }
 
-    .stat-segment-container {
-        gap: 24px;
+    .stat-trails-container {
+        margin-top: 32px;
         flex-grow: 0;
         flex-direction: row;
+        gap: 24px;
         justify-content: center;
         align-items: center;
     }
+
+    .stat-segment-container {
+        margin-top: 32px;
+    }
+    
+    .stats-lnglat {
+        display: flex;
+        flex-direction: row;
+        gap: 24px;
+    }
+   
 }

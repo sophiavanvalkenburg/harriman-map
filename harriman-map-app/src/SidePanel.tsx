@@ -52,14 +52,39 @@ function LongLatStats({ startsAt, endsAt }: LongLatStatsProps) {
     return (
         <div className="stats-lnglat">
             <div className="stat-starts-at">
-                <h3>Starts at:</h3>
-                <p>({startsAt[0].toFixed(7)}, {startsAt[1].toFixed(7)})</p>
+                <h3>Starts at</h3>
+                <p>({startsAt[0].toFixed(4)}, {startsAt[1].toFixed(4)})</p>
             </div>
             <div className="stat-ends-at">
-                <h3>Ends at:</h3>
-                <p>({endsAt[0].toFixed(7)}, {endsAt[1].toFixed(7)})</p>
+                <h3>Ends at</h3>
+                <p>({endsAt[0].toFixed(4)}, {endsAt[1].toFixed(4)})</p>
             </div>
         </div>
+    );
+}
+
+type StatsTableType = {
+    totalNum: string | number,
+    totalText: string,
+    completedNum: string | number, 
+    incompleteNum: string | number
+};
+function StatsTable({totalNum, totalText, completedNum, incompleteNum}: StatsTableType) {
+    return (
+        <table className="stats-table">
+            <thead>
+                <th>{totalNum}</th>
+                <td>{totalText}</td>
+            </thead>
+            <tr>
+                <th>{completedNum}</th>
+                <td>Completed</td>
+            </tr>
+            <tr>
+                <th>{incompleteNum}</th>
+                <td>Not Completed</td>
+            </tr>
+        </table>
     );
 }
 
@@ -68,7 +93,7 @@ function TrailSegmentStats({ trailStats }: TrailSegmentStatsProps) {
     return (
         <div className="stat-segment-container">
             <div className="stat-length-trail">
-                <h3>{formatNum(trailStats.length)} miles long</h3>
+                <h3>{formatNum(trailStats.length)} Miles</h3>
             </div>
             <LongLatStats startsAt={trailStats.startsAt} endsAt={trailStats.endsAt} />
         </div>
@@ -81,8 +106,12 @@ function SingleTrailStats({ trailStats }: SingleTrailStatsProps) {
     return (
         <div className="stat-segment-container">
             <div className="stat-length-trail">
-                <h3>{formatNum(totalTrailLength)} miles total</h3>
-                <p>{formatNum(trailStats.completedLength)} Completed<br />{formatNum(trailStats.incompleteLength)} Not Completed</p>
+                <StatsTable 
+                    totalNum={formatNum(totalTrailLength)}
+                    totalText="Miles Total"
+                    completedNum={formatNum(trailStats.completedLength)}
+                    incompleteNum={formatNum(trailStats.incompleteLength)}
+                />
             </div>
             <LongLatStats startsAt={trailStats.startsAt} endsAt={trailStats.endsAt} />
         </div>
@@ -96,12 +125,20 @@ function AllTrailsStats({ trailStats }: AllTrailsStatsProps) {
     return (
         <div className="stat-trails-container">
             <div className="stat-num-all-trails">
-                <h3>{totalNumTrails} trails total</h3>
-                <p>{trailStats.numCompletedTrails} Completed<br />{trailStats.numIncompleteTrails} Not Completed</p>
+                <StatsTable 
+                    totalNum={totalNumTrails}
+                    totalText="Trails Total"
+                    completedNum={trailStats.numCompletedTrails}
+                    incompleteNum={trailStats.numIncompleteTrails}
+                />
             </div>
             <div className="stat-length-all-trails">
-                <h3>{formatNum(totalTrailLength)} miles total</h3>
-                <p>{formatNum(trailStats.completedLength)} Completed<br />{formatNum(trailStats.incompleteLength)} Not Completed</p>
+                <StatsTable 
+                    totalNum={formatNum(totalTrailLength)}
+                    totalText="Miles Total"
+                    completedNum={formatNum(trailStats.completedLength)}
+                    incompleteNum={formatNum(trailStats.incompleteLength)}
+                />
             </div>
         </div>
     );
