@@ -1,8 +1,8 @@
 **/.DS_Store
-data/harriman_bearmt_added.geojson
-data/harriman_bearmt_complete.geojson
-data/harriman_bearmt_purged.geojson
-data/harriman_bearmt_split.geojson
+data/geojson_work_files/harriman_bearmt_added.geojson
+data/geojson_work_files/harriman_bearmt_complete.geojson
+data/geojson_work_files/harriman_bearmt_purged.geojson
+data/geojson_work_files/harriman_bearmt_split.geojson
 data/trails.js
 data/ways.js
 design_files
