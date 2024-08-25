@@ -2,7 +2,7 @@ import collapseSvg from "./assets/icons/collapse.svg";
 import mobileExpandCollapseSvg from "./assets/icons/mobile-expand-collapse.svg";
 import { MapMode } from "./Map.tsx";
 import * as MapData from "./MapData.tsx";
-import './SidePanel.css'
+import './assets/css/SidePanel.css'
 
 function formatNum(num: number) {
     return num.toFixed(2);

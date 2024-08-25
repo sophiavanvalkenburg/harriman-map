@@ -4,7 +4,7 @@ import { Feature } from 'geojson';
 import * as MapData from './MapData.tsx';
 import SidePanel from './SidePanel.tsx';
 import Legend from './Legend.tsx';
-import './Map.css';
+import './assets/css/Map.css';
 
 
 type LineId = string | number | undefined;

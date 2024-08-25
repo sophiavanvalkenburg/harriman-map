@@ -13,7 +13,7 @@ body {
     font-weight: 200;
     font-style: normal;
     src:local('NationalPark-Extralight'),
-      url('./assets/fonts/NationalPark/NationalPark-Extralight.woff2'),
+      url('../fonts/NationalPark/NationalPark-Extralight.woff2'),
       format('woff2');
 }
 
@@ -23,7 +23,7 @@ body {
     font-weight: 300;
     font-style: normal;
     src:local('NationalPark-Light'),
-      url('./assets/fonts/NationalPark/NationalPark-Light.woff2'),
+      url('../fonts/NationalPark/NationalPark-Light.woff2'),
       format('woff2');
 }
 
@@ -33,7 +33,7 @@ body {
     font-weight: 400;
     font-style: normal;
     src:local('NationalPark-Regular'),
-      url('./assets/fonts/NationalPark/NationalPark-Regular.woff2'),
+      url('../fonts/NationalPark/NationalPark-Regular.woff2'),
       format('woff2');
 }
 
@@ -43,7 +43,7 @@ body {
     font-weight: 500;
     font-style: normal;
     src:local('NationalPark-Medium'),
-      url('./assets/fonts/NationalPark/NationalPark-Medium.woff2'),
+      url('../fonts/NationalPark/NationalPark-Medium.woff2'),
       format('woff2');
 }
 
@@ -53,7 +53,7 @@ body {
     font-weight: 600;
     font-style: normal;
     src:local('NationalPark-SemiBold'),
-      url('./assets/fonts/NationalPark/NationalPark-SemiBold.woff2'),
+      url('../fonts/NationalPark/NationalPark-SemiBold.woff2'),
       format('woff2');
 }
 
@@ -63,7 +63,7 @@ body {
     font-weight: 700;
     font-style: normal;
     src:local('NationalPark-Bold'),
-      url('./assets/fonts/NationalPark/NationalPark-Bold.woff2'),
+      url('../fonts/NationalPark/NationalPark-Bold.woff2'),
       format('woff2');
 }
 
@@ -73,6 +73,6 @@ body {
     font-weight: 800;
     font-style: normal;
     src:local('NationalPark-ExtraBold'),
-      url('./assets/fonts/NationalPark/NationalPark-ExtraBold.woff2'),
+      url('../fonts/NationalPark/NationalPark-ExtraBold.woff2'),
       format('woff2');
 }
