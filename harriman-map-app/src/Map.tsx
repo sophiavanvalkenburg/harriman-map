@@ -291,6 +291,8 @@ function Map() {
             maxBounds: maxBounds
         });
 
+        map.current.addControl(new mapboxgl.NavigationControl());
+
         const infoPopup = new mapboxgl.Popup({
             closeButton: false,
             closeOnClick: false,
