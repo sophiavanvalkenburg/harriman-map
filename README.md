@@ -1,5 +1,11 @@
 # Harriman Map
 
+## About
+
+[View on sophiaceleste.com!](https://sophiaceleste.com/harriman-map/)
+
+Since 2015 I've had the goal of hiking all the blazed trails of NY State's [Harriman](https://parks.ny.gov/parks/harriman) & [Bear Mountain](https://parks.ny.gov/parks/bearmountain/amenities.aspx) State Parks. This app tracks my progress towards that goal, along with stats about each trail. The app itself is built with [Mapbox](https://www.mapbox.com/) and React/Typescript, and the scripts for constructing custom trail data are written in Python. Below I describe my process for generating the trail data.
+
 ## Steps for constructing trail data
 1. Download Way data for trails from OSM:
 ```
