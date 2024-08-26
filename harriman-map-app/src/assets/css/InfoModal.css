@@ -1,0 +1,94 @@
+.map-info-modal {
+    display: block;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    position: absolute;
+}
+
+.map-info-modal.hide {
+    display: none;
+}
+
+.map-info-modal .bg {
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0,0, 0.5);
+    position: absolute;
+    z-index: 0;
+}
+
+.map-info-modal .modal {
+    height: 300px;
+    width: 440px;
+    position: absolute;
+    top: calc(50% - 150px);
+    left: calc(50% - 220px);
+    background-color: #ffffff;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.map-info-modal .modal .header {
+    display: flex;
+    justify-content: right;
+}
+
+.map-info-modal .modal .content {
+    margin: 0 24px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    gap: 16px;
+}
+
+.map-info-modal .modal .content .description {
+    overflow-y: auto;
+}
+
+.map-info-modal .modal .content h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 20px
+}
+
+.map-info-modal .modal .content .description p {
+    color: #000000;
+    text-align: justify;
+    margin-top: 0;
+}
+
+.map-info-modal .modal p.github-link {
+    margin-top: 0;
+    text-align: center;
+}
+
+.map-info-modal .modal .close-btn {
+    border: 0;
+    padding: 8px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.map-info-modal .modal .close-btn:hover {
+    background-color: rgba(0, 0, 0, 5%);
+}
+
+.map-info-modal .modal .close-btn img {
+    width: 12px;
+    height: 12px;
+}
+
+@media (orientation: portrait) {
+    
+    .map-info-modal .modal {
+        height: 360px;
+        width: 90%;
+        left: 5%;
+        top: calc(50% - 180px);
+    }
+    
+}
+
+

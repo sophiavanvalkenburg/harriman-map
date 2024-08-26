@@ -1,12 +1,7 @@
 .map-legend {
-    position: absolute;
-    bottom: 0;
-    right: 0;
     background: #ffffff;
     border-radius: 8px;
-    margin: 0 8px 24px 0;
     padding: 24px;
-    font-family: 'National Park', Arial, Helvetica, sans-serif;
     font-size: 16px;
     box-shadow: 0 0 0 2px #0000001a;
 }
@@ -36,11 +31,6 @@
 
   @media (orientation: portrait) {
     .map-legend {
-        top: 0;
-        left: 0;
-        bottom: unset;
-        right: unset;
-        margin: 8px 0 0 8px;
         font-size: 15px;
         padding: 8px;
     }

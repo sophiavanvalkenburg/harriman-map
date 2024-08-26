@@ -1,6 +1,11 @@
 body {
   margin: 0;
   overflow: hidden;
+  font-family: 'National Park', Arial, Helvetica, sans-serif;
+}
+
+button {
+  cursor:pointer;
 }
 
 .map-container {

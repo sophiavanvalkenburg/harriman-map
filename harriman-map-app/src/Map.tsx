@@ -4,6 +4,7 @@ import { Feature } from 'geojson';
 import * as MapData from './MapData.tsx';
 import SidePanel from './SidePanel.tsx';
 import Legend from './Legend.tsx';
+import InfoModal from './InfoModal.tsx';
 import './assets/css/Map.css';
 
 
@@ -71,6 +72,7 @@ function Map() {
     const map = useRef<mapboxgl.Map | null>(null);
     const [mapStats, setMapStats] = useState<MapData.TrailStatsType>(MapData.getStatsForAllTrails());
     const [showStats, setShowStats] = useState(true);
+    const [showInfoModal, setShowInfoModal] = useState(true);
 
 
     /*** Map state management
@@ -291,7 +293,7 @@ function Map() {
             maxBounds: maxBounds
         });
 
-        map.current.addControl(new mapboxgl.NavigationControl());
+        map.current.addControl(new mapboxgl.NavigationControl({showCompass: false}));
 
         const infoPopup = new mapboxgl.Popup({
             closeButton: false,
@@ -564,6 +566,7 @@ function Map() {
 
     return (
         <div>
+            <InfoModal visible={ showInfoModal } closeBtnHandler={() => setShowInfoModal(false) } />
             <SidePanel
                 mapMode={mapMode}
                 showStats={showStats}
@@ -571,7 +574,10 @@ function Map() {
                 trailStats={mapStats}
             />
             <div ref={mapContainer} className="map-container" onClick={onMapClick} />
-            <Legend />
+            <div className="map-info">
+                <button className="about-btn" onClick={() => setShowInfoModal(true) }>?</button>
+                <Legend />
+            </div>
         </div>
     );
 }
