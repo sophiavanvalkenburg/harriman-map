@@ -5,7 +5,6 @@ data/geojson_work_files/harriman_bearmt_purged.geojson
 data/geojson_work_files/harriman_bearmt_split.geojson
 data/trails.js
 data/ways.js
-design_files
 pyvenv.cfg
 lib
 bin
