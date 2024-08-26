@@ -12,9 +12,9 @@ body { margin: 0; padding: 0; }
 </style>
 </head>
 <body>
-<!--<style></style>-->
 <div id="map"></div>
-<script src="ways.js"></script>
+<!-- the following two scripts should contain the WAYS_DATA and TRAILS_DATA variables, respectively -->
+<script src="ways.js"></script> 
 <script src="trails.js"></script>
 <script>
 	mapboxgl.accessToken = 'pk.eyJ1IjoibWVvd3lwdXJyIiwiYSI6ImNsemxlNTE0ZzAxbWUybG9qdHk1aGNlbHkifQ.WEaFTpVEow-9nOl0__ZqeA';
@@ -133,7 +133,9 @@ body { margin: 0; padding: 0; }
 
         map.on('click', 'trail-hitbox', (e) => {
             if (e.features.length > 0){
+                // uncomment the following for logging trail splits
                 //console.log(`${e.features[0].properties.id}, ${e.lngLat.lng}, ${e.lngLat.lat}`)
+                // uncomment the following for logging everything else
                 console.log(e.features[0].properties.id)
                 hiddenLineId = e.features[0].id;
                 map.setFeatureState(
