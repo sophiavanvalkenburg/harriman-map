@@ -1,10 +1,10 @@
 **/.DS_Store
-data/geojson_work_files/harriman_bearmt_added.geojson
-data/geojson_work_files/harriman_bearmt_complete.geojson
-data/geojson_work_files/harriman_bearmt_purged.geojson
-data/geojson_work_files/harriman_bearmt_split.geojson
-data/trails.js
-data/ways.js
+trail-data-generation/data/geojson_work_files/harriman_bearmt_added.geojson
+trail-data-generation/data/geojson_work_files/harriman_bearmt_complete.geojson
+trail-data-generation/data/geojson_work_files/harriman_bearmt_purged.geojson
+trail-data-generation/data/geojson_work_files/harriman_bearmt_split.geojson
+trail-data-generation/trails.js
+trail-data-generation/ways.js
 pyvenv.cfg
 lib
 bin
