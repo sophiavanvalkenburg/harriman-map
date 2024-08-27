@@ -298,14 +298,18 @@ function Map() {
         const infoPopup = new mapboxgl.Popup({
             closeButton: false,
             closeOnClick: false,
-            className: 'info-popup',
+            className: 'info-popup hide',
             maxWidth: '100px'
-        }).trackPointer();
+        }).trackPointer().addTo(map.current);
 
-        function addPopup(trail: GeoJSONFeature) {
+        function showPopup(trail: GeoJSONFeature) {
             if (!map.current || !trail.properties) return;
-            const content = trail.properties.name;
-            infoPopup.setHTML(content).addTo(map.current);
+            infoPopup.setHTML(trail.properties.name)
+            infoPopup.removeClassName('hide');
+        }
+
+        function hidePopup() {
+            infoPopup.addClassName('hide');
         }
 
         map.current.on('load', () => {
@@ -491,16 +495,16 @@ function Map() {
                 if (trail) {
                     hoveredTrailLineId.current = trail.id;
                     setTrailHoverState(true);
-                    addPopup(trail);
+                    showPopup(trail);
                 }
             });
 
             map.current.on('mouseleave', Layers.TRAIL_HITBOX, () => {
                 if (!map.current) return;
+                hidePopup();
                 setTrailHoverState(false);
                 hoveredTrailLineId.current = undefined;
                 map.current.getCanvas().style.cursor = '';
-                infoPopup.remove();
             });
 
             /***
@@ -508,6 +512,7 @@ function Map() {
              */
 
             map.current.on('click', Layers.TRAIL_HITBOX, (e) => {
+                hidePopup();
                 clickedOnTrail.current = true;
                 setTrailSelectedState(false);
                 const trail = getInteractedTrail(e);
@@ -515,7 +520,6 @@ function Map() {
                     selectedTrail.current = trail;
                     setTrailSelectedState(true);
                 }
-                infoPopup.remove();
             });
 
             /***

@@ -4,6 +4,10 @@
    text-align: center;
 }
 
+.info-popup.hide {
+    visibility: hidden;
+}
+
 .info-popup .mapboxgl-popup-content {
     padding: 4px;
 }
