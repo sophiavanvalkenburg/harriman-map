@@ -73,8 +73,10 @@ function StatsTable({totalNum, totalText, completedNum, incompleteNum}: StatsTab
     return (
         <table className="stats-table">
             <thead>
-                <th>{totalNum}</th>
-                <td>{totalText}</td>
+                <tr>
+                    <th>{totalNum}</th>
+                    <td>{totalText}</td>
+                </tr>
             </thead>
             <tr>
                 <th>{completedNum}</th>
