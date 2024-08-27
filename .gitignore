@@ -8,3 +8,4 @@ trail-data-generation/ways.js
 pyvenv.cfg
 lib
 bin
+.vite
