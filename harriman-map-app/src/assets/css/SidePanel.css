@@ -123,7 +123,7 @@ p {
     text-align: left;
 }
 
-.stats-table tr {
+.stats-table tbody tr {
     color: #686868;
 }
 

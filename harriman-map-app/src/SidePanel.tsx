@@ -69,21 +69,25 @@ type StatsTableType = {
     completedNum: string | number, 
     incompleteNum: string | number
 };
-function StatsTable({totalNum, totalText, completedNum, incompleteNum}: StatsTableType) {
+function StatsTable({ totalNum, totalText, completedNum, incompleteNum }: StatsTableType) {
     return (
         <table className="stats-table">
             <thead>
-                <th>{totalNum}</th>
-                <td>{totalText}</td>
+                <tr>
+                    <th>{totalNum}</th>
+                    <td>{totalText}</td>
+                </tr>
             </thead>
-            <tr>
-                <th>{completedNum}</th>
-                <td>Completed</td>
-            </tr>
-            <tr>
-                <th>{incompleteNum}</th>
-                <td>Not Completed</td>
-            </tr>
+            <tbody>
+                <tr>
+                    <th>{completedNum}</th>
+                    <td>Completed</td>
+                </tr>
+                <tr>
+                    <th>{incompleteNum}</th>
+                    <td>Not Completed</td>
+                </tr>
+            </tbody>
         </table>
     );
 }
