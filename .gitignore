@@ -1,6 +1,5 @@
 **/.DS_Store
 trail-data-generation/data/geojson_work_files/harriman_bearmt_added.geojson
-trail-data-generation/data/geojson_work_files/harriman_bearmt_complete.geojson
 trail-data-generation/data/geojson_work_files/harriman_bearmt_purged.geojson
 trail-data-generation/data/geojson_work_files/harriman_bearmt_split.geojson
 trail-data-generation/trails.js
