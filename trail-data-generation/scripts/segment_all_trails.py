@@ -1,4 +1,4 @@
-from segment_trail_by_completion import segment_trail, trail_id_to_name
+from segment_trail_by_completion import segment_trail, trail_id_to_name, get_trail_points
 import sys
 import glob
 import json
@@ -10,6 +10,7 @@ trail_incompletes_prefix = sys.argv[3] # e.g. data/trail_incompletes/trail_incom
 trail_outfile_prefix = sys.argv[4] # e.g. data/trail_geojson/trail_
 out_file_segmented_by_completion = open(sys.argv[5], 'w')
 out_file_not_segmented_by_completion = open(sys.argv[6], 'w')
+out_file_all_trails_data_points = open(sys.argv[7], 'w')
 
 TRAIL_IDS = [
     "1777",
@@ -97,6 +98,8 @@ for id in TRAIL_IDS:
     trail_data_not_segmented_by_completion = segment_trail(ways_data_json, id, trail_name, trail_way_ids_file, trail_incompletes_ids_files, False)
     all_trails_data_not_segmented_by_completion["features"].extend(trail_data_not_segmented_by_completion["features"])
 
+    all_trails_data_points = get_trail_points(trail_data_not_segmented_by_completion)
+
     trail_out_file.close()
     trail_way_ids_file.close()
     for file in trail_incompletes_ids_files:
@@ -104,3 +107,4 @@ for id in TRAIL_IDS:
 
 json.dump(all_trails_data_segmented_by_completion, out_file_segmented_by_completion, indent=1)
 json.dump(all_trails_data_not_segmented_by_completion, out_file_not_segmented_by_completion, indent=1)
+json.dump(all_trails_data_points, out_file_all_trails_data_points, indent=1)

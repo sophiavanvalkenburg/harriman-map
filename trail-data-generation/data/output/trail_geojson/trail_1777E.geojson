@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "3ca2e015-6dbd-46de-9960-ec6ea6749834",
+   "id": "a826240c-a4fb-4f85-a935-fa6b99fca6a3",
    "properties": {
     "name": "1777E Trail",
-    "id": "3ca2e015-6dbd-46de-9960-ec6ea6749834",
+    "id": "a826240c-a4fb-4f85-a935-fa6b99fca6a3",
     "status": "complete",
     "osm_way_ids": [
      "way/423240018",
@@ -791,10 +791,10 @@
   },
   {
    "type": "Feature",
-   "id": "dd5000eb-e750-4b3b-8345-b53c61ccfa50",
+   "id": "5fafe260-d3e9-4b18-98c0-c7d534a11a7a",
    "properties": {
     "name": "1777E Trail",
-    "id": "dd5000eb-e750-4b3b-8345-b53c61ccfa50",
+    "id": "5fafe260-d3e9-4b18-98c0-c7d534a11a7a",
     "status": "incomplete",
     "osm_way_ids": [
      "way/372665089-1"

@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "70a3df55-1e2b-461f-89b5-7cdfb4ed9cb1",
+   "id": "bc606dea-9d70-4e95-9614-775cd9b43aed",
    "properties": {
     "name": "Pine Meadow Trail",
-    "id": "70a3df55-1e2b-461f-89b5-7cdfb4ed9cb1",
+    "id": "bc606dea-9d70-4e95-9614-775cd9b43aed",
     "status": "complete",
     "osm_way_ids": [
      "way/895035666",

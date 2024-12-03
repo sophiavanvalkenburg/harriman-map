@@ -7,6 +7,35 @@ import haversine as hs
 def get_distance(p1, p2, unit=hs.Unit.METERS):
     return hs.haversine(p1, p2, unit)
 
+def make_point(trail_id, trail_name, status, latlng):
+    point_id = str(uuid.uuid4())
+    return {
+        "type": "Feature",
+        "id": point_id,
+        "properties": {
+            "name": trail_name,
+            "id": point_id,
+            "status": status,
+            "trail_id": trail_id
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": latlng
+        }
+    }
+
+def get_trail_points(trail_data):
+    trail_points = {
+        "type": "FeatureCollection",
+        "features": []
+    }
+    for feature in trail_data["features"]:
+        properties = feature["properties"]
+        for latlng in feature["geometry"]["coordinates"]:
+            new_point = make_point(properties["id"], properties["name"], properties["status"], latlng)
+            trail_points["features"].append(new_point)
+    return trail_points
+
 def get_segment_length(coords):
     total_length = 0
     for ind, coord in enumerate(coords[1:]):

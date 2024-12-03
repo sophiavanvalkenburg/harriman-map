@@ -1,5 +1,6 @@
 import { FeatureCollection, Feature } from "geojson";
 import trailData from './assets/data/harriman_bearmt_all_trails.json';
+import trailPointsData from './assets/data/harriman_bearmt_all_trails_data_points.json';
 import segmentData from './assets/data/harriman_bearmt_segmented_trails.json';
 
 export type TrailStatsType = AllTrailsStatsType | SingleTrailStatsType | TrailSegmentStatsType;
@@ -30,6 +31,10 @@ export type TrailSegmentStatsType = {
     endsAt: LngLat,
     length: number
 };
+
+export function getTrailPoints(): FeatureCollection {
+    return trailPointsData as FeatureCollection;
+}
 
 export function getTrailData(): FeatureCollection {
     return trailData as FeatureCollection;

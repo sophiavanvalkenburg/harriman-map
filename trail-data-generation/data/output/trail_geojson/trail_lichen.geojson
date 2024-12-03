@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "333e314b-55f8-44ca-b1bd-febe39134318",
+   "id": "f634aae0-3f1c-4533-b76f-2d70d8994ab1",
    "properties": {
     "name": "Lichen Trail",
-    "id": "333e314b-55f8-44ca-b1bd-febe39134318",
+    "id": "f634aae0-3f1c-4533-b76f-2d70d8994ab1",
     "status": "complete",
     "osm_way_ids": [
      "way/62120151"

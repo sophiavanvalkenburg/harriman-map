@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "de7281bb-55a5-4696-b1d4-d7f564969eee",
+   "id": "52a1e785-0c54-4cf5-b7da-6e07bc12b9b9",
    "properties": {
     "name": "Hillburn Torne Sebago Trail",
-    "id": "de7281bb-55a5-4696-b1d4-d7f564969eee",
+    "id": "52a1e785-0c54-4cf5-b7da-6e07bc12b9b9",
     "status": "complete",
     "osm_way_ids": [
      "way/368550809",

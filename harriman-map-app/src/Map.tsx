@@ -42,6 +42,7 @@ const NOT_SELECTED_COLOR = "#878787";
 const COMPLETED_COLOR = "#ff0000";
 const INCOMPLETE_COLOR = "#8c0000";
 const HIGHLIGHT_COLOR = "#ffe100";
+const POINT_RADIUS = 3;
 const TRAIL_LINE_WIDTH = 2;
 const HITBOX_LINE_WIDTH = 15;
 const INVISIBLE_ON_HIDE: ExpressionSpecification = [
@@ -206,6 +207,8 @@ function Map() {
     function switchToSegmentMode() {
         if (!map.current) return;
         setMapMode(MapMode.SEGMENT);
+        setLayerVisibility(Layers.COMPLETED_POINTS, false);
+        setLayerVisibility(Layers.INCOMPLETE_POINTS, false);
         setLayerVisibility(Layers.DESELECTED_TRAILS, true);
         setLayerVisibility(Layers.SEGMENT_HITBOX, true);
         setLayerVisibility(Layers.TRAIL_HIGHLIGHT, false);
@@ -218,6 +221,9 @@ function Map() {
     function switchToTrailMode() {
         if (!map.current) return;
         setMapMode(MapMode.TRAIL);
+        setLayerVisibility(Layers.COMPLETED_POINTS, false);
+        setLayerVisibility(Layers.INCOMPLETE_POINTS, false);
+        setLayerVisibility(Layers.POINTS_OUTLINE, false);
         setLayerVisibility(Layers.DESELECTED_TRAILS, true);
         setLayerVisibility(Layers.SEGMENT_HITBOX, true);
         setLayerVisibility(Layers.TRAIL_HIGHLIGHT, false);
@@ -230,6 +236,9 @@ function Map() {
     function switchToBaseMode() {
         if (!map.current) return;
         setMapMode(MapMode.BASE);
+        setLayerVisibility(Layers.COMPLETED_POINTS, false);
+        setLayerVisibility(Layers.INCOMPLETE_POINTS, false);
+        setLayerVisibility(Layers.POINTS_OUTLINE, false);
         setLayerVisibility(Layers.DESELECTED_TRAILS, false);
         setLayerVisibility(Layers.SEGMENT_HITBOX, false);
         setLayerVisibility(Layers.TRAIL_HIGHLIGHT, true);
@@ -355,6 +364,12 @@ function Map() {
                 'data': MapData.getTrailData()
             });
 
+            map.current.addSource(Sources.TRAIL_POINTS, {
+                'type': 'geojson',
+                'promoteId': 'id',
+                'data': MapData.getTrailPoints()
+            });
+
 
             /*** 
              * Add map layers 
@@ -466,6 +481,21 @@ function Map() {
                 }
             });
 
+            map.current.addLayer({
+                'id': Layers.POINTS_OUTLINE,
+                'type': 'circle',
+                'source': Sources.TRAILS,
+                'layout': {
+                    'visibility': 'none',
+                },
+                'paint': {
+                    'circle-stroke-color': HIGHLIGHT_COLOR,
+                    'circle-radius': POINT_RADIUS,
+                    'circle-opacity': SHOW_ON_HOVER_OR_SELECTED,
+                    'circle-stroke-width': TRAIL_LINE_WIDTH,
+                }
+            });
+
             /*** 
              * trail/segment hitboxes
              * for making trails easier to interact with 
@@ -493,6 +523,38 @@ function Map() {
                     'line-opacity': 0
                 }
             });
+
+            map.current.addLayer({
+                'id': Layers.COMPLETED_POINTS,
+                'type': 'circle',
+                'source': Sources.SEGMENTS,
+                'filter': ['==', 'complete', ['get', 'status']],
+                'layout': {
+                    'visibility': 'none',
+                },
+                'paint': {
+                    'circle-color': COMPLETED_COLOR,
+                    'circle-radius': POINT_RADIUS,
+                    'circle-opacity': INVISIBLE_ON_HIDE
+                }
+            });
+
+            map.current.addLayer({
+                'id': Layers.INCOMPLETE_POINTS,
+                'type': 'circle',
+                'source': Sources.SEGMENTS,
+                'filter': ['==', 'incomplete', ['get', 'status']],
+                'layout': {
+                    'visibility': 'none',
+                },
+                'paint': {
+                    'circle-color': INCOMPLETE_COLOR,
+                    'circle-radius': POINT_RADIUS,
+                    'circle-opacity': INVISIBLE_ON_HIDE
+                }
+            });
+
+            
 
 
             /*** 

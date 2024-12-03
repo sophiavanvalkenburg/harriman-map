@@ -1,0 +1,1433 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "id": "7c6a9eb9-b6c2-4252-b32e-8b4339693f41",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "7c6a9eb9-b6c2-4252-b32e-8b4339693f41",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1667929,
+     41.1978843
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "31a85a63-bc1e-4297-8ea7-4fe5d17d3cc6",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "31a85a63-bc1e-4297-8ea7-4fe5d17d3cc6",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1666746,
+     41.1980188
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "7790ea70-6a35-4089-9777-52991028da70",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "7790ea70-6a35-4089-9777-52991028da70",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.166564,
+     41.1981314
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "c0c16ac1-a543-4819-bb6c-17f9edf43dcb",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "c0c16ac1-a543-4819-bb6c-17f9edf43dcb",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1664346,
+     41.1981966
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ac14c7dc-dbab-413f-9d72-22cbc763a9b0",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "ac14c7dc-dbab-413f-9d72-22cbc763a9b0",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1662485,
+     41.1982557
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "61a79a3b-105c-4221-9dae-f953d95c6144",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "61a79a3b-105c-4221-9dae-f953d95c6144",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1659338,
+     41.1985766
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "bceafbe4-bf01-4d9e-af64-3cc914586803",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "bceafbe4-bf01-4d9e-af64-3cc914586803",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1656513,
+     41.1989243
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "59e10925-5cb7-4182-97db-f50fa81fb16d",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "59e10925-5cb7-4182-97db-f50fa81fb16d",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1655783,
+     41.1991348
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "e460a1dd-755a-457d-9083-f6fb38b887cf",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "e460a1dd-755a-457d-9083-f6fb38b887cf",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1654277,
+     41.1993372
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "efd88e6b-e2c3-498b-9ba1-587f3c90a9c7",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "efd88e6b-e2c3-498b-9ba1-587f3c90a9c7",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1652907,
+     41.1995186
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "4318871f-a7c5-4dc5-a7f7-20a062afef66",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "4318871f-a7c5-4dc5-a7f7-20a062afef66",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1651848,
+     41.1996534
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "c69218c2-7321-48f8-a5d7-a3f6da958216",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "c69218c2-7321-48f8-a5d7-a3f6da958216",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1650782,
+     41.1998056
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "a46b5295-9e58-4b15-ada9-b50e57ab6eea",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "a46b5295-9e58-4b15-ada9-b50e57ab6eea",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1648737,
+     41.1999757
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "4e25d262-b102-4677-9b46-804b13e20bb6",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "4e25d262-b102-4677-9b46-804b13e20bb6",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1646287,
+     41.2003086
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "e250481e-6170-486c-82d6-d1486cd2e19f",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "e250481e-6170-486c-82d6-d1486cd2e19f",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1643294,
+     41.2005572
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "6f30b223-713d-401b-a430-21d0701b141b",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "6f30b223-713d-401b-a430-21d0701b141b",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.164082,
+     41.2007568
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "800ab7f8-7b3f-4136-a39e-8b4e3949d0f3",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "800ab7f8-7b3f-4136-a39e-8b4e3949d0f3",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.163594,
+     41.201005
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "5904ee8f-a435-4569-a292-ac3a9f8b48c0",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "5904ee8f-a435-4569-a292-ac3a9f8b48c0",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1633522,
+     41.2012837
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "0b49915b-4d6c-41d9-a37e-5a2a6a68b174",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "0b49915b-4d6c-41d9-a37e-5a2a6a68b174",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1631331,
+     41.2016295
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "0dd5c1eb-4afd-428b-a1b9-24e247bb8292",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "0dd5c1eb-4afd-428b-a1b9-24e247bb8292",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1629364,
+     41.2018608
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "fa97aed6-ac4d-4fc6-a39e-291a7ad19c3b",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "fa97aed6-ac4d-4fc6-a39e-291a7ad19c3b",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1627303,
+     41.2021176
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "20e0ff1b-d305-4071-b538-593d8994c37f",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "20e0ff1b-d305-4071-b538-593d8994c37f",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1621932,
+     41.2026698
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "02b6e464-839a-41c1-b9a6-eaaf0d63feb1",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "02b6e464-839a-41c1-b9a6-eaaf0d63feb1",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1617557,
+     41.20289
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "3b23d4f5-89de-4658-86ab-f62e8c32cef8",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "3b23d4f5-89de-4658-86ab-f62e8c32cef8",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.161599,
+     41.2034141
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "f0b3cb87-e504-4076-8f2d-a701361611aa",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "f0b3cb87-e504-4076-8f2d-a701361611aa",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1613565,
+     41.2039824
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "b186fa21-b2e0-4d62-8452-6fc9dc981bb6",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "b186fa21-b2e0-4d62-8452-6fc9dc981bb6",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1612901,
+     41.2040031
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "e4cb0026-4c1d-4f20-b998-f160756622aa",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "e4cb0026-4c1d-4f20-b998-f160756622aa",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1609284,
+     41.2038578
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "5ff43257-30af-47b0-be3d-eba95913c5b6",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "5ff43257-30af-47b0-be3d-eba95913c5b6",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.160621,
+     41.2039368
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "fffe0b0c-d9a2-4dbb-ae7d-1e8755d303dc",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "fffe0b0c-d9a2-4dbb-ae7d-1e8755d303dc",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1604786,
+     41.2041222
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "f297c86e-8c12-416d-badf-91b7de8faea1",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "f297c86e-8c12-416d-badf-91b7de8faea1",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1604217,
+     41.2043097
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "32f56c15-ffb3-487e-98fa-530ed11ce8a3",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "32f56c15-ffb3-487e-98fa-530ed11ce8a3",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.16044,
+     41.2044751
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "fac3bd0c-af8c-40d8-846b-863829eb5061",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "fac3bd0c-af8c-40d8-846b-863829eb5061",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1603673,
+     41.2045579
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "0ef92e6c-2987-4a12-87b9-a737e2b63a11",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "0ef92e6c-2987-4a12-87b9-a737e2b63a11",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1604095,
+     41.2047193
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "bb14da70-3d3e-48f7-912b-4fe602e01128",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "bb14da70-3d3e-48f7-912b-4fe602e01128",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1602829,
+     41.204908
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "74810463-cf89-4f95-babf-3c20467201f1",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "74810463-cf89-4f95-babf-3c20467201f1",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1600625,
+     41.2050737
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "b546c8f2-2fde-43ec-8726-cd325df30544",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "b546c8f2-2fde-43ec-8726-cd325df30544",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1597361,
+     41.2055272
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "d7bfc7ca-e1f7-4af4-972c-90b0ff90b273",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "d7bfc7ca-e1f7-4af4-972c-90b0ff90b273",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1594442,
+     41.2059743
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "aa20d91a-8614-44c7-b59d-4048abc7e571",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "aa20d91a-8614-44c7-b59d-4048abc7e571",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1592587,
+     41.206061
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "6e6c87e1-50ff-43e8-a40c-4da91bb9fb4e",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "6e6c87e1-50ff-43e8-a40c-4da91bb9fb4e",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.158711,
+     41.2058971
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "09ddc379-16e8-4cff-816f-c9fe7d727821",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "09ddc379-16e8-4cff-816f-c9fe7d727821",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1580822,
+     41.2057942
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "e6b238ff-c2d9-48f1-9f51-5dc2481eb716",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "e6b238ff-c2d9-48f1-9f51-5dc2481eb716",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1576375,
+     41.2060219
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "9d479508-f2ed-417e-b796-ce5558cd00a1",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "9d479508-f2ed-417e-b796-ce5558cd00a1",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1575347,
+     41.2062048
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "3a4e04e8-c94d-4803-ba51-97bbd3131ef7",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "3a4e04e8-c94d-4803-ba51-97bbd3131ef7",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1575746,
+     41.2063265
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "a0650952-e4c3-4506-8c8a-077bd261da98",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "a0650952-e4c3-4506-8c8a-077bd261da98",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1574515,
+     41.2065495
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "9974d942-5a9d-47c1-a8cc-700eadbffebe",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "9974d942-5a9d-47c1-a8cc-700eadbffebe",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1573125,
+     41.2076433
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "db20c986-e67b-4901-a838-4c5c24361a96",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "db20c986-e67b-4901-a838-4c5c24361a96",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1573122,
+     41.2077871
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "9288d577-b732-41d7-be78-a4e40d89438e",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "9288d577-b732-41d7-be78-a4e40d89438e",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1571687,
+     41.2080684
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "e89c9a59-e629-4c1e-afc4-9ac14d6abf68",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "e89c9a59-e629-4c1e-afc4-9ac14d6abf68",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.156923,
+     41.208251
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "d6dd4363-c646-4cce-b0ac-8a0a74b5d106",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "d6dd4363-c646-4cce-b0ac-8a0a74b5d106",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.156775,
+     41.2083256
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "3a14f8d8-7f4e-4524-9003-7e84dc8ecc07",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "3a14f8d8-7f4e-4524-9003-7e84dc8ecc07",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1565406,
+     41.2084913
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ee696eeb-aa0e-41c4-a15d-4c26d3f18aed",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "ee696eeb-aa0e-41c4-a15d-4c26d3f18aed",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1562687,
+     41.2085723
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "891ecf29-92b2-42b6-ba36-b23f1812454e",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "891ecf29-92b2-42b6-ba36-b23f1812454e",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1560064,
+     41.2085599
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "2e51e434-7250-4c9d-9897-11c593129c79",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "2e51e434-7250-4c9d-9897-11c593129c79",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1558713,
+     41.2086244
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "09fbed36-67a2-4979-95a9-3b74f4e0d732",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "09fbed36-67a2-4979-95a9-3b74f4e0d732",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1556536,
+     41.2091248
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "bd539085-9e24-48a6-93b8-23cfcc5ffa11",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "bd539085-9e24-48a6-93b8-23cfcc5ffa11",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1554484,
+     41.2093056
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "46ccde51-4259-4b06-84cc-839c30e1c95a",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "46ccde51-4259-4b06-84cc-839c30e1c95a",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.155464,
+     41.2094098
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "8b280686-97ea-46a2-83ed-ea90a68e857e",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "8b280686-97ea-46a2-83ed-ea90a68e857e",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.155456,
+     41.2095281
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "1639c97f-c359-490b-a711-a110fa2f5472",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "1639c97f-c359-490b-a711-a110fa2f5472",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1551712,
+     41.2097777
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "4672a7aa-8deb-4d96-9fd2-e4bb3ae5523a",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "4672a7aa-8deb-4d96-9fd2-e4bb3ae5523a",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1550834,
+     41.2098404
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "86842aa1-6adb-4e57-afac-2fa1e85cd2fa",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "86842aa1-6adb-4e57-afac-2fa1e85cd2fa",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1548371,
+     41.210305
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "edd6fcab-dc1b-4125-8309-f227e9037f3b",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "edd6fcab-dc1b-4125-8309-f227e9037f3b",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1546348,
+     41.2105203
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ad3e87d2-d772-46bd-bceb-58e52968281c",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "ad3e87d2-d772-46bd-bceb-58e52968281c",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1544535,
+     41.2109243
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "99d7f0ee-6402-44b3-b2a2-d43b3969679b",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "99d7f0ee-6402-44b3-b2a2-d43b3969679b",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1544141,
+     41.2111283
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "83d58d1a-3959-4660-a2a3-76344d31f0c7",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "83d58d1a-3959-4660-a2a3-76344d31f0c7",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1538305,
+     41.2118703
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "321a9120-8380-444f-a9dc-18c6d310f82a",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "321a9120-8380-444f-a9dc-18c6d310f82a",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1537577,
+     41.2122722
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "807bb08a-7971-4050-961c-1826b3ea31e7",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "807bb08a-7971-4050-961c-1826b3ea31e7",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1535679,
+     41.2124512
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "d2379225-f89e-4c6d-ba2a-68e51aa8b55c",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "d2379225-f89e-4c6d-ba2a-68e51aa8b55c",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1536153,
+     41.212693
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "a148ef6a-056b-4da1-b92b-4fe50bc69b21",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "a148ef6a-056b-4da1-b92b-4fe50bc69b21",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1535789,
+     41.2130735
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "fc8e7b77-e382-49cb-8919-4c601765437b",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "fc8e7b77-e382-49cb-8919-4c601765437b",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1534107,
+     41.2132027
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "a490a13e-591a-4808-b2d4-80a5a243711d",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "a490a13e-591a-4808-b2d4-80a5a243711d",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1534407,
+     41.2143889
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "82d5b632-1cbd-40cf-b91e-5cd8291e9df3",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "82d5b632-1cbd-40cf-b91e-5cd8291e9df3",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1530614,
+     41.2147894
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "68b337ca-914f-4280-a0f7-eb2ece9968b0",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "68b337ca-914f-4280-a0f7-eb2ece9968b0",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1530326,
+     41.2153179
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "faf72e7d-8320-4bfb-95b1-521a90ba9ece",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "faf72e7d-8320-4bfb-95b1-521a90ba9ece",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.152792,
+     41.2159575
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "af3405e1-42cd-44cb-a576-3c0197ca08d7",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "af3405e1-42cd-44cb-a576-3c0197ca08d7",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1528154,
+     41.2162354
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "e4cbadb3-98ad-4c08-9f79-89df544a7f4c",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "e4cbadb3-98ad-4c08-9f79-89df544a7f4c",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1529783,
+     41.2165295
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "618294ea-b030-4e31-acf3-bc63c5a3fd96",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "618294ea-b030-4e31-acf3-bc63c5a3fd96",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1531631,
+     41.2166423
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "8a964533-0db0-448c-9bcd-1dd1d65f6e8a",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "8a964533-0db0-448c-9bcd-1dd1d65f6e8a",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1531645,
+     41.2169166
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "b37fe32d-2ae1-47d6-bb3e-4ae9159e8607",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "b37fe32d-2ae1-47d6-bb3e-4ae9159e8607",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1532592,
+     41.2171281
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "8115a807-6377-462f-9af5-0ec9838ba8da",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "8115a807-6377-462f-9af5-0ec9838ba8da",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1531802,
+     41.2174287
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "15110a8f-0381-4fec-a4ad-91a6c6c68be3",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "15110a8f-0381-4fec-a4ad-91a6c6c68be3",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1530423,
+     41.2175566
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "7fd2f502-7610-4510-ae08-29bb49305d96",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "7fd2f502-7610-4510-ae08-29bb49305d96",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1528882,
+     41.2179839
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "17897f1c-1427-4ff5-a9de-8d34d4247ed1",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "17897f1c-1427-4ff5-a9de-8d34d4247ed1",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1526796,
+     41.2181462
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "8bb3732e-7c66-41e2-a2a5-bf723842c8b9",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "8bb3732e-7c66-41e2-a2a5-bf723842c8b9",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.1525627,
+     41.2183627
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "2bc7ecd6-0841-49e7-bfba-9c2cd9ca107e",
+   "properties": {
+    "name": "White Cross Trail",
+    "id": "2bc7ecd6-0841-49e7-bfba-9c2cd9ca107e",
+    "status": "complete",
+    "trail_id": "1cc2f137-2d1d-4e4b-b493-1ad207ed9b3d"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.152639,
+     41.218672
+    ]
+   }
+  }
+ ]
+}

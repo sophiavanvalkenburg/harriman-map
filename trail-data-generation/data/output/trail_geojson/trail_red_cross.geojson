@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "d8890cef-5134-4f5f-89ef-695663d764bb",
+   "id": "74f896d6-cc93-4b20-b6bc-7bb82b43ddc9",
    "properties": {
     "name": "Red Cross Trail",
-    "id": "d8890cef-5134-4f5f-89ef-695663d764bb",
+    "id": "74f896d6-cc93-4b20-b6bc-7bb82b43ddc9",
     "status": "complete",
     "osm_way_ids": [
      "way/982375792-0"
@@ -118,10 +118,10 @@
   },
   {
    "type": "Feature",
-   "id": "3d39980e-7b30-47fb-b9f8-19df061960c0",
+   "id": "76e8fa00-107d-4e2f-9fa3-4e86a81a3b25",
    "properties": {
     "name": "Red Cross Trail",
-    "id": "3d39980e-7b30-47fb-b9f8-19df061960c0",
+    "id": "76e8fa00-107d-4e2f-9fa3-4e86a81a3b25",
     "status": "incomplete",
     "osm_way_ids": [
      "way/982375792-1",
@@ -760,10 +760,10 @@
   },
   {
    "type": "Feature",
-   "id": "6b38fef4-1471-434e-9852-47d55cd850b2",
+   "id": "2aa44ab4-a049-40c2-9d5c-bfb86e4402f1",
    "properties": {
     "name": "Red Cross Trail",
-    "id": "6b38fef4-1471-434e-9852-47d55cd850b2",
+    "id": "2aa44ab4-a049-40c2-9d5c-bfb86e4402f1",
     "status": "complete",
     "osm_way_ids": [
      "way/458951400-1",
@@ -1001,10 +1001,10 @@
   },
   {
    "type": "Feature",
-   "id": "e65c059f-be18-4e03-8114-b71ee3c3d580",
+   "id": "a1a9cf70-9b82-4e09-9f9a-67402a83f666",
    "properties": {
     "name": "Red Cross Trail",
-    "id": "e65c059f-be18-4e03-8114-b71ee3c3d580",
+    "id": "a1a9cf70-9b82-4e09-9f9a-67402a83f666",
     "status": "incomplete",
     "osm_way_ids": [
      "way/1004282018",
@@ -1329,10 +1329,10 @@
   },
   {
    "type": "Feature",
-   "id": "82d1e36f-9a3c-47eb-9696-61ac6180eb2f",
+   "id": "44ee61dc-aaa8-4ffb-badd-f65085bdb802",
    "properties": {
     "name": "Red Cross Trail",
-    "id": "82d1e36f-9a3c-47eb-9696-61ac6180eb2f",
+    "id": "44ee61dc-aaa8-4ffb-badd-f65085bdb802",
     "status": "complete",
     "osm_way_ids": [
      "way/316746206"
@@ -1368,10 +1368,10 @@
   },
   {
    "type": "Feature",
-   "id": "703abaf9-c26b-42d1-88c8-8a65b25f3b5a",
+   "id": "5afcb887-5abd-414f-be99-1c09e83f3606",
    "properties": {
     "name": "Red Cross Trail",
-    "id": "703abaf9-c26b-42d1-88c8-8a65b25f3b5a",
+    "id": "5afcb887-5abd-414f-be99-1c09e83f3606",
     "status": "incomplete",
     "osm_way_ids": [
      "way/316746208",
