@@ -47,12 +47,39 @@
 .side-panel-content {
     display: flex;
     flex-direction: column;
-    align-content: center;
+    align-items: center;
     background-color: #ffffff;
     height: 100%;
     width: 100%;    
     box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.25);
     z-index: 2;
+}
+
+.edit-trail-btn > button {
+    width: 200px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #56903A;
+    color: white;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 0;
+    outline: 2px solid white;
+    outline-offset: -5px; 
+    border-radius: 8px;
+    font-size: 24px;
+}
+
+.edit-trail-btn {
+    flex-grow: 2;
+}
+
+.edit-trail-btn.hide {
+    visibility: hidden;
 }
 
 p {
@@ -103,7 +130,7 @@ p {
 }
 
 .stat-trails-container, .stat-segment-container {
-    flex-grow: 2;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     gap: 24px;

@@ -14,14 +14,19 @@ export const MapMode = {
     BASE: 'base',
     TRAIL: 'trail',
     SEGMENT: 'segment',
+    EDIT_TRAIL: 'edit_trail'
 };
 
 const Sources = {
     TRAILS: 'trails',
-    SEGMENTS: 'segments'
+    SEGMENTS: 'segments',
+    TRAIL_POINTS: 'trail_points'
 }
 
 const Layers = {
+    COMPLETED_POINTS: 'points-complete',
+    INCOMPLETE_POINTS: 'points-incomplete',
+    POINTS_OUTLINE: 'points-outline',
     COMPLETED_SEGMENTS: 'segment-lines-complete',
     INCOMPLETE_SEGMENTS: 'segment-lines-incomplete',
     DESELECTED_TRAILS: 'trail-lines-deselected',
@@ -232,6 +237,22 @@ function Map() {
         setLayerVisibility(Layers.SEGMENT_HIGHLIGHT, false);
         setLayerVisibility(Layers.SEGMENT_OUTLINE, false);
         setLayerVisibility(Layers.TRAIL_HITBOX, true);
+    }
+
+    function switchToEditTrailMode() {
+        if (!map.current) return;
+        setMapMode(MapMode.EDIT_TRAIL);
+        // todo: fit bounds to trail
+        setLayerVisibility(Layers.COMPLETED_POINTS, true);
+        setLayerVisibility(Layers.INCOMPLETE_POINTS, true);
+        setLayerVisibility(Layers.POINTS_OUTLINE, true);
+        setLayerVisibility(Layers.DESELECTED_TRAILS, true);
+        setLayerVisibility(Layers.SEGMENT_HITBOX, false);
+        setLayerVisibility(Layers.TRAIL_HIGHLIGHT, false);
+        setLayerVisibility(Layers.TRAIL_OUTLINE, true);
+        setLayerVisibility(Layers.SEGMENT_HIGHLIGHT, false);
+        setLayerVisibility(Layers.SEGMENT_OUTLINE, false);
+        setLayerVisibility(Layers.TRAIL_HITBOX, false);
     }
 
     /*** Helper functions ***/
@@ -576,6 +597,7 @@ function Map() {
                 showStats={showStats}
                 toggleShowStats={() => { setShowStats(!showStats) }}
                 trailStats={mapStats}
+                switchToEditMode={switchToEditTrailMode}
             />
             <div ref={mapContainer} className="map-container" onClick={onMapClick} />
             <div className="map-info">

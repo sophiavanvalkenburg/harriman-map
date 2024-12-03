@@ -6,6 +6,7 @@ body {
 
 button {
   cursor:pointer;
+  font-family: inherit;
 }
 
 .map-container {

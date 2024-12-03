@@ -148,19 +148,36 @@ function AllTrailsStats({ trailStats }: AllTrailsStatsProps) {
     );
 }
 
-type SidePanelButtonProps = { handleClick: () => void }
-function MobileExpandOrCollapseBtn({ handleClick }: SidePanelButtonProps) {
+type ExpandOrCollapseButtonProps = { handleClick: () => void }
+function MobileExpandOrCollapseBtn({ handleClick }: ExpandOrCollapseButtonProps) {
     return (
         <button className="side-panel-btn mobile-view" onClick={handleClick}>
             <img src={mobileExpandCollapseSvg}></img>
         </button>
     );
 }
-function ExpandOrCollapseBtn({ handleClick }: SidePanelButtonProps) {
+function ExpandOrCollapseBtn({ handleClick }: ExpandOrCollapseButtonProps) {
     return (
         <button className="side-panel-btn desktop-view" onClick={handleClick}>
             <img src={collapseSvg}></img>
         </button>
+    );
+}
+
+type EditButtonProps = { 
+    visible?: boolean,
+    buttonText?: string,
+    handleClick?: () => void
+}
+function EditButton({ visible=true, buttonText="", handleClick=()=>{}}: EditButtonProps) {
+    let className = 'edit-trail-btn';
+    if (!visible) {
+        className += ' hide';
+    } 
+    return (
+        <div className={className}>
+            <button onClick={handleClick}>{buttonText}</button>
+        </div>
     );
 }
 
@@ -169,32 +186,43 @@ type SidePanelProps = {
     showStats: boolean,
     toggleShowStats: () => void,
     trailStats: MapData.TrailStatsType
+    switchToEditMode: () => void
 };
-function SidePanel({ mapMode, showStats, toggleShowStats, trailStats }: SidePanelProps) {
+function SidePanel({ mapMode, showStats, toggleShowStats, trailStats, switchToEditMode }: SidePanelProps) {
 
     let className = "side-panel";
     if (!showStats) className += " collapsed";
 
-    let title, completedStatus, trailStatsComp;
+    let title, completedStatus, trailStatsComp, editBtn;
     switch (mapMode) {
         case MapMode.BASE:
             trailStats = trailStats as MapData.AllTrailsStatsType;
             title = <MapTitle />;
             completedStatus = <CompletedPct completePct={trailStats.completePct} />;
             trailStatsComp = <AllTrailsStats trailStats={trailStats} />;
+            editBtn = <EditButton  visible={false} />
             break;
         case MapMode.TRAIL:
             trailStats = trailStats as MapData.SingleTrailStatsType;
             title = <TrailTitle isSegment={false} trailName={trailStats.trailName} />;
             completedStatus = <CompletedPct completePct={trailStats.completePct} />;
             trailStatsComp = <SingleTrailStats trailStats={trailStats} />;
+            editBtn = <EditButton  buttonText="Edit Trail" handleClick={switchToEditMode} />
             break;
-        case MapMode.SEGMENT:
+        case MapMode.SEGMENT:   
             trailStats = trailStats as MapData.TrailSegmentStatsType;
             title = <TrailTitle isSegment={true} trailName={trailStats.trailName} />;
             completedStatus = <CompletedStatus completedStatus={trailStats.completedStatus} />;
             trailStatsComp = <TrailSegmentStats trailStats={trailStats} />;
+            editBtn = <EditButton  visible={false} />
             break;
+        case MapMode.EDIT_TRAIL:
+            trailStats = trailStats as MapData.SingleTrailStatsType;
+            title = <TrailTitle isSegment={false} trailName={`Edit ${trailStats.trailName}`} />;
+            completedStatus = <CompletedPct completePct={trailStats.completePct} />;
+            editBtn = <EditButton  buttonText="Done" />
+            break;
+
     }
 
     return (
@@ -205,6 +233,7 @@ function SidePanel({ mapMode, showStats, toggleShowStats, trailStats }: SidePane
                 <div className="dividing-line"></div>
                 {completedStatus}
                 {trailStatsComp}
+                {editBtn}
             </div>
             <ExpandOrCollapseBtn handleClick={toggleShowStats} />
         </div>
