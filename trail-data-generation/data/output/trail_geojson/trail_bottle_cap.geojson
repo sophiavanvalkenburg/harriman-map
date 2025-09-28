@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "c69d7066-1892-493e-9a28-9087f27a2312",
+   "id": "2615dac4-727a-45ee-a90b-615cfca7350d",
    "properties": {
     "name": "Bottle Cap Trail",
-    "id": "c69d7066-1892-493e-9a28-9087f27a2312",
+    "id": "2615dac4-727a-45ee-a90b-615cfca7350d",
     "status": "complete",
     "osm_way_ids": [
      "way/1006618875",

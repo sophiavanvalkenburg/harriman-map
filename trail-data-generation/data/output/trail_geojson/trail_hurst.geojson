@@ -3,10 +3,10 @@
  "features": [
   {
    "type": "Feature",
-   "id": "b996d2ca-a58c-4560-a2a8-84b39937d485",
+   "id": "2b3d7016-cad9-4fac-92de-30517658866f",
    "properties": {
     "name": "Hurst Trail",
-    "id": "b996d2ca-a58c-4560-a2a8-84b39937d485",
+    "id": "2b3d7016-cad9-4fac-92de-30517658866f",
     "status": "complete",
     "osm_way_ids": [
      "way/65177022"
