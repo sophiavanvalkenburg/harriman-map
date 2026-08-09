@@ -5667,9 +5667,14 @@
     "status": "complete",
     "osm_way_ids": [
      "way/1003727800",
-     "way/423694755"
+     "way/423694755",
+     "way/1123702063",
+     "way/48211219",
+     "way/48211218",
+     "way/1004177088",
+     "way/1004177086"
     ],
-    "length": 1.2150418826030023,
+    "length": 2.8438646885569265,
     "trail_id": "anthony_wayne"
    },
    "geometry": {
@@ -5930,32 +5935,6 @@
      [
       -74.0369585,
       41.3029381
-     ]
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "9c9d1476-beb9-4d61-9964-27fbde5d6635",
-   "properties": {
-    "name": "Anthony Wayne Trail",
-    "id": "9c9d1476-beb9-4d61-9964-27fbde5d6635",
-    "status": "incomplete",
-    "osm_way_ids": [
-     "way/1123702063",
-     "way/48211219",
-     "way/48211218",
-     "way/1004177088"
-    ],
-    "length": 1.2916641133706597,
-    "trail_id": "anthony_wayne"
-   },
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
-     [
-      -74.0369585,
-      41.3029381
      ],
      [
       -74.036549,
@@ -6169,29 +6148,6 @@
       -74.0278722,
       41.2990752
      ],
-     [
-      -74.0277209,
-      41.2990287
-     ]
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "75c0c819-85ea-40ea-9d54-79f36c611e79",
-   "properties": {
-    "name": "Anthony Wayne Trail",
-    "id": "75c0c819-85ea-40ea-9d54-79f36c611e79",
-    "status": "complete",
-    "osm_way_ids": [
-     "way/1004177086"
-    ],
-    "length": 0.3371586925832646,
-    "trail_id": "anthony_wayne"
-   },
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
      [
       -74.0277209,
       41.2990287
